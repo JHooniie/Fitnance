@@ -8,6 +8,6 @@
 		<title>Index</title>
 	</head>
 	<body>
-		야이야이야이야이야이야
+	
 	</body>
 </html>
