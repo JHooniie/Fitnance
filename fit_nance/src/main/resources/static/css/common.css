@@ -1,0 +1,227 @@
+/* common */
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+
+* {
+font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+}
+
+/* 초기화 */
+*{
+    margin: 0;
+    padding: 0;
+    color: #222222;
+    list-style: none;
+    text-decoration: none;
+    box-sizing: border-box;   
+}
+
+/* common */
+.wrap{
+    width: 1320px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.dp-flex{
+    display: flex!important;
+}
+
+.dp-block{
+    display: block!important;
+}
+
+.dp-none{
+    display: none!important;
+}
+
+/* header */
+header{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    border-bottom: 1px solid #DDDDDD;
+    background-color: #FFFFFF;
+    z-index: 1;
+}
+
+/* logo */
+.box-nav{
+    display: flex;
+    justify-content: space-between;
+    height: 90px;
+    align-items: center;
+}
+
+.box-nav a{
+    height: 25px;
+}
+
+.box-nav a img{
+    height: 25px;
+}
+
+.box-nav .box-menu-default{
+    display: flex;
+    flex-direction: row;
+}
+
+.box-nav .box-menu-default .box-menu-top ul{
+    display: flex;
+    flex-direction: row;
+}
+
+.box-nav .box-menu-default .box-menu-top ul li{
+    display: inline-block;
+    padding: 37px 25px;
+    font-size: 15px;
+}
+
+.box-nav .box-menu-default .box-menu-top ul li:hover a{
+    color: #1F4DFF;
+}
+
+/* translate */
+.box-nav .box-menu-default .box-menu-top ul li.li-lang{
+    color: #CCCCCC;
+    cursor: pointer;
+}
+
+.box-nav .box-menu-default .box-menu-top ul li .span-lang-kor{
+    margin-right: 10px;
+}
+
+.box-nav .box-menu-default .box-menu-top ul li .span-lang-eng{
+    margin-left: 10px;
+}
+
+.box-nav .box-menu-default .box-menu-top ul li .span-lang-inactive{
+    color: #CCCCCC;
+}
+
+/* login */
+.box-nav .box-menu-default .box-menu-top ul li:last-child{
+    margin-left: 10px;
+    padding: 28px 0;
+}
+
+.box-nav .box-menu-default .box-menu-top ul li .btn-login{
+    display: inline-block;
+    width: 36px;
+    height: 36px;
+    border-radius: 18px;
+    background-color: #1F4DFF;
+    text-align: center;
+    line-height: 36px;
+    cursor: pointer;
+}
+
+.box-nav .box-menu-default .box-menu-top ul li .btn-login i{
+    color: #FFFFFF;
+    font-size: 16px;    
+}
+
+.box-menu-02-bottom,
+.box-menu-03-bottom,
+.box-menu-04-bottom{
+    display: none;
+    padding: 40px 40px 30px;
+}
+
+.box-menu-02-bottom ul,
+.box-menu-03-bottom ul,
+.box-menu-04-bottom ul{
+    display: inline-block;
+    width: 200px;
+}
+
+.box-menu-02-bottom ul li,
+.box-menu-03-bottom ul li,
+.box-menu-04-bottom ul li{
+    height: 60px;
+    color: #666666;
+    font-size: 16px;
+    font-weight: 300;
+}
+
+.box-menu-02-bottom ul li:first-child,
+.box-menu-03-bottom ul li:first-child,
+.box-menu-04-bottom ul li:first-child{
+    font-weight: 600;
+}
+
+.box-menu-02-bottom ul li a:hover,
+.box-menu-03-bottom ul li a:hover,
+.box-menu-04-bottom ul li a:hover{
+    color: #1F4DFF;
+}
+
+footer{
+    width: 100%;
+    height: 240px;
+    margin-top: 130px;
+    padding: 60px 80px;
+    background-color: #F2F2F2;
+}
+
+.box-footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 115px;
+}
+
+.box-footer .box-cpy-info{
+    display: flex;
+    flex-direction: column;
+    height: 98px;
+    justify-content: space-between;
+}
+
+.box-footer .box-cpy-info span{
+    color: #666666;
+    font-size: 13px;
+    font-weight: 200;
+}
+
+.box-footer .box-cpy-info span b{
+    color: #666666;
+    font-weight: 400;
+}
+
+.box-footer .box-cpy-info span.text-cpy-name{
+    margin-bottom: 20px;
+    color: #222222;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.box-footer .box-cpy-info-right{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-between;
+    height: 98px;
+}
+
+.box-footer .box-cpy-info-right img{
+    width: 143px;
+}
+
+.box-footer .box-cpy-info-right .box-cpy-terms{
+    display: flex;
+    flex-direction: row;
+}
+
+.box-footer .box-cpy-info-right .box-cpy-terms a{
+    margin: 0 15px;
+    font-size: 13px;
+    font-weight: 200;    
+}
+
+.box-footer .box-cpy-info-right .box-cpy-terms a:first-child{
+    font-weight: 400;
+}
+
+.box-footer .box-cpy-info-right .box-cpy-terms a:last-child{
+    margin-right: 0;
+}
