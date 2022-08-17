@@ -20,38 +20,12 @@
 	                <span>제목</span>
 	                <span>게시일자</span>
 	            </div>
-	            <div class="box-notice-content">
-	                <a href="<c:url value=''/>" class="text-notice-title">이메일 인증 메일이 오지 않아요</a>
-	                <span class="text-notice-date">2022.06.20</span>
-	            </div>
-	            <div class="box-notice-content">
-	                <span class="text-notice-title">이메일 인증 메일이 오지 않아요</span>
-	                <span class="text-notice-date">2022.06.20</span>
-	            </div>
-	            <div class="box-notice-content">
-	                <span class="text-notice-title">이메일 인증 메일이 오지 않아요</span>
-	                <span class="text-notice-date">2022.06.20</span>
-	            </div>
-	            <div class="box-notice-content">
-	                <span class="text-notice-title">이메일 인증 메일이 오지 않아요</span>
-	                <span class="text-notice-date">2022.06.20</span>
-	            </div>
-	            <div class="box-notice-content">
-	                <span class="text-notice-title">이메일 인증 메일이 오지 않아요</span>
-	                <span class="text-notice-date">2022.06.20</span>
-	            </div>
-	            <div class="box-notice-content">
-	                <span class="text-notice-title">이메일 인증 메일이 오지 않아요</span>
-	                <span class="text-notice-date">2022.06.20</span>
-	            </div>
-	            <div class="box-notice-content">
-	                <span class="text-notice-title">이메일 인증 메일이 오지 않아요</span>
-	                <span class="text-notice-date">2022.06.20</span>
-	            </div>
-	            <div class="box-notice-content">
-	                <span class="text-notice-title">이메일 인증 메일이 오지 않아요</span>
-	                <span class="text-notice-date">2022.06.20</span>
-	            </div>
+	            <c:forEach begin="0" end="10">
+		            <div class="box-notice-content">
+		                <a href="<c:url value='/notice_detail'/>" class="text-notice-title">이메일 인증 메일이 오지 않아요</a>
+		                <span class="text-notice-date">2022.06.20</span>
+		            </div>
+	            </c:forEach>
 	        </section>
 	        <!-- 페이지네이션 -->
 	        <div class="pagination">

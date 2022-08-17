@@ -10,4 +10,9 @@ public class CCController {
 	public String viewNotice() {
 		return "cc/cc_notice";
 	}
+	
+	@RequestMapping("/notice_detail")
+	public String viewNoticeDetail() {
+		return "cc/cc_notice_detail";
+	}
 }
