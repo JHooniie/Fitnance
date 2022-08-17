@@ -3,70 +3,61 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
-<mapper namespace="com.ai.project.dao.IProductDAO">
-	<insert id="insertDeposit" parameterType="com.ai.project.model.DepositVO">
+<mapper namespace="com.fit_nance.project.dao.ILoanDAO">
+	<!-- <insert id="insertDeposit" parameterType="com.fit_nance.project.model.DepositVO">
 		INSERT INTO deposit_base (pIndex,fin_co_no,kor_co_nm,fin_prdt_cd,fin_prdt_nm,join_way,mtrt_int,spcl_cnd,join_deny,join_member,etc_note,max_limit)
 		VALUES(#{pIndex}, #{fin_co_no}, #{kor_co_nm}, #{fin_prdt_cd}, #{fin_prdt_nm}, #{join_way}, #{mtrt_int}, #{spcl_cnd}, #{join_deny}, #{join_member}, #{etc_note}, #{max_limit})
 	</insert>
 	
-	<insert id="insertDepoOption" parameterType="com.ai.project.model.DepoOptionVO">
+	<insert id="insertDepoOption" parameterType="com.fit_nance.project.model.DepoOptionVO">
 		INSERT INTO deposit_option (oIndex,fin_co_no,fin_prdt_cd,intr_rate_type,intr_rate_type_nm,save_trm,intr_rate,intr_rate2)
 		VALUES(#{oIndex}, #{fin_co_no}, #{fin_prdt_cd}, #{intr_rate_type}, #{intr_rate_type_nm}, #{save_trm}, #{intr_rate}, #{intr_rate2})
 	</insert>
 	
-	<insert id="insertInstall" parameterType="com.ai.project.model.InstallVO">
+	<insert id="insertInstall" parameterType="com.fit_nance.project.model.InstallVO">
 		INSERT INTO installment_base (pIndex,fin_co_no,kor_co_nm,fin_prdt_cd,fin_prdt_nm,join_way,mtrt_int,spcl_cnd,join_deny,join_member,etc_note,max_limit)
 		VALUES(#{pIndex}, #{fin_co_no}, #{kor_co_nm}, #{fin_prdt_cd}, #{fin_prdt_nm}, #{join_way}, #{mtrt_int}, #{spcl_cnd}, #{join_deny}, #{join_member}, #{etc_note}, #{max_limit})
 	</insert>
 	
-	<insert id="insertInsOption" parameterType="com.ai.project.model.InstallOptionVO">
+	<insert id="insertInsOption" parameterType="com.fit_nance.project.model.InstallOptionVO">
 		INSERT INTO installment_option (oIndex,fin_co_no,fin_prdt_cd,intr_rate_type,intr_rate_type_nm,rsrv_type,rsrv_type_nm,save_trm,intr_rate,intr_rate2)
 		VALUES(#{oIndex}, #{fin_co_no}, #{fin_prdt_cd}, #{intr_rate_type}, #{intr_rate_type_nm}, #{rsrv_type}, #{rsrv_type_nm},#{save_trm}, #{intr_rate}, #{intr_rate2})
-	</insert>
-	
+	</insert> -->
+
 	<!-- 전세자금대출 api 데이터 -->
 	<!-- 전세자금대출 api baseList 등록 -->
-	<insert id="insertCharterLoanBaseList" parameterType="com.api.project.model.CharterLoanBaseVO">
+	<insert id="insertCharterLoanBaseList" parameterType="com.fit_nance.project.model.CharterLoanBaseVO">
 		INSERT INTO charter_loan_base (pIndex, fin_co_no, kor_co_nm, fin_prdt_cd, fin_prdt_nm, join_way, loan_inci_expn, erly_rpay_fee, dly_rate, loan_lmt)
 		VALUES (#{pIndex}, #{fin_co_no}, #{kor_co_nm}, #{fin_prdt_cd}, #{fin_prdt_nm}, #{join_way}, #{loan_inci_expn}, #{erly_rpay_fee}, #{dly_rate}, #{loan_lmt})
 	</insert>
 	<!-- 전세자금대출 api optionList 데이터 등록 -->
-	<insert id="insertCharterLoanOptList" parameterType="com.api.project.model.CharterLoanOptVO">
+	<insert id="insertCharterLoanOptList" parameterType="com.fit_nance.project.model.CharterLoanOptVO">
 		INSERT INTO charter_loan_option (oIndex, fin_co_no, fin_prdt_cd, rpay_type, rpay_type_nm, lend_rate_type, lend_rate_type_nm, lend_rate_min, lend_rate_max, lend_rate_avg)
 		VALUES (#{oIndex}, #{fin_co_no}, #{fin_prdt_cd}, #{rpay_type}, #{rpay_type_nm}, #{lend_rate_type}, #{lend_rate_type_nm}, #{lend_rate_min}, #{lend_rate_max}, #{lend_rate_avg})
 	</insert>
 	
 	<!-- -->
 	<!-- 주택담보대출 api baseList 데이터 등록 -->
-	<insert id="insertHomeLoanBaseList" parameterType="com.api.project.model.HomeLoanBaseVO">
+	<insert id="insertHomeLoanBaseList" parameterType="com.fit_nance.project.model.HomeLoanBaseVO">
 		INSERT INTO home_loan_base (pIndex, fin_co_no, kor_co_nm, fin_prdt_cd, fin_prdt_nm, join_way, loan_inci_expn, erly_rpay_fee, dly_rate, loan_lmt)
 		VALUES (#{pIndex}, #{fin_co_no}, #{kor_co_nm}, #{fin_prdt_cd}, #{fin_prdt_nm}, #{join_way}, #{loan_inci_expn}, #{erly_rpay_fee}, #{dly_rate}, #{loan_lmt})
 	</insert>
 	<!-- 주택담보대출 api optionList 데이터 등록 -->
-	<insert id="insertHomeLoanOptList" parameterType="com.api.project.model.HomeLoanOptVO">
+	<insert id="insertHomeLoanOptList" parameterType="com.fit_nance.project.model.HomeLoanOptVO">
 		INSERT INTO home_loan_option (oIndex, fin_co_no, fin_prdt_cd, mrtg_type, mrtg_type_nm, rpay_type, rpay_type_nm, lend_rate_type, lend_rate_type_nm, lend_rate_min, lend_rate_max, lend_rate_avg)
 		VALUES (#{oIndex}, #{fin_co_no}, #{fin_prdt_cd}, #{mrtg_type}, #{mrtg_type_nm}, #{rpay_type}, #{rpay_type_nm}, #{lend_rate_type}, #{lend_rate_type_nm}, #{lend_rate_min}, #{lend_rate_max}, #{lend_rate_avg})
 	</insert>
 	
 	<!-- -->
 	<!-- 개인신용대출 api baseList 데이터 등록 -->
-	<insert id="insertPersonalLoanBaseList" parameterType="com.api.project.model.PersonalLoanBaseVO">
+	<insert id="insertPersonalLoanBaseList" parameterType="com.fit_nance.project.model.PersonalLoanBaseVO">
 		INSERT INTO personal_loan_base (pIndex, fin_co_no, kor_co_nm, fin_prdt_cd, fin_prdt_nm, join_way, crdt_prdt_type, crdt_prdt_type_nm, cb_name)
 		VALUES (#{pIndex}, #{fin_co_no}, #{kor_co_nm}, #{fin_prdt_cd}, #{fin_prdt_nm}, #{join_way}, #{crdt_prdt_type}, #{crdt_prdt_type_nm}, #{cb_name})
 	</insert>
 	<!-- 개인신용대출 api optionList 데이터 등록 -->
-	<insert id="insertPersonalLoanOptList" parameterType="com.api.project.model.PersonalLoanOptVO">
+	<insert id="insertPersonalLoanOptList" parameterType="com.fit_nance.project.model.PersonalLoanOptVO">
 		INSERT INTO personal_loan_option (oIndex, fin_co_no, fin_prdt_cd, crdt_prdt_type, crdt_lend_rate_type, crdt_lend_rate_type_nm, crdt_grad_1, crdt_grad_4, crdt_grad_5, crdt_grad_6, crdt_grad_10, crdt_grad_11, crdt_grad_12, crdt_grad_13, crdt_grad_avg)
 		VALUES (#{oIndex}, #{fin_co_no}, #{fin_prdt_cd}, #{crdt_prdt_type}, #{crdt_lend_rate_type}, #{crdt_lend_rate_type_nm}, #{crdt_grad_1}, #{crdt_grad_4}, #{crdt_grad_5}, #{crdt_grad_6}, #{crdt_grad_10}, #{crdt_grad_11}, #{crdt_grad_12}, #{crdt_grad_13}, #{crdt_grad_avg})
 	</insert>
 	
-	<insert id="insertCharterLoanOptList" parameterType="com.api.project.model.CharterLoanOptVO">
-		INSERT INTO charter_loan_option (oIndex, fin_prdt_cd, rpay_type, rpay_type_nm, lend_rate_type, lend_rate_type_nm, lend_rate_min, lend_rate_max, lend_rate_avg)
-		VALUES (#{oIndex}, #{fin_prdt_cd}, #{rpay_type}, #{rpay_type_nm}, #{lend_rate_type}, #{lend_rate_type_nm}, #{lend_rate_min}, #{lend_rate_max}, #{lend_rate_avg})
-	</insert>
-	
-	<insert id="insertPersonalLoanBaseList" parameterType="com.api.project.model.PersonalLoanBaseVO">
-		INSERT INTO personal_loan_base (pIndex, fin_co_no, kor_co_nm, fin_prdt_cd, fin_prdt_nm, join_way, crdt_prdt_type, crdt_prdt_type_nm, cb_name)
-		VALUES (#{pIndex}, #{fin_co_no}, #{kor_co_nm}, #{fin_prdt_cd}, #{fin_prdt_nm}, #{join_way}, #{crdt_prdt_type}, #{crdt_prdt_type_nm}, #{cb_name})
-	</insert>
 </mapper>
