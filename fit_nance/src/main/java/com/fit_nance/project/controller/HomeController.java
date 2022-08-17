@@ -10,9 +10,4 @@ public class HomeController {
 	public String index() {
 		return "index";
 	}
-	
-	@RequestMapping("/top")
-	public String top() {
-		return "layout/top";
-	}
 }
