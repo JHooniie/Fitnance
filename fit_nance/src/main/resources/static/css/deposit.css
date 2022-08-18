@@ -1,0 +1,516 @@
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+
+* {
+font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+}
+
+
+
+/* 초기화 */
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    box-sizing: border-box;
+    color: #222222;
+}
+
+/* common */
+.wrap{
+    width: 1320px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.dp-flex{
+    display: flex!important;
+}
+
+.dp-block{
+    display: block!important;
+}
+
+.dp-none{
+    display: none!important;
+}
+
+/* header */
+header{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    border-bottom: 1px solid #DDDDDD;
+    background-color: #FFFFFF;
+    z-index: 1;
+}
+
+/* logo */
+.box-nav{
+    display: flex;
+    justify-content: space-between;
+    height: 90px;
+    align-items: center;
+}
+
+.box-nav a{
+    height: 25px;
+}
+
+.box-nav a img{
+    height: 25px;
+}
+
+.box-nav .box-menu-default{
+    display: flex;
+    flex-direction: row;
+}
+
+.box-nav .box-menu-default .box-menu-top ul{
+    display: flex;
+    flex-direction: row;
+}
+
+.box-nav .box-menu-default .box-menu-top ul li{
+    display: inline-block;
+    padding: 37px 25px;
+    font-size: 15px;
+}
+
+.box-nav .box-menu-default .box-menu-top ul li a:hover{
+    color: #1F4DFF;
+}
+
+/* translate */
+.box-nav .box-menu-default .box-menu-top ul li.li-lang{
+    color: #CCCCCC;
+    cursor: pointer;
+}
+
+.box-nav .box-menu-default .box-menu-top ul li .span-lang-kor{
+    margin-right: 10px;
+}
+
+.box-nav .box-menu-default .box-menu-top ul li .span-lang-eng{
+    margin-left: 10px;
+}
+
+.box-nav .box-menu-default .box-menu-top ul li .span-lang-inactive{
+    color: #CCCCCC;
+}
+
+/* login */
+.box-nav .box-menu-default .box-menu-top ul li:last-child{
+    margin-left: 10px;
+    padding: 28px 0;
+}
+
+.box-nav .box-menu-default .box-menu-top ul li .btn-login{
+    display: inline-block;
+    width: 36px;
+    height: 36px;
+    border-radius: 18px;
+    background-color: #1F4DFF;
+    text-align: center;
+    line-height: 36px;
+    cursor: pointer;
+}
+
+.box-nav .box-menu-default .box-menu-top ul li .btn-login i{
+    color: #FFFFFF;
+    font-size: 16px;    
+}
+
+
+/*.box-menu-02-bottom{
+    display: flex;
+    padding: 40px 40px 30px;
+    visibility: hidden;
+}
+
+.box-menu-02-bottom ul{
+    display: inline-block;
+    width: 200px;
+}
+
+.box-menu-02-bottom > ul > li{
+    height: 60px;
+    color: #666666;
+    font-size: 17px;
+    font-weight: 300;
+}
+
+.box-menu-02-bottom > ul > li:first-child{
+    font-weight: 600;
+}
+*/
+footer{
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    border-bottom: 1px solid #DDDDDD;
+    background-color: #eae8e8;
+    z-index: 1;
+}
+
+.box-menu-bottom{
+    display: flex;
+    justify-content: space-between;
+    padding: 40px 320px 30px;
+}
+
+
+.box-menu-bottom > ul:last-child li{
+    display : flex;
+    justify-content: end;
+}
+
+.box-menu-bottom > ul:last-child > li:first-child{
+    height: 30px;
+    margin: 0 0 40px;
+}
+
+.box-menu-bottom > ul li{
+    
+    color: #666666;
+    font-size: 17px;
+    font-weight: 300;
+}
+
+.box-menu-bottom > ul:first-child > li:first-child{
+    display: flex;
+    justify-content: space-between;
+    margin : 10px 0 30px; 
+    font-weight: 600;
+    color:black;
+}
+
+.logo{
+    padding: 30px 500px;
+}
+
+.box-menu-bottom > ul li span{
+    font-weight: 400;
+}
+
+.box-menu-bottom > ul:last-child > ul > li {
+    padding-left : 30px;
+}
+.box-menu-bottom > ul:last-child > ul {
+    display : flex;
+    justify-content: end;
+}
+
+
+/*deposit*/
+
+.middle{
+    margin-right: 20px;
+}
+
+.back {
+    background-color: #edf4ff;
+    width: 100%;
+    height: 350px;
+    z-index: 3;
+}
+
+.middle-text{
+    z-index:2;
+    margin-left: 370px;
+    margin-top: -162px;
+}
+
+.middle-text > ul> li:first-child{
+    font-size:56px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.middle-image{
+    display: flex;
+    margin-left: 1300px;
+    margin-top: -240px;
+    height:340px;
+}
+
+.product-compare-box{
+    margin-left: 370px;
+    border:1px solid #1F4DFF;
+    width: 200px;
+    height: 52px;
+    border-radius: 5px;
+    text-align: center;
+    padding : 15px;
+    color:#1F4DFF;
+    font-weight: 500;
+}
+
+.select-box{
+    margin-left: 370px;
+    width: 200px;
+    
+}
+
+.select-box .select-title{
+    margin-top:35px;
+}
+
+.select-box .select-option{
+    border:2px solid #f2f2f2;
+    display: inline-block;
+    border-radius: 5px;
+    padding:10px;
+    font-size: 12px;
+    text-align: center;
+    margin-top:10px;
+    margin-right:3px;
+}
+
+.select-box .select-option1{ 
+    width:95px;
+    
+}
+
+.select-box .select-option2{
+    width:60.3px;
+
+}
+
+.select-box .select-option3{
+    width:128px;
+    margin-right: 0.5px;
+}
+
+.select-box .select-option:hover{
+    background-color: #1F4DFF;
+    color:#FFFFFF;
+}
+
+.select-box .filter-reset{
+    margin-top: 20px;
+    border:2px solid #f2f2f2;
+    width: 200px;
+    height: 52px;
+    border-radius: 5px;
+    text-align: center;
+    padding : 15px;
+    color:black;
+    font-weight: 500;
+}
+
+.middel-bottom{
+    display:inline-block;
+    width: 100%;
+    
+}
+
+.result-box{
+    margin-left: 100px;
+    /*margin-top:-500px;*/
+    width : 990px;
+    margin-right: 320px;
+
+}
+
+.middel-bottom{
+    display:flex;
+    margin-top: 40px;
+}
+.search-line{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.item-list{
+    padding-top: 20px;
+}
+
+#tourName{
+    border: 0px;
+    width:280px;
+    height: 40px;
+    color: #f2f2f2;
+}
+
+.search-box{
+    border-bottom: 3px solid #e3e3e3;
+}
+
+
+.box{
+    width:100px;
+    
+}
+
+.item-box-all{
+    margin-top:26px;
+    border-bottom:4px solid #f2f2f2;
+}
+
+.item-box{
+    display:flex;
+}
+
+.image-box{
+    width:50px;
+    height:50px;
+    background-color: #f2f2f2;
+    
+}
+
+.bank-name{
+    margin-bottom: 5px;
+}
+
+.text-box{
+    margin-left:20px;
+    width:800px;
+}
+
+.item-name{
+    font-size:20px;
+    font-weight: 600;
+}
+
+.text-box{
+    flex-direction: column;
+}
+
+.item-line{
+    flex-direction: row;
+}
+
+.item-name span{
+    font-size: 14px;
+    font-weight: 500;
+    background-color: #f2f2f2;
+    height:32px;
+    padding:8px;
+    margin-left: 15px;
+}
+
+.plus-icon{
+    display: inline-block;
+    width:52px;
+    height:52px;
+    border-radius: 5px;
+    border:1px solid #f2f2f2;
+    text-align: center;
+    line-height: 52px;
+    cursor: pointer;
+    margin-left:16px;
+}
+
+.plus-icon i{
+    color: #aeaeaea0;
+    font-size: 20px;
+    
+}
+
+.item-box2{
+    display: flex;
+    font-weight: 200;
+    margin-top: 30px;
+    margin-left: 70px;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.percent-box{
+    display: flex;
+    
+}
+
+.percent1{
+    width:140px;
+}
+
+.percent1 >ul>li:last-child{
+    font-size:30px;
+    
+}
+
+.percent1 >ul>li:last-child span{
+    font-weight: 500;
+    font-size:42px;
+
+}
+
+.percent2{
+    width:140px;
+}
+
+.percent2 >ul>li:last-child{
+    font-size:30px;
+    
+}
+
+.percent2 >ul>li:last-child span{
+    font-weight: 500;
+    font-size:42px;
+
+}
+
+.view-detail{
+    border:2px solid #f2f2f2;
+    width: 154px;
+    height: 52px;
+    border-radius: 5px;
+    text-align: center;
+    padding : 15px;
+    color:black;
+    font-weight: 500;
+}
+
+.page-list{
+    display:flex;
+    justify-content: center;
+    height:300px;
+}
+
+.page-list .page-icon i{
+    color: #aeaeaea0;
+    font-size: 14px;
+}
+
+.page-list .page-icon{
+    color: #aeaeaea0;
+    font-size: 20px;
+    display:inline-block;
+    margin-left: 10px;
+    width: 28px;
+    height: 28px;
+    margin-top: 80px;
+    text-align: center;
+}
+
+.page-list .page-num{
+    color: #aeaeaea0;
+    display:inline-block;
+    margin-top: 80px;
+    text-align: center;
+    cursor: pointer;
+    
+}
+
+
+.page-list .page-num1,.page-num2,.page-num3{
+    color: #aeaeaea0;
+    font-size: 14px;
+    display:inline-block;
+    margin-left: 10px;
+    height: 28px;
+    width: 28px;
+    text-align: center;
+    line-height: 28px;
+}
+
+.page-list .page-num1{
+    background-color: #1F4DFF;
+    border-radius: 5px;
+    color:#FFFFFF;
+    
+}

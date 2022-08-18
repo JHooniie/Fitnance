@@ -37,7 +37,7 @@
         </ul>
         <ul>
             <li>예/적금</li>
-            <li><a href="#">적금 상품</a></li>
+            <li><a href="<c:url value='deposit'/>">적금 상품</a></li>
             <li><a href="#">예금 상품</a></li>
             <li><a href="#">연금 저축</a></li>
         </ul>
