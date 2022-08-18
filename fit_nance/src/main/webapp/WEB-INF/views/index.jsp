@@ -24,6 +24,12 @@
 		<a href="<c:url value='/insertPersonalLoanBaseList'/>">personalloan - baseList 데이터 넣기</a><br>
 		<a href="<c:url value='/insertPersonalLoanOptList'/>">personalloan - optionList 데이터 넣기</a>
 		<br><br><br>
+		
+		<a href="<c:url value='list_mortgage_loan'/>">주택담보대출 검색 결과 페이지</a><br>
+		<br><br><br>
 		<c:import url="/WEB-INF/views/layout/footer.jsp" />
+		
+		
+		
 	</body>
 </html>

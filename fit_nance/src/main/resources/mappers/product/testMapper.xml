@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.fit_nance.project.dao.IHomeLoanListDAO">
+		<resultMap id="resultHomeLoanList" type="com.fit_nance.project.model.HomeLoanListVO">
+		<result property="pIndex" column="pIndex"/>
+		<result property="fin_co_no" column="fin_co_no"/>
+		<result property="kor_co_nm" column="kor_co_nm"/>
+		<result property="fin_prdt_cd" column="fin_prdt_cd"/>
+		<result property="fin_prdt_nm" column="fin_prdt_nm"/>
+		<result property="join_way" column="join_way"/>
+		<result property="loan_lmt" column="loan_lmt"/>
+		<result property="lend_rate_min" column="lend_rate_min"/>
+	</resultMap>
+	
+	<select id="selectHomeLoanList" resultMap="resultHomeLoanList">
+		SELECT B.pIndex, B.fin_co_no, B.kor_co_nm, B.fin_prdt_cd, B.fin_prdt_nm, B.join_way, B.loan_lmt, O.lend_rate_min
+ 		FROM home_loan_option O INNER JOIN home_loan_base B
+		ON B.fin_prdt_cd = O.fin_prdt_cd 
+		GROUP BY B.fin_prdt_cd
+	</select>
+</mapper>
