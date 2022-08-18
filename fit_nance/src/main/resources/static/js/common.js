@@ -22,4 +22,18 @@ $(document).ready(function(){
         $('.box-menu-04-bottom').removeClass('dp-flex');
     });
     
+    // top btn
+    $(window).scroll(function () {
+		if ($(this).scrollTop() > 200) {
+			$('.box-top-btn').fadeIn(200);
+		} else {
+			$('.box-top-btn').fadeOut(200);
+		}
+	});
+
+	// 버튼 클릭하면 원하는 위치로 이동
+	$('.box-top-btn').click(function (event) {
+		event.preventDefault();
+		$('html, body').animate({ scrollTop: 0 }, 300);
+	});
 });

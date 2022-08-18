@@ -1,6 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<!-- remote -->
+<div class="box-remote">
+    <div class="box-top-btn">
+        <i class="fa-solid fa-angle-up"></i>
+    </div>
+    <div class="box-chatbot">
+        <img class="img-chatbot-01" src="<c:url value='/image/img_chatbot.png'/>" alt="chatbot">
+        <img class="img-chatbot-02" src="<c:url value='/image/img_chatbot_2.png'/>" alt="chatbot">
+    </div>        
+</div>
+<!-- remote end -->
+<!-- footer -->
 <footer>
       <div class="box-footer wrap">
           <div class="box-cpy-info">
@@ -14,9 +26,10 @@
             <div class="box-cpy-terms">
                 <a href="#">개인정보 처리방침</a>
                 <a href="#">이용약관</a>
-                <a href="#">공지사항</a>
+                <a href="<c:url value='/notice'/>">공지사항</a>
             </div>
         </div>
     </div>
 </footer>
+<!-- footer -->
 </html>
