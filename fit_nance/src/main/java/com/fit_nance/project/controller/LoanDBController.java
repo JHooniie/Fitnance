@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.fit_nance.project.model.CharterLoanBaseVO;
@@ -64,16 +65,16 @@ public class LoanDBController {
 	}
 	
 	@RequestMapping("/insertHomeLoanBaseList")
-	public String insertHomeLoanBaseList() throws Exception{
-		ArrayList<HomeLoanBaseVO> base = new ArrayList<HomeLoanBaseVO>();
+	public String insertHomeLoanBaseList(Model model) throws Exception{
+		ArrayList<HomeLoanBaseVO> list_mortgage_base = new ArrayList<HomeLoanBaseVO>(); 
 		
-		base = homeloanbaseService.homeloanBase();
+		list_mortgage_base = homeloanbaseService.homeloanBase();
 		
-		for(int i=0; i<base.size(); i++) {
-			loanService.insertHomeLoanBaseList(base.get(i));
-		}
+//		for(int i=0; i<list_mortgage_base.size(); i++) {
+//			loanService.insertHomeLoanBaseList(list_mortgage_base.get(i));
+//		}
 		
-		return "index";
+		return "product/list_mortgage_loan";
 	}
 	
 	@RequestMapping("/insertHomeLoanOptList")

@@ -8,24 +8,29 @@
 	</head>
 	<body>
 		<c:import url="/WEB-INF/views/layout/top.jsp" />
-		<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-		<div class="wrap">
-			<h3>2조 진행 상황</h3><br><br>
-			<h3>- 허준성</h3>
-			<br>
-			<a href="<c:url value='/insertCharterLoanBaseList'/>">charterloan - baseList 데이터 넣기</a><br>
-			<a href="<c:url value='/insertCharterLoanOptList'/>">charterloan - optionList 데이터 넣기</a>
-			
-			<br><br><br>
-			<a href="<c:url value='/insertHomeLoanBaseList'/>">homeloan - baseList 데이터 넣기</a><br>
-			<a href="<c:url value='/insertHomeLoanOptList'/>">homeloan - optionList 데이터 넣기</a>
-			
-			<br><br><br>
-			<a href="<c:url value='/insertPersonalLoanBaseList'/>">personalloan - baseList 데이터 넣기</a><br>
-			<a href="<c:url value='/insertPersonalLoanOptList'/>">personalloan - optionList 데이터 넣기</a>
-		</div>
-		<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-		<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    
+		<h3>2조 진행 상황</h3><br><br>
+		
+		<br><br><br>
+		<h3>- 허준성</h3>
+		<br>
+		<a href="<c:url value='/insertCharterLoanBaseList'/>">charterloan - baseList 데이터 넣기</a><br>
+		<a href="<c:url value='/insertCharterLoanOptList'/>">charterloan - optionList 데이터 넣기</a>
+		
+		<br><br><br>
+		<a href="<c:url value='/insertHomeLoanBaseList'/>">homeloan - baseList 데이터 넣기</a><br>
+		<a href="<c:url value='/insertHomeLoanOptList'/>">homeloan - optionList 데이터 넣기</a>
+		
+		<br><br><br>
+		<a href="<c:url value='/insertPersonalLoanBaseList'/>">personalloan - baseList 데이터 넣기</a><br>
+		<a href="<c:url value='/insertPersonalLoanOptList'/>">personalloan - optionList 데이터 넣기</a>
+		<br><br><br>
+		
+		<a href="<c:url value='list_mortgage_loan'/>">주택담보대출 검색 결과 페이지</a><br>
+		<br><br><br>
+
 		<c:import url="/WEB-INF/views/layout/footer.jsp" />
+		
+		
 	</body>
 </html>
