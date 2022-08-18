@@ -1,0 +1,159 @@
+
+/* login sector */
+input:focus{
+    outline:none;
+}
+
+#signup_sector{
+    display:flex;
+    width:100%;
+    margin-top: 90px;
+}
+
+.signup_page{
+    flex-wrap:wrap;
+    display:flex;
+    justify-content: center;
+    width:100%;
+    height: 100%;
+    text-align: center;
+    margin-top: 153px;
+    padding: 0 290px;
+}
+
+.signup_container{
+    position: relative;
+    width:700px;
+    margin:0 auto;
+    padding:0;
+    border: solid 1px #ddd;
+}
+
+.process_graph{
+    position: absolute;
+    width:233.3px;
+    height: 8px;
+    margin-top:0;
+    background-color: #1F4DFF;
+}
+
+
+.signup_box{
+    width:100%;
+    margin:80px 0;
+}
+
+button{
+    width:100%;
+    height: 60px;
+    margin-top:30px;
+    padding: 20px 0 19px;
+    border-radius:5px;
+}
+
+.btn-span{
+    font-size: 18px;
+    font-weight: 600;
+    color: #fff;
+}
+
+
+.signup_box h3{
+    width:100%;
+    font-weight: 500;
+    font-size:36px;
+}
+
+.form_input{
+    position: relative;
+    width:440px;
+    margin: 30px 130px 0 130px;
+    padding-top: 20px;
+}
+
+input[type=text]{
+    width:100%;
+    height:60px;
+    margin-top: 15px;
+    padding: 0 0 0 20px;
+    border-radius:5px;
+    border:solid 1px #ddd;
+    background-color:#fff;
+
+}
+
+ #signup_form .processPass{
+    border : solid 1px #1f4dff;
+} 
+
+#signup_form .processStop{
+    border : solid 1px #de3838;
+}
+
+.signup_process_state{
+    font-size: 14px;
+    text-align: left;
+    margin:10px 0 10px 10px;
+    display:none;
+}
+
+ .processPassText{
+    display:none;
+} 
+
+.processStopText{
+    color:#de3838;
+    display:block;
+}
+
+
+.form_input i{
+    position: absolute;
+    color:#cccccc;
+    right:6%;
+    top:35%;
+    opacity:0.7;
+    cursor: pointer;
+}
+
+.form_input i:hover{
+    opacity:1;
+}
+
+.check_divider{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+input[type=checkbox]{
+    position:relative;
+    top:3.5px;
+    width:20px;
+    height:20px;
+    margin:10px 10px 0 5px;
+    border:solid 1px #ddd;
+    background-color:#fff;
+}
+.check_divider label{
+    font-size:14px;
+    text-align: left;
+    margin:0 0 0 0;
+}
+
+.check_divider a{
+    font-size: 14px;
+    margin-top: 12px;
+    text-decoration:underline;
+    color:#666666;
+}
+
+
+
+#main_signup{
+    border:none;
+    background-color: #1F4DFF;
+}
+
+
