@@ -4,10 +4,10 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta charset="UTF-8">
-		<title>Index</title>
+		<c:import url="/WEB-INF/views/layout/head.jsp" />
 	</head>
 	<body>
+		<c:import url="/WEB-INF/views/layout/top.jsp" />
 		<h3>2조 진행 상황</h3><br><br>
 		
 		<br><br><br>
@@ -24,6 +24,6 @@
 		<a href="<c:url value='/insertPersonalLoanBaseList'/>">personalloan - baseList 데이터 넣기</a><br>
 		<a href="<c:url value='/insertPersonalLoanOptList'/>">personalloan - optionList 데이터 넣기</a>
 		<br><br><br>
-
+		<c:import url="/WEB-INF/views/layout/footer.jsp" />
 	</body>
 </html>
