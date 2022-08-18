@@ -9,6 +9,7 @@
 		<link rel="stylesheet" href="<c:url value='/css/member_signup.css'/>">
 	</head>
 	<body>
+	<c:import url="/WEB-INF/views/layout/top.jsp" />
 	<sector id="signup_sector">
         <div class="signup_page wrap">
             <div class="signup_container">
