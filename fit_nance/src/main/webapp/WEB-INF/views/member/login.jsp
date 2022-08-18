@@ -9,7 +9,7 @@
 		<link rel="stylesheet" href="<c:url value='/css/member_login.css'/>">
 	</head>
 	<body>
-	
+		<c:import url="/WEB-INF/views/layout/top.jsp" />
 		<sector id="login_sector">
         <div class="login_page wrap">
             <div class="login_container">
