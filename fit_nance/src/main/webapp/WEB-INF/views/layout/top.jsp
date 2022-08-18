@@ -19,7 +19,9 @@
                         <span class="span-lang-eng span-lang-inactive">ENG</span>
                     </li>
                     <li>
-                        <div class="btn-login"><i class="fa-solid fa-user"></i></div>
+                        <a href="<c:url value='/login'/>">
+                        	<div class="btn-login"><i class="fa-solid fa-user"></i></div>
+                        </a>
                     </li>
                 </ul>
             </div>
