@@ -8,6 +8,7 @@
 	</head>
 	<body>
 		<c:import url="/WEB-INF/views/layout/top.jsp" />
+    
 		<h3>2조 진행 상황</h3><br><br>
 		
 		<br><br><br>
@@ -27,8 +28,8 @@
 		
 		<a href="<c:url value='list_mortgage_loan'/>">주택담보대출 검색 결과 페이지</a><br>
 		<br><br><br>
+
 		<c:import url="/WEB-INF/views/layout/footer.jsp" />
-		
 		
 		
 	</body>

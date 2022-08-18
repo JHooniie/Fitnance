@@ -10,16 +10,18 @@
             <div class="box-menu-top">
                 <ul>
                     <li><a href="#">회사소개</a></li>
-                    <li class="li-prd-info"><a href="#">상품안내</a></li>
-                    <li class="li-cal"><a href="#">계산기</a></li>
-                    <li class="li-cus-service"><a href="#">고객센터</a></li>
+                    <li class="li-prd-info">상품안내</li>
+                    <li class="li-cal">계산기</li>
+                    <li class="li-cus-service">고객센터</li>
                     <li class="li-lang">
                         <span class="span-lang-kor span-lang-active">KOR</span>
                         |
                         <span class="span-lang-eng span-lang-inactive">ENG</span>
                     </li>
                     <li>
-                        <div class="btn-login"><i class="fa-solid fa-user"></i></div>
+                        <a href="<c:url value='/login'/>">
+                        	<div class="btn-login"><i class="fa-solid fa-user"></i></div>
+                        </a>
                     </li>
                 </ul>
             </div>
@@ -67,7 +69,7 @@
         <ul>
             <li>이용 안내</li>
             <li><a href="#">자주 묻는 질문</a></li>
-            <li><a href="#">공지사항</a></li>
+            <li><a href="<c:url value='/notice'/>">공지사항</a></li>
         </ul>
         <ul>
             <li>문의하기</li>
