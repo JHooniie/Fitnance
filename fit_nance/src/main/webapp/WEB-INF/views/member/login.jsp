@@ -10,7 +10,7 @@
 	</head>
 	<body>
 		<c:import url="/WEB-INF/views/layout/top.jsp" />
-		<sector id="login_sector">
+		<section id="login_sector">
         <div class="login_page wrap">
             <div class="login_container">
                 <div class="login_box">
@@ -41,7 +41,7 @@
                 </div>
             </div>
         </div>
-    </sector>
+    </section>
     <!-- login end -->
 	    <c:import url="/WEB-INF/views/layout/footer.jsp" />
 	</body>
