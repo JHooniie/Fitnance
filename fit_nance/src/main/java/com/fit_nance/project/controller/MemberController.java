@@ -15,4 +15,9 @@ public class MemberController {
 	public String signupForm() {
 		return "member/signup";
 	}
+	
+	@RequestMapping("/mypage")
+	public String mypageForm() {
+		return "member/myPage";
+	}
 }
