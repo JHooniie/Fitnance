@@ -19,8 +19,8 @@
                         <span class="span-lang-eng span-lang-inactive">ENG</span>
                     </li>
                     <li>
-                        <a href="<c:url value='/login'/>">
-                        	<div class="btn-login"><i class="fa-solid fa-user"></i></div>
+                        <a class="btn-login" href="<c:url value='/login'/>">
+                        	<i class="fa-solid fa-user"></i>
                         </a>
                     </li>
                 </ul>
@@ -37,7 +37,7 @@
         </ul>
         <ul>
             <li>예/적금</li>
-            <li><a href="#">적금 상품</a></li>
+            <li><a href="<c:url value='deposit'/>">적금 상품</a></li>
             <li><a href="#">예금 상품</a></li>
             <li><a href="#">연금 저축</a></li>
         </ul>
@@ -61,7 +61,7 @@
         </ul>
         <ul>
             <li>연말정산 계산기</li>
-            <li><a href="#">카드/현금 연말정산 계산기</a></li>
+            <li><a href="<c:url value='/cal_tax'/>">카드/현금 연말정산 계산기</a></li>
         </ul>
     </div>
     <!-- 고객센터 -->

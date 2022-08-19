@@ -28,4 +28,9 @@ public class HomeController {
 		model.addAttribute("list_home_loan", list_home_loan);
 		return "product/list_mortgage_loan"; 
 	}
+	
+	@RequestMapping("/deposit")
+	public String deposit() {
+		return "product2/deposit";
+	}
 }
