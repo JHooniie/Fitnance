@@ -9,7 +9,7 @@
         <nav class="box-menu-default">
             <div class="box-menu-top">
                 <ul>
-                    <li><a href="#">회사소개</a></li>
+                    <li><a href="<c:url value='intro'/>">회사소개</a></li>
                     <li class="li-prd-info">상품안내</li>
                     <li class="li-cal">계산기</li>
                     <li class="li-cus-service">고객센터</li>
@@ -52,7 +52,7 @@
     <div class="box-menu-03-bottom li-cal wrap">
         <ul>
             <li>목돈 계산기</li>
-            <li><a href="#">적금 계산기</a></li>
+            <li><a href="<c:url value='calculator_deposit'/>">적금 계산기</a></li>
             <li><a href="#">목돈 모으기 계산기</a></li>
         </ul>
         <ul>

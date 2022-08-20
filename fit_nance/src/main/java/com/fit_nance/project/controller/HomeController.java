@@ -33,4 +33,13 @@ public class HomeController {
 	public String deposit() {
 		return "product2/deposit";
 	}
+	
+	@RequestMapping("/intro")
+	public String intro() {
+		return "product2/intro";
+	}
+	@RequestMapping("/calculator_deposit")
+	public String calculator_deposit() {
+		return "product2/calculator_deposit";
+	}
 }
