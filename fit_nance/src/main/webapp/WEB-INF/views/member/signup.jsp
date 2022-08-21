@@ -22,7 +22,7 @@
                             <div id="signup_id_process_state" class="signup_process_state"></div>
                             <input type="text" id="token_no" placeholder="인증번호를 입력해주세요">
                             <div id="signup_pw_process_state" class="signup_process_state"></div>
-                            <button id="main_signup" type="submit"><span class="btn-span">로그인</span></button>
+                            <button id="main_signup" type="submit"><span class="btn-span">다음</span></button>
                         </form>
                     </div>
                 </div>
