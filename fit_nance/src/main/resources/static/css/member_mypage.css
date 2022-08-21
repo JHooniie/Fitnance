@@ -34,16 +34,20 @@ button{
     width:200px;
     height:200px;
     margin:0 auto;
-    font-family:Pretendard;
-    font-size: 60px;
-    font-weight: 500;
-    line-height: 200px;
-    color:#fff;
+    line-height: 250px;
     background-color: #1f4dff;
     border:none;
+    outline: 6px solid #1f4dff;
+    outline-offset: -6px;
     border-radius: 50%;
     overflow: hidden;
     cursor: pointer;
+}
+
+.box-profileImg-img-center img{
+	width:100px;
+	
+
 }
 
 .box-profile-content{

@@ -70,9 +70,9 @@ public class LoanDBController {
 		
 		list_mortgage_base = homeloanbaseService.homeloanBase();
 		
-//		for(int i=0; i<list_mortgage_base.size(); i++) {
-//			loanService.insertHomeLoanBaseList(list_mortgage_base.get(i));
-//		}
+		for(int i=0; i<list_mortgage_base.size(); i++) {
+			loanService.insertHomeLoanBaseList(list_mortgage_base.get(i));
+		}
 		
 		return "product/list_mortgage_loan";
 	}
