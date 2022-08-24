@@ -101,6 +101,7 @@
                     </div>
                 </div>
             </div>
+            <div class="go-to-list">목록으로 돌아가기</div>
         </div>      
     </div>
 		
