@@ -9,7 +9,7 @@
 		<!-- head -->
 		<c:import url="/WEB-INF/views/layout/head.jsp" />
 		<!-- css -->
-		<link rel="stylesheet" href="<c:url value='/css/deposit.css'/>"/>
+		<link rel="stylesheet" href="<c:url value='/css/pension.css'/>"/>
 		<!-- js -->
 		<!-- 삭제해야함 -->
 		<meta charset="UTF-8">
@@ -26,34 +26,31 @@
         <div class="m">
             <div class="middle-text">
                 <ul>
-                    <li>예금<br>
+                    <li>연금<br>
                     관련 문구</li>
-                    <li>정기예금 관련 문구 정기예금 관련 문구</li>
+                    <li>연금 관련 문구 연금 관련 문구</li>
                 </ul>
             </div>
             <div class="middle-image">
-                <img src="image/img_deposit.png">
+                <img src="image/img_pension.png">
             </div>
         </div>
         <div class="middel-bottom">
             <div>
                 <div class="product-compare-box">상품 비교하기</div>   
                 <div class="select-box">
-                    <div class="select-title">가입대상</div>
-                    <div class="select-option select-option1">개인</div>
-                    <div class="select-option select-option1">기업</div>
+                    <div class="select-title">연금수령기간</div>
+                    <div class="select-option select-option1">10년 확정</div>
+                    <div class="select-option select-option1">20년 확정</div>
 
-                    <div class="select-title">가입방법</div>
-                    <div class="select-option select-option1">영업점</div>
-                    <div class="select-option select-option1">인터넷</div>
-                    <div class="select-option select-option1">스마트폰</div>
+                    <div class="select-title">월 납입액</div>
+                    <div class="select-option select-option1">10만원</div>
+                    <div class="select-option select-option1">20만원</div>
+                    <div class="select-option select-option1">30만원</div>
 
-                    <div class="select-title">가입기간</div>
-                    <div class="select-option select-option2">3개월</div>
-                    <div class="select-option select-option2">6개월</div>
-                    <div class="select-option select-option2">12개월</div>
-                    <div class="select-option select-option2">24개월</div>
-                    <div class="select-option select-option3">36개월 이상</div>
+                    <div class="select-title">연금개시여녕</div>
+                    <div class="select-option select-option1">60세</div>
+                    <div class="select-option select-option1">65세</div>
 
                     <div class="filter-reset"><i class="fa-solid fa-arrow-rotate-right"></i>  필터 초기화</div>
                     
@@ -69,9 +66,9 @@
                         <div class="item-box">
                             <div class="image-box"></div>
                             <div class="text-box">
-                                <div class="bank-name">우리은행</div>
+                                <div class="bank-name">엔에이치아문디자산운용주식회사</div>
                                 <div class="item-line">
-                                    <div class="item-name">우리 SUPER정기예금<span>영업점</span><span>인터넷</span><span>스마트폰</span></spna></div>
+                                    <div class="item-name">NH-Amundi 필승 코리아 증권투자신탁[주식] Class-P1e(연금저축)<span>영업점</span></div>
                                 </div>
                             </div>
                             <div class="plus-icon"><i class="fa-solid fa-folder-plus"></i></div>
@@ -82,14 +79,8 @@
                             <div class="percent-box">
                                 <div class="percent1">
                                     <ul>
-                                        <li>1년기준 (세전)</li>
-                                        <li><span>2.4</span>%</li>
-                                    </ul>
-                                </div>
-                                <div class="percent2">
-                                    <ul>
-                                        <li>최소</li>
-                                        <li><span>6</span>개월부터</li>
+                                        <li>연평균 수익률</li>
+                                        <li><span>54.33</span>%</li>
                                     </ul>
                                 </div>
                             </div>
@@ -100,9 +91,9 @@
                         <div class="item-box">
                             <div class="image-box"></div>
                             <div class="text-box">
-                                <div class="bank-name">우리은행</div>
+                                <div class="bank-name">엔에이치아문디자산운용주식회사</div>
                                 <div class="item-line">
-                                    <div class="item-name">우리 SUPER정기예금<span>영업점</span><span>인터넷</span><span>스마트폰</span></spna></div>
+                                    <div class="item-name">NH-Amundi 필승 코리아 증권투자신탁[주식] Class-P1e(연금저축)<span>영업점</span></div>
                                 </div>
                             </div>
                             <div class="plus-icon"><i class="fa-solid fa-folder-plus"></i></div>
@@ -113,14 +104,8 @@
                             <div class="percent-box">
                                 <div class="percent1">
                                     <ul>
-                                        <li>1년기준 (세전)</li>
-                                        <li><span>2.4</span>%</li>
-                                    </ul>
-                                </div>
-                                <div class="percent2">
-                                    <ul>
-                                        <li>최소</li>
-                                        <li><span>6</span>개월부터</li>
+                                        <li>연평균 수익률</li>
+                                        <li><span>54.33</span>%</li>
                                     </ul>
                                 </div>
                             </div>
@@ -131,9 +116,9 @@
                         <div class="item-box">
                             <div class="image-box"></div>
                             <div class="text-box">
-                                <div class="bank-name">우리은행</div>
+                                <div class="bank-name">엔에이치아문디자산운용주식회사</div>
                                 <div class="item-line">
-                                    <div class="item-name">우리 SUPER정기예금<span>영업점</span><span>인터넷</span><span>스마트폰</span></spna></div>
+                                    <div class="item-name">NH-Amundi 필승 코리아 증권투자신탁[주식] Class-P1e(연금저축)<span>영업점</span></div>
                                 </div>
                             </div>
                             <div class="plus-icon"><i class="fa-solid fa-folder-plus"></i></div>
@@ -144,14 +129,8 @@
                             <div class="percent-box">
                                 <div class="percent1">
                                     <ul>
-                                        <li>1년기준 (세전)</li>
-                                        <li><span>2.4</span>%</li>
-                                    </ul>
-                                </div>
-                                <div class="percent2">
-                                    <ul>
-                                        <li>최소</li>
-                                        <li><span>6</span>개월부터</li>
+                                        <li>연평균 수익률</li>
+                                        <li><span>54.33</span>%</li>
                                     </ul>
                                 </div>
                             </div>
@@ -162,9 +141,9 @@
                         <div class="item-box">
                             <div class="image-box"></div>
                             <div class="text-box">
-                                <div class="bank-name">우리은행</div>
+                                <div class="bank-name">엔에이치아문디자산운용주식회사</div>
                                 <div class="item-line">
-                                    <div class="item-name">우리 SUPER정기예금<span>영업점</span><span>인터넷</span><span>스마트폰</span></spna></div>
+                                    <div class="item-name">NH-Amundi 필승 코리아 증권투자신탁[주식] Class-P1e(연금저축)<span>영업점</span></div>
                                 </div>
                             </div>
                             <div class="plus-icon"><i class="fa-solid fa-folder-plus"></i></div>
@@ -175,14 +154,8 @@
                             <div class="percent-box">
                                 <div class="percent1">
                                     <ul>
-                                        <li>1년기준 (세전)</li>
-                                        <li><span>2.4</span>%</li>
-                                    </ul>
-                                </div>
-                                <div class="percent2">
-                                    <ul>
-                                        <li>최소</li>
-                                        <li><span>6</span>개월부터</li>
+                                        <li>연평균 수익률</li>
+                                        <li><span>54.33</span>%</li>
                                     </ul>
                                 </div>
                             </div>
@@ -193,9 +166,9 @@
                         <div class="item-box">
                             <div class="image-box"></div>
                             <div class="text-box">
-                                <div class="bank-name">우리은행</div>
+                                <div class="bank-name">엔에이치아문디자산운용주식회사</div>
                                 <div class="item-line">
-                                    <div class="item-name">우리 SUPER정기예금<span>영업점</span><span>인터넷</span><span>스마트폰</span></spna></div>
+                                    <div class="item-name">NH-Amundi 필승 코리아 증권투자신탁[주식] Class-P1e(연금저축)<span>영업점</span></div>
                                 </div>
                             </div>
                             <div class="plus-icon"><i class="fa-solid fa-folder-plus"></i></div>
@@ -206,14 +179,8 @@
                             <div class="percent-box">
                                 <div class="percent1">
                                     <ul>
-                                        <li>1년기준 (세전)</li>
-                                        <li><span>2.4</span>%</li>
-                                    </ul>
-                                </div>
-                                <div class="percent2">
-                                    <ul>
-                                        <li>최소</li>
-                                        <li><span>6</span>개월부터</li>
+                                        <li>연평균 수익률</li>
+                                        <li><span>54.33</span>%</li>
                                     </ul>
                                 </div>
                             </div>
@@ -224,9 +191,9 @@
                         <div class="item-box">
                             <div class="image-box"></div>
                             <div class="text-box">
-                                <div class="bank-name">우리은행</div>
+                                <div class="bank-name">엔에이치아문디자산운용주식회사</div>
                                 <div class="item-line">
-                                    <div class="item-name">우리 SUPER정기예금<span>영업점</span><span>인터넷</span><span>스마트폰</span></spna></div>
+                                    <div class="item-name">NH-Amundi 필승 코리아 증권투자신탁[주식] Class-P1e(연금저축)<span>영업점</span></div>
                                 </div>
                             </div>
                             <div class="plus-icon"><i class="fa-solid fa-folder-plus"></i></div>
@@ -237,14 +204,8 @@
                             <div class="percent-box">
                                 <div class="percent1">
                                     <ul>
-                                        <li>1년기준 (세전)</li>
-                                        <li><span>2.4</span>%</li>
-                                    </ul>
-                                </div>
-                                <div class="percent2">
-                                    <ul>
-                                        <li>최소</li>
-                                        <li><span>6</span>개월부터</li>
+                                        <li>연평균 수익률</li>
+                                        <li><span>54.33</span>%</li>
                                     </ul>
                                 </div>
                             </div>
@@ -255,9 +216,9 @@
                         <div class="item-box">
                             <div class="image-box"></div>
                             <div class="text-box">
-                                <div class="bank-name">우리은행</div>
+                                <div class="bank-name">엔에이치아문디자산운용주식회사</div>
                                 <div class="item-line">
-                                    <div class="item-name">우리 SUPER정기예금<span>영업점</span><span>인터넷</span><span>스마트폰</span></spna></div>
+                                    <div class="item-name">NH-Amundi 필승 코리아 증권투자신탁[주식] Class-P1e(연금저축)<span>영업점</span></div>
                                 </div>
                             </div>
                             <div class="plus-icon"><i class="fa-solid fa-folder-plus"></i></div>
@@ -268,14 +229,8 @@
                             <div class="percent-box">
                                 <div class="percent1">
                                     <ul>
-                                        <li>1년기준 (세전)</li>
-                                        <li><span>2.4</span>%</li>
-                                    </ul>
-                                </div>
-                                <div class="percent2">
-                                    <ul>
-                                        <li>최소</li>
-                                        <li><span>6</span>개월부터</li>
+                                        <li>연평균 수익률</li>
+                                        <li><span>54.33</span>%</li>
                                     </ul>
                                 </div>
                             </div>
@@ -286,9 +241,9 @@
                         <div class="item-box">
                             <div class="image-box"></div>
                             <div class="text-box">
-                                <div class="bank-name">우리은행</div>
+                                <div class="bank-name">엔에이치아문디자산운용주식회사</div>
                                 <div class="item-line">
-                                    <div class="item-name">우리 SUPER정기예금<span>영업점</span><span>인터넷</span><span>스마트폰</span></spna></div>
+                                    <div class="item-name">NH-Amundi 필승 코리아 증권투자신탁[주식] Class-P1e(연금저축)<span>영업점</span></div>
                                 </div>
                             </div>
                             <div class="plus-icon"><i class="fa-solid fa-folder-plus"></i></div>
@@ -299,14 +254,8 @@
                             <div class="percent-box">
                                 <div class="percent1">
                                     <ul>
-                                        <li>1년기준 (세전)</li>
-                                        <li><span>2.4</span>%</li>
-                                    </ul>
-                                </div>
-                                <div class="percent2">
-                                    <ul>
-                                        <li>최소</li>
-                                        <li><span>6</span>개월부터</li>
+                                        <li>연평균 수익률</li>
+                                        <li><span>54.33</span>%</li>
                                     </ul>
                                 </div>
                             </div>
@@ -317,9 +266,9 @@
                         <div class="item-box">
                             <div class="image-box"></div>
                             <div class="text-box">
-                                <div class="bank-name">우리은행</div>
+                                <div class="bank-name">엔에이치아문디자산운용주식회사</div>
                                 <div class="item-line">
-                                    <div class="item-name">우리 SUPER정기예금<span>영업점</span><span>인터넷</span><span>스마트폰</span></spna></div>
+                                    <div class="item-name">NH-Amundi 필승 코리아 증권투자신탁[주식] Class-P1e(연금저축)<span>영업점</span></div>
                                 </div>
                             </div>
                             <div class="plus-icon"><i class="fa-solid fa-folder-plus"></i></div>
@@ -330,14 +279,8 @@
                             <div class="percent-box">
                                 <div class="percent1">
                                     <ul>
-                                        <li>1년기준 (세전)</li>
-                                        <li><span>2.4</span>%</li>
-                                    </ul>
-                                </div>
-                                <div class="percent2">
-                                    <ul>
-                                        <li>최소</li>
-                                        <li><span>6</span>개월부터</li>
+                                        <li>연평균 수익률</li>
+                                        <li><span>54.33</span>%</li>
                                     </ul>
                                 </div>
                             </div>
@@ -358,7 +301,6 @@
         </div>
         </div>
     </div>
-		
 		
 		<!-- bottom.jsp -->
 		<c:import url="/WEB-INF/views/layout/footer.jsp" />

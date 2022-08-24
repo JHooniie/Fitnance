@@ -1,3 +1,58 @@
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+
+* {
+font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+}
+
+
+
+/* 초기화 */
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    box-sizing: border-box;
+    color: #222222;
+}
+
+/* common */
+.wrap{
+    width: 1320px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+
+
+/*.box-menu-02-bottom{
+    display: flex;
+    padding: 40px 40px 30px;
+    visibility: hidden;
+}
+
+.box-menu-02-bottom ul{
+    display: inline-block;
+    width: 200px;
+}
+
+.box-menu-02-bottom > ul > li{
+    height: 60px;
+    color: #666666;
+    font-size: 17px;
+    font-weight: 300;
+}
+
+.box-menu-02-bottom > ul > li:first-child{
+    font-weight: 600;
+}
+*/
+
+
+
+
+/*deposit*/
+
 .middle{
 }
 
@@ -44,7 +99,6 @@
     
 }
 
-
 .select-box .select-title{
     margin-top:35px;
 }
@@ -81,7 +135,7 @@
 }
 
 .select-box .filter-reset{
-    margin-top: 30px;
+    margin-top: 20px;
     border:2px solid #f2f2f2;
     width: 200px;
     height: 52px;

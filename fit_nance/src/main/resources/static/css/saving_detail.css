@@ -1,0 +1,319 @@
+.item-box{
+    display:flex;
+}
+
+.image-box{
+    width:80px;
+    height:80px;
+    background-color: #f2f2f2;
+    
+}
+
+.middle{
+    margin-top:130.5px;
+    display:flex;
+    flex-direction: column;
+}
+
+.bank-name{
+    margin-bottom: 5px;
+    font-size:18px;
+}
+
+.text-box{
+    margin-left:20px;
+}
+.text-box .item-name{
+    font-size:28px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.sub-text{
+    display:inline-block;
+    font-size: 13px;
+    background-color: #f2f2f2;
+    height:32px;
+    padding:8px;
+    flex-direction: row;
+    letter-spacing: -0.39px;
+    border-radius: 5px;
+    margin-bottom:60px;
+    margin-right:10px;
+}
+
+.percent-box{
+    display: flex;
+    
+}
+
+.percent1{
+    width:140px;
+}
+
+.percent1 >ul>li:first-child{
+    font-size: 14px;
+    font-weight: 300;
+    font-style: normal;
+    letter-spacing: -0.42px;
+    padding-bottom: 5px;
+}
+
+.percent2 >ul>li:first-child{
+    font-size: 14px;
+    font-weight: 300;
+    font-style: normal;
+    letter-spacing: -0.42px;
+    padding-bottom: 5px;
+}
+
+
+.percent1 >ul>li:last-child{
+    font-size: 30px;
+    font-weight: 200;
+    line-height: 1;
+    letter-spacing: -0.9px;
+    
+}
+
+
+.percent1 >ul>li:last-child span{
+    font-weight: 500;
+    font-size:42px;
+    letter-spacing: -1.26px;
+}
+
+.percent2{
+    width:140px;
+}
+
+.percent2 >ul>li:last-child{
+    font-size: 30px;
+    font-weight: 200;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1;
+    letter-spacing: -0.9px;
+    
+}
+
+.percent2 >ul>li:last-child span{
+    font-weight: 500;
+    font-size:42px;
+
+}
+
+.detail-information{
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.5;
+    letter-spacing: -0.5px;
+    text-align: center;
+    width:1280px;
+    height: 60px;
+    padding:18px;
+    margin-top:80px;
+    border-bottom: solid 1px #222;
+    margin-bottom:60px;
+}
+
+.details{
+    width:640px;
+    padding: 40px;
+    padding-bottom: 20px;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    margin-bottom: 70px;
+}
+
+.details-title{
+    margin-bottom: 20px;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: -0.48px;
+    text-align: left;
+}
+
+.details-content{
+    margin-bottom: 40px;
+    font-size: 16px;
+    text-align: left;
+    line-height: 1.88;
+    letter-spacing: -0.48px;
+}
+
+.details-content span{
+    line-height: 1.5;
+}
+
+.middle-last-box{
+    display: flex;
+    flex-direction: row;
+}
+
+.calculator{
+    margin-top:40px;
+    margin-left:130px;
+    width:420px;
+    
+}
+
+.title-box{
+    display: flex;
+    flex-direction: row;
+}
+
+.cal-title1{
+    font-size: 16px;
+    font-weight: bold;
+    text-align: left;
+}
+
+.cal-title2{
+    font-size: 16px;
+    font-weight: bold;
+    text-align: left;
+    width:210px;
+}
+
+.price-box{
+    font-size:18px;
+    height:50px;
+    padding-top:14px;
+    border-bottom: solid 1px #aaa;
+    display:flex;
+    padding-bottom: 14px;
+    margin-bottom:40px;
+}
+
+.price-box #price{
+    margin-left:auto;
+    border:0px;
+    font-size:18px;
+    font-weight: 600;
+    margin-right:20px;
+    text-align: right;
+    
+}
+
+.period-box #period{
+    appearance:none; /* 화살표 없애기 공통*/
+    margin-left:auto;
+    border:0px;
+    font-size:18px;
+    font-weight: 600;
+    text-align: right;
+}
+
+.period-box .icon i{
+    padding-left: 20px;
+}
+.title-box{
+    margin-bottom: 10px;
+}
+
+.sub-input{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.period-box{
+    width:200px;
+    
+    font-size:18px;
+    height:50px;
+    padding-top:14px;
+    border-bottom: solid 1px #aaa;
+    display:flex;
+    padding-bottom: 14px;
+    margin-bottom:40px;
+}
+
+.rate-box{
+    width:180px;
+    
+    font-size:18px;
+    height:50px;
+    padding-top:14px;
+    border-bottom: solid 1px #aaa;
+    display:flex;
+    padding-bottom: 14px;
+    margin-bottom:40px;
+}
+
+
+.rate-box #interest-rate{
+    margin-left:auto;
+    border:0px;
+    font-size:18px;
+    font-weight: 600;
+    margin-right:20px;
+    text-align: right;
+    width:100px;
+}
+
+.total-box{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.more-box{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+}
+
+.total-box .sub-title{
+    font-size: 18px;
+
+    line-height: 1.5;
+    letter-spacing: -0.54px;
+    text-align: left;
+}
+
+.total-box .total{
+    font-size: 18px;
+    line-height: 1.5;
+    letter-spacing: -0.54px;
+    text-align: right;
+}
+
+.total-box .total span{
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 1.5;
+    letter-spacing: -0.54px;
+    text-align: right;
+    color: #1f4dff;
+}
+
+.total-box{
+    margin-bottom: 60px;
+}
+
+.more-box{
+    font-size: 16px;
+    line-height: 1.69;
+    letter-spacing: -0.48px;
+    text-align: left;
+}
+
+.more-box .go-more{
+    text-decoration: underline;
+}
+
+.go-to-list{
+    margin:auto;
+    border:1px solid #666666;
+    width: 200px;
+    height: 52px;
+    border-radius: 5px;
+    text-align: center;
+    padding : 15px;
+    color:#222;
+    font-weight: 500;
+    margin-bottom: 130px;
+}

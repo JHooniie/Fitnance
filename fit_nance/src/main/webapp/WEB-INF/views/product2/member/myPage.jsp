@@ -17,7 +17,7 @@
                 <div class="box-profile">
                     <div class="box-profileImg">
                         <div class="box-profileImg-img-center">
-                            <img src="<c:url value='image/lg_fitnance_gray.png'/>">
+                            <img src="<c:url value='image/lg_fitnance_initial_mypage.png'/>">
                         </div>
                     </div>
                     <div class="box-profile-content">
