@@ -15,4 +15,9 @@ public class AdminController {
 	public String viewNotice() {
 		return "admin/notice/admin_notice";
 	}
+	
+	@RequestMapping("/admin/notice_regist")
+	public String viewNoticeForm() {
+		return "admin/notice/admin_notice_form";
+	}
 }

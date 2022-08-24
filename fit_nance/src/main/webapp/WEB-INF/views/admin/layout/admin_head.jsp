@@ -26,3 +26,8 @@
 <script src="<c:url value='/js/admin/datatables/jquery.dataTables.min.js'/>"></script>
 <script src="<c:url value='/js/admin/datatables/dataTables.bootstrap4.min.js'/>"></script>
 <script src="<c:url value='/js/admin/datatables/datatables.js'/>"></script>
+
+<!-- summernote -->
+<script src="<c:url value='/js/admin/summernote/summernote-lite.js'/>"></script>
+<script src="<c:url value='/js/admin/summernote/summernote-ko-KR.js'/>"></script>
+<link rel="stylesheet" href="<c:url value='/css/admin/summernote/summernote-lite.css'/>">
