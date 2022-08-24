@@ -32,7 +32,7 @@
     <div class="box-menu-02-bottom li-prd-info wrap">
         <ul>
             <li>상품 추천</li>
-            <li><a href="#">상품 한눈에 보기</a></li>
+            <li><a href="<c:url value='/prd_all'/>">상품 한눈에 보기</a></li>
             <li><a href="<c:url value='/prd_recom'/>">예/적금 상품 추천</a></li>
         </ul>
         <ul>
