@@ -54,7 +54,6 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
 /*deposit*/
 
 .middle{
-    margin-right: 20px;
 }
 
 .back {
@@ -64,7 +63,6 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
 }
 
 .middle-text{
-    margin-left: 370px;
     margin-top: -162px;
 }
 
@@ -74,15 +72,18 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
     margin-bottom: 20px;
 }
 
+.m{
+    display: flex;
+    justify-content: space-between;
+}
+
 .middle-image{
     display: flex;
-    margin-left: 1300px;
+    margin-left:430px;
     margin-top: -240px;
     height:340px;
 }
-
 .product-compare-box{
-    margin-left: 370px;
     border:1px solid #1F4DFF;
     width: 200px;
     height: 52px;
@@ -94,7 +95,6 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
 }
 
 .select-box{
-    margin-left: 370px;
     width: 200px;
     
 }

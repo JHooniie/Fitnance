@@ -19,9 +19,10 @@
 		<!-- top.jsp -->
 		<c:import url="/WEB-INF/views/layout/top.jsp" />
 		
-		<div class="middle wrap"></div>
+		<div class="middle">
         <div class="back">
             </div>
+        <div class="wrap">
         <div class="m">
             <div class="middle-text">
                 <ul>
@@ -354,6 +355,7 @@
                     </div>
                 </div>
             </div>
+        </div>
         </div>
     </div>
 		
