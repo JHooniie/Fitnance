@@ -1,5 +1,4 @@
 .middle{
-    margin-right: 20px;
 }
 
 .back {
@@ -9,7 +8,6 @@
 }
 
 .middle-text{
-    margin-left: 370px;
     margin-top: -162px;
 }
 
@@ -18,6 +16,7 @@
     font-weight: 600;
     margin-bottom: 20px;
 }
+
 .m{
     display: flex;
     justify-content: space-between;
@@ -25,13 +24,11 @@
 
 .middle-image{
     display: flex;
-    margin-right:240px;
+    margin-left:430px;
     margin-top: -240px;
     height:340px;
 }
-
 .product-compare-box{
-    margin-left: 370px;
     border:1px solid #1F4DFF;
     width: 200px;
     height: 52px;
@@ -43,7 +40,6 @@
 }
 
 .select-box{
-    margin-left: 370px;
     width: 200px;
     
 }
