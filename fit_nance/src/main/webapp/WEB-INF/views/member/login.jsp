@@ -31,7 +31,7 @@
                                 <a href="#" class="find_password text-end">비밀번호 찾기</a>
                             </div>
                             
-                            <button id="main_login" type="submit"><span class="btn-span">로그인</span></button>
+                            <button id="main_login" type="submit" onclick="location.href='<c:url value='/'/>'"><span class="btn-span">로그인</span></button>
                         </form>
                     </div>
                     <div class="email_login">

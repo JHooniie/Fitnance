@@ -20,4 +20,21 @@ public class MemberController {
 	public String mypageForm() {
 		return "member/myPage";
 	}
+	
+	@RequestMapping("/update-auth")
+	public String update_authForm() {
+		return "member/update_mypage_auth";
+	}
+	
+	@RequestMapping("/update-mypage")
+	public String update_mypageForm() {
+		return "member/update_mypage";
+	}
+	
+	@RequestMapping("/update-password")
+	public String update_passwordForm() {
+		return "member/update_mypage_password";
+	}
+	
+	
 }

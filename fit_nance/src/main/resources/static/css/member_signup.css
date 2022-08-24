@@ -1,10 +1,9 @@
-
-/* login sector */
+/* signup sector */
 input:focus{
     outline:none;
 }
 
-#signup_sector{
+#signup_section{
     display:flex;
     width:100%;
     margin-top: 90px;
@@ -29,77 +28,99 @@ input:focus{
     border: solid 1px #ddd;
 }
 
-.process_graph{
-    position: absolute;
-    width:233.3px;
-    height: 8px;
-    margin-top:0;
-    background-color: #1F4DFF;
-}
 
-
-.signup_box{
-    width:100%;
-    margin:80px 0;
-}
 
 button{
     width:100%;
     height: 60px;
     margin-top:30px;
-    padding: 20px 0 19px;
+    padding: 20px 19px;
+    border:none;
     border-radius:5px;
+    background-color: #1F4DFF;
 }
 
-.btn-span{
+button .btn-span{
     font-size: 18px;
     font-weight: 600;
     color: #fff;
 }
 
+/* 이메일 입력 */
+.box-signup-Email{
+    position:relative;
+    width:100%;
+    margin:80px 0;
+}
 
-.signup_box h3{
+.box-signup-Email h3{
     width:100%;
     font-weight: 500;
     font-size:36px;
 }
 
-.form_input{
+.box-form-signup-Email{
     position: relative;
     width:440px;
     margin: 30px 130px 0 130px;
     padding-top: 20px;
 }
 
-input[type=text]{
+.input-user_id{
     width:100%;
     height:60px;
     margin-top: 15px;
     padding: 0 0 0 20px;
+    font-family: Pretendard;
+    font-size: 16px;
+    text-align: left;
+    color: #aaa;
     border-radius:5px;
     border:solid 1px #ddd;
     background-color:#fff;
 
 }
 
- #signup_form .processPass{
-    border : solid 1px #1f4dff;
-} 
-
-#signup_form .processStop{
-    border : solid 1px #de3838;
+.process-pass{
+    border:solid 1px #1ebc73;
 }
 
-.signup_process_state{
+.process-error{
+    border:solid 1px #de3838;
+}
+
+.text-process-state span{
     font-size: 14px;
-    text-align: left;
-    margin:10px 0 10px 10px;
-    display:none;
 }
 
- .processPassText{
-    display:none;
-} 
+#text-Email-check-pass{
+    display: none;
+    text-align: left;
+    justify-content: space-between;
+    align-items: end;
+    margin:10px 0 6px 20px;
+}
+
+#text-Email-check-pass span{
+    color: #1ebc73;
+}
+
+#text-Email-check-error{
+    display: none;
+    text-align: left;
+    margin:10px 0 6px 20px;
+}
+
+#text-Email-check-error span{
+    color:#de3838;
+}
+
+.text-process-state a{
+    font-size: 16px;
+    color: #666;
+    text-decoration: underline;
+}
+
 
 .processStopText{
     color:#de3838;
@@ -107,7 +128,137 @@ input[type=text]{
 }
 
 
-.form_input i{
+.check_divider label{
+    font-size:14px;
+    text-align: left;
+    margin:0 0 0 0;
+}
+
+.check_divider a{
+    font-size: 14px;
+    margin-top: 12px;
+    text-decoration:underline;
+    color:#666666;
+}
+
+#btn-Email-next:disabled{
+    background-color: #aaaaaa;
+}
+
+.box-token_no{
+    position: relative;
+}
+
+.input-token_no{
+    width:100%;
+    height:60px;
+    margin-top: 15px;
+    padding: 0 0 0 20px;
+    font-family: Pretendard;
+    font-size: 16px;
+    text-align: left;
+    color: #aaa;
+    border-radius:5px;
+    border:solid 1px #ddd;
+    background-color:#fff;
+}
+
+.input-token_no:disabled{
+    background-color: #f2f2f2;
+}
+
+
+.process-complete{
+    border:solid 1px #1f4dff;
+}
+
+.time{
+    position: absolute;
+    top:32px;
+    right:3%;
+    font-size: 16px;
+    color: #444;
+}
+
+#text-token-check-error{
+    display: none;
+    text-align: left;
+    margin:10px 0 6px 20px;
+}
+
+#text-token-check-error span{
+    color:#de3838;
+}
+
+/* 비밀번호 입력 */
+.box-signup-password{
+    position:relative;
+    width:100%;
+    margin:80px 0;
+    display: none;
+}
+
+.box-signup-password h3{
+    width:100%;
+    font-weight: 500;
+    font-size:36px;
+}
+.span-signup-password-title{
+    display:inline-block;
+    font-family: Pretendard;
+    font-size: 16px;
+    margin-top: 11px;
+    color: #aaa;
+}
+
+.box-form-signup-password{
+    position: relative;
+    width:440px;
+    margin: 30px 130px 0 130px;
+    padding-top: 20px;
+}
+
+.box-password-input{
+    position:relative;
+}
+
+.input-user_pw{
+    position:relative;
+    width:100%;
+    height:60px;
+    padding: 0 0 0 20px;
+    font-family: Pretendard;
+    font-size: 16px;
+    text-align: left;
+    color: #aaaaaa;
+    border-radius:5px;
+    border:solid 1px #ddd;
+    background-color:#fff;
+
+}
+
+.process-pass{
+    border:solid 1px #1ebc73;
+}
+
+.process-error{
+    border:solid 1px #de3838;
+}
+
+.box-password-input .fa-circle-xmark{
+    position: absolute;
+    color:#cccccc;
+    right: 13%;
+    top:35%;
+    opacity:0.7;
+    cursor: pointer;
+}
+
+.box-password-input .fa-circle-xmark:hover{
+    opacity:1;
+}
+
+.box-password-input .fa-eye-slash{
     position: absolute;
     color:#cccccc;
     right:6%;
@@ -116,8 +267,192 @@ input[type=text]{
     cursor: pointer;
 }
 
-.form_input i:hover{
+.box-password-input .fa-eye-slash:hover{
     opacity:1;
+}
+
+.box-password-input .fa-eye{
+    position: absolute;
+    color:#cccccc;
+    right:6%;
+    top:35%;
+    opacity:0.7;
+    cursor: pointer;
+}
+
+.box-password-input .fa-eye:hover{
+    opacity:1;
+}
+
+.text-process-state{
+    display: none;
+    text-align: left;
+    margin:10px 0 6px 20px;
+}
+
+#text-password-check-pass span{
+    color: #1ebc73;
+}
+
+#text-password-check-error span{
+    color:#de3838;
+}
+
+
+.box-password-reInput{
+    position:relative;
+    margin-top: 15px;
+}
+
+.input-user_pw-re{
+    position:relative;
+    width:100%;
+    height:60px;
+    padding: 0 0 0 20px;
+    font-family: Pretendard;
+    font-size: 16px;
+    text-align: left;
+    color: #aaaaaa;
+    border-radius:5px;
+    border:solid 1px #ddd;
+    background-color:#fff;
+
+}
+
+.process-pass{
+    border:solid 1px #1ebc73;
+}
+
+.process-error{
+    border:solid 1px #de3838;
+}
+
+#text-password-reCheck-pass span{
+    color: #1ebc73;
+}
+
+#text-password-reCheck-error span{
+    color:#de3838;
+}
+
+.box-password-reInput .fa-eye-slash{
+    position: absolute;
+    color:#cccccc;
+    right:6%;
+    top:35%;
+    opacity:0.7;
+    cursor: pointer;
+}
+
+.box-password-reInput .fa-eye-slash:hover{
+    opacity:1;
+}
+
+.box-password-reInput .fa-eye{
+    position: absolute;
+    color:#cccccc;
+    right:6%;
+    top:35%;
+    opacity:0.7;
+    cursor: pointer;
+}
+
+.box-password-reInput .fa-eye:hover{
+    opacity:1;
+}
+
+.box-password-reInput .fa-circle-xmark{
+    position: absolute;
+    color:#cccccc;
+    right: 13%;
+    top:35%;
+    opacity:0.7;
+    cursor: pointer;
+}
+
+.box-password-reInput .fa-circle-xmark:hover{
+    opacity:1;
+}
+
+.span-form-password-content{
+    display: inline-block;
+    margin-top: 40px;
+    font-size: 16px;
+    color: #aaa;
+}
+
+#btn-password-next{
+    width:100%;
+    height: 60px;
+    margin-top:13px;
+    padding: 20px 19px;
+    border:none;
+    border-radius:5px;
+    background-color: #1F4DFF;
+}
+
+#btn-password-next:disabled{
+    background-color: #aaaaaa;
+}
+
+
+/* 기본 정보 입력 */
+.box-signup-information{
+    position:relative;
+    width:100%;
+    margin:80px 0;
+    display: none;
+}
+
+.box-signup-information h3{
+    width:100%;
+    font-weight: 500;
+    font-size:36px;
+}
+
+.box-form-signup-information{
+    position: relative;
+    width:440px;
+    margin: 30px 130px 0 130px;
+    padding-top: 20px;
+}
+
+.input-user_name{
+    width:100%;
+    height:60px;
+    margin-top: 15px;
+    padding: 0 0 0 20px;
+    font-family: Pretendard;
+    font-size: 16px;
+    text-align: left;
+    color: #aaa;
+    border-radius:5px;
+    border:solid 1px #ddd;
+    background-color:#fff;
+
+}
+
+.input-user_birth{
+    width:100%;
+    height:60px;
+    margin-top: 15px;
+    padding: 0 0 0 20px;
+    font-family: Pretendard;
+    font-size: 16px;
+    text-align: left;
+    color: #aaa;
+    border-radius:5px;
+    border:solid 1px #ddd;
+    background-color:#fff;
+
+}
+
+.process-error{
+    border:solid 1px #de3838;
+}
+
+#text-birth-check-error span{
+    color:#de3838;
 }
 
 .check_divider{
@@ -144,16 +479,196 @@ input[type=checkbox]{
 
 .check_divider a{
     font-size: 14px;
+    font-weight: bold;
     margin-top: 12px;
     text-decoration:underline;
     color:#666666;
 }
 
+.span-more-information{
+    display: inline-block;
+    font-size: 26px;
+    font-weight: 500;
+    margin-top: 60px;
+    margin-bottom: 30px;
+    color: #222;
+}
 
+#btn-information-finish:disabled{
+    background-color: #aaaaaa;
+}
 
-#main_signup{
-    border:none;
+#btn-information-next{
+    width:100%;
+    height: 60px;
+    margin-top:30px;
+    padding: 20px 19px;
+    border:solid 1px #222;
+    border-radius:5px;
+    background-color: #fff;
+}
+
+#btn-information-next .btn-span{
+    font-size: 18px;
+    font-weight: 600;
+    color: #222;
+}
+
+#btn-information-next:disabled{
+    background-color: #aaaaaa;
+}
+
+/* 추가 정보 입력 */
+.box-signup-more-information{
+    position:relative;
+    width:100%;
+    margin:80px 0;
+    display: none;
+}
+
+.box-signup-more-information h3{
+    width:100%;
+    font-weight: 500;
+    font-size:36px;
+}
+
+.box-form-signup-more-information{
+    position: relative;
+    width:440px;
+    margin: 30px 130px 0 130px;
+    padding-top: 20px;
+}
+
+.radio-gender-select{
+    display: none;
+}
+#radio-gender-select-man+label{
+    display: inline-block;
+    cursor: pointer;
+    width: 220px;
+    height: 60px;
+    line-height: 60px;
+    border: 1px solid #ddd;
+    border-radius : 5px 0 0 5px; 
+    font-size:16px;
+}
+
+#radio-gender-select-woman+label{
+    display: inline-block;
+    cursor: pointer;
+    width: 220px;
+    height: 60px;
+    margin-left: -6px;
+    line-height: 60px;
+    border: 1px solid #ddd;
+    border-radius: 0 5px 5px 0;
+    font-size:16px;
+}
+.radio-gender-select+label{
+    background-color: #fff;
+    color: #333;
+}
+.radio-gender-select:checked+label{
+    background-color: #1f4dff;
+    color: #fff;
+}
+
+.box-bank-select{
+    text-align: left;
+    margin-top: 24px;
+}
+
+.span-bank-more-information{
+    display: inline-block;
+    font-family: Pretendard;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #222;
+}
+
+#select-user_bank{
+    width: 130px;
+    height: 60px;
+    margin:10px 9px 30px 0;
+    padding:21px 16px 20px 20px;
+    border-radius: 5px;
+    border: solid 1px #ddd;
+    background-color: #fff;
+    font-family: Pretendard;
+    font-size: 16px;
+    text-align: left;
+    color: #aaa;
+    appearance: none;
+    background: url('/image/chevron-down-solid.png') no-repeat 90% 50%;
+    background-size: 13px;
+}
+
+#input-user_bank{
+    width: 295px;
+    height: 60px;
+    left:0;
+    margin: 10px 0 30px 0;
+    padding: 21px 0 20px 20px;
+    font-family: Pretendard;
+    font-size: 16px;
+    text-align: left;
+    color: #aaa;
+    border-radius: 5px;
+    border: solid 1px #ddd;
+    background-color: #fff;
+}
+
+/* 진행 그래프 */
+
+.process_graph{
+    position: absolute;
+    width:33.3%;
+    height: 8px;
+    top:-80px;
+    margin-top:0;
     background-color: #1F4DFF;
 }
 
+.process_graph-01{
+    width: 33.3%;
+    animation:process1 1s ease-in-out;
+}
 
+.process_graph-02{
+    width: 66.6%;
+    animation:process2 1s ease-in-out;
+}
+
+.process_graph-03{
+    width: 100%;
+    animation:process3 1s ease-in-out;
+}
+
+.process_graph-04{
+    width: 100%;
+}
+
+@keyframes process1{
+    from{
+        width:0;
+    }to{
+        width:33.3%;
+    }
+}
+
+@keyframes process2{
+    from{
+        width:33.3%;
+    }to{
+        width:66.6%;
+    }
+}
+
+@keyframes process3{
+    from{
+        width:66.6%;
+    }to{
+        width:100%;
+    }
+}
