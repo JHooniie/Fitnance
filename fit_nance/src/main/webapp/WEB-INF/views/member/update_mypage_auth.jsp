@@ -1,0 +1,37 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<!DOCTYPE html>
+<html>
+	<head>
+		<c:import url="/WEB-INF/views/layout/head.jsp" />
+		<!-- custom -->
+		<link rel="stylesheet" href="<c:url value='/css/member_update_mypage_auth.css'/>">
+	</head>
+	<body>
+		<c:import url="/WEB-INF/views/layout/top.jsp" />
+		<section id="update_auth_section">
+        <div class="update_auth_page wrap">
+            <div class="update_auth_container">
+                <form action="form-update_auth">
+                <div class="box-update_auth-password">
+                    <h3>내 정보 수정하기</h3>
+                    <span class="span-update_auth-password-title">정보 보호를 위해 비밀번호를 한 번 더 입력해주세요</span>
+                    <div class="box-form-update_auth-password">
+                        <div class="box-password-input">
+                            <input type="password" id="input-user_pw" placeholder="비밀번호를 입력해주세요">
+                            <i class="fa-solid fa-eye-slash"></i>
+                        </div>
+                        <button id="btn-password-next" onclick="location.href='<c:url value='/update-mypage'/>'"><span class="btn-span">비밀번호로 인증하기</span></button>
+                        <!-- submit 삭제해둠 -->
+                    </div>
+                </div>
+            </form>
+            </div>
+        </div>
+    </section>
+    <!-- login end -->
+	    <c:import url="/WEB-INF/views/layout/footer.jsp" />
+	</body>
+	<script src="../js/login.js"></script>
+</html>
