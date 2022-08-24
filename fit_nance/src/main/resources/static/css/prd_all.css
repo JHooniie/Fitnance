@@ -1,0 +1,544 @@
+.bg-gray{
+    background-color: #F2F2F2;
+}
+
+/* box-prd-01 */
+.box-prd-01{
+    position: relative;
+    margin-top: 220px;
+}
+
+.box-prd-01 .title-prd-all{
+    margin-bottom: 32px;
+    font-size: 46px;
+    font-weight: 700;
+    line-height: 56px;
+}
+
+.box-prd-01 .sub-prd-all{
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.box-prd-01 .img-prd-all{
+    position: absolute;
+    top: -40px;
+    right: 0;
+    width: 542px;
+}
+
+.box-prd-01 .box-prd-01-list{
+    margin-top: 100px;
+}
+
+.box-prd-01 .box-prd-01-list .title-prd-list{
+    margin-bottom: 40px;
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.box-prd-01 .box-prd-01-list .box-prd-list{
+    display: inline-block;
+    width: 400px;
+    margin-right: 35px;
+    padding: 70px 0 50px;
+    border: 1px solid #DDDDDD;
+    border-radius: 20px;
+    background-color: #FFFFFF;
+    text-align: center;
+}
+
+.box-prd-01 .box-prd-01-list .box-prd-list:last-child{
+    margin-right: 0;
+}
+
+.box-prd-01 .box-prd-01-list .box-prd-list .lg-bank{
+    width: 70px;
+    height: 70px;
+    margin: 0 auto;
+    border-radius: 10px;
+    background-color: #F2F2F2;
+    overflow: hidden;
+}
+
+.box-prd-01 .box-prd-01-list .box-prd-list .name-bank{
+    display: block;
+    margin-top: 10px;
+    font-size: 12px;
+    font-weight: 300;
+}
+
+.box-prd-01 .box-prd-01-list .box-prd-list .name-prd{
+    display: block;
+    margin-top: 30px;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.box-prd-01 .box-prd-01-list .box-prd-list .exp-prd{
+    display: block;
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 20px;
+}
+
+.box-prd-01 .box-prd-01-list .box-prd-list .title-percent{
+    display: block;
+    margin-top: 30px;
+    font-size: 12px;
+    font-weight: 300;
+}
+
+.box-prd-01 .box-prd-01-list .box-prd-list .box-percent{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.box-prd-01 .box-prd-01-list .box-prd-list .box-percent span:first-child{
+    margin-right: 3px;
+    font-size: 26px;
+    font-weight: 300;
+}
+
+.box-prd-01 .box-prd-01-list .box-prd-list .box-percent span:nth-child(2){ 
+    font-size: 32px;
+    font-weight: 500;
+}
+
+.box-prd-01 .box-prd-01-list .box-prd-list .box-percent span:last-child{
+    margin-top: 4px;
+    font-size: 22px;
+    font-weight: 300;
+}
+
+/* box-prd-02 */
+section.bg-gray{
+    margin-top: 100px;
+    padding: 80px 0;
+}
+
+.box-prd-02 .sub-prd-list{
+    font-size: 20px;
+    font-weight: 300;
+}
+
+.box-prd-02 .title-prd-list{
+    margin-top: 5px;
+    font-size: 28px;
+    font-weight: 600;
+}
+
+.box-prd-02 .container-wrap-list{
+    width: 100%;
+    overflow: hidden;
+}
+
+.box-prd-02 .wrap-list{
+    white-space: nowrap;
+}
+
+.box-prd-02 .box-prd-list{
+    display: inline-block;
+    width: 348px;
+    margin-top: 40px;
+    margin-right: 20px;
+    padding: 55px 50px;
+    border-radius: 20px;
+    background-color: #FFFFFF;
+}
+
+.box-prd-02 .box-prd-list .box-bank-info{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 30px;
+    margin-bottom: 25px;
+}
+
+.box-prd-02 .box-prd-list .lg-bank{
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    margin-right: 12px;
+    border-radius: 4px;
+    background-color: #F2F2F2;
+    overflow: hidden;
+}
+
+.box-prd-02 .box-prd-list .name-bank{
+    font-size: 14px;
+    font-weight: 300;
+}
+
+.box-prd-02 .box-prd-list .name-prd{
+    display: block;
+    width: 100%;
+    font-size: 19px;
+    font-weight: 600;
+    /* 말줄임표 */
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.box-prd-02 .box-prd-list .box-percent{
+    display: flex;
+    margin-top: 15px;
+    align-items: flex-end;
+}
+
+.box-prd-02 .box-prd-list .box-percent span:first-child{
+    margin-right: 8px;
+    margin-bottom: 3px;
+    font-size: 32px;
+    font-weight: 300;
+}
+
+.box-prd-02 .box-prd-list .box-percent span:nth-child(2){
+    font-size: 38px;
+    font-weight: 500;
+}
+
+.box-prd-02 .box-prd-list .box-percent span:nth-child(3){
+    margin-bottom: 2px;
+    font-size: 28px;
+    font-weight: 300;
+}
+
+.box-prd-02 .box-prd-list .box-percent span:last-child{
+    margin-left: 10px;
+    margin-bottom: 5px;
+    font-size: 15px;
+    font-weight: 200;
+}
+
+/* box-prd-03 */
+.box-prd-03{
+    margin-top: 80px;
+}
+
+.box-prd-03 .sub-prd-list{
+    display: block;
+    margin-bottom: 5px;
+    font-size: 20px;
+    font-weight: 300;
+}
+
+.box-prd-03 .wrap-title-btn{
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+
+.box-prd-03 .wrap-title-btn .title-prd-list{
+    font-size: 28px;
+    font-weight: 600;
+}
+
+.box-prd-03 .wrap-title-btn .btn-prd-all{
+    color: #666666;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.box-prd-03 .wrap-list{
+    width: 100%;
+}
+
+.box-prd-03 .box-prd-list{
+    display: inline-block;
+    width: 280px;
+    margin-top: 40px;
+    margin-right: 20px;
+    padding: 40px;
+    border: 1px solid #DDDDDD;
+    border-radius: 20px;
+    background-color: #FFFFFF;
+}
+
+.box-prd-03 .box-prd-list .box-bank-info{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 30px;
+    margin-bottom: 10px;
+}
+
+.box-prd-03 .box-prd-list .lg-bank{
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    margin-right: 10px;
+    border-radius: 4px;
+    background-color: #F2F2F2;
+    overflow: hidden;
+}
+
+.box-prd-03 .box-prd-list .name-bank{
+    font-size: 12px;
+    font-weight: 300;
+}
+
+.box-prd-03 .box-prd-list .name-prd{
+    display: block;
+    width: 100%;
+    font-size: 16px;
+    font-weight: 600;
+    /* 말줄임표 */
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.box-prd-03 .box-prd-list .box-percent{
+    display: flex;
+    margin-top: 15px;
+    justify-content: space-between;
+}
+
+.box-prd-03 .box-prd-list .box-percent .box-percent-01 span:first-child{
+    display: block;
+    margin-bottom: 5px;
+    font-size: 12px;
+    font-weight: 300;
+}
+
+.box-prd-03 .box-prd-list .box-percent .box-percent-01 span:last-child{
+    font-size: 24px;
+    font-weight: 500;
+}
+
+.box-prd-03 .box-prd-list .box-percent .box-percent-02 span:first-child{
+    display: block;
+    margin-bottom: 5px;
+    font-size: 12px;
+    font-weight: 300;
+}
+
+.box-prd-03 .box-prd-list .box-percent .box-percent-02 span:nth-child(2){
+    font-size: 24px;
+    font-weight: 300;
+}
+
+.box-prd-03 .box-prd-list .box-percent .box-percent-02 span:nth-child(3){
+    font-size: 24px;
+    font-weight: 500;
+}
+
+.box-prd-03 .box-prd-list .box-percent .box-percent-02 span:last-child{
+    font-size: 20px;
+    font-weight: 300;
+}
+
+/* box-prd-04 */
+.box-prd-04 .sub-prd-list{
+    display: block;
+    margin-bottom: 5px;
+    font-size: 20px;
+    font-weight: 300;
+}
+
+.box-prd-04 .wrap-title-btn{
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+
+.box-prd-04 .wrap-title-btn .title-prd-list{
+    font-size: 28px;
+    font-weight: 600;
+}
+
+.box-prd-04 .wrap-title-btn .btn-prd-all{
+    color: #666666;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.box-prd-04 .wrap-list{
+    width: 100%;
+}
+
+.box-prd-04 .box-prd-list{
+    display: inline-block;
+    width: 280px;
+    margin-top: 40px;
+    margin-right: 20px;
+    padding: 40px;
+    border: 1px solid #DDDDDD;
+    border-radius: 20px;
+    background-color: #FFFFFF;
+}
+
+.box-prd-04 .box-prd-list .box-bank-info{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 30px;
+    margin-bottom: 10px;
+}
+
+.box-prd-04 .box-prd-list .lg-bank{
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    margin-right: 10px;
+    border-radius: 4px;
+    background-color: #F2F2F2;
+    overflow: hidden;
+}
+
+.box-prd-04 .box-prd-list .name-bank{
+    font-size: 12px;
+    font-weight: 300;
+}
+
+.box-prd-04 .box-prd-list .name-prd{
+    display: block;
+    width: 100%;
+    font-size: 16px;
+    font-weight: 600;
+    /* 말줄임표 */
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.box-prd-04 .box-prd-list .box-percent{
+    display: flex;
+    margin-top: 15px;
+    justify-content: space-between;
+}
+
+.box-prd-04 .box-prd-list .box-percent .box-percent-01 span:first-child{
+    display: block;
+    margin-bottom: 5px;
+    font-size: 12px;
+    font-weight: 300;
+}
+
+.box-prd-04 .box-prd-list .box-percent .box-percent-01 span:last-child{
+    font-size: 24px;
+    font-weight: 500;
+}
+
+.box-prd-04 .box-prd-list .box-percent .box-percent-02 span:first-child{
+    display: block;
+    margin-bottom: 5px;
+    font-size: 12px;
+    font-weight: 300;
+}
+
+.box-prd-04 .box-prd-list .box-percent .box-percent-02 span:nth-child(2){
+    font-size: 24px;
+    font-weight: 300;
+}
+
+.box-prd-04 .box-prd-list .box-percent .box-percent-02 span:nth-child(3){
+    font-size: 24px;
+    font-weight: 500;
+}
+
+.box-prd-04 .box-prd-list .box-percent .box-percent-02 span:last-child{
+    font-size: 20px;
+    font-weight: 300;
+}
+
+/* box-prd-05 */
+.box-prd-05{
+    margin-top: 80px;
+}
+
+.box-prd-05 .sub-prd-list{
+    display: block;
+    margin-bottom: 5px;
+    font-size: 20px;
+    font-weight: 300;
+}
+
+.box-prd-05 .wrap-title-btn{
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+
+.box-prd-05 .wrap-title-btn .title-prd-list{
+    font-size: 28px;
+    font-weight: 600;
+}
+
+.box-prd-05 .wrap-title-btn .btn-prd-all{
+    color: #666666;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.box-prd-05 .wrap-list{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.box-prd-05 .box-prd-list{
+    display: flex;
+    width: 305px;
+    height: 100px;
+    margin-top: 40px;
+    padding: 0 17px;
+    border: 1px solid #DDDDDD;
+    border-radius: 10px;
+    background-color: #FFFFFF;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.box-prd-05 .box-prd-list .box-bank-info{
+    display: flex;
+    align-items: center;
+    height: 30px;
+}
+
+.box-prd-05 .box-prd-list .box-bank-info .lg-bank{
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    margin-right: 10px;
+    border-radius: 4px;
+    background-color: #F2F2F2;
+    overflow: hidden;
+}
+
+.box-prd-05 .box-prd-list .box-bank-info div .name-bank{
+    font-size: 12px;
+    font-weight: 300;
+}
+
+.box-prd-05 .box-prd-list .box-bank-info div .name-prd{
+    display: block;
+    width: 140px;
+    font-size: 16px;
+    font-weight: 600;
+    /* 말줄임표 */
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.box-prd-05 .box-prd-list .box-percent span:first-child{
+    margin-right: 3px;
+    font-size: 24px;
+    font-weight: 300;
+}
+
+.box-prd-05 .box-prd-list .box-percent span:nth-child(2){
+    font-size: 24px;
+    font-weight: 500;
+}
+
+.box-prd-05 .box-prd-list .box-percent span:last-child{
+    font-size: 20px;
+    font-weight: 300;
+}

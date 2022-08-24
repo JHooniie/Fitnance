@@ -61,9 +61,15 @@ public class ProductController {
 		//return "product/productAllListView"; //뷰페이지 이름 반환 (데이터 없는 빈 페이지)
 	}
 	
-	// 상품 추천 프로세
+	// 상품 추천 프로세스
 	@RequestMapping("/prd_recom")
 	public String viewPrdRecom() {
 		return "product/prd_recom_process";
+	}
+	
+	// 상품 추천 프로세스
+	@RequestMapping("/prd_all")
+	public String viewPrdAll() {
+		return "product/prd_all";
 	}
 }
