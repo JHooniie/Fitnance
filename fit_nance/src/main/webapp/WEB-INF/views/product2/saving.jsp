@@ -1,19 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <!DOCTYPE html>
 <html>
-	<head>
+		<head>
 		<!-- head -->
 		<c:import url="/WEB-INF/views/layout/head.jsp" />
 		<!-- css -->
-		<link rel="stylesheet" href="<c:url value='/css/deposit.css'/>"/>
+		<link rel="stylesheet" href="<c:url value='/css/saving.css'/>"/>
 		<!-- js -->
 		<!-- 삭제해야함 -->
+		
 		<meta charset="UTF-8">
-		<title>Insert title here</title>
 	</head>
 	<body>
 		<!-- top.jsp -->
@@ -22,22 +21,24 @@
 		<div class="middle wrap"></div>
         <div class="back">
             </div>
-        <div class="m">
-            <div class="middle-text">
-                <ul>
-                    <li>예금<br>
-                    관련 문구</li>
-                    <li>정기예금 관련 문구 정기예금 관련 문구</li>
-                </ul>
-            </div>
-            <div class="middle-image">
-                <img src="image/img_deposit.png">
-            </div>
+        <div class="middle-text">
+            <ul>
+                <li>돈이 불어나는 습관,<br>
+                적금 상품</li>
+                <li>적금 관련 문구 적금 관련 문구</li>
+            </ul>
+        </div>
+        <div class="middle-image">
+            <img src="image/img_savings.png">
         </div>
         <div class="middel-bottom">
             <div>
                 <div class="product-compare-box">상품 비교하기</div>   
                 <div class="select-box">
+                    <div class="select-title">예치방식</div>
+                    <div class="select-option select-option1">자유적립식</div>
+                    <div class="select-option select-option1">정액적립식</div>
+
                     <div class="select-title">가입대상</div>
                     <div class="select-option select-option1">개인</div>
                     <div class="select-option select-option1">기업</div>
@@ -70,7 +71,7 @@
                             <div class="text-box">
                                 <div class="bank-name">우리은행</div>
                                 <div class="item-line">
-                                    <div class="item-name">우리 SUPER정기예금<span>영업점</span><span>인터넷</span><span>스마트폰</span></spna></div>
+                                    <div class="item-name">시니어플러스우리적금(증여우대형)<span>영업점</span><span>인터넷</span><span>스마트폰</span></spna></div>
                                 </div>
                             </div>
                             <div class="plus-icon"><i class="fa-solid fa-folder-plus"></i></div>
@@ -82,13 +83,13 @@
                                 <div class="percent1">
                                     <ul>
                                         <li>1년기준 (세전)</li>
-                                        <li><span>2.4</span>%</li>
+                                        <li><span>2.35</span>%</li>
                                     </ul>
                                 </div>
                                 <div class="percent2">
                                     <ul>
-                                        <li>최소</li>
-                                        <li><span>6</span>개월부터</li>
+                                        <li>최대 (세전)</li>
+                                        <li><span>2.75</span>%</li>
                                     </ul>
                                 </div>
                             </div>
@@ -101,7 +102,7 @@
                             <div class="text-box">
                                 <div class="bank-name">우리은행</div>
                                 <div class="item-line">
-                                    <div class="item-name">우리 SUPER정기예금<span>영업점</span><span>인터넷</span><span>스마트폰</span></spna></div>
+                                    <div class="item-name">시니어플러스우리적금(증여우대형)<span>영업점</span><span>인터넷</span><span>스마트폰</span></spna></div>
                                 </div>
                             </div>
                             <div class="plus-icon"><i class="fa-solid fa-folder-plus"></i></div>
@@ -113,13 +114,13 @@
                                 <div class="percent1">
                                     <ul>
                                         <li>1년기준 (세전)</li>
-                                        <li><span>2.4</span>%</li>
+                                        <li><span>2.35</span>%</li>
                                     </ul>
                                 </div>
                                 <div class="percent2">
                                     <ul>
-                                        <li>최소</li>
-                                        <li><span>6</span>개월부터</li>
+                                        <li>최대 (세전)</li>
+                                        <li><span>2.75</span>%</li>
                                     </ul>
                                 </div>
                             </div>
@@ -132,7 +133,7 @@
                             <div class="text-box">
                                 <div class="bank-name">우리은행</div>
                                 <div class="item-line">
-                                    <div class="item-name">우리 SUPER정기예금<span>영업점</span><span>인터넷</span><span>스마트폰</span></spna></div>
+                                    <div class="item-name">시니어플러스우리적금(증여우대형)<span>영업점</span><span>인터넷</span><span>스마트폰</span></spna></div>
                                 </div>
                             </div>
                             <div class="plus-icon"><i class="fa-solid fa-folder-plus"></i></div>
@@ -144,13 +145,13 @@
                                 <div class="percent1">
                                     <ul>
                                         <li>1년기준 (세전)</li>
-                                        <li><span>2.4</span>%</li>
+                                        <li><span>2.35</span>%</li>
                                     </ul>
                                 </div>
                                 <div class="percent2">
                                     <ul>
-                                        <li>최소</li>
-                                        <li><span>6</span>개월부터</li>
+                                        <li>최대 (세전)</li>
+                                        <li><span>2.75</span>%</li>
                                     </ul>
                                 </div>
                             </div>
@@ -163,7 +164,7 @@
                             <div class="text-box">
                                 <div class="bank-name">우리은행</div>
                                 <div class="item-line">
-                                    <div class="item-name">우리 SUPER정기예금<span>영업점</span><span>인터넷</span><span>스마트폰</span></spna></div>
+                                    <div class="item-name">시니어플러스우리적금(증여우대형)<span>영업점</span><span>인터넷</span><span>스마트폰</span></spna></div>
                                 </div>
                             </div>
                             <div class="plus-icon"><i class="fa-solid fa-folder-plus"></i></div>
@@ -175,13 +176,13 @@
                                 <div class="percent1">
                                     <ul>
                                         <li>1년기준 (세전)</li>
-                                        <li><span>2.4</span>%</li>
+                                        <li><span>2.35</span>%</li>
                                     </ul>
                                 </div>
                                 <div class="percent2">
                                     <ul>
-                                        <li>최소</li>
-                                        <li><span>6</span>개월부터</li>
+                                        <li>최대 (세전)</li>
+                                        <li><span>2.75</span>%</li>
                                     </ul>
                                 </div>
                             </div>
@@ -194,7 +195,7 @@
                             <div class="text-box">
                                 <div class="bank-name">우리은행</div>
                                 <div class="item-line">
-                                    <div class="item-name">우리 SUPER정기예금<span>영업점</span><span>인터넷</span><span>스마트폰</span></spna></div>
+                                    <div class="item-name">시니어플러스우리적금(증여우대형)<span>영업점</span><span>인터넷</span><span>스마트폰</span></spna></div>
                                 </div>
                             </div>
                             <div class="plus-icon"><i class="fa-solid fa-folder-plus"></i></div>
@@ -206,13 +207,13 @@
                                 <div class="percent1">
                                     <ul>
                                         <li>1년기준 (세전)</li>
-                                        <li><span>2.4</span>%</li>
+                                        <li><span>2.35</span>%</li>
                                     </ul>
                                 </div>
                                 <div class="percent2">
                                     <ul>
-                                        <li>최소</li>
-                                        <li><span>6</span>개월부터</li>
+                                        <li>최대 (세전)</li>
+                                        <li><span>2.75</span>%</li>
                                     </ul>
                                 </div>
                             </div>
@@ -225,7 +226,7 @@
                             <div class="text-box">
                                 <div class="bank-name">우리은행</div>
                                 <div class="item-line">
-                                    <div class="item-name">우리 SUPER정기예금<span>영업점</span><span>인터넷</span><span>스마트폰</span></spna></div>
+                                    <div class="item-name">시니어플러스우리적금(증여우대형)<span>영업점</span><span>인터넷</span><span>스마트폰</span></spna></div>
                                 </div>
                             </div>
                             <div class="plus-icon"><i class="fa-solid fa-folder-plus"></i></div>
@@ -237,13 +238,13 @@
                                 <div class="percent1">
                                     <ul>
                                         <li>1년기준 (세전)</li>
-                                        <li><span>2.4</span>%</li>
+                                        <li><span>2.35</span>%</li>
                                     </ul>
                                 </div>
                                 <div class="percent2">
                                     <ul>
-                                        <li>최소</li>
-                                        <li><span>6</span>개월부터</li>
+                                        <li>최대 (세전)</li>
+                                        <li><span>2.75</span>%</li>
                                     </ul>
                                 </div>
                             </div>
@@ -256,7 +257,7 @@
                             <div class="text-box">
                                 <div class="bank-name">우리은행</div>
                                 <div class="item-line">
-                                    <div class="item-name">우리 SUPER정기예금<span>영업점</span><span>인터넷</span><span>스마트폰</span></spna></div>
+                                    <div class="item-name">시니어플러스우리적금(증여우대형)<span>영업점</span><span>인터넷</span><span>스마트폰</span></spna></div>
                                 </div>
                             </div>
                             <div class="plus-icon"><i class="fa-solid fa-folder-plus"></i></div>
@@ -268,13 +269,13 @@
                                 <div class="percent1">
                                     <ul>
                                         <li>1년기준 (세전)</li>
-                                        <li><span>2.4</span>%</li>
+                                        <li><span>2.35</span>%</li>
                                     </ul>
                                 </div>
                                 <div class="percent2">
                                     <ul>
-                                        <li>최소</li>
-                                        <li><span>6</span>개월부터</li>
+                                        <li>최대 (세전)</li>
+                                        <li><span>2.75</span>%</li>
                                     </ul>
                                 </div>
                             </div>
@@ -287,7 +288,7 @@
                             <div class="text-box">
                                 <div class="bank-name">우리은행</div>
                                 <div class="item-line">
-                                    <div class="item-name">우리 SUPER정기예금<span>영업점</span><span>인터넷</span><span>스마트폰</span></spna></div>
+                                    <div class="item-name">시니어플러스우리적금(증여우대형)<span>영업점</span><span>인터넷</span><span>스마트폰</span></spna></div>
                                 </div>
                             </div>
                             <div class="plus-icon"><i class="fa-solid fa-folder-plus"></i></div>
@@ -299,13 +300,13 @@
                                 <div class="percent1">
                                     <ul>
                                         <li>1년기준 (세전)</li>
-                                        <li><span>2.4</span>%</li>
+                                        <li><span>2.35</span>%</li>
                                     </ul>
                                 </div>
                                 <div class="percent2">
                                     <ul>
-                                        <li>최소</li>
-                                        <li><span>6</span>개월부터</li>
+                                        <li>최대 (세전)</li>
+                                        <li><span>2.75</span>%</li>
                                     </ul>
                                 </div>
                             </div>
@@ -318,7 +319,7 @@
                             <div class="text-box">
                                 <div class="bank-name">우리은행</div>
                                 <div class="item-line">
-                                    <div class="item-name">우리 SUPER정기예금<span>영업점</span><span>인터넷</span><span>스마트폰</span></spna></div>
+                                    <div class="item-name">시니어플러스우리적금(증여우대형)<span>영업점</span><span>인터넷</span><span>스마트폰</span></spna></div>
                                 </div>
                             </div>
                             <div class="plus-icon"><i class="fa-solid fa-folder-plus"></i></div>
@@ -330,13 +331,13 @@
                                 <div class="percent1">
                                     <ul>
                                         <li>1년기준 (세전)</li>
-                                        <li><span>2.4</span>%</li>
+                                        <li><span>2.35</span>%</li>
                                     </ul>
                                 </div>
                                 <div class="percent2">
                                     <ul>
-                                        <li>최소</li>
-                                        <li><span>6</span>개월부터</li>
+                                        <li>최대 (세전)</li>
+                                        <li><span>2.75</span>%</li>
                                     </ul>
                                 </div>
                             </div>
@@ -356,7 +357,6 @@
             </div>
         </div>
     </div>
-		
 		
 		<!-- bottom.jsp -->
 		<c:import url="/WEB-INF/views/layout/footer.jsp" />

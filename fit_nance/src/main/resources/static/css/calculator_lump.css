@@ -4,18 +4,6 @@
 font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
 }
 
-.dp-flex{
-    display: flex!important;
-}
-
-.dp-block{
-    display: block!important;
-}
-
-.dp-none{
-    display: none!important;
-}
-
 
 /* 초기화 */
 *{
@@ -37,7 +25,6 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
 /* calculator deposit */
 .middle{
     margin-top:134.5px;
-    margin-left:320px;
     display:flex;
     flex-direction: column;
 }
@@ -62,8 +49,8 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
     width:130px;
     height: 52px;
     border-radius: 5px;
-    background-color: #1F4DFF;
-    color:#FFFFFF;
+    border:2px solid #f2f2f2;
+    color: #222222;
     font-size: 16px;
     text-align: center;
     padding:16px;
@@ -74,8 +61,9 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
     width:174px;
     height: 52px;
     border-radius: 5px;
-    border:2px solid #f2f2f2;
-    color: #222222;
+    
+    background-color: #1F4DFF;
+    color:#FFFFFF;
     font-size: 16px;
     text-align: center;
     padding:16px;
@@ -113,27 +101,30 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
     
 }
 
-.middle4 .middle4-subbox1 .sub-input #amount-paid, #period,#interest-rate, #interest-rate-system{
+.middle4 .middle4-subbox1 .sub-input #amount-paid,
+.middle4 .middle4-subbox1 .sub-input #period,
+.middle4 .middle4-subbox1 .sub-input #interest-rate,
+.middle4 .middle4-subbox1 .sub-input #interest-rate-system{
     margin-left:auto;
-    
+    text-align: right;
     border:0px;
     font-size:20px;
     font-weight: 600;
+    
 }
 
-.middle4 .middle4-subbox1 .sub-input #amount-paid,#interest-rate{
+.middle4 .middle4-subbox1 .sub-input #amount-paid, 
+.middle4 .middle4-subbox1 .sub-input #interest-rate{
     color:#aaa;
-    text-align: right;
+    
 }
 
 .middle4 .middle4-subbox1 .sub-input #period{
-    width:91px;
-    margin-right:13px;
+    appearance: none;
 }
 
 .middle4 .middle4-subbox1 .sub-input #interest-rate-system{
-    width:75px;
-    margin-right:13px;
+    appearance: none;
 }
 
 .middle4 .middle4-subbox1 .sub-input span{

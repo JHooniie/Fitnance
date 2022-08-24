@@ -34,6 +34,34 @@ public class HomeController {
 		return "product2/deposit";
 	}
 	
+	@RequestMapping("/saving")
+	public String saving() {
+		return "product2/saving";
+	}
+	
+	@RequestMapping("/pension")
+	public String pension() {
+		return "product2/pension";
+	}
+	
+	@RequestMapping("/faq")
+	public String faq() {
+		return "product2/faq";
+	}
+	
+	@RequestMapping("/deposit_detail")
+	public String deposit_detail() {
+		return "product2/deposit_detail";
+	}
+	@RequestMapping("/saving_detail")
+	public String saving_detail() {
+		return "product2/saving_detail";
+	}
+	@RequestMapping("/pension_detail")
+	public String pension_detail() {
+		return "product2/pension_detail";
+	}
+	
 	@RequestMapping("/intro")
 	public String intro() {
 		return "product2/intro";
@@ -41,5 +69,10 @@ public class HomeController {
 	@RequestMapping("/calculator_deposit")
 	public String calculator_deposit() {
 		return "product2/calculator_deposit";
+	}
+	
+	@RequestMapping("/calculator_lump")
+	public String calculator_lump() {
+		return "product2/calculator_lump";
 	}
 }

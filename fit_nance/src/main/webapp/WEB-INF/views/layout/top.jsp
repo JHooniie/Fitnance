@@ -37,9 +37,9 @@
         </ul>
         <ul>
             <li>예/적금</li>
-            <li><a href="<c:url value='deposit'/>">적금 상품</a></li>
-            <li><a href="#">예금 상품</a></li>
-            <li><a href="#">연금 저축</a></li>
+            <li><a href="<c:url value='saving'/>">적금 상품</a></li>
+            <li><a href="<c:url value='deposit'/>">예금 상품</a></li>
+            <li><a href="<c:url value='pension'/>">연금 저축</a></li>
         </ul>
         <ul>
             <li>대출</li>
@@ -53,7 +53,7 @@
         <ul>
             <li>목돈 계산기</li>
             <li><a href="<c:url value='calculator_deposit'/>">적금 계산기</a></li>
-            <li><a href="#">목돈 모으기 계산기</a></li>
+            <li><a href="<c:url value='calculator_lump'/>">목돈 모으기 계산기</a></li>
         </ul>
         <ul>
             <li>대출 계산기</li>
@@ -68,7 +68,7 @@
     <div class="box-menu-04-bottom li-cus-service wrap">
         <ul>
             <li>이용 안내</li>
-            <li><a href="#">자주 묻는 질문</a></li>
+            <li><a href="<c:url value='faq'/>">자주 묻는 질문</a></li>
             <li><a href="<c:url value='/notice'/>">공지사항</a></li>
         </ul>
         <ul>
