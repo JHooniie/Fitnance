@@ -222,13 +222,14 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
     margin-bottom: 11px;
 }
 
-.middle4-subbox2 .sub-line1, .sub-line2{
+.middle4-subbox2 .sub-line1,
+.middle4-subbox2 .sub-line2{
     display:flex;
     flex-direction: row;
+    justify-content: space-between;
     height: 84px;
     padding-top:30px;
 }
-
 .middle4-subbox2 .sub-line1{
     border-bottom:4px solid #f2f2f2;
 }
