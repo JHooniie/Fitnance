@@ -10,4 +10,9 @@ public class AdminController {
 	public String viewLogin() {
 		return "admin/login";
 	}
+	
+	@RequestMapping("/admin/notice")
+	public String viewNotice() {
+		return "admin/notice/admin_notice";
+	}
 }
