@@ -26,32 +26,27 @@
 	
 	                    <!-- 공지사항 등록 -->
 	                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-	                        <h1 class="h3 mb-0 text-gray-800">공지사항 등록</h1>
+	                        <h1 class="h3 mb-0 text-gray-800">공지사항</h1>
 	                    </div>
 	
 	                    <div class="card shadow mb-4">
 	                        <div class="card-body">
 	                            <div class="table-responsive">
-	                                <form method="post" action="<c:url value='/admin/insertNotice'/>">
-	                                    <table class="table table-bordered" width="100%" cellspacing="0">
-	                                        <tr>
-	                                            <th class="align-middle">제목</th>
-	                                            <td>
-	                                                <input type="text" name="noticeTitle" id="noticeTitle" class="form-control" placeholder="제목을 입력해주세요">
-	                                            </td>
-	                                        </tr>
-	                                        <tr>
-	                                            <th class="align-middle">내용</th>
-	                                            <td>
-	                                                <textarea id="summernote" name="noticeContent"></textarea>
-	                                            </td>
-	                                        </tr>
-	                                    </table>
-	                                    <div class="box-btn">
-	                                        <button type="reset" class="btn btn-outline-secondary">취소하기</button>
-	                                        <button type="submit" class="btn btn-primary">등록하기</button>
-	                                    </div>
-	                                </form>
+                                    <table class="table table-bordered" width="100%" cellspacing="0">
+                                        <tr>
+                                            <th class="align-middle" width="10%">제목</th>
+                                            <td>${notice.noticeTitle}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th class="align-middle">내용</th>
+                                            <td>${notice.noticeContent}
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <div class="box-btn">
+                                        <a href="<c:url value='/admin/updateNotice/${notice.noticeIndex}'/>" class="btn btn-outline-secondary">수정하기</a>
+                                    </div>
 	                            </div>
 	                        </div>
 	                    </div>

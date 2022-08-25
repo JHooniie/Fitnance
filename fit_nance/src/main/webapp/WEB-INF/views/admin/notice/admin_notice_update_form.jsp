@@ -24,32 +24,35 @@
 	                <!-- 컨텐츠 시작 -->
 	                <div class="container-fluid">
 	
-	                    <!-- 공지사항 등록 -->
+	                    <!-- 공지사항 수정 -->
 	                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-	                        <h1 class="h3 mb-0 text-gray-800">공지사항 등록</h1>
+	                        <h1 class="h3 mb-0 text-gray-800">공지사항 수정</h1>
 	                    </div>
 	
 	                    <div class="card shadow mb-4">
 	                        <div class="card-body">
 	                            <div class="table-responsive">
-	                                <form method="post" action="<c:url value='/admin/insertNotice'/>">
-	                                    <table class="table table-bordered" width="100%" cellspacing="0">
+	                                <form method="post" action="<c:url value='/admin/updateNotice'/>">
+	                                    <table class="table table-bordered">
 	                                        <tr>
 	                                            <th class="align-middle">제목</th>
 	                                            <td>
-	                                                <input type="text" name="noticeTitle" id="noticeTitle" class="form-control" placeholder="제목을 입력해주세요">
+	                                                <input type="text" name="noticeTitle" id="noticeTitle" class="form-control" placeholder="제목을 입력해주세요" value="${notice.noticeTitle}">
 	                                            </td>
 	                                        </tr>
 	                                        <tr>
 	                                            <th class="align-middle">내용</th>
 	                                            <td>
-	                                                <textarea id="summernote" name="noticeContent"></textarea>
+	                                                <textarea id="summernote" name="noticeContent">
+	                                                	${notice.noticeContent}
+                                                	</textarea>
 	                                            </td>
 	                                        </tr>
 	                                    </table>
+	                                    <input type="hidden" name="noticeIndex" value="${notice.noticeIndex}">
 	                                    <div class="box-btn">
 	                                        <button type="reset" class="btn btn-outline-secondary">취소하기</button>
-	                                        <button type="submit" class="btn btn-primary">등록하기</button>
+	                                        <button type="submit" class="btn btn-primary">수정하기</button>
 	                                    </div>
 	                                </form>
 	                            </div>

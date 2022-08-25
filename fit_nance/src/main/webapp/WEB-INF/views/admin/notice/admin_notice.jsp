@@ -32,7 +32,7 @@
 	                            <h6 class="m-0 font-weight-bold text-primary">공지사항</h6>
 	                            <div>
 	                                <button type="button" id="addNoticeBtn" class="btn btn-primary">등록</button>
-	                                <button type="button" class="btn btn-danger">삭제</button>
+	                                <button type="button" id="deleteNoticeBtn" class="btn btn-danger">삭제</button>
 	                            </div>                            
 	                        </div>
 	                        <div class="card-body">
@@ -42,7 +42,7 @@
 	                                        <tr>
 	                                            <th width="1%">
 	                                                <div class="form-check form-check-inline ml-3">
-	                                                    <input class="form-check-input" type="checkbox" id="checkboxNoLabel" value="" aria-label="...">                                                   
+	                                                    <input class="form-check-input" type="checkbox" id="allCheck">                                                   
 	                                                </div>
 	                                            </th>
 	                                            <th width="7%">No.</th>
@@ -52,227 +52,21 @@
 	                                        </tr>
 	                                    </thead>                                    
 	                                    <tbody>
-	                                        <tr>
-	                                            <td class="align-middle">
-	                                                <div class="form-check form-check-inline ml-3">
-	                                                    <input class="form-check-input" type="checkbox" id="checkboxNoLabel" value="" aria-label="...">                                                   
-	                                                </div>
-	                                            </td>
-	                                            <td class="align-middle">13</td>
-	                                            <td class="align-middle">이용약관 변경의 건</td>
-	                                            <td class="align-middle">2022.08.19</td>
-	                                            <td class="align-middle">
-	                                                <button type="button" class="btn btn-light btn-sm">상세보기</button>
-	                                            </td>
-	                                        </tr>
-	                                        <tr>
-	                                            <td class="align-middle">
-	                                                <div class="form-check form-check-inline ml-3">
-	                                                    <input class="form-check-input" type="checkbox" id="checkboxNoLabel" value="" aria-label="...">                                                   
-	                                                </div>
-	                                            </td>
-	                                            <td class="align-middle">13</td>
-	                                            <td class="align-middle">이용약관 변경의 건</td>
-	                                            <td class="align-middle">2022.08.19</td>
-	                                            <td class="align-middle">
-	                                                <button type="button" class="btn btn-light btn-sm">상세보기</button>
-	                                            </td>
-	                                        </tr>
-	                                        <tr>
-	                                            <td class="align-middle">
-	                                                <div class="form-check form-check-inline ml-3">
-	                                                    <input class="form-check-input" type="checkbox" id="checkboxNoLabel" value="" aria-label="...">                                                   
-	                                                </div>
-	                                            </td>
-	                                            <td class="align-middle">13</td>
-	                                            <td class="align-middle">이용약관 변경의 건</td>
-	                                            <td class="align-middle">2022.08.19</td>
-	                                            <td class="align-middle">
-	                                                <button type="button" class="btn btn-light btn-sm">상세보기</button>
-	                                            </td>
-	                                        </tr>
-	                                        <tr>
-	                                            <td class="align-middle">
-	                                                <div class="form-check form-check-inline ml-3">
-	                                                    <input class="form-check-input" type="checkbox" id="checkboxNoLabel" value="" aria-label="...">                                                   
-	                                                </div>
-	                                            </td>
-	                                            <td class="align-middle">13</td>
-	                                            <td class="align-middle">이용약관 변경의 건</td>
-	                                            <td class="align-middle">2022.08.19</td>
-	                                            <td class="align-middle">
-	                                                <button type="button" class="btn btn-light btn-sm">상세보기</button>
-	                                            </td>
-	                                        </tr>
-	                                        <tr>
-	                                            <td class="align-middle">
-	                                                <div class="form-check form-check-inline ml-3">
-	                                                    <input class="form-check-input" type="checkbox" id="checkboxNoLabel" value="" aria-label="...">                                                   
-	                                                </div>
-	                                            </td>
-	                                            <td class="align-middle">13</td>
-	                                            <td class="align-middle">이용약관 변경의 건</td>
-	                                            <td class="align-middle">2022.08.19</td>
-	                                            <td class="align-middle">
-	                                                <button type="button" class="btn btn-light btn-sm">상세보기</button>
-	                                            </td>
-	                                        </tr>
-	                                        <tr>
-	                                            <td class="align-middle">
-	                                                <div class="form-check form-check-inline ml-3">
-	                                                    <input class="form-check-input" type="checkbox" id="checkboxNoLabel" value="" aria-label="...">                                                   
-	                                                </div>
-	                                            </td>
-	                                            <td class="align-middle">13</td>
-	                                            <td class="align-middle">이용약관 변경의 건</td>
-	                                            <td class="align-middle">2022.08.19</td>
-	                                            <td class="align-middle">
-	                                                <button type="button" class="btn btn-light btn-sm">상세보기</button>
-	                                            </td>
-	                                        </tr>
-	                                        <tr>
-	                                            <td class="align-middle">
-	                                                <div class="form-check form-check-inline ml-3">
-	                                                    <input class="form-check-input" type="checkbox" id="checkboxNoLabel" value="" aria-label="...">                                                   
-	                                                </div>
-	                                            </td>
-	                                            <td class="align-middle">13</td>
-	                                            <td class="align-middle">이용약관 변경의 건</td>
-	                                            <td class="align-middle">2022.08.19</td>
-	                                            <td class="align-middle">
-	                                                <button type="button" class="btn btn-light btn-sm">상세보기</button>
-	                                            </td>
-	                                        </tr>
-	                                        <tr>
-	                                            <td class="align-middle">
-	                                                <div class="form-check form-check-inline ml-3">
-	                                                    <input class="form-check-input" type="checkbox" id="checkboxNoLabel" value="" aria-label="...">                                                   
-	                                                </div>
-	                                            </td>
-	                                            <td class="align-middle">13</td>
-	                                            <td class="align-middle">비밀번호 변경 오류 해결의 건</td>
-	                                            <td class="align-middle">2022.08.19</td>
-	                                            <td class="align-middle">
-	                                                <button type="button" class="btn btn-light btn-sm">상세보기</button>
-	                                            </td>
-	                                        </tr>
-	                                        <tr>
-	                                            <td class="align-middle">
-	                                                <div class="form-check form-check-inline ml-3">
-	                                                    <input class="form-check-input" type="checkbox" id="checkboxNoLabel" value="" aria-label="...">                                                   
-	                                                </div>
-	                                            </td>
-	                                            <td class="align-middle">13</td>
-	                                            <td class="align-middle">이용약관 변경의 건</td>
-	                                            <td class="align-middle">2022.08.19</td>
-	                                            <td class="align-middle">
-	                                                <button type="button" class="btn btn-light btn-sm">상세보기</button>
-	                                            </td>
-	                                        </tr>
-	                                        <tr>
-	                                            <td class="align-middle">
-	                                                <div class="form-check form-check-inline ml-3">
-	                                                    <input class="form-check-input" type="checkbox" id="checkboxNoLabel" value="" aria-label="...">                                                   
-	                                                </div>
-	                                            </td>
-	                                            <td class="align-middle">13</td>
-	                                            <td class="align-middle">이용약관 변경의 건</td>
-	                                            <td class="align-middle">2022.08.19</td>
-	                                            <td class="align-middle">
-	                                                <button type="button" class="btn btn-light btn-sm">상세보기</button>
-	                                            </td>
-	                                        </tr>
-	                                        <tr>
-	                                            <td class="align-middle">
-	                                                <div class="form-check form-check-inline ml-3">
-	                                                    <input class="form-check-input" type="checkbox" id="checkboxNoLabel" value="" aria-label="...">                                                   
-	                                                </div>
-	                                            </td>
-	                                            <td class="align-middle">13</td>
-	                                            <td class="align-middle">이용약관 변경의 건</td>
-	                                            <td class="align-middle">2022.08.19</td>
-	                                            <td class="align-middle">
-	                                                <button type="button" class="btn btn-light btn-sm">상세보기</button>
-	                                            </td>
-	                                        </tr>
-	                                        <tr>
-	                                            <td class="align-middle">
-	                                                <div class="form-check form-check-inline ml-3">
-	                                                    <input class="form-check-input" type="checkbox" id="checkboxNoLabel" value="" aria-label="...">                                                   
-	                                                </div>
-	                                            </td>
-	                                            <td class="align-middle">13</td>
-	                                            <td class="align-middle">이용약관 변경의 건</td>
-	                                            <td class="align-middle">2022.08.19</td>
-	                                            <td class="align-middle">
-	                                                <button type="button" class="btn btn-light btn-sm">상세보기</button>
-	                                            </td>
-	                                        </tr>
-	                                        <tr>
-	                                            <td class="align-middle">
-	                                                <div class="form-check form-check-inline ml-3">
-	                                                    <input class="form-check-input" type="checkbox" id="checkboxNoLabel" value="" aria-label="...">                                                   
-	                                                </div>
-	                                            </td>
-	                                            <td class="align-middle">13</td>
-	                                            <td class="align-middle">이용약관 변경의 건</td>
-	                                            <td class="align-middle">2022.08.19</td>
-	                                            <td class="align-middle">
-	                                                <button type="button" class="btn btn-light btn-sm">상세보기</button>
-	                                            </td>
-	                                        </tr>
-	                                        <tr>
-	                                            <td class="align-middle">
-	                                                <div class="form-check form-check-inline ml-3">
-	                                                    <input class="form-check-input" type="checkbox" id="checkboxNoLabel" value="" aria-label="...">                                                   
-	                                                </div>
-	                                            </td>
-	                                            <td class="align-middle">13</td>
-	                                            <td class="align-middle">이용약관 변경의 건</td>
-	                                            <td class="align-middle">2022.08.19</td>
-	                                            <td class="align-middle">
-	                                                <button type="button" class="btn btn-light btn-sm">상세보기</button>
-	                                            </td>
-	                                        </tr>
-	                                        <tr>
-	                                            <td class="align-middle">
-	                                                <div class="form-check form-check-inline ml-3">
-	                                                    <input class="form-check-input" type="checkbox" id="checkboxNoLabel" value="" aria-label="...">                                                   
-	                                                </div>
-	                                            </td>
-	                                            <td class="align-middle">13</td>
-	                                            <td class="align-middle">이용약관 변경의 건</td>
-	                                            <td class="align-middle">2022.08.19</td>
-	                                            <td class="align-middle">
-	                                                <button type="button" class="btn btn-light btn-sm">상세보기</button>
-	                                            </td>
-	                                        </tr>
-	                                        <tr>
-	                                            <td class="align-middle">
-	                                                <div class="form-check form-check-inline ml-3">
-	                                                    <input class="form-check-input" type="checkbox" id="checkboxNoLabel" value="" aria-label="...">                                                   
-	                                                </div>
-	                                            </td>
-	                                            <td class="align-middle">13</td>
-	                                            <td class="align-middle">이용약관 변경의 건</td>
-	                                            <td class="align-middle">2022.08.19</td>
-	                                            <td class="align-middle">
-	                                                <button type="button" class="btn btn-light btn-sm">상세보기</button>
-	                                            </td>
-	                                        </tr>
-	                                        <tr>
-	                                            <td class="align-middle">
-	                                                <div class="form-check form-check-inline ml-3">
-	                                                    <input class="form-check-input" type="checkbox" id="checkboxNoLabel" value="" aria-label="...">                                                   
-	                                                </div>
-	                                            </td>
-	                                            <td class="align-middle">13</td>
-	                                            <td class="align-middle">이용약관 변경의 건</td>
-	                                            <td class="align-middle">2022.08.19</td>
-	                                            <td class="align-middle">
-	                                                <button type="button" class="btn btn-light btn-sm">상세보기</button>
-	                                            </td>
-	                                        </tr>
+	                                    	<c:forEach items="${noticeList}" var="notice">
+	                                    		<tr>
+		                                            <td class="align-middle">
+		                                                <div class="form-check form-check-inline ml-3">
+		                                                    <input class="form-check-input chkDelete" type="checkbox" name="chkDelete" data-noticeIndex="${notice.noticeIndex}">                                                   
+		                                                </div>
+		                                            </td>
+		                                            <td class="align-middle">${notice.noticeIndex}</td>
+		                                            <td class="align-middle">${notice.noticeTitle}</td>
+		                                            <td class="align-middle">${notice.noticeDate}</td>
+		                                            <td class="align-middle">
+		                                            	<a href="<c:url value='/admin/noticeDetailView/${notice.noticeIndex}'/>" class="btn btn-light btn-sm">상세보기</a>
+		                                            </td>
+		                                        </tr>
+	                                    	</c:forEach>
 	                                    </tbody>
 	                                </table>
 	                            </div>
