@@ -115,4 +115,19 @@ public class HomeController {
 	public String calculator_lump() {
 		return "product2/calculator_lump";
 	}
+	
+	@RequestMapping("/deposit_compare")
+	public String deposit_compare() {
+		return "product2/deposit_compare";
+	}
+	
+	@RequestMapping("/saving_compare")
+	public String saving_compare() {
+		return "product2/saving_compare";
+	}
+	
+	@RequestMapping("/pension_compare")
+	public String pension_compare() {
+		return "product2/pension_compare";
+	}
 }
