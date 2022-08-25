@@ -20,10 +20,10 @@
 	                <span>제목</span>
 	                <span>게시일자</span>
 	            </div>
-	            <c:forEach begin="0" end="10">
+	            <c:forEach items="${noticeList}" var="notice">
 		            <div class="box-notice-content">
-		                <a href="<c:url value='/notice_detail'/>" class="text-notice-title">이메일 인증 메일이 오지 않아요</a>
-		                <span class="text-notice-date">2022.06.20</span>
+		                <a href="<c:url value='/notice_detail/${notice.noticeIndex}'/>" class="text-notice-title">${notice.noticeTitle}</a>
+		                <span class="text-notice-date">${notice.noticeDate}</span>
 		            </div>
 	            </c:forEach>
 	        </section>
