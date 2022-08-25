@@ -22,7 +22,7 @@
 	            </div>
 	            <c:forEach items="${noticeList}" var="notice">
 		            <div class="box-notice-content">
-		                <a href="<c:url value='/notice_detail'/>" class="text-notice-title">${notice.noticeTitle}</a>
+		                <a href="<c:url value='/notice_detail/${notice.noticeIndex}'/>" class="text-notice-title">${notice.noticeTitle}</a>
 		                <span class="text-notice-date">${notice.noticeDate}</span>
 		            </div>
 	            </c:forEach>

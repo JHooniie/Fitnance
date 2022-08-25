@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.fit_nance.project.model.NoticeVO;
@@ -16,6 +17,7 @@ public class CCController {
 	@Autowired
 	NoticeService nService;
 	
+	// 공지사항 전체 리스트 조회
 	@RequestMapping("/notice")
 	public String viewNotice(Model model) {
 		ArrayList<NoticeVO> noticeList = nService.listAllNotice();
@@ -24,8 +26,11 @@ public class CCController {
 		return "cc/cc_notice";
 	}
 	
-	@RequestMapping("/notice_detail")
-	public String viewNoticeDetail() {
+	@RequestMapping("/notice_detail/{noticeIndex}")
+	public String viewNoticeDetail(@PathVariable int noticeIndex, Model model) {
+		NoticeVO notice = nService.detailViewNotice(noticeIndex);
+		model.addAttribute("notice", notice);
+		
 		return "cc/cc_notice_detail";
 	}
 }
