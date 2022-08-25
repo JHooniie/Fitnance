@@ -10,6 +10,7 @@
 		<!-- css -->
 		<link rel="stylesheet" href="<c:url value='/css/saving.css'/>"/>
 		<!-- js -->
+		<script src="<c:url value='/js/saving.js' />"></script>
 		<!-- 삭제해야함 -->
 		
 		<meta charset="UTF-8">
@@ -77,8 +78,8 @@
 	                                    <div class="item-name">시니어플러스우리적금(증여우대형)<span>영업점</span><span>인터넷</span><span>스마트폰</span></spna></div>
 	                                </div>
 	                            </div>
-	                            <div class="plus-icon"><i class="fa-solid fa-folder-plus"></i></div>
-	                            <div class="plus-icon"><i class="fa-solid fa-heart"></i></div>
+	                            <div class="plus-icon1"><i class="fa-solid fa-folder-plus"></i></div>
+	                            <div class="plus-icon2"><i class="fa-solid fa-heart"></i></div>
 	                        </div>
 	                   
 	                        <div class="item-box2">
