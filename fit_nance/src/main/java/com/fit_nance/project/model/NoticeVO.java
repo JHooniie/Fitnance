@@ -1,9 +1,5 @@
 package com.fit_nance.project.model;
 
-import java.util.Date;
-
-import org.springframework.format.annotation.DateTimeFormat;
-
 public class NoticeVO {
 	private int noticeIndex;
 	private String noticeTitle;

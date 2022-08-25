@@ -26,4 +26,19 @@ public class NoticeService implements INoticeService {
 		dao.insertNotice(notice);
 	}
 	
+	@Override
+	public void updateNotice(NoticeVO notice) {
+		dao.updateNotice(notice);
+	}
+	
+	@Override
+	public void deleteNotice(int noticeIndex) {
+		dao.deleteNotice(noticeIndex);
+	}
+
+	@Override
+	public NoticeVO detailViewNotice(int noticeIndex) {
+		return dao.detailViewNotice(noticeIndex);
+	}
+	
 }

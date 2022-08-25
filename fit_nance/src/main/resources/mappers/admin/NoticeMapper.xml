@@ -22,4 +22,21 @@
 		INSERT INTO notice (noticeTitle, noticeContent)
 		VALUES(#{noticeTitle}, #{noticeContent})
 	</insert>
+	
+	<!-- 공지사항 수정 -->
+	<update id="updateNotice" parameterType="com.fit_nance.project.model.NoticeVO">
+		UPDATE notice
+		SET noticeTitle=#{noticeTitle}, noticeContent=#{noticeContent}
+		WHERE noticeIndex=#{noticeIndex}
+	</update>
+	
+	<!-- 장바구니에서 삭제 -->
+	<delete id="deleteNotice" parameterType="int">
+		DELETE FROM notice WHERE noticeIndex=#{noticeIndex}
+	</delete>
+	
+	<!-- 공지사항 상세 보기 -->
+	<select id="detailViewNotice" parameterType="int" resultType="com.fit_nance.project.model.NoticeVO">
+		SELECT * FROM notice WHERE noticeIndex=#{noticeIndex}
+	</select>
 </mapper>
