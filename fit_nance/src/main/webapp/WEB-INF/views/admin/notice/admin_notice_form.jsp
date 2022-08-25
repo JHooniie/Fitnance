@@ -32,18 +32,18 @@
 	                    <div class="card shadow mb-4">
 	                        <div class="card-body">
 	                            <div class="table-responsive">
-	                                <form method="post">
+	                                <form method="post" action="<c:url value='/admin/insertNotice'/>">
 	                                    <table class="table table-bordered" width="100%" cellspacing="0">
 	                                        <tr>
 	                                            <th class="align-middle">제목</th>
 	                                            <td>
-	                                                <input type="text" name="" id="" class="form-control" placeholder="제목을 입력해주세요">
+	                                                <input type="text" name="noticeTitle" id="noticeTitle" class="form-control" placeholder="제목을 입력해주세요">
 	                                            </td>
 	                                        </tr>
 	                                        <tr>
 	                                            <th class="align-middle">내용</th>
 	                                            <td>
-	                                                <textarea id="summernote" name="editordata"></textarea>
+	                                                <textarea id="summernote" name="noticeContent"></textarea>
 	                                            </td>
 	                                        </tr>
 	                                    </table>
