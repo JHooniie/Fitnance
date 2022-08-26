@@ -1,0 +1,130 @@
+*{
+    /* border: 1px solid red; */
+}
+
+table,tr,td{
+    padding: 0px;
+    /* border: 1px solid red; */
+    border-collapse: collapse;
+}
+
+#section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.div_background{
+    position: relative;
+}
+
+.div_background .div_background_top{
+    height: 308px;
+    display: flex;
+    background-color: #edf4ff;
+}
+
+.div_background .div_background_bottom{
+    height: 69.4px;
+    background-color: #ffffff;
+}
+
+.div_background_top .background_title_main{
+    font-size: 38px;
+    margin: 162px 0px 0px 836px;
+    font-weight: bold;
+    color: #222222;
+}
+
+.div_background .div_background_title .background_title_sub{
+    font-size: 22px;
+    font-weight: normal;
+    color: #222222;
+}
+
+.div_background .div_background_image{
+    position: absolute;
+    left: 1038px;
+    bottom: 0;
+}
+
+.div_background_image img{
+    width: 462px;
+    height: 400px;
+}
+
+.div_list{
+    width: 1280px;
+    margin: 10px 0px 82.6px 320px;
+    display: flex;
+    justify-content: center;
+}
+
+/* 상품 비교 리스트 div */
+
+.div_list .panel_list_prdt{
+    width: 1280px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.panel_list_prdt table{
+    text-align: center;
+}
+
+.panel_list_prdt .div_list_prdt .delete_prdt{
+    width: 330px;
+    height: 34px;
+    font-size: 16px;
+    color: #666666;
+    border: 1px solid #dddddd;
+    cursor: pointer;
+}
+
+.panel_list_prdt .div_list_prdt .prdt_co_nm{
+    width: 330px;
+    height: 90px;
+    font-size: 22px;
+    font-weight: bold;
+    color: #222222;
+    border: 1px solid #dddddd;
+}
+
+.panel_list_prdt .div_list_prdt .title{
+    width: 290px;
+    height: 70px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #222222;
+}
+
+.panel_list_prdt .div_list_prdt .content{
+    width: 330px;
+    height: 70px;
+    font-size: 16px;
+    color: #222222;
+    border: 1px solid #dddddd;
+}
+
+
+
+
+
+
+/* 목록으로 돌아가기 버튼 */
+.div_list button{
+    width: 200px;
+    height: 60px;
+    margin: 80px 0px 0px 0px;
+    color: #222222;
+    border: 1px solid #222222;
+    border-radius: 5px;
+    background-color: #ffffff;
+    cursor: pointer;
+}
+
+.div_list button span{
+    font-size: 16px;
+    font-weight: 600;
+}
