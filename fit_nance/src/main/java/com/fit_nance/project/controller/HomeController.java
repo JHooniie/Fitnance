@@ -130,4 +130,10 @@ public class HomeController {
 	public String pension_compare() {
 		return "product2/pension_compare";
 	}
+	
+	// 대출상품 비교
+	@RequestMapping("/compare_loan")
+	public String compare_loan() {
+		return "product/compare_loan";
+	}
 }
