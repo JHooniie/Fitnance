@@ -74,10 +74,10 @@ public class HomeController {
 		return "product2/deposit";
 	}
 	
-	@RequestMapping("/saving")
+	/*@RequestMapping("/saving")
 	public String saving() {
 		return "product2/saving";
-	}
+	}*/
 	
 	@RequestMapping("/pension")
 	public String pension() {
@@ -114,5 +114,26 @@ public class HomeController {
 	@RequestMapping("/calculator_lump")
 	public String calculator_lump() {
 		return "product2/calculator_lump";
+	}
+	
+	@RequestMapping("/deposit_compare")
+	public String deposit_compare() {
+		return "product2/deposit_compare";
+	}
+	
+	@RequestMapping("/saving_compare")
+	public String saving_compare() {
+		return "product2/saving_compare";
+	}
+	
+	@RequestMapping("/pension_compare")
+	public String pension_compare() {
+		return "product2/pension_compare";
+	}
+	
+	// 대출상품 비교
+	@RequestMapping("/compare_loan")
+	public String compare_loan() {
+		return "product/compare_loan";
 	}
 }

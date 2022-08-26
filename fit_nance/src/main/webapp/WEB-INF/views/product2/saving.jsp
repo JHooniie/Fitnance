@@ -10,6 +10,7 @@
 		<!-- css -->
 		<link rel="stylesheet" href="<c:url value='/css/saving.css'/>"/>
 		<!-- js -->
+		<script src="<c:url value='/js/saving.js' />"></script>
 		<!-- 삭제해야함 -->
 		
 		<meta charset="UTF-8">
@@ -64,7 +65,7 @@
 	            </div>
 	            <div class="result-box">
 	                <div class="search-line">
-	                    <div class="box">검색 결과 00개</div>
+	                    <div class="box">검색 결과 ${fn:length(insList) }개</div>
 	                    <div class="search-box"><input type="text" id="tourName" name="tourName" value="키워드 검색"><i class="fa-solid fa-magnifying-glass"></i></div>
 	                </div>
 	                <div class="item-list">
@@ -77,8 +78,8 @@
 	                                    <div class="item-name">시니어플러스우리적금(증여우대형)<span>영업점</span><span>인터넷</span><span>스마트폰</span></spna></div>
 	                                </div>
 	                            </div>
-	                            <div class="plus-icon"><i class="fa-solid fa-folder-plus"></i></div>
-	                            <div class="plus-icon"><i class="fa-solid fa-heart"></i></div>
+	                            <div class="plus-icon1"><i class="fa-solid fa-folder-plus"></i></div>
+	                            <div class="plus-icon2"><i class="fa-solid fa-heart"></i></div>
 	                        </div>
 	                   
 	                        <div class="item-box2">
