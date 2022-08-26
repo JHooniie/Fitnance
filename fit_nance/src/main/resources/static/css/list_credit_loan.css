@@ -47,8 +47,10 @@
 }
 
 .div_background_image img{
-    width: 462px;
-    height: 400px;
+/*     width: 462px;
+    height: 400px; */
+    width: 346.5px;
+    height: 300px;
 }
 
 .div_list{
