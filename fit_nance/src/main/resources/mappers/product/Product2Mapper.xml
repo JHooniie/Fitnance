@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.fit_nance.project.dao.IProductDAO">
+	<insert id="insertDeposit" parameterType="com.fit_nance.project.model.DepositVO">
+		INSERT INTO deposit_base (pIndex,fin_co_no,kor_co_nm,fin_prdt_cd,fin_prdt_nm,join_way,mtrt_int,spcl_cnd,join_deny,join_member,etc_note,max_limit)
+		VALUES(#{pIndex}, #{fin_co_no}, #{kor_co_nm}, #{fin_prdt_cd}, #{fin_prdt_nm}, #{join_way}, #{mtrt_int}, #{spcl_cnd}, #{join_deny}, #{join_member}, #{etc_note}, #{max_limit})
+	</insert>
+	
+	<insert id="insertDepoOption" parameterType="com.fit_nance.project.model.DepoOptionVO">
+		INSERT INTO deposit_option (oIndex,fin_co_no,fin_prdt_cd,intr_rate_type,intr_rate_type_nm,save_trm,intr_rate,intr_rate2)
+		VALUES(#{oIndex}, #{fin_co_no}, #{fin_prdt_cd}, #{intr_rate_type}, #{intr_rate_type_nm}, #{save_trm}, #{intr_rate}, #{intr_rate2})
+	</insert>
+	
+	<insert id="insertInstall" parameterType="com.fit_nance.project.model.InstallVO">
+		INSERT INTO installment_base (pIndex,fin_co_no,kor_co_nm,fin_prdt_cd,fin_prdt_nm,join_way,mtrt_int,spcl_cnd,join_deny,join_member,etc_note,max_limit)
+		VALUES(#{pIndex}, #{fin_co_no}, #{kor_co_nm}, #{fin_prdt_cd}, #{fin_prdt_nm}, #{join_way}, #{mtrt_int}, #{spcl_cnd}, #{join_deny}, #{join_member}, #{etc_note}, #{max_limit})
+	</insert>
+	
+	<insert id="insertInsOption" parameterType="com.fit_nance.project.model.InstallOptionVO">
+		INSERT INTO installment_option (oIndex,fin_co_no,fin_prdt_cd,intr_rate_type,intr_rate_type_nm,rsrv_type,rsrv_type_nm,save_trm,intr_rate,intr_rate2)
+		VALUES(#{oIndex}, #{fin_co_no}, #{fin_prdt_cd}, #{intr_rate_type}, #{intr_rate_type_nm}, #{rsrv_type}, #{rsrv_type_nm},#{save_trm}, #{intr_rate}, #{intr_rate2})
+	</insert>
+	
+	<!-- <insert id="insertInstall" parameterType="com.fit_nance.project.model.VO">
+		INSERT INTO installment_base (pIndex,fin_co_no,kor_co_nm,fin_prdt_cd,fin_prdt_nm,join_way,mtrt_int,spcl_cnd,join_deny,join_member,etc_note,max_limit)
+		VALUES(#{pIndex}, #{fin_co_no}, #{kor_co_nm}, #{fin_prdt_cd}, #{fin_prdt_nm}, #{join_way}, #{mtrt_int}, #{spcl_cnd}, #{join_deny}, #{join_member}, #{etc_note}, #{max_limit})
+	</insert>
+	
+	<insert id="insertInsOption" parameterType="com.fit_nance.project.model.InstallOptionVO">
+		INSERT INTO installment_option (oIndex,fin_co_no,fin_prdt_cd,intr_rate_type,intr_rate_type_nm,rsrv_type,rsrv_type_nm,save_trm,intr_rate,intr_rate2)
+		VALUES(#{oIndex}, #{fin_co_no}, #{fin_prdt_cd}, #{intr_rate_type}, #{intr_rate_type_nm}, #{rsrv_type}, #{rsrv_type_nm},#{save_trm}, #{intr_rate}, #{intr_rate2})
+	</insert>-->
+</mapper>

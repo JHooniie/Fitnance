@@ -38,8 +38,8 @@ public class InstallmentService {
          }
          //System.out.println(resultDep.toString());
          installList = jsonToVOList(resultDep.toString());
-         System.out.println(installList.get(1).getPIndex());
-         System.out.println(installList.get(1).getEtc_note());
+         //System.out.println(installList.get(1).getPIndex());
+         //System.out.println(installList.get(1).getEtc_note());*/
 		}
 		catch(Exception e) {
 			System.out.println(e);
@@ -70,7 +70,7 @@ public class InstallmentService {
 				vo.setJoin_deny(Integer.parseInt(String.valueOf(depoObj.get("join_deny"))));
 				vo.setJoin_member(String.valueOf(depoObj.get("join_member")));
 				vo.setEtc_note(String.valueOf(depoObj.get("etc_note")));
-				vo.setMax_limit(String.valueOf(depoObj.get("max_limit")));
+				vo.setMax_limit(Double.parseDouble(String.valueOf(depoObj.optString("max_limit","0.0"))));
 				
 				
 				//System.out.println(vo.getEtc_note());

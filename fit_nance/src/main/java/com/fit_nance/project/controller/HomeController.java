@@ -74,10 +74,10 @@ public class HomeController {
 		return "product2/deposit";
 	}
 	
-	@RequestMapping("/saving")
+	/*@RequestMapping("/saving")
 	public String saving() {
 		return "product2/saving";
-	}
+	}*/
 	
 	@RequestMapping("/pension")
 	public String pension() {

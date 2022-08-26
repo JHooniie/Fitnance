@@ -4,10 +4,12 @@ import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.fit_nance.project.model.DepoOptionVO;
 import com.fit_nance.project.model.DepositVO;
+import com.fit_nance.project.model.InstallListVO;
 import com.fit_nance.project.model.InstallOptionVO;
 import com.fit_nance.project.model.InstallVO;
 import com.fit_nance.project.service.DepoOptionService;
@@ -40,6 +42,7 @@ public class ProductController {
 		for(int i = 0;i<depoList.size();i++) {
 			pService.insertDeposit(depoList.get(i));
 		}
+		System.out.println("Aa");
 		ArrayList<DepoOptionVO> depoOptionList = new ArrayList<DepoOptionVO>();
 		depoOptionList = doService.deposit();
 		for(int i = 0;i<depoOptionList.size();i++) {
@@ -58,6 +61,17 @@ public class ProductController {
 		
 		//DB에 데이터 저장한후 전체 상품 조회 화면으로 포워딩
 		return "index";
+		//return "product/productAllListView"; //뷰페이지 이름 반환 (데이터 없는 빈 페이지)
+	}
+	
+	
+	@RequestMapping("/saving")
+	public String saving(Model model) {
+		ArrayList<InstallListVO> installList= pService.selectInstall();
+		model.addAttribute("insList", installList);
+		
+		//DB에 데이터 저장한후 전체 상품 조회 화면으로 포워딩
+		return "product2/saving";
 		//return "product/productAllListView"; //뷰페이지 이름 반환 (데이터 없는 빈 페이지)
 	}
 	

@@ -38,8 +38,8 @@ public class InsOptionService {
          //System.out.println(resultDep.toString());
         
          insOptionList = jsonToVOList(resultDep.toString());
-         System.out.println(insOptionList.get(1).getoIndex());
-         System.out.println(insOptionList.get(1).getIntr_rate_type_nm());
+         //System.out.println(insOptionList.get(1).getoIndex());
+         //System.out.println(insOptionList.get(1).getIntr_rate_type_nm());
 		}
 		catch(Exception e) {
 			System.out.println(e);
