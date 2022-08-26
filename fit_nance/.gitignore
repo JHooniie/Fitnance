@@ -186,4 +186,10 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
+
+# config / APIKey / application(db)
+WebConfig.java
+APIKey.java
+application.properties
+
 # End of https://www.toptal.com/developers/gitignore/api/windows,macos,java,eclipse
