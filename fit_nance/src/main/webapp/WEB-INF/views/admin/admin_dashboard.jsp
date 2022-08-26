@@ -205,6 +205,8 @@
 	
 	    </div>
 	    <!-- End of Page Wrapper -->
-	
+		<!-- chart -->
+		<script src="<c:url value='/js/admin/chart/Chart.min.js'/>"></script>
+		<script src="<c:url value='/js/admin/chart/chart-area-demo.js'/>"></script>
 	</body>
 </html>
