@@ -44,7 +44,7 @@
         <ul>
             <li>대출</li>
             <li><a href="<c:url value='list_mortgage_loan'/>">주택 담보 대출</a></li>
-            <li><a href="<c:url value='list_home_loan'/>">전세 자금 대출</a></li>
+            <li><a href="<c:url value='list_house_loan'/>">전세 자금 대출</a></li>
             <li><a href="<c:url value='list_credit_loan'/>">신용 대출</a></li>
         </ul>
     </div>

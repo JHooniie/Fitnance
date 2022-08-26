@@ -157,7 +157,7 @@ select{
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
-    background: url(../images/angle-down-solid.png) no-repeat 95% 50%;
+    background: url(/image/angle-down-solid.png) no-repeat 95% 50%;
     background-size: 15px;
 }
 
