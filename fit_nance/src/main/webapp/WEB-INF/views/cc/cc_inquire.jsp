@@ -9,9 +9,9 @@
 		<!-- head -->
 		<c:import url="/WEB-INF/views/layout/head.jsp" />
 		<!-- css -->
-		<link rel="stylesheet" href="<c:url value='/css/cc_inquire.css' />"/>
+		<link rel="stylesheet" href="<c:url value='/css/cc_inquire.css'/>"/>
 		<!-- js -->
-		<script src="<c:url value='/js/cc_inquire.js' />"></script>
+		<script src="<c:url value='/js/cc_inquire.js'/>"></script>
 		
 		<meta charset="UTF-8">
 	</head>
@@ -36,10 +36,10 @@
 	                        <p>해결을 위해 최선을 다하겠습니다.</p>
 	                    </div>
 	                    <div class="image_login_notice">
-	                        <img src="../images/power-off-solid.png">
+	                        <img src="/image/img_power-off-solid.png">
 	                    </div>
 	                    <div class="link_login_notice">
-	                        <a href="#">로그인<img src="../images/chevron-right-solid.png"></a>
+	                        <a href="<c:url value='/login'/>">로그인<img src="/image/chevron-right-solid.png"></a>
 	                    </div>
 	                    <div class="text_login_notice">
 	                        <p>로그인 시 개인정보 입력 절차 없이 이용할 수 있으며</p>
