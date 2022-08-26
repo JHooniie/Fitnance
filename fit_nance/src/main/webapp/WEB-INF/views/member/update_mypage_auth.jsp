@@ -22,8 +22,7 @@
                             <input type="password" id="input-user_pw" placeholder="비밀번호를 입력해주세요">
                             <i class="fa-solid fa-eye-slash"></i>
                         </div>
-                        <button id="btn-password-next" onclick="location.href='<c:url value='/update-mypage'/>'"><span class="btn-span">비밀번호로 인증하기</span></button>
-                        <!-- submit 삭제해둠 -->
+                        <button id="btn-password-auth" type="submit"><span class="btn-span">비밀번호로 인증하기</span></button>
                     </div>
                 </div>
             </form>

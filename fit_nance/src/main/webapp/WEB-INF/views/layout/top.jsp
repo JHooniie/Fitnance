@@ -19,7 +19,12 @@
                         <span class="span-lang-eng span-lang-inactive">ENG</span>
                     </li>
                     <li>
-                        <a class="btn-login" href="<c:url value='/login'/>">
+                    	<c:if test="${empty sessionScope.sid }">
+                        <a class="btn-login" href="<c:url value='/loginForm'/>">
+                        </c:if>
+                        <c:if test="${not empty sessionScope.sid }">
+                        <a class="btn-login" href="<c:url value='/mypage'/>">
+                        </c:if>
                         	<i class="fa-solid fa-user"></i>
                         </a>
                     </li>

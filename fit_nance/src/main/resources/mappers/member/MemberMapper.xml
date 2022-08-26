@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.fit_nance.project.dao.IMemberDAO">
+	<resultMap id="memResult" type="com.fit_nance.project.model.MemberVO" >
+		<result property="memNo" column="memNo"/>
+		<result property="memRole" column="memRole"/>
+		<result property="memId" column="memId"/>
+		<result property="memPwd" column="memPwd"/>
+		<result property="memName" column="memName"/>
+		<result property="memHP" column="memHP"/>
+		<result property="memBirth" column="memBirth"/>
+		<result property="memEmailRecd" column="memEmailRecd"/>
+	</resultMap>
+	
+	<!-- 로그인 -->
+	<select id="findByUserId" resultType="com.fit_nance.project.model.MemberVO">
+		SELECT *
+		FROM member
+		WHERE memId = #{memId}
+	</select>
+	
+	<select id="loginCheck" parameterType="hashmap" resultType="string">
+		SELECT memId 
+		FROM member 
+		WHERE memId=#{memId} and memPwd=#{memPwd}
+  	</select>
+	
+	<!-- 회원가입 -->
+	<insert id="insertMember" parameterType="com.fit_nance.project.model.MemberVO">
+		INSERT member(memNo, memRole, memId, memPwd, memName, memHP, memBirth, memEmailRecd)
+		VALUES (#{memNo}, #{memRole}, #{memId}, #{memPwd}, #{memName}, #{memHP}, #{memBirth}, #{memEmailRecd})
+	</insert>
+	
+	
+	
+</mapper>

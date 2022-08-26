@@ -13,12 +13,12 @@
 	<section id="signup_section">
         <div class="signup_page wrap">
             <div class="signup_container">
-                <form action="form-signup">
+                <form id="form-signup" method="post" action="/signup">
                 <div class="box-signup-Email">
                     <div class="process_graph process_graph-01"></div>
                     <h3>먼저 이메일이 필요해요 :)</h3>
                     <div class="box-form-signup-Email">
-                        <input type="text" id="input-user_id" class="input-user_id" placeholder="이메일을 입력해주세요">
+                        <input type="text" name="memId" id="input-user_id" class="input-user_id" placeholder="이메일을 입력해주세요">
                         <div id="text-Email-check-pass" class="text-process-state">
                             <span>사용 가능한 이메일 입니다.</span>
                             <a href="#">인증번호 받기</a>
@@ -42,7 +42,7 @@
                     <span class="span-signup-password-title">영문, 숫자, 특수문자 모두 포함한 8자 이상의 비밀번호를 입력해주세요</span>
                     <div class="box-form-signup-password">
                             <div class="box-password-input">
-                                <input type="password" id="input-user_pw" class="input-user_pw" placeholder="비밀번호를 입력해주세요">
+                                <input type="password" name="memPwd" id="input-user_pw" class="input-user_pw" placeholder="비밀번호를 입력해주세요">
                                 <i class="fa-solid fa-eye-slash"></i>
                                 <i class="fa-solid fa-circle-xmark"></i>
                             </div>
@@ -71,9 +71,9 @@
                     <div class="process_graph process_graph-03"></div>
                     <h3>기본 정보 입력</h3>
                     <div class="box-form-signup-information">
-                            <input type="text" id="input-user_name" class="input-user_name" placeholder="이름을 입력해주세요">
+                            <input type="text" name="memName" id="input-user_name" class="input-user_name" placeholder="이름을 입력해주세요">
                             <div id="signup_id_process_state" class="signup_process_state"></div>
-                            <input type="text" id="input-user_birth" class="input-user_birth" placeholder="생년월일을 입력해주세요 EX) 19900101" readonly>
+                            <input type="text" name="memBirth" id="input-user_birth" class="input-user_birth" placeholder="생년월일을 입력해주세요 EX) 19900101" readonly>
                             <div id="text-birth-check-error" class="text-process-state">
                                 <span>생년월일을 다시 입력해주세요. EX) 19900101</span>
                             </div>
@@ -83,10 +83,13 @@
                                     <a href="#">이용약관</a> 및 <a href="#">개인정보취급방침</a>을 확인하였으며 이에 동의합니다.
                                 </label>
                             </div>
-                            <button disabled id="btn-information-finish" onclick="location.href='<c:url value='/'/>'"><span class="btn-span">회원가입 완료</span></button>
-                            <!-- submit 삭제해둠 -->
-                            <span class="span-more-information">정보를 더 입력하시면 <br> 더 핏:하게 추천해 드릴게요!</span>
-                            <button disabled id="btn-information-next"><span class="btn-span">정보 더 입력하러 가기</span></button>
+                            <button disabled id="btn-information-finish" type="submit"><span class="btn-span">회원가입 완료</span></button>
+
+
+                            <div class="box-more-information-button">
+                                <span class="span-more-information">정보를 더 입력하시면 <br> 더 핏:하게 추천해 드릴게요!</span>
+                                <button id="btn-information-next"><span class="btn-span">정보 더 입력하러 가기</span></button>
+                            </div>
                     </div>
                 </div>
                 <div class="box-signup-more-information">
@@ -111,8 +114,7 @@
                                     <option value="기업">기업</option>
                                 </select>
                                 <input type="text" id="input-user_bank" name="input-user_bank" placeholder="계좌번호를 입력해주세요">
-                                <button id="btn-more-information-finish" onclick="location.href='<c:url value='/'/>'"><span class="btn-span">정보 입력 완료</span></button>
-                                <!-- submit 삭제해둠 -->
+                                <button id="btn-more-information-finish" type="submit"><span class="btn-span">정보 입력 완료</span></button>
                             </div>
                     </div>
                 </div>
