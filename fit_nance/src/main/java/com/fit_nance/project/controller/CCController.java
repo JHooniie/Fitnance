@@ -33,4 +33,10 @@ public class CCController {
 		
 		return "cc/cc_notice_detail";
 	}
+	
+	// 서비스 이용 문의 페이지 - 등록 / 목록 / 상세
+	@RequestMapping("/inquire")
+	public String viewInquire() {
+		return "cc/cc_inquire";
+	}
 }
