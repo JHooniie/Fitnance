@@ -69,20 +69,6 @@ public class HomeController {
 		return "product/servicec_inquire"; 
 	}
 	
-	@RequestMapping("/deposit")
-	public String deposit() {
-		return "product2/deposit";
-	}
-	
-	/*@RequestMapping("/saving")
-	public String saving() {
-		return "product2/saving";
-	}*/
-	
-	@RequestMapping("/pension")
-	public String pension() {
-		return "product2/pension";
-	}
 	
 	@RequestMapping("/faq")
 	public String faq() {
