@@ -31,3 +31,7 @@
 <script src="<c:url value='/js/admin/summernote/summernote-lite.js'/>"></script>
 <script src="<c:url value='/js/admin/summernote/summernote-ko-KR.js'/>"></script>
 <link rel="stylesheet" href="<c:url value='/css/admin/summernote/summernote-lite.css'/>">
+
+
+<!-- custom -->
+<script src="<c:url value='/js/admin/admin_common.js'/>"></script>
