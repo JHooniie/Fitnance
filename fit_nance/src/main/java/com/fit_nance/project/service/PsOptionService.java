@@ -11,12 +11,13 @@ import org.json.JSONObject;
 import org.springframework.stereotype.Service;
 
 import com.fit_nance.project.model.DepoOptionVO;
+import com.fit_nance.project.model.PsOptionVO;
 
 @Service
-public class DepoOptionService {
+public class PsOptionService {
 	StringBuffer resultDep = new StringBuffer();
-	public ArrayList<DepoOptionVO> deposit() {
-		ArrayList<DepoOptionVO> depoOptionList = new ArrayList<DepoOptionVO>();
+	public ArrayList<PsOptionVO> deposit() {
+		ArrayList<PsOptionVO> depoOptionList = new ArrayList<PsOptionVO>();
 		String key= "bedd120336310b8a230653bd987c0c31";
 		
 		
@@ -47,8 +48,8 @@ public class DepoOptionService {
 		return depoOptionList;
 	}
 
-	public ArrayList<DepoOptionVO> jsonToVOList(String jsonResultStr){
-		ArrayList<DepoOptionVO> depoOptionList = new ArrayList<DepoOptionVO>();
+	public ArrayList<PsOptionVO> jsonToVOList(String jsonResultStr){
+		ArrayList<PsOptionVO> depoOptionList = new ArrayList<PsOptionVO>();
 		
 		JSONObject jsonObj =new JSONObject(jsonResultStr);
 		JSONObject parse_result = (JSONObject) jsonObj.get("result");
@@ -57,15 +58,21 @@ public class DepoOptionService {
 		if(optionArray!=null) {
 			for (int i = 0; i < optionArray.length(); i++) {
 				JSONObject depoObj = optionArray.getJSONObject(i);
-				DepoOptionVO vo = new DepoOptionVO();
+				PsOptionVO vo = new PsOptionVO();
 				vo.setoIndex(i);
 				vo.setFin_co_no(String.valueOf(depoObj.get("fin_co_no")));
 				vo.setFin_prdt_cd(String.valueOf(depoObj.get("fin_prdt_cd")));
-				vo.setIntr_rate_type(String.valueOf(depoObj.get("intr_rate_type")));
-				vo.setIntr_rate_type_nm(String.valueOf(depoObj.get("intr_rate_type_nm")));
-				vo.setSave_trm(String.valueOf(depoObj.get("save_trm")));
-				vo.setIntr_rate(Double.parseDouble(String.valueOf(depoObj.optString("intr_rate","0.0"))));
-				vo.setIntr_rate2(Double.parseDouble(String.valueOf(depoObj.optString("intr_rate2","0.0"))));
+				vo.setPnsn_recp_trm(String.valueOf(depoObj.get("pnsn_recp_trm")));
+				vo.setPnsn_recp_trm_nm(String.valueOf(depoObj.get("pnsn_recp_trm_nm")));
+				vo.setPnsn_entr_age(String.valueOf(depoObj.get("pnsn_entr_age")));
+				vo.setPnsn_entr_age_nm(String.valueOf(depoObj.get("pnsn_entr_age_nm")));
+				vo.setMon_paym_atm(String.valueOf(depoObj.get("mon_paym_atm")));
+				vo.setMon_paym_atm_nm(String.valueOf(depoObj.get("mon_paym_atm_nm")));
+				vo.setPaym_prd(String.valueOf(depoObj.get("paym_prd")));
+				vo.setPaym_prd_nm(String.valueOf(depoObj.get("paym_prd_nm")));
+				vo.setPnsn_strt_age(String.valueOf(depoObj.get("pnsn_strt_age")));
+				vo.setPnsn_strt_age_nm(String.valueOf(depoObj.get("pnsn_strt_age_nm")));
+				vo.setPnsn_recp_amt(Double.parseDouble(String.valueOf(depoObj.optString("pnsn_recp_amt","0.0"))));
 		
 				//System.out.println(vo.getEtc_note());
 				depoOptionList.add(vo);

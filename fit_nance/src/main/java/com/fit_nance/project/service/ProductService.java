@@ -1,5 +1,7 @@
 package com.fit_nance.project.service;
 
+import java.util.ArrayList;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -7,8 +9,11 @@ import org.springframework.stereotype.Service;
 import com.fit_nance.project.dao.IProductDAO;
 import com.fit_nance.project.model.DepoOptionVO;
 import com.fit_nance.project.model.DepositVO;
+import com.fit_nance.project.model.InstallListVO;
 import com.fit_nance.project.model.InstallOptionVO;
 import com.fit_nance.project.model.InstallVO;
+import com.fit_nance.project.model.PensionVO;
+import com.fit_nance.project.model.PsOptionVO;
 
 @Service
 public class ProductService implements IProductService {
@@ -38,6 +43,24 @@ public class ProductService implements IProductService {
 	public void insertInsOption(InstallOptionVO dOption) {
 		// TODO Auto-generated method stub
 		dao.insertInsOption(dOption);
+	}
+
+	@Override
+	public void insertPension(PensionVO ps) {
+		// TODO Auto-generated method stub
+		dao.insertPension(ps);
+	}
+
+	@Override
+	public void insertPsOption(PsOptionVO psOption) {
+		// TODO Auto-generated method stub
+		dao.insertPsOption(psOption);
+	}
+
+	@Override
+	public ArrayList<InstallListVO> selectInstall() {
+		// TODO Auto-generated method stub
+		return dao.selectInstall();
 	}
 
 }

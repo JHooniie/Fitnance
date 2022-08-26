@@ -12,7 +12,7 @@ public class InstallVO {
 	int join_deny;
 	String join_member;
 	String etc_note;
-	String max_limit;
+	double max_limit;
 	public int getPIndex() {
 		return pIndex;
 	}
@@ -79,10 +79,10 @@ public class InstallVO {
 	public void setEtc_note(String etc_note) {
 		this.etc_note = etc_note;
 	}
-	public String getMax_limit() {
+	public double getMax_limit() {
 		return max_limit;
 	}
-	public void setMax_limit(String max_limit) {
+	public void setMax_limit(double max_limit) {
 		this.max_limit = max_limit;
 	}
 	
