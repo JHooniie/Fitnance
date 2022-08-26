@@ -21,9 +21,9 @@ public class PsOptionService {
 		String key= "bedd120336310b8a230653bd987c0c31";
 		
 		
-		String urlDep="http://finlife.fss.or.kr/finlifeapi/depositProductsSearch.json?auth="
+		String urlDep="http://finlife.fss.or.kr/finlifeapi/annuitySavingProductsSearch.json?auth="
 				+key
-				+"&topFinGrpNo="+"020000"
+				+"&topFinGrpNo="+"060000"
 				+"&pageNo="+"1";
 		try {
 		 URL url = new URL(urlDep);
@@ -37,7 +37,7 @@ public class PsOptionService {
              resultDep.append(returnLine);
          }
          //System.out.println(resultDep.toString());
-        
+         //System.out.println(resultDep.toString());
          depoOptionList = jsonToVOList(resultDep.toString());
          //System.out.println(depoOptionList.get(1).getoIndex());
          //System.out.println(depoOptionList.get(1).getIntr_rate_type_nm());

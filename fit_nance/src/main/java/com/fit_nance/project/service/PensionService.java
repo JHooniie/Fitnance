@@ -27,7 +27,7 @@ public class PensionService {
 		
 		String urlDep="http://finlife.fss.or.kr/finlifeapi/annuitySavingProductsSearch.json?auth="
 				+key
-				+"&topFinGrpNo="+"020000"
+				+"&topFinGrpNo="+"060000"
 				+"&pageNo="+"1";
 		try {
 		 URL url = new URL(urlDep);
