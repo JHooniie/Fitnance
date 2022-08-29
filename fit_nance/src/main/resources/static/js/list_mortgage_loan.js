@@ -3,25 +3,47 @@
  */
  
  $(document).ready(function(){
-
+	$('.input_prdt_cd').val("");
+	
+	$('.input_prdt_joinway1').val("F");
     // 좌측 필터 버튼 클릭 시
     {
         {// 가입방법
             // 영업점
             $('.btn_prdt_joinway1, .btn_prdt_joinway1_clicked').click(function(){
                 $(this).toggleClass('btn_prdt_joinway1 btn_prdt_joinway1_clicked'); 
+                if($(this).attr('class') == 'btn_prdt_joinway1_clicked'){
+                	$('.input_prdt_joinway1').val('T');
+                } else{
+                	$('.input_prdt_joinway1').val('F');
+                }
             })
             // 인터넷
             $('.btn_prdt_joinway2, .btn_prdt_joinway2_clicked').click(function(){
                 $(this).toggleClass('btn_prdt_joinway2 btn_prdt_joinway2_clicked'); 
+                if($(this).attr('class') == 'btn_prdt_joinway2_clicked'){
+                	$('.input_prdt_joinway2').val('T');
+                } else{
+                	$('.input_prdt_joinway2').val('F');
+                } 
             })
             // 스마트폰
             $('.btn_prdt_joinway3, .btn_prdt_joinway3_clicked').click(function(){
                 $(this).toggleClass('btn_prdt_joinway3 btn_prdt_joinway3_clicked'); 
+                if($(this).attr('class') == 'btn_prdt_joinway3_clicked'){
+                	$('.input_prdt_joinway3').val('T');
+                } else{
+                	$('.input_prdt_joinway3').val('F');
+                } 
             })
             // 모집인
             $('.btn_prdt_joinway4, .btn_prdt_joinway4_clicked').click(function(){
                 $(this).toggleClass('btn_prdt_joinway4 btn_prdt_joinway4_clicked'); 
+                if($(this).attr('class') == 'btn_prdt_joinway4_clicked'){
+                	$('.input_prdt_joinway4').val('T');
+                } else{
+                	$('.input_prdt_joinway4').val('F');
+                } 
             })
         }
 
@@ -74,7 +96,19 @@
             $(this).toggleClass('btn_add_favorite btn_add_favorite_clicked'); 
         })
     }
-
+	
+	// 자세히 보기 버튼 클릭 시
+	$('.btn_prdt_info').click(function(){
+		$('.input_prdt_cd').val($(this).find('.prdt_cd').text());
+		var input_prdt_cd = $('.input_prdt_cd').val();
+		//alert(input_prdt_cd);
+		/*$.ajax({
+			method: 'POST',
+			url: 'view_prdt_detail',
+			data: input_prdt_cd,
+			success: function(input_prdt_cd){}
+		});*/
+	});
     
 });  
    

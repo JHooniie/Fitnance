@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.fit_nance.project.model.HomeLoanListVO;
 import com.fit_nance.project.service.HomeLoanListService;
@@ -26,10 +27,46 @@ public class HomeController {
 	public String list_mortgage_loan(Model model) {
 //		ArrayList<HomeLoanListVO> list_home_loan = new ArrayList<HomeLoanListVO>();
 		ArrayList<HomeLoanListVO> list_home_loan = homeloanlistService.selectHomeLoanList();
+		ArrayList<String> loan_join_way = new ArrayList<String>();
+		
+		for(int i=0; i<list_home_loan.size(); i++) {
+			HomeLoanListVO vo = list_home_loan.get(i);
+			String str = vo.getJoin_way();
+			String[] joinway = str.split(",");
+			for(String temp : joinway) {
+				loan_join_way.add(i, temp);
+				System.out.print(temp);
+			}
+			System.out.println();
+		}
+		
 		model.addAttribute("list_home_loan", list_home_loan);
+		model.addAttribute("loan_join_way", loan_join_way);
 		return "product/list_mortgage_loan"; 
 	}
+//	
+//	@ResponseBody
+//	@RequestMapping(value="/view_prdt_detail", method=RequestMethod.POST)
+//	public String view_prdt_cd(String input_prdt_cd
+////							, HttpServletRequest request
+////							, HomeLoanListVO vo
+//											) {
+//		
+////		homeloanlistService.
+//			System.out.println("ajax 요청 전달 완료2 prdt_cd : "+input_prdt_cd);
+//			return "success";
+//		
+//		
+//	}
 	
+	@RequestMapping("/view_prdt_detail")
+	public String view_prdt_cd(@RequestParam("input_prdt_cd") String fin_prdt_cd, Model model) {
+		System.out.println(fin_prdt_cd);
+		HomeLoanListVO prdt = homeloanlistService.selectHomeLoanDetail(fin_prdt_cd);
+		
+		model.addAttribute("prdt",prdt);
+		return "product/detail_mortgage_loan";
+	}
 	
 	@RequestMapping("/detail_mortgage_loan")
 	public String detail_mortgage(Model model) {
