@@ -8,7 +8,7 @@
 <meta charset="UTF-8">
 <title>fit:nance - 금융 상품을 한눈에 쏙</title>
 <!-- favicon -->
-<link rel="shortcut icon" href="<c:url value='image/lg_fitnance_initial.ico'/>">
+<link rel="shortcut icon" href="<c:url value='/image/lg_fitnance_initial.ico'/>">
 <!-- jquery -->
 <script src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
 <!-- font awesome -->

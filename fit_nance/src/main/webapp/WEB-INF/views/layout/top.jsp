@@ -49,8 +49,8 @@
         <ul>
             <li>대출</li>
             <li><a href="<c:url value='list_mortgage_loan'/>">주택 담보 대출</a></li>
-            <li><a href="#">전세 자금 대출</a></li>
-            <li><a href="#">신용 대출</a></li>
+            <li><a href="<c:url value='list_house_loan'/>">전세 자금 대출</a></li>
+            <li><a href="<c:url value='list_credit_loan'/>">신용 대출</a></li>
         </ul>
     </div>
     <!-- 계산기 -->
@@ -62,7 +62,7 @@
         </ul>
         <ul>
             <li>대출 계산기</li>
-            <li><a href="#">대출 이자 계산기</a></li>
+            <li><a href="<c:url value='calc_rpayment'/>">대출 이자 계산기</a></li>
         </ul>
         <ul>
             <li>연말정산 계산기</li>
@@ -78,7 +78,7 @@
         </ul>
         <ul>
             <li>문의하기</li>
-            <li><a href="#">서비스 이용 문의</a></li>
+            <li><a href="<c:url value='cc_inquire'/>">서비스 이용 문의</a></li>
         </ul>
     </div>
 </header>

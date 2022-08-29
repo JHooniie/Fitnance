@@ -38,8 +38,8 @@ public class DepoOptionService {
          //System.out.println(resultDep.toString());
         
          depoOptionList = jsonToVOList(resultDep.toString());
-         System.out.println(depoOptionList.get(1).getoIndex());
-         System.out.println(depoOptionList.get(1).getIntr_rate_type_nm());
+         //System.out.println(depoOptionList.get(1).getoIndex());
+         //System.out.println(depoOptionList.get(1).getIntr_rate_type_nm());
 		}
 		catch(Exception e) {
 			System.out.println(e);

@@ -21,6 +21,7 @@ public class HomeController {
 		return "index";
 	}
 	
+	// 주택담보 대출
 	@RequestMapping("/list_mortgage_loan")
 	public String list_mortgage_loan(Model model) {
 //		ArrayList<HomeLoanListVO> list_home_loan = new ArrayList<HomeLoanListVO>();
@@ -28,6 +29,7 @@ public class HomeController {
 		model.addAttribute("list_home_loan", list_home_loan);
 		return "product/list_mortgage_loan"; 
 	}
+	
 	
 	@RequestMapping("/detail_mortgage_loan")
 	public String detail_mortgage(Model model) {
@@ -37,6 +39,7 @@ public class HomeController {
 		return "product/detail_mortgage_loan"; 
 	}
 	
+	//전세자금 대출
 	@RequestMapping("/list_house_loan")
 	public String list_house_loan(Model model) {
 //		ArrayList<HomeLoanListVO> list_home_loan = new ArrayList<HomeLoanListVO>();
@@ -45,6 +48,7 @@ public class HomeController {
 		return "product/list_house_loan"; 
 	}
 	
+	// 개인신용 대출
 	@RequestMapping("/list_credit_loan")
 	public String list_credit_loan(Model model) {
 //		ArrayList<HomeLoanListVO> list_home_loan = new ArrayList<HomeLoanListVO>();
@@ -53,6 +57,7 @@ public class HomeController {
 		return "product/list_credit_loan"; 
 	}
 	
+	// 대출이자 계산기
 	@RequestMapping("/calc_rpayment")
 	public String calc_rpayment(Model model) {
 //		ArrayList<HomeLoanListVO> list_home_loan = new ArrayList<HomeLoanListVO>();
@@ -61,28 +66,15 @@ public class HomeController {
 		return "calculator/calc_rpayment"; 
 	}
 	
-	@RequestMapping("/servicec_inquire")
+	// 서비스 이용 문의
+	@RequestMapping("/cc_inquire")
 	public String servicec_inquire(Model model) {
 //		ArrayList<HomeLoanListVO> list_home_loan = new ArrayList<HomeLoanListVO>();
 //		ArrayList<HomeLoanListVO> list_home_loan = homeloanlistService.selectHomeLoanList();
 //		model.addAttribute("list_home_loan", list_home_loan);
-		return "product/servicec_inquire"; 
+		return "cc/cc_inquire"; 
 	}
 	
-	@RequestMapping("/deposit")
-	public String deposit() {
-		return "product2/deposit";
-	}
-	
-	@RequestMapping("/saving")
-	public String saving() {
-		return "product2/saving";
-	}
-	
-	@RequestMapping("/pension")
-	public String pension() {
-		return "product2/pension";
-	}
 	
 	@RequestMapping("/faq")
 	public String faq() {
@@ -114,5 +106,26 @@ public class HomeController {
 	@RequestMapping("/calculator_lump")
 	public String calculator_lump() {
 		return "product2/calculator_lump";
+	}
+	
+	@RequestMapping("/deposit_compare")
+	public String deposit_compare() {
+		return "product2/deposit_compare";
+	}
+	
+	@RequestMapping("/saving_compare")
+	public String saving_compare() {
+		return "product2/saving_compare";
+	}
+	
+	@RequestMapping("/pension_compare")
+	public String pension_compare() {
+		return "product2/pension_compare";
+	}
+	
+	// 대출상품 비교
+	@RequestMapping("/compare_loan")
+	public String compare_loan() {
+		return "product/compare_loan";
 	}
 }

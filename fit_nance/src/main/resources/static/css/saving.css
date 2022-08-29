@@ -1,58 +1,3 @@
-@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
-
-* {
-font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
-}
-
-
-
-/* 초기화 */
-*{
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    text-decoration: none;
-    box-sizing: border-box;
-    color: #222222;
-}
-
-/* common */
-.wrap{
-    width: 1320px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-
-
-/*.box-menu-02-bottom{
-    display: flex;
-    padding: 40px 40px 30px;
-    visibility: hidden;
-}
-
-.box-menu-02-bottom ul{
-    display: inline-block;
-    width: 200px;
-}
-
-.box-menu-02-bottom > ul > li{
-    height: 60px;
-    color: #666666;
-    font-size: 17px;
-    font-weight: 300;
-}
-
-.box-menu-02-bottom > ul > li:first-child{
-    font-weight: 600;
-}
-*/
-
-
-
-
-/*deposit*/
-
 .middle{
 }
 
@@ -71,7 +16,6 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
     font-weight: 600;
     margin-bottom: 20px;
 }
-
 .m{
     display: flex;
     justify-content: space-between;
@@ -104,7 +48,7 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
 }
 
 .select-box .select-option{
-    border:2px solid #f2f2f2;
+    border:1px solid #f2f2f2;
     display: inline-block;
     border-radius: 5px;
     padding:10px;
@@ -130,12 +74,12 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
 }
 
 .select-box .select-option:hover{
-    background-color: #1F4DFF;
-    color:#FFFFFF;
+    border:1px solid #1F4DFF;
+    color:#1F4DFF;
 }
 
 .select-box .filter-reset{
-    margin-top: 20px;
+    margin-top: 30px;
     border:2px solid #f2f2f2;
     width: 200px;
     height: 52px;
@@ -238,7 +182,9 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
     margin-left: 15px;
 }
 
-.plus-icon{
+.plus-icon,
+.plus-icon1,
+.plus-icon2{
     display: inline-block;
     width:52px;
     height:52px;
@@ -250,11 +196,52 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
     margin-left:16px;
 }
 
+
+.plus-icon1:hover{
+    border:1px solid #1F4DFF;
+   
+}
+
+.plus-icon1:hover i{
+    color:#1F4DFF;
+}
+
+.plus-icon1 i{
+    color: #aeaeaea0;
+    font-size: 20px;
+    
+}
+.plus-icon:hover{
+    border:1px solid #1F4DFF;
+   
+}
+
+.plus-icon:hover i{
+    color:#1F4DFF;
+}
+
 .plus-icon i{
     color: #aeaeaea0;
     font-size: 20px;
     
 }
+
+.plus-icon2:hover{
+    border:1px solid #1F4DFF;
+   
+}
+
+.plus-icon2:hover i{
+    color:#1F4DFF;
+}
+
+.plus-icon2 i{
+    color: #aeaeaea0;
+    font-size: 20px;
+    
+}
+
+
 
 .item-box2{
     display: flex;
@@ -360,4 +347,53 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
     border-radius: 5px;
     color:#FFFFFF;
     
+}
+
+.select-option-clicked{
+    border:1px solid #1F4DFF;
+    color: #ffffff;
+    background-color: #1f4dff;
+    display: inline-block;
+    border-radius: 5px;
+    padding:10px;
+    font-size: 12px;
+    text-align: center;
+    margin-top:10px;
+    margin-right:3px;
+}
+
+.plus-icon1-clicked{
+    display: inline-block;
+    width:52px;
+    height:52px;
+    border-radius: 5px;
+    border:1px solid #1F4DFF;
+    text-align: center;
+    line-height: 52px;
+    cursor: pointer;
+    margin-left:16px;
+    background-color: #1F4DFF;
+}
+
+.plus-icon1-clicked i {
+    color:#FFFFFF;
+    font-size: 20px;
+}
+
+.plus-icon2-clicked{
+    display: inline-block;
+    width:52px;
+    height:52px;
+    border-radius: 5px;
+    border:1px solid #1F4DFF;
+    text-align: center;
+    line-height: 52px;
+    cursor: pointer;
+    margin-left:16px;
+    background-color: #1F4DFF;
+}
+
+.plus-icon2-clicked i {
+    color:#FFFFFF;
+    font-size: 20px;
 }
