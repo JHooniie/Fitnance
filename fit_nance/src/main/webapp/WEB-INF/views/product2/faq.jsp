@@ -24,7 +24,7 @@
             <div class="topbox-title">무엇을 도와드릴까요?</div>
             <div class="topbox-textbox">
                 <i class="fa-solid fa-magnifying-glass"></i>
-                <input type="text" id="textbox" name="textbox" value="궁금하신 점이 있다면 검색해주세요">
+                <input type="text" id="textbox" name="textbox" placeholder="궁금하신 점이 있다면 검색해주세요">
             </div>
         </div>
         <div class="middle-bottom wrap">

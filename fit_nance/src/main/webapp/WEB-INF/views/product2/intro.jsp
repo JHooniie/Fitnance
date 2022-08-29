@@ -19,8 +19,8 @@
 		<!-- top.jsp -->
 		<c:import url="/WEB-INF/views/layout/top.jsp" />
 		
-		<div class="middle wrap">
-        <div class="middle1">
+		<div class="middle">
+        <div class="middle1 wrap">
             <ul>
                 <li>우리 로고 만들 때<br>
                 생각했던 의미</li>
@@ -38,7 +38,7 @@
                 <li>로고에 담긴 의미 등등등 몇 줄까지 적어야할까로고에 담긴 의미 등</li>
             </ul>
         </div>
-        <div class="middle3">
+        <div class="middle3 wrap">
             <div class="middle3-title">
                 오시는 길
             </div>
