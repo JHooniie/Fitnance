@@ -21,4 +21,9 @@ public class HomeLoanListService implements IHomeLoanListService{
 		return dao.selectHomeLoanList();
 	}
 
+	@Override
+	public HomeLoanListVO selectHomeLoanDetail(String fin_prdt_cd) {
+		return dao.selectHomeLoanDetail(fin_prdt_cd);
+	}
+
 }

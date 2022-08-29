@@ -31,18 +31,18 @@
 	                        <div class="top_prdt_info">
 	                            <div class="div_nm_co">
 	                                <span class="prdt_nm_co">
-	                                    농협은행주식회사
+	                                    ${prdt.kor_co_nm }
 	                                </span>
 	                            </div>
 	                            <div class="div_nm_prdt">
 	                                <span class="prdt_nm_loan">
-	                                    NH주택담보대출
+	                                    ${prdt.fin_prdt_nm }
 	                                </span>
 	                            </div>
 	                        </div>
 	                        <div class="div_joinway">
 	                            <div class="div_joinway_block">
-	                                <span>영업점</span>
+	                                <span>${prdt.join_way }</span>
 	                            </div>
 	                        </div>
 	                        <div class="bot_prdt_info">
@@ -52,7 +52,7 @@
 	                                        최저 금리
 	                                    </span>
 	                                    <span class="lend_rate_prdt">
-	                                        3.33<span>%</span>
+	                                        ${prdt.lend_rate_min }<span>%</span>
 	                                    </span>
 	                                </div>
 	                                <div class="div_loan_lmt">
@@ -60,7 +60,7 @@
 	                                        최대 한도
 	                                    </span>
 	                                    <span class="loan_lmt_prdt">
-	                                        10<span>억원</span>
+	                                        ${prdt.loan_lmt }
 	                                    </span>
 	                                </div>
 	                            <!-- </div> -->
