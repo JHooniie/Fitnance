@@ -19,7 +19,7 @@
 		<!-- top.jsp -->
 		<c:import url="/WEB-INF/views/layout/top.jsp" />
 		
-		<div class="middle">
+		<div class="middle wrap">
         <div class="middle1">
             <ul>
                 <li>목돈 계산기</li>
@@ -41,7 +41,7 @@
             <div class="middle4-subbox1">
                 <div class="sub-title">매월 납입 금액</div>
                 <div class="sub-input">
-                    <input type="text" id="amount-paid" name="amount-paid" value="매월 납입 금액"><span>원</span>
+                    <input type="text" id="amount-paid" name="amount-paid" placeholder="매월 납입 금액"><span>원</span>
                 </div>
                 <div class="sub-title">적립 기간</div>
                 <div class="sub-input">
@@ -55,7 +55,7 @@
                 </div>
                 <div class="sub-title">연 이자율</div>
                 <div class="sub-input">
-                    <input type="text" id="interest-rate" name="interest-rate" value="연 이자율"> <span>%</span>
+                    <input type="text" id="interest-rate" name="interest-rate" placeholder="연 이자율"> <span>%</span>
                 </div>
                 <div class="sub-title">금리 방식</div>
                 <div class="sub-input">

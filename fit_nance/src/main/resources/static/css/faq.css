@@ -1,5 +1,5 @@
 .middle .middle-topbox{
-    height:343px;
+    height:433px;
     background-color: #edf4ff;
     text-align: center;
 }
@@ -9,7 +9,7 @@
 }
 
 .topbox-title{
-    padding-top: 130.5px;
+    padding-top: 220px;
     font-size: 36px;
     font-weight: 500;
 }
@@ -108,3 +108,9 @@
     color : #aaa;
     padding-left: 11px;
 }
+
+input{
+    outline:none;
+}
+
+input::placeholder { color : #AAA }

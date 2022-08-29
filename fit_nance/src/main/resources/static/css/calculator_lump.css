@@ -115,8 +115,7 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
 
 .middle4 .middle4-subbox1 .sub-input #amount-paid, 
 .middle4 .middle4-subbox1 .sub-input #interest-rate{
-    color:#aaa;
-    
+    text-align:right;
 }
 
 .middle4 .middle4-subbox1 .sub-input #period{
@@ -244,3 +243,9 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
     font-size:22px;
     font-weight:600;
 }
+
+input{
+    outline:none;
+}
+
+input::placeholder { color : #AAA }

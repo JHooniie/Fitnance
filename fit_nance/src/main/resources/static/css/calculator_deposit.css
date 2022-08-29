@@ -37,7 +37,6 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
 /* calculator deposit */
 .middle{
     margin-top:134.5px;
-    margin-left:320px;
     display:flex;
     flex-direction: column;
 }
@@ -122,7 +121,6 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
 }
 
 .middle4 .middle4-subbox1 .sub-input #amount-paid,#interest-rate{
-    color:#aaa;
     text-align: right;
 }
 
@@ -252,3 +250,9 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
     font-size:22px;
     font-weight:600;
 }
+
+input{
+    outline:none;
+}
+
+input::placeholder { color : #AAA }
