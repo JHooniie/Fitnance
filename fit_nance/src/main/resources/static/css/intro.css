@@ -73,7 +73,6 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
 }
 
 .middle3{
-    margin-left:320px;
     height: 1083px;
     display: flex;
     flex-direction: column;
