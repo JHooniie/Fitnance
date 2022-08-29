@@ -8,6 +8,7 @@ import com.fit_nance.project.model.MemberVO;
 public interface IMemberDAO {
 	
 	public String loginCheck(HashMap<String, Object> map);
+	public int passwordCheck(HashMap<String, Object> map);
 	public Optional<MemberVO> findByUserId(String memId);
 	public void insertMember(MemberVO vo);
 }

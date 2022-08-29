@@ -24,7 +24,7 @@
                         <span class="span-profile-name">홍길동</span><br>
                         <span class="span-profile-Email">hgd1234@gmail.com</span>
                         <a href="<c:url value='/logout'/>">로그아웃</a>
-                        <button onclick="location.href='<c:url value='/update-auth'/>'"><span>프로필 수정하기</span></button>
+                        <button onclick="location.href='<c:url value='/passwordCheckForm'/>'"><span>프로필 수정하기</span></button>
                     </div>
                 </div>
             </div>

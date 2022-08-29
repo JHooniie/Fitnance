@@ -2,20 +2,11 @@
    $(document).ready(function(){
 
     //로그인 유효성 검사
-    var regEmail = /^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/;
     var getCheck = RegExp(/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/);
 
 
-    $('#login_form').on('submit', function(event){
-        if($('#user_id').val() == ""){
-            alert("이메일을 작성해주세요")
-            return false;
-        }
-        else if(!regEmail.test($('#user_id').val())){
-            alert("이메일 형식에 맞게 작성해주세요")
-            return false;
-        }
-        else if($('#user_pw').val() == ""){
+    $('#form-passwordCheck').on('submit', function(event){
+       if($('#user_pw').val() == ""){
             alert("비밀번호를 작성해주세요")
             return false;
         }
@@ -35,33 +26,7 @@
 
 
     //이메일 유효성 검사
-    $('#user_id').blur(function(){
-         if(!regEmail.test($('#user_id').val())){
-            if($('#user_id').val() == ""){
-
-            }
-            else{
-                $(this).removeClass("processPass");  
-                $(this).addClass("processStop");
-                $('#login_id_process_state').addClass("processStopText");  
-                $('#login_id_process_state').html("이메일 형식에 맞게 입력해주세요.")
-            }
-        }
-        else if(regEmail.test($('#user_id').val())) {
-            $(this).removeClass("processStop");
-            $(this).removeClass("processPass");  
-            $('#login_id_process_state').removeClass("processStopText");
-            $('#login_id_process_state').html("")
-        }
-    });
-
-    $('#user_id').focus(function(){
-        $(this).removeClass("processStop");  
-        $(this).addClass("processPass");
-        $('#login_id_process_state').removeClass("processStopText");
-        $('#login_id_process_state').addClass("processPassText"); 
-        $('#login_id_process_state').html("")
-    });
+   
         
     //비밀번호 유효성 검사
     $('#user_pw').blur(function(){
@@ -104,25 +69,25 @@
     })
 
 
-	$('#login_form').on('submit', function(event){
+	$('#').on('submit', function(event){
 
         event.preventDefault();
         
 
         $.ajax({
             type:"post",
-            url:"/login",
-            data:{"memId":$('#user_id').val(),
-            	  "memPwd":$('#user_pw').val()},
+            url:"/passwordCheck",
+            data:{"memId" : $('#user_id').val(),
+            		"memPwd":$('#user_pw').val()},
             dataType:"text",
             success:function(result){
                 // 성공 시 수행되는 함수 
                 // 반환되는 값을  result로 받음
                 if(result == "success") {
-                    alert("로그인 성공\nIndex 페이지로 이동합니다.");
-                    location.href="/";
+                    alert("본인확인 성공\n수정 페이지로 이동합니다.");
+                    location.href="/update-mypage";
                 } else {
-                    alert("아이디 또는 비밀번호가 일치하지 않습니다.");
+                    alert("비밀번호가 일치하지 않습니다.");
                 }
             },
             error:function(){

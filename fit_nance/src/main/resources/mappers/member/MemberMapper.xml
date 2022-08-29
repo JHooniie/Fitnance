@@ -28,6 +28,12 @@
 		WHERE memId=#{memId} and memPwd=#{memPwd}
   	</select>
 	
+	<select id="passwordCheck" parameterType="string" resultType="string">
+		SELECT memPwd 
+		FROM member 
+		WHERE memId=#{memId}
+  	</select>
+	
 	<!-- 회원가입 -->
 	<insert id="insertMember" parameterType="com.fit_nance.project.model.MemberVO">
 		INSERT member(memNo, memRole, memId, memPwd, memName, memHP, memBirth, memEmailRecd)

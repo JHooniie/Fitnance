@@ -64,11 +64,31 @@ public class MemberController {
 		return "member/myPage";
 	}
 	
-	@RequestMapping("/update-auth")
-	public String update_authForm() {
+	@RequestMapping("/passwordCheckForm")
+	public String passwordCheckForm() {
 		return "member/update_mypage_auth";
 	}
 	
+//	@ResponseBody
+//	@RequestMapping("/passwordCheck")
+//	public String passwordCheck(MemberVO vo, HttpSession session) {
+//
+//		String memId = (String)session.getAttribute("sid");
+//
+//		vo.setMemId(memId);
+//		
+//		
+//		String result = memService.passwordCheck(memId);
+//		String memPwd = MemberVO
+//		// 아이디와 비밀번호 일치하면
+//		if(memPwd != null) {
+//			// 로그인 성공하면 세션 변수 지정
+//			result = "success";
+//		}
+//		
+//		return result;
+//	}
+//	
 	@RequestMapping("/update-mypage")
 	public String update_mypageForm() {
 		return "member/update_mypage";

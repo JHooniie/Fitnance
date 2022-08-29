@@ -37,6 +37,15 @@ public class MemberService implements IMemberService {
 		return dao.loginCheck(map);
 	}
 
+	@Override
+	public int passwordCheck(String memId, String memPwd) {
+		
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		map.put("memId", memId);
+		map.put("memPwd", memPwd);
+		
+		return dao.passwordCheck(map);
 
+	}
 
 }
