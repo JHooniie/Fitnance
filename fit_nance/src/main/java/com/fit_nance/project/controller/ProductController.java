@@ -7,8 +7,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.fit_nance.project.model.DepoOptionVO;
 import com.fit_nance.project.model.DepositListVO;
+import com.fit_nance.project.model.DepositVO;
 import com.fit_nance.project.model.InstallListVO;
+import com.fit_nance.project.model.InstallOptionVO;
+import com.fit_nance.project.model.InstallVO;
 import com.fit_nance.project.model.PensionListVO;
 import com.fit_nance.project.model.PensionVO;
 import com.fit_nance.project.model.PsOptionVO;
@@ -45,7 +49,7 @@ public class ProductController {
 	
 	@RequestMapping("/insertProduct")
 	public String insertProduct() {
-		/*ArrayList<DepositVO> depoList = new ArrayList<DepositVO>();
+		ArrayList<DepositVO> depoList = new ArrayList<DepositVO>();
 		depoList= dService.deposit();
 		for(int i = 0;i<depoList.size();i++) {
 			pService.insertDeposit(depoList.get(i));
@@ -65,7 +69,8 @@ public class ProductController {
 		insOptionList = ioService.install();
 		for(int i = 0;i<insOptionList.size();i++) {
 			pService.insertInsOption(insOptionList.get(i));
-		}*/
+		}
+		
 		ArrayList<PensionVO> psList = new ArrayList<PensionVO>();
 		psList= psService.pension();
 		for(int i = 0;i<psList.size();i++) {

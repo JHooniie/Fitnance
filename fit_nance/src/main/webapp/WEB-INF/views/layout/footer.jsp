@@ -1,6 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<!-- chatbot -->
+<div id="boxChatbot">
+	<div id="resultBox"></div>
+			
+	<form id="chatForm">
+		<input type="text" id="chatInput" name="chatInput" placeholder="질문을 입력하세요">
+		<button type="submit" id="btnChatSubmit"><i class="fa-solid fa-paper-plane"></i></button>
+	</form>
+</div>
 <!-- remote -->
 <div class="box-remote">
     <div class="box-top-btn">
