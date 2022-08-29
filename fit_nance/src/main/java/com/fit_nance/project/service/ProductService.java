@@ -8,10 +8,12 @@ import org.springframework.stereotype.Service;
 
 import com.fit_nance.project.dao.IProductDAO;
 import com.fit_nance.project.model.DepoOptionVO;
+import com.fit_nance.project.model.DepositListVO;
 import com.fit_nance.project.model.DepositVO;
 import com.fit_nance.project.model.InstallListVO;
 import com.fit_nance.project.model.InstallOptionVO;
 import com.fit_nance.project.model.InstallVO;
+import com.fit_nance.project.model.PensionListVO;
 import com.fit_nance.project.model.PensionVO;
 import com.fit_nance.project.model.PsOptionVO;
 
@@ -61,6 +63,18 @@ public class ProductService implements IProductService {
 	public ArrayList<InstallListVO> selectInstall() {
 		// TODO Auto-generated method stub
 		return dao.selectInstall();
+	}
+
+	@Override
+	public ArrayList<DepositListVO> selectDeposit() {
+		// TODO Auto-generated method stub
+		return dao.selectDeposit();
+	}
+
+	@Override
+	public ArrayList<PensionListVO> selectPension() {
+		// TODO Auto-generated method stub
+		return dao.selectPension();
 	}
 
 }
