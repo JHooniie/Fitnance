@@ -12,3 +12,4 @@
 <!-- custom -->
 <link rel="stylesheet" href="<c:url value='/css/common.css'/>">
 <script src="<c:url value='/js/common.js'/>"></script>
+<script src="<c:url value='/js/chatbot.js'/>"></script>

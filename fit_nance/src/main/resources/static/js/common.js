@@ -36,4 +36,9 @@ $(document).ready(function(){
 		event.preventDefault();
 		$('html, body').animate({ scrollTop: 0 }, 300);
 	});
+	
+	// 챗봇 클릭 시
+	$('.box-chatbot').click(function(){
+		$('#boxChatbot').toggleClass('dp-block');
+	});
 });
