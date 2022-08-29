@@ -39,6 +39,14 @@ $(document).ready(function(){
 	
 	// 챗봇 클릭 시
 	$('.box-chatbot').click(function(){
-		$('#boxChatbot').toggleClass('dp-block');
+		$('#boxChatbot').addClass('dp-block');
+	});
+	
+	// 챗봇 외 영역 클릭 시
+	$(document).mouseup(function (e){
+	  var LayerPopup = $("#boxChatbot");
+	  if(!LayerPopup.is(e.target) && LayerPopup.has(e.target).length == 0){
+	    LayerPopup.removeClass('dp-block');
+	  }
 	});
 });
