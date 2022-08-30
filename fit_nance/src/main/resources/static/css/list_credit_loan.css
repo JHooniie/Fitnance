@@ -76,6 +76,7 @@
 
 .div_list .panel_filter{
     width: 202px;
+    /* border: 1px solid red; */
     margin-right: 90px;
 }
 
@@ -122,7 +123,7 @@
     justify-content: center;
     align-items: center;
     border-radius: 5px;
-    font-weight: 500;
+    font-weight: 400;
     border: 1px solid #dddddd;
     cursor: pointer;
 }
@@ -171,7 +172,7 @@
     align-items: center;
     border: 1px solid #dddddd;
     border-radius: 5px;
-    font-weight: 500;
+    font-weight: 400;
     cursor: pointer;
 }
 
@@ -201,6 +202,7 @@
     border: 1px solid #dddddd;
     border-radius: 5px;
     color: #222222;
+    background-color: #ffffff;
     font-weight: 500;
     display: flex;
     justify-content: center;
@@ -242,6 +244,7 @@
 
 .div_list .panel_list_prdt{
     width: 990px;
+    /* border: 1px solid blue; */
 }
 
 .panel_list_prdt .div_search_list{
@@ -254,6 +257,7 @@
 .panel_list_prdt .div_list_result{
     color: #222222;
     font-size: 16px;
+    /* border: 1px solid red; */
 }
 
 .panel_list_prdt .div_search_prdt{
@@ -270,6 +274,10 @@
     border: none;
     outline: none;
     font-size: 16px;
+    color: #222222;
+}
+
+.panel_list_prdt .div_search_prdt input::placeholder{
     color: #aaaaaa;
 }
 
@@ -282,6 +290,7 @@
 .div_list .div_list_prdt{
     display: flex;
     color: #222222;
+    /* border: 1px solid red; */
     justify-content: center;
     flex-direction: column;
 }
@@ -292,6 +301,7 @@
 
 .div_prdt{
     width: 990px;
+    height: 200px;
     padding: 25px 0px 20px 0px;
     display: flex;
     justify-content: space-between;
@@ -337,7 +347,7 @@
 
 .top_prdt_info .div_nm_prdt .prdt_nm_loan{
     font-size: 22px;
-    font-weight: bold;
+    font-weight: 600;
     margin-right: 5px;
 }
 
@@ -346,8 +356,8 @@
 }
 
 .top_prdt_info .div_joinway div{
-    display: flex;
     padding: 8px;
+    display: flex;
     justify-content: center;
     align-items: center;
     font-size: 13px;
@@ -358,7 +368,6 @@
 
 .bot_prdt_info{
     display: flex;
-    margin: 30px 0px 0px 0px;
 }
 
 .bot_prdt_info div{
