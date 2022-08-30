@@ -12,7 +12,7 @@
 .div_background{
     height: 308px;
     margin-top: 90px;
-    padding-top: 121px;
+    padding-top: 130px;
     background-color: #EDF4FF;
 }
 
@@ -33,18 +33,24 @@
 }
 
 .div_background .div_background_title{
-    display: inline-block;
+    display:inline-block;
+}
+
+.div_background .div_background_title .background_title_main{
+    display: block;
     font-size: 56px;
     font-weight: bold;
     color: #222222;
 }
+
+
 
 .div_background .div_background_title .background_title_sub{
     display: inline-block;
     font-size: 22px;
     font-weight: normal;
     color: #222222;
-    margin-top: 40px;
+    margin-top: 32px;
 }
 
 .div_background .div_background_image{
@@ -67,7 +73,7 @@
     justify-content: center;
 }
 
-/* ÃƒÂ­Ã¢â‚¬Â¢Ã¢â‚¬Å¾ÃƒÂ­Ã¢â‚¬Å¾Ã‚Â° div */
+/* 필터 div */
 
 .div_list .panel_filter{
     width: 202px;
@@ -97,7 +103,7 @@
     cursor: pointer;
 }
 
-/* ÃƒÂªÃ‚Â°Ã¢â€šÂ¬ÃƒÂ¬Ã…Â¾Ã¢â‚¬Â¦ÃƒÂ«Ã‚Â°Ã‚Â©ÃƒÂ«Ã‚Â²Ã¢â‚¬Â¢ */
+/* 가입 방법 */
 
 .panel_filter .div_prdt_joinway .title_prdt_joinway{
     margin: 30px 0px 12px 0px;
@@ -146,7 +152,7 @@
     background-color: #1f4dff;
 }
 
-/* ÃƒÂ«Ã¢â‚¬Â¹Ã‚Â´ÃƒÂ«Ã‚Â³Ã‚Â´ÃƒÂ¬Ã…â€œÃ‚Â ÃƒÂ­Ã‹Å“Ã¢â‚¬Â¢ */
+/* 대출 한도 */
 
 .panel_filter .div_mrtg_type .title_mrtg_type{
     margin: 30px 0px 12px 0px;
@@ -188,7 +194,7 @@
     background-color: #1f4dff;
 }
 
-/* ÃƒÂ«Ã…â€™Ã¢â€šÂ¬ÃƒÂ¬Ã‚Â¶Ã…â€œÃƒÂ¬Ã†â€™Ã‚ÂÃƒÂ­Ã¢â€žÂ¢Ã‹Å“ÃƒÂ¬Ã…â€œÃ‚Â ÃƒÂ­Ã‹Å“Ã¢â‚¬Â¢ */
+/* 대출상환유형 */
 
 .panel_filter .div_rpay_type .title_rpay_type{
     margin: 30px 0px 12px 0px;
@@ -235,7 +241,7 @@
     background-color: #1f4dff;
 }
 
-/* ÃƒÂ«Ã…â€™Ã¢â€šÂ¬ÃƒÂ¬Ã‚Â¶Ã…â€œÃƒÂªÃ‚Â¸Ã‹â€ ÃƒÂ«Ã‚Â¦Ã‚Â¬ÃƒÂ¬Ã…â€œÃ‚Â ÃƒÂ­Ã‹Å“Ã¢â‚¬Â¢ */
+/* 대출금리유형 */
 
 .panel_filter .div_lend_type .title_lend_type{
     margin: 30px 0px 12px 0px;
@@ -277,7 +283,7 @@
     background-color: #1f4dff;
 }
 
-/* ÃƒÂ­Ã¢â‚¬Â¢Ã¢â‚¬Å¾ÃƒÂ­Ã¢â‚¬Å¾Ã‚Â° ÃƒÂ¬Ã‚Â´Ã‹â€ ÃƒÂªÃ‚Â¸Ã‚Â°ÃƒÂ­Ã¢â€žÂ¢Ã¢â‚¬Â */
+/* 필터 초기화 */
 
 .panel_filter .div_reset_filter .btn_reset_filter{
     width: 200px;
@@ -324,7 +330,7 @@
 }
 
 
-/* ÃƒÂ¬Ã†â€™Ã‚ÂÃƒÂ­Ã¢â‚¬â„¢Ã‹â€  ÃƒÂ«Ã‚Â¦Ã‚Â¬ÃƒÂ¬Ã…Â Ã‚Â¤ÃƒÂ­Ã…Â Ã‚Â¸ div */
+/* 상품 리스트 div */
 
 .div_list .panel_list_prdt{
     width: 990px;
@@ -461,7 +467,7 @@
     color: #222222;
 }
 
-/* ÃƒÂ¬Ã‚ÂµÃ…â€œÃƒÂ¬Ã‚Â Ã¢â€šÂ¬ ÃƒÂªÃ‚Â¸Ã‹â€ ÃƒÂ«Ã‚Â¦Ã‚Â¬ */
+/* 최저 금리 */
 .bot_prdt_info .div_lend_rate .lend_rate_title{
     font-size: 14px;
 }
@@ -476,7 +482,7 @@
     font-weight: 200;
 }
 
-/* ÃƒÂ«Ã…â€™Ã¢â€šÂ¬ÃƒÂ¬Ã‚Â¶Ã…â€œ ÃƒÂ­Ã¢â‚¬Â¢Ã…â€œÃƒÂ«Ã‚ÂÃ¢â‚¬Å¾ */
+/* 대출 한도 */
 .bot_prdt_info .div_loan_lmt .loan_lmt_title{
     font-size: 14px;
     margin-bottom: 6px;
@@ -488,7 +494,7 @@
 }
 
 /* 22 * 19.3  146 */
-/* ÃƒÂ«Ã‚Â¦Ã‚Â¬ÃƒÂ¬Ã…Â Ã‚Â¤ÃƒÂ­Ã…Â Ã‚Â¸ ÃƒÂªÃ‚Â°Ã‚Â ÃƒÂ¬Ã†â€™Ã‚ÂÃƒÂ­Ã¢â‚¬â„¢Ã‹â€  ÃƒÂ¬Ã…Â¡Ã‚Â°ÃƒÂ¬Ã‚Â¸Ã‚Â¡ ÃƒÂ«Ã‚Â²Ã¢â‚¬Å¾ÃƒÂ­Ã…Â Ã‚Â¼ */
+/* 리스트 각 상품 우측 버튼 */
 .div_btn_prdt{
     display: flex;
     flex-direction: column;
@@ -549,13 +555,13 @@
     height: 52px;
     display: flex;
     justify-content: center;
-    align-items: center;    
+    align-items: center;
     border: 1px solid #dddddd;
     border-radius: 5px;
     font-size: 16px;
     color: #222222;
     background-color: #ffffff;
-    font-weight: 500;
+    font-weight: 400;
     cursor: pointer;
 }
 

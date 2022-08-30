@@ -19,26 +19,24 @@
 		<!-- top.jsp -->
 		<c:import url="/WEB-INF/views/layout/top.jsp" />
 		<!-- section.jsp -->
-		<
 		<section id="section">
 	        <div class="div_background">
-	            <div class="div_background_top"></div>
-	            <div class="div_background_bottom"></div>
-	            <div class="div_background_title">
-	                <span class="background_title_main">
-	                    전세 자금<br>
-	                    대출
-	                </span>
-	                <br>
-	                <span class="background_title_sub">
-	                    내게 맞는 전세자금대출 찾기
-	                </span>
-	            </div>
-	            <div class="div_background_image">
-	                <img src="image/img_lease_loan.png">
-	            </div>
+		        <div class="div_background_wrap wrap">
+		            <div class="div_background_title">
+		                <span class="background_title_main">
+		                    전세 자금<br>
+	                    	대출
+		                </span>
+		                <span class="background_title_sub">
+		                    내게 맞는 전세자금대출 찾기
+		                </span>
+		            </div>
+		            <div class="div_background_image">
+		                <img src="image/img_lease_loan.png">
+		            </div>
+		        </div>	            
 	        </div>
-	        <div class="div_list">
+	        <div class="div_list wrap">
 	            <div class="panel_filter">
 	                <div class="div_prdt_compare">
 	                    <div class="btn_prdt_compare">
