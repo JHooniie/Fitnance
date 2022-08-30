@@ -15,9 +15,6 @@ public class PrincipalDetails implements UserDetails, OAuth2User {
 	private MemberVO vo;
 	private Map<String, Object> attributes;
 	
-	public PrincipalDetails() {
-		super();
-	}
 	
 	//일반 로그인
 	public PrincipalDetails(MemberVO vo) {
