@@ -5,10 +5,10 @@
  $(document).ready(function(){
     {
         {
-            var rsrv_type_nm=[];
-            var join_member=[];
-            var join_way=[];
-            var save_trm=[];
+            var rsrv_type_nm=["a"];
+            var join_member=["a"];
+            var join_way=["a"];
+            var save_trm=["a"];
         }
         {
             $('.select-option').click(function(){
@@ -77,10 +77,29 @@
                         console.log(save_trm[i]);
                     }
                 }
+                $.ajax({
+                    url:"filter_saving",
+                    type:"post",
+                    traditional: true,
+                    data:{rsrv_type_nm,join_member,join_way,save_trm},
+                    success:function(data){
+                        console.log(rsrv_type_nm);
+                        console.log(join_member);
+                        console.log(join_way);
+                        console.log(save_trm);
+                    },
+                    error:function(request,status,error){
+                        alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+                    }
+                });
             })
             $('.filter-reset').click(function(){
             	$('.select-option-clicked').addClass('select-option');
             	$('.select-option-clicked').removeClass('select-option-clicked');
+            	rsrc_type_nm=["a"];
+            	join_member=["a"];
+            	join_way=["a"];
+            	save_trm=["a"];
             })
         }
     
