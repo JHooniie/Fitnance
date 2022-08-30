@@ -1,6 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<sec:authorize access="isAuthenticated()">
+    <sec:authentication property="principal" var="principal" />
+</sec:authorize>
+<c:set var="name" value="${principal.name}" />
+<c:set var="password" value="${principal.password}" />
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -25,11 +32,16 @@
                         <form id="form-update-profile" action="">
                         <div class="box-update-profile-basic">
                             <label for="input-update-profile-Email"><span class="span-update span-update-profile-Email">이메일</span></label><br>
-                            <input type="text" id="input-update-profile-Email" value="hgd1234@gmail.com" readonly>
-                            <span class="span-update span-update-profile-Email">비밀번호</span><br>
-                            <div class="a-update-profile-password"><a href="<c:url value='/update-password'/>">비밀번호 변경하기</a></div>
+                            <input type="text" id="input-update-profile-Email" value="${principal.username}" readonly>
+                            <c:if test="${password == ''}"> 
+	                            <span class="span-update span-update-profile-Email">비밀번호</span><br>
+	                            <div class="a-update-profile-password"><a href="<c:url value='/update-password'/>">비밀번호 변경하기</a></div>
+	                        </c:if>
                             <label for="input-update-profile-name"><span class="span-update span-update-profile-name">이름</span></label><br>
-                            <input type="text" id="input-update-profile-name" value="" placeholder="홍길동">
+                            <c:if test="${password == ''}"> 
+                            <input type="text" id="input-update-profile-name" value="${principal.name}" readonly>
+                            </c:if>
+                            <input type="text" id="input-update-profile-name" value="${principal.name}">
                             <label for="input-update-profile-birth"><span class="span-update span-update-profile-birth">생년월일</span></label><br>
                             <div class="div-update-profile-birth">
                                 <input type="text" id="input-update-profile-birth-year" name="input-update-profile-birth-year" placeholder="1990">

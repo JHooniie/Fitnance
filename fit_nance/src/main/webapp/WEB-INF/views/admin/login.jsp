@@ -14,7 +14,7 @@
 	</head>
 	<body>
 		<main class="form-signin w-100 m-auto">
-		  <form>
+		  <form method="post" action="/adminLoginProc">
 		    <div class="box-logo">
 		        <img class="mb-5 w-50" src="<c:url value='/image/lg_fitnance.png'/>" alt="fit:nance">
 		    </div>    
