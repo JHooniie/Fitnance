@@ -191,5 +191,6 @@ $RECYCLE.BIN/
 WebConfig.java
 APIKey.java
 application.properties
+*.properties
 
 # End of https://www.toptal.com/developers/gitignore/api/windows,macos,java,eclipse

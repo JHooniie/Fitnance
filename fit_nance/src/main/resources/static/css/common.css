@@ -12,7 +12,7 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
     color: #222222;
     list-style: none;
     text-decoration: none;
-    box-sizing: border-box;   
+    box-sizing: border-box;
 }
 
 /* common */
@@ -161,6 +161,96 @@ header{
 }
 
 /* chatbot */
+#boxChatbot{
+	position: fixed;
+	right: 160px;
+	bottom: 54px;
+	display: none;
+	width: 350px;
+	border-radius: 10px;
+	background: #FFFFFF;
+	box-shadow: 1px 2px 20px 0px #e0e0e0;
+}
+
+#boxChatbot #resultBox{
+	height: 400px;
+	padding: 20px;
+	overflow-y: scroll;
+}
+
+#boxChatbot #resultBox::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera*/
+}
+
+#boxChatbot #chatForm{
+	height: 50px;
+	border-top: 1px solid #CCCCCC;
+}
+
+#boxChatbot #chatInput{
+	width: 300px;
+	padding: 16px 20px;
+	border: none;
+	border-radius: 0 0 0 10px;
+	outline: none;
+	font-size: 15px;
+}
+
+#boxChatbot #chatInput::placeholder{
+	color: #AAAAAA;
+}
+
+#boxChatbot #btnChatSubmit{
+	width: 36px;
+	height: 36px;
+	border: none;
+	border-radius: 20px;
+	background-color: #1F4DFF;
+}
+
+#boxChatbot #btnChatSubmit:disabled{
+	background-color: #CCC;
+}
+
+#boxChatbot #btnChatSubmit i{
+	margin-right: 2px;
+	color: #FFFFFF;
+}
+
+span.a_title{
+	display: block;
+	width: fit-content;
+	color: #222;
+	clear: both;
+	margin-bottom: 5px;
+}
+
+span.a{
+	display: block;
+	width: fit-content;
+	min-width: 50px;
+	max-width: 250px;
+	margin-bottom: 15px;
+	padding: 15px;
+	border-radius: 0 18px 18px;
+	background-color: #f6f6f6;
+	word-break: break-all;
+}
+
+span.q{
+	display: block;
+	float: right;
+	width: fit-content;
+	min-width: 50px;
+	max-width: 250px;
+	background-color: #1e4dfe;
+	padding: 10px 15px;
+	border-radius: 15px 3px 15px 15px;
+	margin-bottom: 15px;
+	word-break: break-all;
+	color: #FFFFFF;
+}
+
 .box-remote{
     position: fixed;
     right: 0;

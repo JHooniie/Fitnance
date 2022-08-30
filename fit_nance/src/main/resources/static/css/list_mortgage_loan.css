@@ -422,6 +422,10 @@
     margin-right: 5px;
 }
 
+.top_prdt_info .div_joinway{
+	display: flex;
+}
+
 .top_prdt_info .div_joinway div{
     width: 50px;
     height: 32px;
@@ -538,6 +542,7 @@
     border-radius: 5px;
     font-size: 16px;
     color: #222222;
+    background-color: #ffffff;
     font-weight: 500;
     cursor: pointer;
 }
@@ -627,4 +632,9 @@
     color: #ffffff;
     /* border: 1px solid #1f4dff; */
     background-color: #1f4dff;
+}
+
+
+.btn_prdt_info span{
+	display: none;
 }
