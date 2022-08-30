@@ -191,7 +191,14 @@
 .image-box{
     width: 55px;
     height: 55px;
-    background-color: #f2f2f2;
+    border-radius: 5px;
+    background-color: #ffffff;
+    overflow: hidden;
+}
+
+.image-box>img{
+    width: 55px;
+    margin: 0 auto;
 }
 
 .bank-name{
