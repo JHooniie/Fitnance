@@ -78,7 +78,8 @@
 	                    traditional: true,
 	                    data:{rsrv_type_nm,join_member,join_way,save_trm},
 	                    success:function(result){
-	                    	$('.result-box-filter').html(result);
+	           				console.log(result);
+	                    	$('#result-box-filter').html(result);
 	                    },
 	                    error:function(request,status,error){
 	                        alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
@@ -90,15 +91,71 @@
 	                    traditional: true,
 	                    data:{rsrv_type_nm,join_member,join_way,save_trm},
 	                    success:function(result){
-	                    	$('.result-box-filter').empty();
-	                    	$('.result-box-filter').append('<div class="result-box">'
-	                	+'<div class="search-line">'
-	                    +'<div class="box">검색 결과'+result.length);
+	                    	$('.result-box-filter').html(result);
 	                    },
 	                    error:function(request,status,error){
 	                        alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
 	                    }
-	                });
+	                });*/
+                /*$.ajax({
+	                    url:"filter_saving",
+	                    type:"post",
+	                    traditional: true,
+	                    data:{rsrv_type_nm,join_member,join_way,save_trm},
+	                    success:function(result){
+	                    	$('#result-box-filter').empty();
+	                    	$('#result-box-filter').append('<div class="result-box">'
+			                	+'<div class="search-line">'
+			                    +'<div class="box">검색 결과 '+result.length+'개</div>'
+			                    +'<div class="search-box"><input type="text" id="tourName" name="tourName" value="키워드 검색"><i class="fa-solid fa-magnifying-glass"></i></div></div><div class="item-list">');
+		                    for(var i=0;i<result.length;i++){
+		                    	var index=result[i].oIndex;
+		                    	console.log(index);
+		                    	$('#result-box-filter').append('<div class="item-box-all">'
+	                       	+'<div class="item-box">'
+	                            +'<div class="image-box"></div>'
+	                            +'<div class="text-box">'
+	                                +'<div class="bank-name">'+result[i].kor_co_nm+'</div>'
+	                                +'<div class="item-line">'
+	                                    +'<div class="item-name">'+result[i].fin_prdt_nm);
+	                                  var ab= result[i].join_way.split(",");
+	                                  for(var j=0;j<ab.length;j++){
+	                                  		$('#result-box-filter').append('<span>'+ab[j]+'</span>');
+	                               		}
+	                            $('#result-box-filter').append('</div></div></div>'
+	                            +'<div class="plus-icon1"><i class="fa-solid fa-folder-plus"></i></div>'
+	                            +'<div class="plus-icon2"><i class="fa-solid fa-heart"></i></div>'
+	                        +'</div>'
+	                   
+	                        +'<div class="item-box2">'
+	                            +'<div class="percent-box">'
+	                                +'<div class="percent1">'
+	                                    +'<ul>'
+	                                        +'<li>1년기준 (세전)</li>'
+	                                        +'<li><span>'+result[i].intr_rate+'</span>%</li>'
+	                                        +'</ul></div>'
+	                                +'<div class="percent2">'
+	                                    +'<ul>'
+	                                        +'<li>최대 (세전)</li>'
+	                                       +'<li><span>'+result[i].intr_rate2+'</span>%</li>'
+	                                        +'</ul></div></div>'
+	                                       +'<div class="view-detail"><a href="<c:url value='+"'saving_detail?index="+"'/>"+'">자세히 보기</a></div></div></div>');
+	                                
+		                    }
+		                    $('#result-box-filter').append('<div class="page-list">'
+	                        +'<div class="page-icon"><i class="fa-solid fa-angle-left"></i></div>'
+	                        +'<div class="page-num">'
+	                            +'<div class="page-num1">1</div>'
+	                            +'<div class="page-num2">2</div>'
+	                            +'<div class="page-num3">3</div>'
+	                        +'</div>'
+	                        +'<div class="page-icon"><i class="fa-solid fa-angle-right"></i></div>'
+	                    +'</div></div></div>');
+	                    },
+	                    error:function(request,status,error){
+	                        alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+	                    }
+	                });*/
                 /*var abc=[];
                 new Promise((succ,fail)=>{
 	                $.ajax({
