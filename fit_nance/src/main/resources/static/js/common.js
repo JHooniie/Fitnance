@@ -1,32 +1,8 @@
 // common.js
 
 $(document).ready(function(){
-    // 상품 안내 메뉴 마우스 호버
-    $(".li-prd-info").hover(function() {
-        $('.box-menu-02-bottom').addClass('dp-flex');
-        $('header').removeClass('header-active');
-    }, function() {
-        $('.box-menu-02-bottom').removeClass('dp-flex');
-    });
 
-    // 계산기 마우스 호버
-    $(".li-cal").hover(function() {
-        $('.box-menu-03-bottom').addClass('dp-flex');
-        $('header').removeClass('header-active');
-    }, function() {
-        $('.box-menu-03-bottom').removeClass('dp-flex');
-    });
-
-    // 고객센터 마우스 호버
-    $(".li-cus-service").hover(function() {
-        $('.box-menu-04-bottom').addClass('dp-flex');
-        $('header').removeClass('header-active');
-    }, function() {
-        $('.box-menu-04-bottom').removeClass('dp-flex');
-        $('header').addClass('header-active');
-    });
-    
-    // 각 영역 진입 시 active
+// 각 영역 진입 시 active
     var path = $(location).attr('pathname').substring(1, 5);
 	if(path == 'intr') {
 		$('.box-menu-top ul li').removeClass('menu-active');
@@ -56,6 +32,37 @@ $(document).ready(function(){
 		$('.li-cus-service').addClass('menu-active');
 		$('header').addClass('header-active');
 	}
+	
+    // 상품 안내 메뉴 마우스 호버
+    $(".li-prd-info").hover(function() {
+        $('.box-menu-02-bottom').addClass('dp-flex');
+        $('header').removeClass('header-active');
+    }, function() {
+        $('.box-menu-02-bottom').removeClass('dp-flex');
+    });
+
+    // 계산기 마우스 호버
+    $(".li-cal").hover(function() {
+        $('.box-menu-03-bottom').addClass('dp-flex');
+        $('header').removeClass('header-active');
+    }, function() {
+        $('.box-menu-03-bottom').removeClass('dp-flex');
+    });
+
+    // 고객센터 마우스 호버
+    $(".li-cus-service").hover(function() {
+        $('.box-menu-04-bottom').addClass('dp-flex');
+        $('header').removeClass('header-active');
+    }, function() {
+        $('.box-menu-04-bottom').removeClass('dp-flex');
+        if(path == 'noti') {
+			$('header').addClass('header-active');
+		} else if(path == 'faq') {
+			$('header').addClass('header-active');
+		} else if(path == 'cc_i') {
+			$('header').addClass('header-active');
+		}
+    });
     
     // top btn
     $(window).scroll(function () {
