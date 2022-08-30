@@ -78,7 +78,6 @@
 	                    traditional: true,
 	                    data:{rsrv_type_nm,join_member,join_way,save_trm},
 	                    success:function(result){
-	           				console.log(result);
 	                    	$('#result-box-filter').html(result);
 	                    },
 	                    error:function(request,status,error){
@@ -223,13 +222,26 @@
             })
             
             $('.filter-reset').click(function(){
-            	event.preventDefault();
+           
             	$('.select-option-clicked').addClass('select-option');
             	$('.select-option-clicked').removeClass('select-option-clicked');
-            	rsrc_type_nm=["a"];
+            	
+            	rsrv_type_nm=["a"];
             	join_member=["a"];
             	join_way=["a"];
             	save_trm=["a"];
+            	$.ajax({
+	                    url:"filter_saving",
+	                    type:"post",
+	                    traditional: true,
+	                    data:{rsrv_type_nm,join_member,join_way,save_trm},
+	                    success:function(result){
+	                    	$('#result-box-filter').html(result);
+	                    },
+	                    error:function(request,status,error){
+	                        alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+	                    }
+	                });
             })
         }
     
