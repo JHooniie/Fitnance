@@ -198,10 +198,10 @@ public class HomeController {
 		}*/
 		
 		ArrayList<InstallListVO> insList= pService.selectInstallFilter(vo);
-		for(int i =0;i<insList.size();i++){
+		/*for(int i =0;i<insList.size();i++){
 				System.out.println(insList.get(i));
 		}
-		System.out.println(insList.size());
+		System.out.println(insList.size());*/
 		model.addAttribute("insList", insList);
 		
 		return "product2/saving_result";
@@ -222,7 +222,7 @@ public class HomeController {
 	
 	@RequestMapping("/deposit_detail")
 	public String deposit_detail(@RequestParam int index, Model model) {
-		ArrayList<DepositListVO> dpsList= pService.selectDeposit();
+		ArrayList<DepositListVO> dpsList= pService.selectDepositAll();
 		String kor_co_nm=null;
 		String fin_prdt_nm =null;
 		String join_way=null;
@@ -274,7 +274,7 @@ public class HomeController {
 	
 	@RequestMapping("/saving_detail")
 	public String saving_detail(@RequestParam int index, Model model) {
-		ArrayList<InstallListVO> installList= pService.selectInstall();
+		ArrayList<InstallListVO> installList= pService.selectInstallAll();
 		String kor_co_nm=null;
 		String fin_prdt_nm =null;
 		String join_way=null;
