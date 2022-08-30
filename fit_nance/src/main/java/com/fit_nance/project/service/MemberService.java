@@ -1,10 +1,10 @@
 package com.fit_nance.project.service;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 //import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -19,14 +19,14 @@ public class MemberService implements IMemberService {
 	IMemberDAO dao;
 	
 	
-//	@Autowired
-//	private BCryptPasswordEncoder bCryptPasswordEncoder;
+	@Autowired
+	private BCryptPasswordEncoder bCryptPasswordEncoder;
 	
 	@Override
 	public void insertMember(MemberVO vo) {
 		// 비밀번호 암호화 처리한 후 mapper에게 전달
-//		String encodedPwd = bCryptPasswordEncoder.encode(vo.getMemPwd());
-//		vo.setMemPwd(encodedPwd);
+		String encodedPwd = bCryptPasswordEncoder.encode(vo.getMemPwd());
+		vo.setMemPwd(encodedPwd);
 		vo.setMemRole("ROLE_USER");
 		
 		dao.insertMember(vo);
