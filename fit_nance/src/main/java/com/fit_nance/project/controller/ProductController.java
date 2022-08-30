@@ -11,7 +11,11 @@ import com.fit_nance.project.model.DepoOptionVO;
 import com.fit_nance.project.model.DepositListVO;
 import com.fit_nance.project.model.DepositVO;
 import com.fit_nance.project.model.InstallListVO;
+import com.fit_nance.project.model.InstallOptionVO;
+import com.fit_nance.project.model.InstallVO;
 import com.fit_nance.project.model.PensionListVO;
+import com.fit_nance.project.model.PensionVO;
+import com.fit_nance.project.model.PsOptionVO;
 import com.fit_nance.project.service.DepoOptionService;
 import com.fit_nance.project.service.DepositService;
 import com.fit_nance.project.service.InsOptionService;
@@ -45,16 +49,16 @@ public class ProductController {
 	
 	@RequestMapping("/insertProduct")
 	public String insertProduct() {
-		/*ArrayList<DepositVO> depoList = new ArrayList<DepositVO>();
+		ArrayList<DepositVO> depoList = new ArrayList<DepositVO>();
 		depoList= dService.deposit();
 		for(int i = 0;i<depoList.size();i++) {
 			pService.insertDeposit(depoList.get(i));
-		}*/
-		/*ArrayList<DepoOptionVO> depoOptionList = new ArrayList<DepoOptionVO>();
+		}
+		ArrayList<DepoOptionVO> depoOptionList = new ArrayList<DepoOptionVO>();
 		depoOptionList = doService.deposit();
 		for(int i = 0;i<depoOptionList.size();i++) {
 			pService.insertDepoOption(depoOptionList.get(i));
-		}/*
+		}
 		ArrayList<InstallVO> insList = new ArrayList<InstallVO>();
 		insList= iService.install();
 		for(int i = 0;i<insList.size();i++) {
@@ -74,7 +78,7 @@ public class ProductController {
 		psOptionList = psoService.deposit();
 		for(int i = 0;i<psOptionList.size();i++) {
 			pService.insertPsOption(psOptionList.get(i));
-		}*/
+		}
 		
 		//DB에 데이터 저장한후 전체 상품 조회 화면으로 포워딩
 		return "index";
