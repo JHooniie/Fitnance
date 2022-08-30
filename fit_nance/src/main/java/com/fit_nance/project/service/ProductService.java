@@ -66,17 +66,36 @@ public class ProductService implements IProductService {
 		// TODO Auto-generated method stub
 		return dao.selectInstall();
 	}
+	
+	@Override
+	public ArrayList<InstallListVO> selectInstallAll() {
+		// TODO Auto-generated method stub
+		return dao.selectInstallAll();
+	}
 
 	@Override
 	public ArrayList<DepositListVO> selectDeposit() {
 		// TODO Auto-generated method stub
 		return dao.selectDeposit();
 	}
+	
+	@Override
+	public ArrayList<DepositListVO> selectDepositAll() {
+		// TODO Auto-generated method stub
+		return dao.selectDepositAll();
+	}
+
 
 	@Override
 	public ArrayList<PensionListVO> selectPension() {
 		// TODO Auto-generated method stub
 		return dao.selectPension();
+	}
+	
+	@Override
+	public ArrayList<PensionListVO> selectPensionAll() {
+		// TODO Auto-generated method stub
+		return dao.selectPensionAll();
 	}
 
 	@Override

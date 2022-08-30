@@ -24,6 +24,9 @@ public interface IProductService {
 	public ArrayList<InstallListVO> selectInstallFilter(SavingFilterVO sf);
 	
 	public ArrayList<InstallListVO> selectInstall();
+	public ArrayList<InstallListVO> selectInstallAll();
 	public ArrayList<DepositListVO> selectDeposit();
+	public ArrayList<DepositListVO> selectDepositAll();
 	public ArrayList<PensionListVO> selectPension();
+	public ArrayList<PensionListVO> selectPensionAll();
 }

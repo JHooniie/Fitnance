@@ -26,6 +26,12 @@
 		<result property="intr_rate2" column="intr_rate2"/>
 	</resultMap>
 	
+	<select id="selectDepositAll" resultMap="resultDepositList">
+		SELECT b.pIndex, b.fin_co_no, b.kor_co_nm, b.fin_prdt_cd, b.fin_prdt_nm,b.join_way,b.mtrt_int,b.spcl_cnd,b.join_deny,b.join_member,b.etc_note, b.max_limit,o.oIndex,o.intr_rate_type,o.intr_rate_type_nm,o.save_trm,o.intr_rate,o.intr_rate2
+		FROM deposit_base b INNER JOIN deposit_option o
+		ON b.fin_prdt_cd=o.fin_prdt_cd;
+	</select>
+	
 	<select id="selectDeposit" resultMap="resultDepositList">
 		SELECT b.pIndex, b.fin_co_no, b.kor_co_nm, b.fin_prdt_cd, b.fin_prdt_nm,b.join_way,b.mtrt_int,b.spcl_cnd,b.join_deny,b.join_member,b.etc_note, b.max_limit,o.oIndex,o.intr_rate_type,o.intr_rate_type_nm,o.save_trm,o.intr_rate,o.intr_rate2
 		FROM deposit_base b INNER JOIN deposit_option o
