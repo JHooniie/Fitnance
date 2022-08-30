@@ -82,11 +82,8 @@
                     type:"post",
                     traditional: true,
                     data:{rsrv_type_nm,join_member,join_way,save_trm},
-                    success:function(data){
-                        console.log(rsrv_type_nm);
-                        console.log(join_member);
-                        console.log(join_way);
-                        console.log(save_trm);
+                    success:function(result){
+                       	$('.result-box-filter').html(result);
                     },
                     error:function(request,status,error){
                         alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);

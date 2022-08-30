@@ -91,7 +91,6 @@ public class ProductController {
 		ArrayList<InstallListVO> installList= pService.selectInstall();
 		model.addAttribute("insList", installList);
 		
-		//DB에 데이터 저장한후 전체 상품 조회 화면으로 포워딩
 		return "product2/saving";
 		//return "product/productAllListView"; //뷰페이지 이름 반환 (데이터 없는 빈 페이지)
 	}
