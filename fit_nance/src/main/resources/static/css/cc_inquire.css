@@ -10,10 +10,12 @@ h1{
 h2{
     font-size: 20px;
     color: #222222;
+    font-weight: 600;
 }
 
 .div_register_email h2{
     margin: 0px 52px 0px 0px;
+    font-weight: 600;
 }
 
 .div_register_email span{
@@ -33,7 +35,8 @@ textarea::placeholder{
     display: flex;
     flex-direction: column;
     width: 1280px;
-    margin: 134.5px 320px 131px 320px;
+    margin: 0 auto;
+    margin-top: 210px;
 }
 
 .div_service_inquire .tab_service_inquire{
@@ -222,7 +225,7 @@ select{
 /* 조회하기 - 문의사항 리스트 */
 
 .tab_list_inquire, .div_detail_inquire{
-    margin: 30px 0px 0px 0px;
+    margin-top: 30px;
 }
 
 .tab_list_inquire .div_list_inquire .top_list_inquire{
@@ -263,7 +266,7 @@ select{
     align-items: center;
     color: #222222;
     font-size: 18px;
-    font-weight: 500;
+    font-weight: 400;
     margin: 0px 0px 0px 30px;
 }
 
@@ -312,7 +315,7 @@ select{
 }
 
 .div_detail_inquire .content_detail_inquire p{
-    font-weight: 500;
+    font-weight: 400;
 }
 
 .div_detail_inquire .content_detail_inquire .answer_detail_inquire{
@@ -341,5 +344,5 @@ select{
 
 .div_detail_inquire button span{
     font-size: 16px;
-    font-weight: 600;
+    font-weight: 500;
 }
