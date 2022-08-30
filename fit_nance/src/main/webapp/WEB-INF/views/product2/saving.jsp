@@ -25,7 +25,7 @@
 		            <ul>
 		                <li>돈이 불어나는 습관,<br>
 		                적금 상품</li>
-		                <li>적금 관련 문구 적금 관련 문구</li>
+		                <li class="middle-sub-text">적금 관련 문구 적금 관련 문구</li>
 		            </ul>
 		        </div>
 		        <div class="middle-image">

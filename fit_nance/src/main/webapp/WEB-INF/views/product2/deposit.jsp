@@ -25,7 +25,7 @@
                 <ul>
                     <li>예금<br>
                     관련 문구</li>
-                    <li>정기예금 관련 문구 정기예금 관련 문구</li>
+                    <li class="middle-sub-text">정기예금 관련 문구 정기예금 관련 문구</li>
                 </ul>
             </div>
             <div class="middle-image">
