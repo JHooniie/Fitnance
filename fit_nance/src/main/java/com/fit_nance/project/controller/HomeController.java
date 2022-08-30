@@ -316,6 +316,7 @@ public class HomeController {
 	@RequestMapping("/deposit_detail")
 	public String deposit_detail(@RequestParam int index, Model model) {
 		ArrayList<DepositListVO> dpsList= pService.selectDepositAll();
+		String fin_co_no=null;
 		String kor_co_nm=null;
 		String fin_prdt_nm =null;
 		String join_way=null;
@@ -332,6 +333,7 @@ public class HomeController {
 		
 		for(DepositListVO vo:dpsList) {
 			if(vo.getoIndex()==index) {
+				fin_co_no = vo.getFin_co_no();
 				kor_co_nm = vo.getKor_co_nm();
 				fin_prdt_nm=vo.getFin_prdt_nm();
 				join_way=vo.getJoin_way();
@@ -350,6 +352,7 @@ public class HomeController {
 		else if(join_deny==1) join_deny2="서민전용";
 		else join_deny2="일부제한";
 		
+		model.addAttribute("fin_co_no", fin_co_no);
 		model.addAttribute("kor_co_nm", kor_co_nm);
 		model.addAttribute("fin_prdt_nm", fin_prdt_nm);
 		model.addAttribute("join_way", join_way);
