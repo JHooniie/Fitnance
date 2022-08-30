@@ -91,9 +91,36 @@ public class PrincipalDetails implements UserDetails, OAuth2User {
 	public String getName() {
 		return vo.getMemName();
 	}
-
+	
 	public String getCertified() {
 		return vo.getCertified();
 	}
+	
+	public String getMemBirth() {
+		return vo.getMemBirth();
+	}
+	
+	public boolean isMemEmailRecd() {
+		return vo.isMemEmailRecd();
+	}
+	
+	public String getProvider() {
+		return vo.getProvider();
+	}
+
+	@Override
+	public String toString() {
+		return "{username : " + getUsername()
+				+ ", password : " + getPassword() + ", accountNonExpired :" + isAccountNonExpired()
+				+ ", accountNonLocked : " + isAccountNonLocked() + ", credentialsNonExpired : "
+				+ isCredentialsNonExpired() + ", enabled : " + isEnabled() + ", attributes : " + getAttributes()
+				+ ", vo : " + getVo() + ", name : " + getName() + ", certified : " + getCertified()
+				+ ", birth : " + getMemBirth() + ", emailRecd : " + isMemEmailRecd() + ", provider : "
+				+ getProvider() + "}";
+	}
+
+	
+	
+	
 	
 }
