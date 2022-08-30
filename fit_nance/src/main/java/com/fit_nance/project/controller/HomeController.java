@@ -182,9 +182,67 @@ public class HomeController {
 		return "product2/faq";
 	}
 	
-	@RequestMapping("/filter_saving")
+	/*@RequestMapping("/filter_saving")
 	@ResponseBody
 	public ArrayList<InstallListVO> filter_saving(@RequestParam(value="rsrv_type_nm") ArrayList<String> rsrv_type_nm2,
+								@RequestParam(value="join_member") ArrayList<String> join_member2,
+								@RequestParam(value="join_way") ArrayList<String> join_way2,
+								@RequestParam(value="save_trm") ArrayList<String> save_trm2
+								,Model model)
+	{	
+		SavingFilterVO vo= new SavingFilterVO();
+		
+		ArrayList<String> rsrv_type_nm=new ArrayList<String>();
+		ArrayList<String> join_member=new ArrayList<String>();
+		ArrayList<String> join_way=new ArrayList<String>();
+		ArrayList<String> save_trm=new ArrayList<String>();
+		
+		for(int i=1; i<rsrv_type_nm2.size();i++) {
+			rsrv_type_nm.add(rsrv_type_nm2.get(i));
+		}
+		if(rsrv_type_nm!=null) vo.setRsrv_type_nm(rsrv_type_nm);
+		
+		for(int i=1; i<join_member2.size();i++) {
+			join_member.add(join_member2.get(i));
+		}
+		if(join_member!=null) vo.setJoin_member(join_member);
+		for(int i=1; i<join_way2.size();i++) {
+			join_way.add(join_way2.get(i));
+		}
+		if(join_way!=null) vo.setJoin_way(join_way);
+		for(int i=1; i<save_trm2.size();i++) {
+			save_trm.add(save_trm2.get(i));
+		}
+		if(save_trm!=null)vo.setSave_trm(save_trm);
+		/*for(String a : rsrv_type_nm) {
+			System.out.print(a+",");
+		}
+		
+		System.out.println();
+		for(String a : join_member) {
+			System.out.print(a+",");
+		}
+		System.out.println();
+		for(String a : join_way) {
+			System.out.print(a+",");
+		}
+		System.out.println();
+		for(String a : save_trm) {
+			System.out.print(a+",");
+		}
+		
+		ArrayList<InstallListVO> insList= pService.selectInstallFilter(vo);
+		for(int i =0;i<insList.size();i++){
+				System.out.println(insList.get(i));
+		}
+		System.out.println(insList.size());
+		model.addAttribute("insList", insList);
+		
+		return insList;
+	}*/
+	
+	@RequestMapping("/filter_saving")
+	public String filter_saving(@RequestParam(value="rsrv_type_nm") ArrayList<String> rsrv_type_nm2,
 								@RequestParam(value="join_member") ArrayList<String> join_member2,
 								@RequestParam(value="join_way") ArrayList<String> join_way2,
 								@RequestParam(value="save_trm") ArrayList<String> save_trm2
@@ -232,14 +290,24 @@ public class HomeController {
 		}*/
 		
 		ArrayList<InstallListVO> insList= pService.selectInstallFilter(vo);
-		/*for(int i =0;i<installList.size();i++){
-				System.out.println(installList.get(i));
+		for(int i =0;i<insList.size();i++){
+				System.out.println(insList.get(i));
 		}
-		System.out.println(installList.size());*/
+		System.out.println(insList.size());
 		model.addAttribute("insList", insList);
 		
-		return insList;
+		return "product2/saving_result";
 	}
+	
+	/*@RequestMapping("/filter_saving2")
+	public String filter_saving2(@RequestParam(value="abc") ArrayList<> abc, Model model) {
+		ArrayList<InstallListVO> insList = new ArrayList<InstallListVO>();
+		for(int i=0; i<abc.size();i++) {
+			insList.add(abc.get(i));
+		}
+		model.addAttribute("insList", insList);
+		return "product2/saving_result";
+	}*/
 	
 	
 	
