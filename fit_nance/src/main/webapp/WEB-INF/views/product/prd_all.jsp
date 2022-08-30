@@ -21,7 +21,9 @@
 	                <h3 class="title-prd-list">김낸스님에게만 추천해드려요!</h3>
 	                <c:forEach var="insList" items="${insList}" begin="76" end="78">
 	                	<div class="box-prd-list">
-		                    <div class="lg-bank"></div>
+		                    <div class="lg-bank">
+		                    	<img src="<c:url value='/image/bank/${insList.fin_co_no}.png'/>">
+		                    </div>
 		                    <span class="name-bank">${insList.kor_co_nm}</span>
 		                    <span class="name-prd">${insList.fin_prdt_nm}</span>
 		                    <span class="title-percent">1년 기준(세전)</span>
@@ -42,7 +44,9 @@
 	                <div class="wrap-list">
 	                    <div class="box-prd-list">
 	                        <div class="box-bank-info">
-	                            <div class="lg-bank"></div>
+	                            <div class="lg-bank">
+	                            	<img src="<c:url value='/image/bank/${insList[94].fin_co_no}.png'/>">
+	                            </div>
 	                            <span class="name-bank">${insList[94].kor_co_nm}</span>
 	                        </div>                
 	                        <span class="name-prd">${insList[94].fin_prdt_nm}</span>
@@ -54,7 +58,9 @@
 	                    </div>
 	                    <div class="box-prd-list">
 	                        <div class="box-bank-info">
-	                            <div class="lg-bank"></div>
+	                            <div class="lg-bank">
+	                            	<img src="<c:url value='/image/bank/${insList[76].fin_co_no}.png'/>">
+	                            </div>
 	                            <span class="name-bank">${insList[76].kor_co_nm}</span>
 	                        </div>                
 	                        <span class="name-prd">${insList[76].fin_prdt_nm}</span>
@@ -66,7 +72,9 @@
 	                    </div>
 	                    <div class="box-prd-list">
 	                        <div class="box-bank-info">
-	                            <div class="lg-bank"></div>
+	                            <div class="lg-bank">
+	                            	<img src="<c:url value='/image/bank/${insList[9].fin_co_no}.png'/>">
+	                            </div>
 	                            <span class="name-bank">${insList[9].kor_co_nm}</span>
 	                        </div>                
 	                        <span class="name-prd">${insList[9].fin_prdt_nm}</span>
@@ -78,7 +86,9 @@
 	                    </div>
 	                    <div class="box-prd-list">
 	                        <div class="box-bank-info">
-	                            <div class="lg-bank"></div>
+	                            <div class="lg-bank">
+	                            	<img src="<c:url value='/image/bank/${insList[39].fin_co_no}.png'/>">
+	                            </div>
 	                            <span class="name-bank">${insList[39].kor_co_nm}</span>
 	                        </div>                
 	                        <span class="name-prd">${insList[39].fin_prdt_nm}</span>
@@ -103,7 +113,9 @@
 	            	<c:forEach var="insList" items="${insList}" begin="10" end="13">
 	                	<div class="box-prd-list">
 		                    <div class="box-bank-info">
-		                        <div class="lg-bank"></div>
+		                        <div class="lg-bank">
+		                        	<img src="<c:url value='/image/bank/${insList.fin_co_no}.png'/>">
+		                        </div>
 		                        <span class="name-bank">${insList.kor_co_nm}</span>
 		                    </div>                
 		                    <span class="name-prd">${insList.fin_prdt_nm}</span>
@@ -134,7 +146,9 @@
 	            	<c:forEach var="dpList" items="${dpList}" begin="10" end="13">
 	                	<div class="box-prd-list">
 		                    <div class="box-bank-info">
-		                        <div class="lg-bank"></div>
+		                        <div class="lg-bank">
+		                        	<img src="<c:url value='/image/bank/${dpList.fin_co_no}.png'/>">
+		                        </div>
 		                        <span class="name-bank">${dpList.kor_co_nm}</span>
 		                    </div>                
 		                    <span class="name-prd">${dpList.fin_prdt_nm}</span>
@@ -165,7 +179,9 @@
 	            	<c:forEach var="clList" items="${clList}" begin="10" end="13">
 	                	<div class="box-prd-list">
 		                    <div class="box-bank-info">
-		                        <div class="lg-bank"></div>
+		                        <div class="lg-bank">
+		                        	<img src="<c:url value='/image/bank/${clList.fin_co_no}.png'/>">
+		                        </div>
 		                        <div>
 		                            <span class="name-bank">${clList.kor_co_nm}</span>
 		                            <span class="name-prd">${clList.fin_prdt_nm}</span>

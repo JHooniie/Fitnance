@@ -61,6 +61,11 @@
     overflow: hidden;
 }
 
+.box-prd-01 .box-prd-01-list .box-prd-list .lg-bank>img{
+    width: 70px;
+    margin: 0 auto;
+}
+
 .box-prd-01 .box-prd-01-list .box-prd-list .name-bank{
     display: block;
     margin-top: 10px;
@@ -166,6 +171,12 @@ section.bg-gray{
     border-radius: 4px;
     background-color: #F2F2F2;
     overflow: hidden;
+}
+
+
+.box-prd-02 .box-prd-list .lg-bank>img{
+    width: 30px;
+    margin: 0 auto;
 }
 
 .box-prd-02 .box-prd-list .name-bank{
@@ -279,6 +290,10 @@ section.bg-gray{
     border-radius: 4px;
     background-color: #F2F2F2;
     overflow: hidden;
+}
+
+.box-prd-03 .box-prd-list .lg-bank>img{
+    width: 25px;
 }
 
 .box-prd-03 .box-prd-list .name-bank{
@@ -395,8 +410,12 @@ section.bg-gray{
     height: 25px;
     margin-right: 10px;
     border-radius: 4px;
-    background-color: #F2F2F2;
+    background-color: #ffffff;
     overflow: hidden;
+}
+
+.box-prd-04 .box-prd-list .lg-bank>img{
+    width: 25px;
 }
 
 .box-prd-04 .box-prd-list .name-bank{
@@ -515,8 +534,13 @@ section.bg-gray{
     height: 25px;
     margin-right: 10px;
     border-radius: 4px;
-    background-color: #F2F2F2;
+    background-color: #FFFFFF;
     overflow: hidden;
+}
+
+.box-prd-05 .box-prd-list .box-bank-info .lg-bank>img{
+    width: 25px;
+    margin: 0 auto;
 }
 
 .box-prd-05 .box-prd-list .box-bank-info div .name-bank{
