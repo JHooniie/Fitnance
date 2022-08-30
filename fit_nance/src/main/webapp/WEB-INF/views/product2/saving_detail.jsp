@@ -12,9 +12,6 @@
 		<link rel="stylesheet" href="<c:url value='/css/saving_detail
 		.css'/>"/>
 		<!-- js -->
-		<!-- 삭제해야함 -->
-		<meta charset="UTF-8">
-		<title>Insert title here</title>
 	</head>
 	<body>
 		<!-- top.jsp -->
@@ -22,7 +19,9 @@
 		<div class="middle wrap">
         <div class="middle-top">
             <div class="item-box">
-                <div class="image-box"></div>
+                <div class="image-box">
+                	<img src="<c:url value='/image/bank/${fin_co_no}.png'/>">
+                </div>
                 <div class="text-box">
                     <div class="bank-name">${kor_co_nm }</div>
                     <div class="item-name">${fin_prdt_nm }</div>
@@ -100,7 +99,7 @@
                     </div>
                 </div>
             </div>
-            <div class="go-to-list">목록으로 돌아가기</div>
+            <a class="go-to-list" href="<c:url value='/saving'/>">목록으로 돌아가기</a>
         </div>      
     </div>
 		
