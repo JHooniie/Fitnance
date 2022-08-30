@@ -250,13 +250,17 @@ section.bg-gray{
 
 .box-prd-03 .box-prd-list{
     display: inline-block;
-    width: 280px;
+    width: 305px;
     margin-top: 40px;
-    margin-right: 20px;
+    margin-right: 15px;
     padding: 40px;
     border: 1px solid #DDDDDD;
     border-radius: 20px;
     background-color: #FFFFFF;
+}
+
+.box-prd-03 .box-prd-list:last-child{
+    margin-right: 0px;
 }
 
 .box-prd-03 .box-prd-list .box-bank-info{
@@ -364,13 +368,17 @@ section.bg-gray{
 
 .box-prd-04 .box-prd-list{
     display: inline-block;
-    width: 280px;
+    width: 305px;
     margin-top: 40px;
-    margin-right: 20px;
+    margin-right: 15px;
     padding: 40px;
     border: 1px solid #DDDDDD;
     border-radius: 20px;
     background-color: #FFFFFF;
+}
+
+.box-prd-04 .box-prd-list:last-child{
+    margin-right: 0px;
 }
 
 .box-prd-04 .box-prd-list .box-bank-info{
