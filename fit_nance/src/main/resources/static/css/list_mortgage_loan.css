@@ -12,7 +12,7 @@
 .div_background{
     height: 308px;
     margin-top: 90px;
-    padding-top: 121px;
+    padding-top: 130px;
     background-color: #EDF4FF;
 }
 
@@ -33,18 +33,24 @@
 }
 
 .div_background .div_background_title{
-    display: inline-block;
+    display:inline-block;
+}
+
+.div_background .div_background_title .background_title_main{
+    display: block;
     font-size: 56px;
     font-weight: bold;
     color: #222222;
 }
+
+
 
 .div_background .div_background_title .background_title_sub{
     display: inline-block;
     font-size: 22px;
     font-weight: normal;
     color: #222222;
-    margin-top: 40px;
+    margin-top: 32px;
 }
 
 .div_background .div_background_image{

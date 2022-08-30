@@ -27,7 +27,6 @@
 		                    주택 담보<br>
 		                    대출
 		                </span>
-		                <br>
 		                <span class="background_title_sub">
 		                    내게 맞는 주택담보대출 찾기
 		                </span>
