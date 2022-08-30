@@ -60,7 +60,7 @@
     font-size: 14px;
     text-align: center;
     margin-top:10px;
-    margin-right: 3px;
+    margin-right: 5px;
     line-height: 42px;
     cursor: pointer;
 }
@@ -68,6 +68,12 @@
 .select-box .select-option1{ 
     width:95px;
     
+}
+
+.select-box .select-option1:nth-child(3),
+.select-box .select-option1:nth-child(6),
+.select-box .select-option1:nth-child(10){ 
+    margin-right:0;
 }
 
 .select-box .select-option2{

@@ -45,7 +45,7 @@
                     <div class="select-option select-option1">20만원</div>
                     <div class="select-option select-option1">30만원</div>
 
-                    <div class="select-title">연금개시여녕</div>
+                    <div class="select-title">연금개시연령</div>
                     <div class="select-option select-option1">60세</div>
                     <div class="select-option select-option1">65세</div>
 
