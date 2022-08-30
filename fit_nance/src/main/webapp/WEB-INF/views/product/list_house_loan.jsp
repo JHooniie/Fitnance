@@ -79,7 +79,8 @@
 	                </div>
 	                <div class="div_reset_filter">
 	                    <div class="btn_reset_filter">
-	                        <img class="img_ic_reset" src="../images/arrow-rotate-right-solid.png">
+	                        <!-- <img class="img_ic_reset" src="/image/arrow-rotate-right-solid.png"> -->
+	                        <i class="fa-solid fa-rotate-right"></i>
 	                        <span>필터 초기화</span>
 	                    </div>
 	                </div>
@@ -87,17 +88,21 @@
 	            <div class="panel_list_prdt">
 	                <div class="div_search_list">
 	                    <div class="div_list_result">
-	                        <span>검색 결과 00개</span>
+	                        <span>검색 결과 ${fn:length(list_house_loan) }개</span>
 	                    </div>
 	                    <div class="div_search_prdt">
 	                        <input class="input_search_prdt" placeholder="키워드 검색">
-	                        <img src="../images/magnifying-glass-solid.png">
+	                        <img src="/image/magnifying-glass-solid.png">
 	                    </div>
 	                </div>
 	                
 	                <div class="div_list_prdt">
 	                    <div class="prdt_result_search prdt">
+	                    <form id="form_prdt" method="post" action="<c:url value='/view_prdt_detail'/>">
+	                    	<input type="hidden" id="input_prdt_cd" name="input_prdt_cd" class="input_prdt_cd" type="text">
 	                        <!-- 검색 결과 상품 - 시작 -->
+	                        
+	                        <c:forEach items="${list_house_loan }" var="list" varStatus="status">
 	                        <div class="div_prdt">
 	                            <div class="div_prdt_info">
 	                                <div class="div_ic_co">
@@ -107,17 +112,19 @@
 	                                    <div class="top_prdt_info">
 	                                        <div class="div_nm_co">
 	                                            <span class="prdt_nm_co">
-	                                                농협은행주식회사
+	                                                ${list.kor_co_nm}
 	                                            </span>
 	                                        </div>
 	                                        <div class="div_nm_prdt">
 	                                            <span class="prdt_nm_loan">
-	                                                NH주택담보대출
+	                                                ${list.fin_prdt_nm }
 	                                            </span>
 	                                            <div class="div_joinway">
+	                                            	<c:forTokens var="joinway" items="${list.join_way }" delims=",">
 	                                                <div class="div_joinway_block">
-	                                                    <span>영업점</span>
+	                                                    <span>${joinway }</span>
 	                                                </div>
+	                                                </c:forTokens>
 	                                            </div>
 	                                        </div>
 	                                    </div>
@@ -128,15 +135,7 @@
 	                                                    최저 금리
 	                                                </span>
 	                                                <span class="lend_rate_prdt">
-	                                                    3.33<span>%</span>
-	                                                </span>
-	                                            </div>
-	                                            <div class="div_loan_lmt">
-	                                                <span class="loan_lmt_title">
-	                                                    최대 한도
-	                                                </span>
-	                                                <span class="loan_lmt_prdt">
-	                                                    5<span>억원</span>
+	                                                    ${list.lend_rate_min }<span>%</span>
 	                                                </span>
 	                                            </div>
 	                                        <!-- </div> -->
@@ -146,22 +145,25 @@
 	                            <div class="div_btn_prdt">
 	                                <div class="div_btn_add">
 	                                    <div class="btn_add_compare">
-	                                        <img class="img_ic_compare" src="../images/folder-plus-solid.png">
+	                                        <img class="img_ic_compare" src="/image/folder-plus-solid.png">
 	                                    </div>
 	                                    <div class="btn_add_favorite">
-	                                        <img class="img_ic_favorite" src="../images/heart-solid.png">
+	                                        <img class="img_ic_favorite" src="/image/heart-solid.png">
 	                                    </div>
 	                                </div>
-	                                <div class="btn_prdt_info">
+	                                <button class="btn_prdt_info">
 	                                    자세히 보기
-	                                </div>
+	                                    <span style="display:none" id="prdt_cd" class="prdt_cd">${list.fin_prdt_cd }</span>
+	                                </button>
 	                            </div>
 	                        </div>
+	                        </c:forEach>
+	                        </form>
 	                        <!-- 검색 결과 상품 - 끝 -->
 	                    </div>
 	                    <div class="page_prdt_list">
 	                        <div class="div_page_prev">
-	                            <img src="../images/chevron-left-solid.png">
+	                            <img src="/image/chevron-left-solid.png">
 	                        </div>
 	                        <div class="div_page_num">
 	                            <div class="page_num_clicked">1</div>
@@ -170,7 +172,7 @@
 	                            <div class="page_num">4</div>
 	                        </div>
 	                        <div class="div_page_next">
-	                            <img src="../images/chevron-right-solid.png">
+	                            <img src="/image/chevron-right-solid.png">
 	                        </div>
 	                    </div>
 	                </div>
