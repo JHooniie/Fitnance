@@ -55,7 +55,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 				.usernameParameter("memId")
 				.passwordParameter("memPwd")
 				.loginProcessingUrl("/loginProc")
-				.failureUrl("/fail")
 				.defaultSuccessUrl("/")
 			.and()
 				.oauth2Login()
