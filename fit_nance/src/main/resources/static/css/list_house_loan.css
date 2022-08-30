@@ -2,20 +2,28 @@
     /* border: 1px solid red; */
 }
 
-
 #section{
     /* width: 1920px; */
-    display: flex;
+    /* display: flex;
     flex-direction: column;
-    justify-content: center;
+    /* justify-content: center; */
 }
 
 .div_background{
+    height: 308px;
+    margin-top: 90px;
+    padding-top: 130px;
+    background-color: #EDF4FF;
+}
+
+.div_background_wrap{
     position: relative;
 }
 
 .div_background .div_background_top{
+    padding-top: 90px;
     height: 308px;
+    box-sizing: content-box;
     background-color: #edf4ff;
 }
 
@@ -25,26 +33,31 @@
 }
 
 .div_background .div_background_title{
-    position: absolute;
-    top: 130px;
-    left: 320px;
+    display:inline-block;
+}
+
+.div_background .div_background_title .background_title_main{
+    display: block;
     font-size: 56px;
     font-weight: bold;
     color: #222222;
 }
 
+
+
 .div_background .div_background_title .background_title_sub{
+    display: inline-block;
     font-size: 22px;
     font-weight: normal;
     color: #222222;
+    margin-top: 32px;
 }
 
 .div_background .div_background_image{
-    
     position: absolute;
-    /* right: 309.6px; */
-    left: 1038px;
-    bottom: 0;
+    display: inline-block;
+    right: 0;
+    bottom: -50px;
 }
 
 .div_background_image img{
@@ -54,14 +67,13 @@
 
 .div_list{
     width: 1280px;
-    /* padding-left: 320px; */
-    margin: 82.6px 0px 82.6px 320px;
+    margin-top: 150px;
     /* border: 1px solid rgb(40, 23, 23); */
     display: flex;
     justify-content: center;
 }
 
-/* 필터 div */
+/* í•„í„° div */
 
 .div_list .panel_filter{
     width: 202px;
@@ -70,7 +82,7 @@
 }
 
 .div_list .panel_filter .div_prdt_joinway,
-.div_list .panel_filter .div_loan_lmt,
+.div_list .panel_filter .div_mrtg_type,
 .div_list .panel_filter .div_rpay_type,
 .div_list .panel_filter .div_lend_type{
     font-size: 14px;
@@ -91,7 +103,7 @@
     cursor: pointer;
 }
 
-/* 가입방법 */
+/* ê°€ìž… ë°©ë²• */
 
 .panel_filter .div_prdt_joinway .title_prdt_joinway{
     margin: 30px 0px 12px 0px;
@@ -112,7 +124,7 @@
     justify-content: center;
     align-items: center;
     border-radius: 5px;
-    font-weight: 500;
+    font-weight: 400;
     border: 1px solid #dddddd;
     cursor: pointer;
 }
@@ -140,7 +152,7 @@
     background-color: #1f4dff;
 }
 
-/* 대출 한도 */
+/* ëŒ€ì¶œ í•œë„ */
 
 .panel_filter .div_loan_lmt .title_loan_lmt{
     margin: 30px 0px 12px 0px;
@@ -159,7 +171,7 @@
     justify-content: center;
     align-items: center;
     font-size: 14px;
-    font-weight: 500;
+    font-weight: 400;
     color: #666666;
 }
 
@@ -173,8 +185,9 @@
     line-height: 1.88;
     margin: 0px 0px 0px 0px;
     border: 0px;
+    outline: none;
 }
-/* 대출상환유형 */
+/* ëŒ€ì¶œìƒí™˜ìœ í˜• */
 
 .panel_filter .div_rpay_type .title_rpay_type{
     margin: 30px 0px 12px 0px;
@@ -196,7 +209,7 @@
     align-items: center;
     border: 1px solid #dddddd;
     border-radius: 5px;
-    font-weight: 500;
+    font-weight: 400;
     letter-spacing: -0.58px;
     cursor: pointer;
 }
@@ -221,7 +234,7 @@
     background-color: #1f4dff;
 }
 
-/* 대출금리유형 */
+/* ëŒ€ì¶œê¸ˆë¦¬ìœ í˜• */
 
 .panel_filter .div_lend_type .title_lend_type{
     margin: 30px 0px 12px 0px;
@@ -242,7 +255,7 @@
     align-items: center;
     border: 1px solid #dddddd;
     border-radius: 5px;
-    font-weight: 500;
+    font-weight: 400;
     cursor: pointer;
 }
 
@@ -263,7 +276,7 @@
     background-color: #1f4dff;
 }
 
-/* 필터 초기화 */
+/* í•„í„° ì´ˆê¸°í™” */
 
 .panel_filter .div_reset_filter .btn_reset_filter{
     width: 200px;
@@ -272,6 +285,7 @@
     border: 1px solid #dddddd;
     border-radius: 5px;
     color: #222222;
+    background-color: #ffffff;
     font-weight: 500;
     display: flex;
     justify-content: center;
@@ -309,7 +323,7 @@
 }
 
 
-/* 상품 리스트 div */
+/* ìƒí’ˆ ë¦¬ìŠ¤íŠ¸ div */
 
 .div_list .panel_list_prdt{
     width: 990px;
@@ -343,6 +357,10 @@
     border: none;
     outline: none;
     font-size: 16px;
+    color: #222222;
+}
+
+.panel_list_prdt .div_search_prdt input::placeholder{
     color: #aaaaaa;
 }
 
@@ -366,7 +384,7 @@
 
 .div_prdt{
     width: 990px;
-    /* height: 155px; */
+    height: 200px;
     padding: 25px 0px 20px 0px;
     display: flex;
     justify-content: space-between;
@@ -412,7 +430,7 @@
 
 .top_prdt_info .div_nm_prdt .prdt_nm_loan{
     font-size: 22px;
-    font-weight: bold;
+    font-weight: 600;
     margin-right: 5px;
 }
 
@@ -421,8 +439,7 @@
 }
 
 .top_prdt_info .div_joinway div{
-    width: 50px;
-    height: 32px;
+    padding: 8px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -434,7 +451,6 @@
 
 .bot_prdt_info{
     display: flex;
-    margin: 30px 0px 0px 0px;
 }
 
 .bot_prdt_info div{
@@ -444,7 +460,7 @@
     color: #222222;
 }
 
-/* 최저 금리 */
+/* ìµœì € ê¸ˆë¦¬ */
 .bot_prdt_info .div_lend_rate .lend_rate_title{
     font-size: 14px;
 }
@@ -459,14 +475,15 @@
     font-weight: 200;
 }
 
-/* 대출 한도 */
+/* ëŒ€ì¶œ í•œë„ */
 .bot_prdt_info .div_loan_lmt .loan_lmt_title{
     font-size: 14px;
+    margin-bottom: 6px;
 }
 
 .bot_prdt_info .div_loan_lmt .loan_lmt_prdt{
-    font-size: 42px;
-    font-weight: 500;
+    font-size: 24px;
+    font-weight: 600;
 }
 
 .loan_lmt_prdt span{
@@ -485,7 +502,7 @@
 } */
 
 /* 22 * 19.3  146 */
-/* 리스트 각 상품 우측 버튼 */
+/* ë¦¬ìŠ¤íŠ¸ ê° ìƒí’ˆ ìš°ì¸¡ ë²„íŠ¼ */
 .div_btn_prdt{
     display: flex;
     flex-direction: column;
@@ -546,13 +563,13 @@
     height: 52px;
     display: flex;
     justify-content: center;
-    align-items: center;    
+    align-items: center;
     border: 1px solid #dddddd;
     border-radius: 5px;
     font-size: 16px;
     color: #222222;
     background-color: #ffffff;
-    font-weight: 500;
+    font-weight: 400;
     cursor: pointer;
 }
 
