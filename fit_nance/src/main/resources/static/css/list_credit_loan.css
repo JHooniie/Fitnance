@@ -2,20 +2,28 @@
     /* border: 1px solid red; */
 }
 
-
 #section{
     /* width: 1920px; */
-    display: flex;
+    /* display: flex;
     flex-direction: column;
-    justify-content: center;
+    /* justify-content: center; */
 }
 
 .div_background{
+    height: 308px;
+    margin-top: 90px;
+    padding-top: 130px;
+    background-color: #EDF4FF;
+}
+
+.div_background_wrap{
     position: relative;
 }
 
 .div_background .div_background_top{
+    padding-top: 90px;
     height: 308px;
+    box-sizing: content-box;
     background-color: #edf4ff;
 }
 
@@ -25,37 +33,41 @@
 }
 
 .div_background .div_background_title{
-    position: absolute;
-    top: 130px;
-    left: 320px;
+    display:inline-block;
+}
+
+.div_background .div_background_title .background_title_main{
+    display: block;
     font-size: 56px;
     font-weight: bold;
     color: #222222;
 }
 
+
+
 .div_background .div_background_title .background_title_sub{
+    display: inline-block;
     font-size: 22px;
     font-weight: normal;
     color: #222222;
+    margin-top: 32px;
 }
 
 .div_background .div_background_image{
-    
     position: absolute;
-    left: 1038px;
-    bottom: 0;
+    display: inline-block;
+    right: 0;
+    bottom: -50px;
 }
 
 .div_background_image img{
-/*     width: 462px;
-    height: 400px; */
-    width: 346.5px;
-    height: 300px;
+    height: 361.6px;
 }
 
 .div_list{
     width: 1280px;
-    margin: 82.6px 0px 82.6px 320px;
+    margin-top: 150px;
+    /* border: 1px solid rgb(40, 23, 23); */
     display: flex;
     justify-content: center;
 }
@@ -334,9 +346,8 @@
 }
 
 .top_prdt_info .div_joinway div{
-    width: 50px;
-    height: 32px;
     display: flex;
+    padding: 8px;
     justify-content: center;
     align-items: center;
     font-size: 13px;
@@ -395,7 +406,7 @@
 }
 
 .div_btn_prdt .div_btn_add .btn_add_favorite{
-    margin-left: 20px;
+    margin-left: 15px;
 }
 
 .div_btn_prdt .div_btn_add .btn_add_compare,
@@ -414,7 +425,7 @@
 }
 
 .div_btn_prdt .div_btn_add .btn_add_favorite_clicked{
-    margin-left: 20px;
+    margin-left: 15px;
 }
 
 .div_btn_prdt .div_btn_add .btn_add_compare_clicked,

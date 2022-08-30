@@ -57,12 +57,11 @@
     position: absolute;
     display: inline-block;
     right: 0;
-    bottom: -50px;
+    bottom: -80px;
 }
 
 .div_background_image img{
-    width: 572.4px;
-    height: 294.6px;
+    height: 361.6px;
 }
 
 .div_list{
@@ -73,7 +72,7 @@
     justify-content: center;
 }
 
-/* í•„í„° div */
+/* 필터 div */
 
 .div_list .panel_filter{
     width: 202px;
@@ -103,7 +102,7 @@
     cursor: pointer;
 }
 
-/* ê°€ìž… ë°©ë²• */
+/* 가입방법 */
 
 .panel_filter .div_prdt_joinway .title_prdt_joinway{
     margin: 30px 0px 12px 0px;
@@ -152,7 +151,7 @@
     background-color: #1f4dff;
 }
 
-/* ëŒ€ì¶œ í•œë„ */
+/* 대출금리유형 */
 
 .panel_filter .div_loan_lmt .title_loan_lmt{
     margin: 30px 0px 12px 0px;
@@ -187,7 +186,7 @@
     border: 0px;
     outline: none;
 }
-/* ëŒ€ì¶œìƒí™˜ìœ í˜• */
+/* 필터 초기화 */
 
 .panel_filter .div_rpay_type .title_rpay_type{
     margin: 30px 0px 12px 0px;
@@ -234,7 +233,6 @@
     background-color: #1f4dff;
 }
 
-/* ëŒ€ì¶œê¸ˆë¦¬ìœ í˜• */
 
 .panel_filter .div_lend_type .title_lend_type{
     margin: 30px 0px 12px 0px;
@@ -276,7 +274,7 @@
     background-color: #1f4dff;
 }
 
-/* í•„í„° ì´ˆê¸°í™” */
+/* 필터 초기화 */
 
 .panel_filter .div_reset_filter .btn_reset_filter{
     width: 200px;
@@ -323,7 +321,7 @@
 }
 
 
-/* ìƒí’ˆ ë¦¬ìŠ¤íŠ¸ div */
+/* 상품 리스트 div */
 
 .div_list .panel_list_prdt{
     width: 990px;
@@ -460,7 +458,7 @@
     color: #222222;
 }
 
-/* ìµœì € ê¸ˆë¦¬ */
+/* 최저 금리 */
 .bot_prdt_info .div_lend_rate .lend_rate_title{
     font-size: 14px;
 }
@@ -475,7 +473,6 @@
     font-weight: 200;
 }
 
-/* ëŒ€ì¶œ í•œë„ */
 .bot_prdt_info .div_loan_lmt .loan_lmt_title{
     font-size: 14px;
     margin-bottom: 6px;
@@ -502,7 +499,7 @@
 } */
 
 /* 22 * 19.3  146 */
-/* ë¦¬ìŠ¤íŠ¸ ê° ìƒí’ˆ ìš°ì¸¡ ë²„íŠ¼ */
+/* 리스트 각 상품 우측 버튼 */
 .div_btn_prdt{
     display: flex;
     flex-direction: column;
@@ -525,7 +522,7 @@
 }
 
 .div_btn_prdt .div_btn_add .btn_add_favorite{
-    margin-left: 20px;
+    margin-left: 15px;
 }
 
 .div_btn_prdt .div_btn_add .btn_add_compare,
@@ -544,7 +541,7 @@
 }
 
 .div_btn_prdt .div_btn_add .btn_add_favorite_clicked{
-    margin-left: 20px;
+    margin-left: 15px;
 }
 
 .div_btn_prdt .div_btn_add .btn_add_compare_clicked,
