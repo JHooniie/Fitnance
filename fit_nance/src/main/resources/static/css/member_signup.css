@@ -612,40 +612,20 @@ input[type=checkbox]{
     color: #222;
 }
 
-#select-user_bank{
-    width: 130px;
-    height: 60px;
-    margin:10px 9px 30px 0;
+#btn-user_bank{
+    margin:0;
     padding:21px 16px 20px 20px;
     border-radius: 5px;
     border: solid 1px #ddd;
     background-color: #fff;
-    font-family: Pretendard;
-    font-size: 16px;
-    text-align: left;
-    color: #aaa;
-    appearance: none;
-    background: url('/image/chevron-down-solid.png') no-repeat 90% 50%;
+    background: url('/image/chevron-down-solid.png') no-repeat 96.5% 50%;
     background-size: 13px;
-}
-
-#input-user_bank{
-    width: 295px;
-    height: 60px;
-    left:0;
-    margin: 10px 0 30px 0;
-    padding: 21px 0 20px 20px;
-    font-family: Pretendard;
-    font-size: 16px;
     text-align: left;
-    color: #222;
-    border-radius: 5px;
-    border: solid 1px #ddd;
-    background-color: #fff;
 }
 
-#input-user_bank::placeholder{
-    color:#aaa
+.btn-span-bank{
+    font-size: 16px;
+    color: #aaa;
 }
 
 /* 진행 그래프 */
