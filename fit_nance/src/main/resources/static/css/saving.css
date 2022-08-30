@@ -38,6 +38,11 @@
     font-weight: 500;
 }
 
+.product-compare-box a{
+	color:#1F4DFF;
+    font-weight: 500;
+}
+
 .select-box{
     width: 200px;
     
@@ -88,6 +93,7 @@
     padding : 15px;
     color:black;
     font-weight: 500;
+    cursor: pointer;
 }
 
 .middel-bottom{
