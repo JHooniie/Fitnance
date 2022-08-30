@@ -9,9 +9,7 @@
 		<c:import url="/WEB-INF/views/layout/head.jsp" />
 		<!-- css -->
 		<link rel="stylesheet" href="<c:url value='/css/saving.css'/>"/>
-		<!-- js -->
-		<script src="<c:url value='/js/saving.js' />"></script>
-		<!-- 삭제해야함 -->
+		
 		
 		<meta charset="UTF-8">
 	</head>
