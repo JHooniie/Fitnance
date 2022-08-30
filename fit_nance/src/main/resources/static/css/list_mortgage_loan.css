@@ -405,10 +405,15 @@
 .div_prdt .div_prdt_info .div_ic_co{
     width: 55px;
     height: 55px;
-    background-color: #f2f2f2;
+    border-radius: 5px;
+    background-color: #ffffff;
     margin-right: 20px;
+    overflow:hidden;
 }
 
+.div_prdt .div_prdt_info .div_ic_co>img{
+    width: 55px;
+}
 .div_prdt .div_prdt_info .div_prdt_base{
     display: flex;
     flex-direction: column;
