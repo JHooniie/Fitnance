@@ -31,7 +31,7 @@
                 적금 계산기
             </div>
             <div class="middle2-box2">
-                목돈 모으기 계산기
+                <a href="<c:url value='calculator_lump'/>">목돈 모으기 계산기</a>
             </div>
         </div>
         <div class="middle3">
