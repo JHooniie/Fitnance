@@ -49,22 +49,23 @@
             <div class="item-box">
                 <div class="image-box"></div>
                 <div class="text-box">
-                    <div class="bank-name">우리은행</div>
-                    <div class="item-name">우리웰리치 주거래 예금</div>
-                    <div class="sub-text">영업점</div>
-                    <div class="sub-text">인터넷</div>
-                    <div class="sub-text">스마트폰</div>
+                    <div class="bank-name">${kor_co_nm }</div>
+                    <div class="item-name">${fin_prdt_nm }</div>
+                    <div class="sub-text-box">
+                    <div class="sub-text"><c:forEach items="${join_way }" var="jw">
+	                                    	<span>${jw}</span>
+	                                    </c:forEach></div></div>
                     <div class="percent-box">
                         <div class="percent1">
                             <ul>
                                 <li>1년기준 (세전)</li>
-                                <li><span>1.15</span>%</li>
+                                <li><span>${intr_rate }</span>%</li>
                             </ul>
                         </div>
                         <div class="percent2">
                             <ul>
                                 <li>최대 (세전)</li>
-                                <li><span>1.35</span>%</li>
+                                <li><span>${intr_rate2 }</span>%</li>
                             </ul>
                         </div>
                     </div>
@@ -74,21 +75,21 @@
             <div class="middle-last-box">
                 <div class="details">
                     <div class="details-title">가입 대상</div>
-                    <div class="details-content">실명의 개인</div>
+                    <div class="details-content">${join_member }</div>
                     <div class="details-title">저축 금리 유형</div>
-                    <div class="details-content">단리</div>
+                    <div class="details-content">${intr_rate_type_nm }</div>
                     <div class="details-title">저축 기간</div>
-                    <div class="details-content">최대 36개월</div>
+                    <div class="details-content">최대 ${save_trm }개월</div>
                     <div class="details-title">가입 방법</div>
-                    <div class="details-content">영업점, 인터넷, 스마트폰</div>
+                    <div class="details-content">${join_way }</div>
                     <div class="details-title">가입 제한</div>
-                    <div class="details-content">제한 없음</div>
+                    <div class="details-content">${join_deny }</div>
                     <div class="details-title">만기 후 이자율</div>
-                    <div class="details-content"><span>만기 후 - 1개월이내 : 만기시점약정이율×50% - 1개월초과 6개월이내: 만기시점약정이율×30% - 6개월초과 : 만기시점약정이율×20% ※ 만기시점 약정이율 : 일반정기예금 금리</span></div>
+                    <div class="details-content"><span>${mtrt_int }</span></div>
                     <div class="details-title">우대 조건</div>
-                    <div class="details-content"><span>다음 중 하나 충족한 입금건에 대해  최고 연0.2%p 1. 순신규고객 2. 가계대출이용고객 3. 입금일 전월 주거래우대조건 2가지이상 4. 건별3천만원이상 5. 건별 만기 자동재예치</span></div>
+                    <div class="details-content"><span>${spcl_cnd }</span></div>
                     <div class="details-title">기타 유의사항</div>
-                    <div class="details-content"><span>-추가입금은 신규가입 시 선택한 예치기간을 각 입금건별 입금일로부터 적용 -재예치는 입금건별 최초 입금일로부터 최장 10년간 가능</span></div>
+                    <div class="details-content"><span>${etc_note }</span></div>
                 </div>
                 <div class="calculator">
                     <div class="cal-title1">총 목표 금액</div>

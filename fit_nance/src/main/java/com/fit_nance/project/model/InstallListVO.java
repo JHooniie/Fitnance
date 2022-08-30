@@ -12,13 +12,13 @@ public class InstallListVO {
 	int join_deny;
 	String join_member;
 	String etc_note;
-	double max_limit;
+	int max_limit;
 	private int oIndex;
 	private String intr_rate_type;
 	private String intr_rate_type_nm;
 	private String rsrv_type;
 	private String rsrv_type_nm;
-	private String save_trm;
+	private int save_trm;
 	private double intr_rate;
 	private double intr_rate2;
 	
@@ -88,10 +88,10 @@ public class InstallListVO {
 	public void setEtc_note(String etc_note) {
 		this.etc_note = etc_note;
 	}
-	public double getMax_limit() {
+	public int getMax_limit() {
 		return max_limit;
 	}
-	public void setMax_limit(double max_limit) {
+	public void setMax_limit(int max_limit) {
 		this.max_limit = max_limit;
 	}
 	public int getoIndex() {
@@ -124,10 +124,10 @@ public class InstallListVO {
 	public void setRsrv_type_nm(String rsrv_type_nm) {
 		this.rsrv_type_nm = rsrv_type_nm;
 	}
-	public String getSave_trm() {
+	public int getSave_trm() {
 		return save_trm;
 	}
-	public void setSave_trm(String save_trm) {
+	public void setSave_trm(int save_trm) {
 		this.save_trm = save_trm;
 	}
 	public double getIntr_rate() {

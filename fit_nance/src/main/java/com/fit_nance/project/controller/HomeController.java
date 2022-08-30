@@ -8,11 +8,16 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.fit_nance.project.model.DepositListVO;
 import com.fit_nance.project.model.HomeLoanListVO;
+import com.fit_nance.project.model.InstallListVO;
 import com.fit_nance.project.service.HomeLoanListService;
+import com.fit_nance.project.service.ProductService;
 
 @Controller
 public class HomeController {
+	@Autowired
+	ProductService pService;
 
 	@Autowired
 	HomeLoanListService homeloanlistService;
@@ -119,13 +124,114 @@ public class HomeController {
 	}
 	
 	@RequestMapping("/deposit_detail")
-	public String deposit_detail() {
+	public String deposit_detail(@RequestParam int index, Model model) {
+		ArrayList<DepositListVO> dpsList= pService.selectDeposit();
+		String kor_co_nm=null;
+		String fin_prdt_nm =null;
+		String join_way=null;
+		double intr_rate=0.0;
+		double intr_rate2=0.0;
+		String join_member=null;
+		String intr_rate_type_nm=null;
+		int save_trm=0;	
+		int join_deny=0;
+		String join_deny2=null;
+		String mtrt_int=null;
+		String spcl_cnd=null;
+		String etc_note=null;
+		
+		for(DepositListVO vo:dpsList) {
+			if(vo.getoIndex()==index) {
+				kor_co_nm = vo.getKor_co_nm();
+				fin_prdt_nm=vo.getFin_prdt_nm();
+				join_way=vo.getJoin_way();
+				intr_rate=vo.getIntr_rate();
+				intr_rate2=vo.getIntr_rate2();
+				join_member=vo.getJoin_member();
+				intr_rate_type_nm=vo.getIntr_rate_type_nm();
+				save_trm=vo.getSave_trm();
+				join_deny=vo.getJoin_deny();
+				mtrt_int=vo.getMtrt_int();
+				spcl_cnd=vo.getSpcl_cnd();
+				etc_note=vo.getEtc_note();
+			}
+		}
+		if (join_deny==0) join_deny2="제한없음";
+		else if(join_deny==1) join_deny2="서민전용";
+		else join_deny2="일부제한";
+		
+		model.addAttribute("kor_co_nm", kor_co_nm);
+		model.addAttribute("fin_prdt_nm", fin_prdt_nm);
+		model.addAttribute("join_way", join_way);
+		model.addAttribute("intr_rate", intr_rate);
+		model.addAttribute("intr_rate2", intr_rate2);
+		model.addAttribute("join_member", join_member);
+		model.addAttribute("intr_rate_type_nm", intr_rate_type_nm);
+		model.addAttribute("save_trm", save_trm);
+		model.addAttribute("join_deny", join_deny2);
+		model.addAttribute("mtrt_int", mtrt_int);
+		model.addAttribute("spcl_cnd", spcl_cnd);
+		model.addAttribute("etc_note", etc_note);
 		return "product2/deposit_detail";
 	}
+	
 	@RequestMapping("/saving_detail")
-	public String saving_detail() {
+	public String saving_detail(@RequestParam int index, Model model) {
+		ArrayList<InstallListVO> installList= pService.selectInstall();
+		String kor_co_nm=null;
+		String fin_prdt_nm =null;
+		String join_way=null;
+		double intr_rate=0.0;
+		double intr_rate2=0.0;
+		String join_member=null;
+		String rsrv_type_nm=null;
+		int max_limit= 0;
+		String intr_rate_type_nm=null;
+		int save_trm=0;
+		int join_deny=0;
+		String join_deny2=null;
+		String mtrt_int=null;
+		String spcl_cnd=null;
+		
+		for(InstallListVO vo:installList) {
+			if(vo.getoIndex()==index) {
+				kor_co_nm = vo.getKor_co_nm();
+				fin_prdt_nm=vo.getFin_prdt_nm();
+				join_way=vo.getJoin_way();
+				intr_rate=vo.getIntr_rate();
+				intr_rate2=vo.getIntr_rate2();
+				join_member=vo.getJoin_member();
+				rsrv_type_nm=vo.getRsrv_type_nm();
+				max_limit=vo.getMax_limit();
+				intr_rate_type_nm=vo.getIntr_rate_type_nm();
+				save_trm=vo.getSave_trm();
+				join_deny=vo.getJoin_deny();
+				mtrt_int=vo.getMtrt_int();
+				spcl_cnd=vo.getSpcl_cnd();
+			}
+		}
+		if (join_deny==0) join_deny2="제한없음";
+		else if(join_deny==1) join_deny2="서민전용";
+		else join_deny2="일부제한";
+		
+		model.addAttribute("kor_co_nm", kor_co_nm);
+		model.addAttribute("fin_prdt_nm", fin_prdt_nm);
+		model.addAttribute("join_way", join_way);
+		model.addAttribute("intr_rate", intr_rate);
+		model.addAttribute("intr_rate2", intr_rate2);
+		model.addAttribute("join_member", join_member);
+		model.addAttribute("rsrv_type_nm", rsrv_type_nm);
+		model.addAttribute("max_limit", max_limit);
+		model.addAttribute("intr_rate_type_nm", intr_rate_type_nm);
+		model.addAttribute("save_trm", save_trm);
+		model.addAttribute("join_deny", join_deny2);
+		model.addAttribute("mtrt_int", mtrt_int);
+		model.addAttribute("spcl_cnd", spcl_cnd);
+		model.addAttribute("insList", installList);
+		
 		return "product2/saving_detail";
 	}
+	
 	@RequestMapping("/pension_detail")
 	public String pension_detail() {
 		return "product2/pension_detail";

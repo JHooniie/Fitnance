@@ -65,7 +65,7 @@ public class InsOptionService {
 				vo.setRsrv_type_nm(String.valueOf(depoObj.get("rsrv_type_nm")));
 				vo.setIntr_rate_type(String.valueOf(depoObj.get("intr_rate_type")));
 				vo.setIntr_rate_type_nm(String.valueOf(depoObj.get("intr_rate_type_nm")));
-				vo.setSave_trm(String.valueOf(depoObj.get("save_trm")));
+				vo.setSave_trm(Integer.parseInt(String.valueOf(depoObj.optString("save_trm","0"))));
 				vo.setIntr_rate(Double.parseDouble(String.valueOf(depoObj.optString("intr_rate","0.0"))));
 				vo.setIntr_rate2(Double.parseDouble(String.valueOf(depoObj.optString("intr_rate2","0.0"))));
 		

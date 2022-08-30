@@ -8,7 +8,7 @@ public class InstallOptionVO {
 	private String intr_rate_type_nm;
 	private String rsrv_type;
 	private String rsrv_type_nm;
-	private String save_trm;
+	private int save_trm;
 	private double intr_rate;
 	private double intr_rate2;
 	public String getRsrv_type() {
@@ -53,10 +53,10 @@ public class InstallOptionVO {
 	public void setIntr_rate_type_nm(String intr_rate_type_nm) {
 		this.intr_rate_type_nm = intr_rate_type_nm;
 	}
-	public String getSave_trm() {
+	public int getSave_trm() {
 		return save_trm;
 	}
-	public void setSave_trm(String save_trm) {
+	public void setSave_trm(int save_trm) {
 		this.save_trm = save_trm;
 	}
 	public double getIntr_rate() {

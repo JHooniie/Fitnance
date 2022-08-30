@@ -70,13 +70,21 @@
 	                </div>
 	                <div class="item-list">
 	                	<c:forEach items="${insList }" var="list">
+	                	<c:set var="index" value="${list.oIndex}"/>
+	                	<% 
+	           				int index= (int)pageContext.getAttribute("index");
+	           			%>
+	           			
 	                    <div class="item-box-all">
 	                        <div class="item-box">
 	                            <div class="image-box"></div>
 	                            <div class="text-box">
 	                                <div class="bank-name">${list.kor_co_nm }</div>
 	                                <div class="item-line">
-	                                    <div class="item-name">${list.fin_prdt_nm }<span>영업점</span><span>인터넷</span><span>스마트폰</span></spna></div>
+	                                    <div class="item-name">${list.fin_prdt_nm }
+	                                    <c:forEach items="${list.join_way }" var="jw">
+	                                    	<span>${jw}</span>
+	                                    </c:forEach></div>
 	                                </div>
 	                            </div>
 	                            <div class="plus-icon1"><i class="fa-solid fa-folder-plus"></i></div>
@@ -98,7 +106,7 @@
 	                                    </ul>
 	                                </div>
 	                            </div>
-	                            <div class="view-detail"><a href="<c:url value='saving_detail'/>">자세히 보기</a></div>
+	                            <div class="view-detail"><a href="<c:url value='saving_detail?index=${index }'/>">자세히 보기</a></div>
 	                        </div>
 	                    </div>
 	                    </c:forEach>

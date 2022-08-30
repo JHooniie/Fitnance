@@ -67,10 +67,10 @@ public class DepositService {
 				vo.setJoin_way(String.valueOf(depoObj.get("join_way")));
 				vo.setMtrt_int(String.valueOf(depoObj.get("mtrt_int")));
 				vo.setSpcl_cnd(String.valueOf(depoObj.get("spcl_cnd")));
-				vo.setJoin_deny(Integer.parseInt(String.valueOf(depoObj.get("join_deny"))));
+				vo.setJoin_deny(Integer.parseInt(String.valueOf(depoObj.optString("join_deny","0"))));
 				vo.setJoin_member(String.valueOf(depoObj.get("join_member")));
 				vo.setEtc_note(String.valueOf(depoObj.get("etc_note")));
-				vo.setMax_limit(Double.parseDouble(String.valueOf(depoObj.optString("max_limit","0.0"))));
+				vo.setMax_limit(Integer.parseInt(String.valueOf(depoObj.optString("max_limit","0"))));
 				
 				
 				//System.out.println(vo.getEtc_note());
