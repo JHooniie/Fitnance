@@ -74,11 +74,15 @@ button .btn-span{
     font-family: Pretendard;
     font-size: 16px;
     text-align: left;
-    color: #aaa;
+    color: #222;
     border-radius:5px;
     border:solid 1px #ddd;
     background-color:#fff;
 
+}
+
+.input-user_id::placeholder{
+    color: #aaa;
 }
 
 .process-pass{
@@ -157,10 +161,14 @@ button .btn-span{
     font-family: Pretendard;
     font-size: 16px;
     text-align: left;
-    color: #aaa;
+    color: #222;
     border-radius:5px;
     border:solid 1px #ddd;
     background-color:#fff;
+}
+
+.input-token_no::placeholder{
+    color: #aaa;
 }
 
 .input-token_no:disabled{
@@ -174,7 +182,7 @@ button .btn-span{
 
 .time{
     position: absolute;
-    top:32px;
+    bottom:20px;
     right:3%;
     font-size: 16px;
     color: #444;
@@ -230,11 +238,15 @@ button .btn-span{
     font-family: Pretendard;
     font-size: 16px;
     text-align: left;
-    color: #aaaaaa;
+    color: #222;
     border-radius:5px;
     border:solid 1px #ddd;
     background-color:#fff;
 
+}
+
+.input-user_pw::placeholder{
+    color: #aaa;
 }
 
 .process-pass{
@@ -312,12 +324,17 @@ button .btn-span{
     font-family: Pretendard;
     font-size: 16px;
     text-align: left;
-    color: #aaaaaa;
+    color: #222;
     border-radius:5px;
     border:solid 1px #ddd;
     background-color:#fff;
 
 }
+
+.input-user_pw-re::placeholder{
+    color: #aaa;
+}
+
 
 .process-pass{
     border:solid 1px #1ebc73;
@@ -425,11 +442,15 @@ button .btn-span{
     font-family: Pretendard;
     font-size: 16px;
     text-align: left;
-    color: #aaa;
+    color: #222;
     border-radius:5px;
     border:solid 1px #ddd;
     background-color:#fff;
 
+}
+
+.input-user_name::placeholder{
+    color: #aaa;
 }
 
 .input-user_birth{
@@ -440,11 +461,15 @@ button .btn-span{
     font-family: Pretendard;
     font-size: 16px;
     text-align: left;
-    color: #aaa;
+    color: #222;
     border-radius:5px;
     border:solid 1px #ddd;
     background-color:#fff;
 
+}
+
+.input-user_birth::placeholder{
+    color: #aaa;
 }
 
 .process-error{
@@ -485,6 +510,10 @@ input[type=checkbox]{
     color:#666666;
 }
 
+#btn-information-finish:disabled{
+    background-color: #aaaaaa;
+}
+
 .span-more-information{
     display: inline-block;
     font-size: 26px;
@@ -494,8 +523,8 @@ input[type=checkbox]{
     color: #222;
 }
 
-#btn-information-finish:disabled{
-    background-color: #aaaaaa;
+.box-more-information-button{
+    display: none;
 }
 
 #btn-information-next{
@@ -512,10 +541,6 @@ input[type=checkbox]{
     font-size: 18px;
     font-weight: 600;
     color: #222;
-}
-
-#btn-information-next:disabled{
-    background-color: #aaaaaa;
 }
 
 /* 추가 정보 입력 */
@@ -613,10 +638,14 @@ input[type=checkbox]{
     font-family: Pretendard;
     font-size: 16px;
     text-align: left;
-    color: #aaa;
+    color: #222;
     border-radius: 5px;
     border: solid 1px #ddd;
     background-color: #fff;
+}
+
+#input-user_bank::placeholder{
+    color:#aaa
 }
 
 /* 진행 그래프 */

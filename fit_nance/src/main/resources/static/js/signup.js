@@ -3,7 +3,7 @@ $(document).ready(function(){
 
     //로그인 유효성 검사
     var regEmail = /^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/;
-    var getCheck = RegExp(/^[a-zA-Z0-9]{8,15}$/);
+    var getCheck = RegExp(/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/);
     var regBirth = RegExp(/^[0-9]{8}$/);
     //임시 인증번호
     var token_no = "qwqwqw";
@@ -27,7 +27,7 @@ $(document).ready(function(){
                 event.preventDefault();
                 $('#input-token_no').prop('disabled',false);
                 $('#input-user_id').prop('readOnly', true);
-                
+                alert("인증번호를 전송하였습니다. 이메일을 확인해주세요.");
                 var display = $(".time span");
                 // 유효시간 설정
                 var leftSec = 180;
@@ -281,11 +281,11 @@ $(document).ready(function(){
             $('#checkbox-checkAgree').on("click",function(){
                 if($('#checkbox-checkAgree').is(':checked') == true){
                     $('#btn-information-finish').prop('disabled',false);
-                    $('#btn-information-next').prop('disabled',false);
+                    $('.box-more-information-button').css('display','block');
                 }
                 else if($('#checkbox-checkAgree').is(':checked') == false){
                     $('#btn-information-finish').prop('disabled',true);
-                    $('#btn-information-next').prop('disabled',true);
+                    $('.box-more-information-button').css('display','none');
                 }
 
                 $('#btn-information-next').click(function(event){
@@ -313,4 +313,15 @@ $(document).ready(function(){
         }
     });
 
+
+    //은행 선택 color 지정
+    $('#select-user_bank').css('color','#aaa');
+    $('#select-user_bank').change(function() {
+        if ($('#select-user_bank').val() != 'null') {
+            $('#select-user_bank').css('color','#222');
+        } 
+        else if($('#select-user_bank').val() == '') {
+            $('#select-user_bank').css('color','#aaa');
+        }
+    }); 
 });

@@ -14,7 +14,14 @@
 	<body>
 		<c:import url="/WEB-INF/views/layout/top.jsp" />
     
+<<<<<<< HEAD
 		<%-- 전세자금대출 / 주택담보대출 / 개인신용대출
+=======
+		<<h3>2조 진행 상황</h3><br><br>
+		
+		<br><br><br>
+		<h3>- 허준성</h3>
+>>>>>>> feature/login
 		<br>
 		<a href="<c:url value='/insertCharterLoanBaseList'/>">charterloan - baseList 데이터 넣기</a><br>
 		<a href="<c:url value='/insertCharterLoanOptList'/>">charterloan - optionList 데이터 넣기</a>
@@ -28,6 +35,7 @@
 		<a href="<c:url value='/insertPersonalLoanOptList'/>">personalloan - optionList 데이터 넣기</a>
 		<br><br><br>
 		
+<<<<<<< HEAD
 		<a href="<c:url value='list_mortgage_loan'/>">주택담보대출 검색 결과 페이지</a><br> --%>
 		<section>
 			<div class="background_index">
@@ -101,6 +109,21 @@
 	            </div>
 	        </div>
 		</section>
+=======
+		<a href="<c:url value='list_mortgage_loan'/>">주택담보대출 검색 결과 페이지</a><br> 
+		<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+		<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+		<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+		<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+		<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+		<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+		<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+		<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+		<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+		<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+>>>>>>> feature/login
 		<c:import url="/WEB-INF/views/layout/footer.jsp" />
 		
 		

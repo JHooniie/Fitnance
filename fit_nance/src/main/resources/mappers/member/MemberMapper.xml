@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.fit_nance.project.dao.IMemberDAO">
+	<resultMap id="memResult" type="com.fit_nance.project.model.MemberVO" >
+		<result property="memRole" column="memRole"/>
+		<result property="memId" column="memId"/>
+		<result property="memPwd" column="memPwd"/>
+		<result property="memName" column="memName"/>
+		<result property="memBirth" column="memBirth"/>
+		<result property="memEmailRecd" column="memEmailRecd"/>
+		<result property="provider" column="provider"/>
+		<result property="providerId" column="providerId"/>
+		<result property="certified" column="certified"/>
+	</resultMap>
+	
+	<!-- 회원정보 조회 -->
+	<select id="myInfo" parameterType="string" resultType="com.fit_nance.project.model.MemberVO">
+  	SELECT * 
+  	FROM member 
+  	ORDER BY memId
+  </select>
+  
+	<!-- 기존 사용자 검색 -->
+	<select id="findByUserId" parameterType="string" resultType="com.fit_nance.project.model.MemberVO">
+		SELECT *
+		FROM member
+		WHERE memId = #{memId}
+	</select>
+	
+	<select id="findByUserId_OAuth" parameterType="string" resultType="com.fit_nance.project.model.MemberVO">
+		SELECT *
+		FROM member
+		WHERE memId = #{memId}
+	</select>
+	
+	<select id="basicMember" parameterType="string" resultMap="memResult">
+		SELECT *
+		FROM member
+		WHERE memId = #{memId}
+	</select>
+	
+	<select id="loginCheck" parameterType="hashmap" resultType="string">
+		SELECT memId 
+		FROM member 
+		WHERE memId=#{memId} and memPwd=#{memPwd}
+  	</select>
+	
+	<select id="passwordCheck" parameterType="string" resultType="string">
+		SELECT memPwd 
+		FROM member 
+		WHERE memId=#{memId}
+  	</select>
+	
+	<!-- 회원가입 -->
+	<insert id="insertMember" parameterType="com.fit_nance.project.model.MemberVO">
+		INSERT member(memRole, memId, memPwd, memName, memBirth, memEmailRecd, certified)
+		VALUES (#{memRole}, #{memId}, #{memPwd}, #{memName}, #{memBirth}, #{memEmailRecd}, #{certified})
+	</insert>
+	
+	<!-- OAUTH회원가입 -->
+	<insert id="insertOAuthMember" parameterType="com.fit_nance.project.model.MemberVO">
+		INSERT member(memRole, memId, memPwd, memName,memBirth, memEmailRecd, provider, providerId)
+		VALUES ( #{memRole}, #{memId}, #{memPwd}, #{memName}, #{memBirth}, #{memEmailRecd}, #{provider}, #{providerId})
+	</insert>
+	
+</mapper>

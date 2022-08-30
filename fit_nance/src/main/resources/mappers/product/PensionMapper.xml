@@ -45,6 +45,5 @@
 		FROM pension_base b , pension_option o
 		WHERE b.fin_prdt_cd=o.fin_prdt_cd
 		GROUP BY b.fin_prdt_cd;
-
 	</select>
 </mapper>

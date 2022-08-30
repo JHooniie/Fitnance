@@ -13,20 +13,21 @@
 		<section id="update_auth_section">
         <div class="update_auth_page wrap">
             <div class="update_auth_container">
-                <form action="form-update_auth">
+               <!--  <form id="form-passwordCheck"> -->
                 <div class="box-update_auth-password">
                     <h3>내 정보 수정하기</h3>
                     <span class="span-update_auth-password-title">정보 보호를 위해 비밀번호를 한 번 더 입력해주세요</span>
                     <div class="box-form-update_auth-password">
                         <div class="box-password-input">
-                            <input type="password" id="input-user_pw" placeholder="비밀번호를 입력해주세요">
+                        	<input type="hidden" name="memId"  id="user_id" vlaue="${sessionScope.sid }">
+                            <input type="password" name="memPwd"  id="user_pw" class="input-user-pw" placeholder="비밀번호를 입력해주세요">
                             <i class="fa-solid fa-eye-slash"></i>
                         </div>
-                        <button id="btn-password-next" onclick="location.href='<c:url value='/update-mypage'/>'"><span class="btn-span">비밀번호로 인증하기</span></button>
-                        <!-- submit 삭제해둠 -->
+                        <!-- </form> -->
+                        <button id="btn-password-check" onclick="location.href='<c:url value='/update-mypage'/>'"><span class="btn-span">비밀번호로 인증하기</span></button>
                     </div>
                 </div>
-            </form>
+            
             </div>
         </div>
     </section>

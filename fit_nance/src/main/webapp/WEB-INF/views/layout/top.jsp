@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <header>
     <div class="box-nav wrap">
         <!-- logo -->
@@ -19,9 +20,16 @@
                         <span class="span-lang-eng span-lang-inactive">ENG</span>
                     </li>
                     <li>
-                        <a class="btn-login" href="<c:url value='/login'/>">
-                        	<i class="fa-solid fa-user"></i>
-                        </a>
+                    	<sec:authorize access="isAnonymous()">
+	                        <a class="btn-login" href="<c:url value='/loginForm'/>">
+	                    		<i class="fa-solid fa-user"></i>
+	                        </a>
+                        </sec:authorize>
+                        <sec:authorize access="hasAnyRole('ROLE_USER')">
+	                        <a class="btn-login" href="<c:url value='/mypage'/>">
+	                        	<i class="fa-solid fa-user"></i>
+	                        </a>
+                        </sec:authorize>
                     </li>
                 </ul>
             </div>

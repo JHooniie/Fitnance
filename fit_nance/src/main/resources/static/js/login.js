@@ -1,9 +1,8 @@
-
    $(document).ready(function(){
 
     //로그인 유효성 검사
     var regEmail = /^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/;
-    var getCheck = RegExp(/^[a-zA-Z0-9]{8,15}$/);
+    var getCheck = RegExp(/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/);
 
 
     $('#login_form').on('submit', function(event){
@@ -28,7 +27,6 @@
             return false;
         }
         else if(regEmail.test($('#user_id').val()) && getCheck.test($('#user_pw').val())){
-            alert("로그인 되었습니다.")
             return true;
         }
     })
@@ -102,119 +100,40 @@
             $(this).attr('class',"fa-solid fa-eye-slash")
             .prev('input').attr('type','password');
         }
-    })
+    });
+});
 
+	// $('#login_form').on('submit', function(event){
 
+    //     event.preventDefault();
+        
 
+//         $.ajax({
+//             type:"post",
+//             url:"/login",
+//             data:{"memId":$('#user_id').val(),
+//             	  "memPwd":$('#user_pw').val()},
+//             dataType:"text",
+//             success:function(result){
+//                 // 성공 시 수행되는 함수 
+//                 // 반환되는 값을  result로 받음
+//                 if(result == "success") {
+//                     alert("로그인 성공\nIndex 페이지로 이동합니다.");
+//                     location.href="/";
+//                 } else {
+//                     alert("아이디 또는 비밀번호가 일치하지 않습니다.");
+//                 }
+//             },
+//             error:function(){
+//                 // 오류있을 경우 수행되는 함수
+//                 alert("전송 실패");
+//             },
+//             complete:function(){
+// // 				alert("작업 완료")
+//             }			
+//         }); 	// ajax 끝
+//     }); // submit 끝 
 
 
 
     });
-
-
-
-
-//     var regEmail = /^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/;
-//     var getCheck = RegExp(/^[a-zA-Z0-9]{4,12}$/);
-
-//     $('#user_id').focus(function(){
-//          $(this).addClass("processPass");  
-//          if(!regEmail.test($('#user_id').val())){
-//             $(this).removeClass("processPass");
-//             $(this).addClass("processStop");  
-//             $('#login_id_process_state').removeClass("processPassText");
-//             $('#login_id_process_state').addClass("processStopText");  
-//             $('#login_id_process_state').html("이메일 형식에 맞게 입력해주세요.")
-             
-            
-//         }
-//         else{
-//             $(this).removeClass("processStop");
-//             $(this).addClass("processPass"); 
-//             $('#login_id_process_state').removeClass("processStopText");  
-//             $('#login_id_process_state').addClass("processPassText");  
-//             $('#login_id_process_state').html("형식에 맞는 이메일 입니다.")
-//         }
-//     });
-        
-//     $('#user_id').blur(function(){
-//         $(this).removeClass("processPass");  
-//         $('#login_id_process_state').html("")
-//     });
-
-//     $('#user_pw').focus(function(){
-//         $(this).addClass("processPass");  
-//         if(!getCheck.test($('#user_pw').val())){
-//            $(this).removeClass("processPass");
-//            $(this).addClass("processStop");  
-//            $('#login_pw_process_state').removeClass("processPassText");
-//            $('#login_pw_process_state').addClass("processStopText");  
-//            $('#login_pw_process_state').html("비밀번호는 영문 대,소문자 및 숫자를 포함해주세요.")
-           
-//        }
-//        else{
-//            $(this).removeClass("processStop");
-//            $(this).addClass("processPass"); 
-//            $('#login_pw_process_state').removeClass("processStopText");  
-//            $('#login_pw_process_state').addClass("processPassText");  
-//            $('#login_pw_process_state').html("형식에 맞는 비밀번호 입니다.")
-//        }
-//    });
-       
-//    $('#user_pw').blur(function(){
-//        $(this).removeClass("processPass");  
-//        $('#login_pw_process_state').html("")
-//    });
-
-//    var regEmail = /^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/;
-//    var getCheck = RegExp(/^[a-zA-Z0-9]{4,12}$/);
-
-//    $('#user_id').focus(function(){
-//         $(this).addClass("processPass");  
-//         if(!regEmail.test($('#user_id').val())){
-//            $(this).removeClass("processPass");
-//            $(this).addClass("processStop");  
-//            $('#login_id_process_state').removeClass("processPassText");
-//            $('#login_id_process_state').addClass("processStopText");  
-//            $('#login_id_process_state').html("이메일 형식에 맞게 입력해주세요.")
-            
-           
-//        }
-//        else{
-//            $(this).removeClass("processStop");
-//            $(this).addClass("processPass"); 
-//            $('#login_id_process_state').removeClass("processStopText");  
-//            $('#login_id_process_state').addClass("processPassText");  
-//            $('#login_id_process_state').html("형식에 맞는 이메일 입니다.")
-//        }
-//    });
-       
-//    $('#user_id').blur(function(){
-//        $(this).removeClass("processPass");  
-//        $('#login_id_process_state').html("")
-//    });
-
-//    $('#user_pw').focus(function(){
-//        $(this).addClass("processPass");  
-//        if(!getCheck.test($('#user_pw').val())){
-//           $(this).removeClass("processPass");
-//           $(this).addClass("processStop");  
-//           $('#login_pw_process_state').removeClass("processPassText");
-//           $('#login_pw_process_state').addClass("processStopText");  
-//           $('#login_pw_process_state').html("비밀번호는 영문 대,소문자 및 숫자를 포함해주세요.")
-          
-//       }
-//       else{
-//           $(this).removeClass("processStop");
-//           $(this).addClass("processPass"); 
-//           $('#login_pw_process_state').removeClass("processStopText");  
-//           $('#login_pw_process_state').addClass("processPassText");  
-//           $('#login_pw_process_state').html("형식에 맞는 비밀번호 입니다.")
-//       }
-//   });
-      
-//   $('#user_pw').blur(function(){
-//       $(this).removeClass("processPass");  
-//       $('#login_pw_process_state').html("")
-//   });
-});
