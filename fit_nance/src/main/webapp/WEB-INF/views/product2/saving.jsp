@@ -37,27 +37,35 @@
 	        </div>
 	        <div class="middel-bottom">
 	            <div>
-	                <div class="product-compare-box">상품 비교하기</div>   
+	                <div class="product-compare-box"><a href="<c:url value='saving_detail'/>">상품 비교하기</a></div>   
 	                <div class="select-box">
-	                    <div class="select-title">예치방식</div>
-	                    <div class="select-option select-option1">자유적립식</div>
-	                    <div class="select-option select-option1">정액적립식</div>
+	                    <div class="what-select" value="rsrv_type_nm">
+	                        <div class="select-title" >예치방식</div>
+	                        <div class="select-option select-option1" value="자유적립식">자유적립식</div>
+	                        <div class="select-option select-option1" value="정액적립식">정액적립식</div>
+	                    </div>
 	
-	                    <div class="select-title">가입대상</div>
-	                    <div class="select-option select-option1">개인</div>
-	                    <div class="select-option select-option1">기업</div>
+	                    <div class="what-select" value="join_member">
+	                        <div class="select-title" >가입대상</div>
+	                        <div class="select-option select-option1" value="개인">개인</div>
+	                        <div class="select-option select-option1" value="기업">기업</div>
+	                    </div>
 	
-	                    <div class="select-title">가입방법</div>
-	                    <div class="select-option select-option1">영업점</div>
-	                    <div class="select-option select-option1">인터넷</div>
-	                    <div class="select-option select-option1">스마트폰</div>
+	                    <div class="what-select" value="join_way">
+	                        <div class="select-title">가입방법</div>
+	                        <div class="select-option select-option1" value="영업점">영업점</div>
+	                        <div class="select-option select-option1" value="인터넷">인터넷</div>
+	                        <div class="select-option select-option1" value="스마트폰">스마트폰</div>
+	                    </div>
 	
-	                    <div class="select-title">가입기간</div>
-	                    <div class="select-option select-option2">3개월</div>
-	                    <div class="select-option select-option2">6개월</div>
-	                    <div class="select-option select-option2">12개월</div>
-	                    <div class="select-option select-option2">24개월</div>
-	                    <div class="select-option select-option3">36개월 이상</div>
+	                    <div class="what-select" value="save_trm">
+	                        <div class="select-title">가입기간</div>
+	                        <div class="select-option select-option2" value="3">3개월</div>
+	                        <div class="select-option select-option2" value="6">6개월</div>
+	                        <div class="select-option select-option2" value="12">12개월</div>
+	                        <div class="select-option select-option2" value="24">24개월</div>
+	                        <div class="select-option select-option3" value="36">36개월 이상</div>
+	                    </div>
 	
 	                    <div class="filter-reset"><i class="fa-solid fa-arrow-rotate-right"></i>  필터 초기화</div>
 	                    
