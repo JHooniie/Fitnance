@@ -257,6 +257,8 @@ public class HomeController {
 		for(int i=1; i<rsrv_type_nm2.size();i++) {
 			rsrv_type_nm.add(rsrv_type_nm2.get(i));
 		}
+		
+		
 		if(rsrv_type_nm!=null) vo.setRsrv_type_nm(rsrv_type_nm);
 		
 		for(int i=1; i<join_member2.size();i++) {
