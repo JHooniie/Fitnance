@@ -104,12 +104,36 @@
                             </div>
                             <div class="box-bank-select">
                                 <label for="btn-user_bank"><span class="span-bank-more-information">주거래 은행 계좌정보 입력</span></label><br>
-                                <button id="btn-user_bank" id="btn-user_bank"><span class="btn-span-bank">은행 선택</span></button>
+                                <button id="btn-user_bank" id="btn-user_bank"><span class="span-bank-btn">은행 선택</span></button>
                                 <button id="btn-more-information-finish" type="submit"><span class="btn-span">정보 입력 완료</span></button>
                             </div>
                     </div>
                 </div>
             </form>
+            </div>
+        </div>
+        <div id="modal-signup" class="modal-overlay">
+            <div class="modal-window">
+                <div class="modal-title">
+                    <span class="modal-bankselect-title">은행 선택</span>
+                    <div class="modal-bank-close"><i class="fa-solid fa-x"></i></div>
+                </div>
+                <div class="modal-bank-content">
+                    <c:forEach begin="0" end="30" step="1" varStatus="status">
+                    <figure class="figure-bank">
+                        <div class="figure-bank-img"></div>
+                        <input type="hidden" value="대구은행">
+                    <figcaption class="caption-bank">대구</figcaption>
+                    </figure>
+                    <figure class="figure-bank">
+                        <div class="figure-bank-img"></div>
+                    <figcaption class="caption-bank">
+                        <input type="hidden" value="광주은행">
+                        광주
+                    </figcaption>
+                    </figure>
+                    </c:forEach>
+                </div>
             </div>
         </div>
     </section>
