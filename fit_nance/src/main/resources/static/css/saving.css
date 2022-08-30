@@ -36,6 +36,7 @@
     padding : 15px;
     color:#1F4DFF;
     font-weight: 500;
+    cursor: pointer;
 }
 
 .product-compare-box a{
@@ -62,6 +63,7 @@
     margin-top:10px;
     margin-right:3px;
     line-height: 42px;
+    cursor: pointer;
 }
 
 .select-box .select-option1{ 
@@ -91,10 +93,25 @@
     height: 52px;
     border-radius: 5px;
     text-align: center;
-    padding : 15px;
-    color:black;
+    padding: 15px;
+    color:#222222;
     font-weight: 500;
     cursor: pointer;
+}
+
+.select-box .filter-reset i{
+    color: #222222;
+    font-size: 14px;
+    margin-right: 4px;
+}
+
+.select-box .filter-reset:hover{
+    background-color: #1F4DFF;
+    color: #FFFFFF;
+}
+
+.select-box .filter-reset:hover i{
+    color: #FFFFFF;
 }
 
 .middel-bottom{
@@ -361,8 +378,9 @@
 .page-list .page-num1,.page-num2,.page-num3{
     color: #aeaeaea0;
     font-size: 14px;
-    display:inline-block;
-    margin-left: 10px;
+    display:
+    inline-block;
+    margin-left: 5px;
     height: 28px;
     width: 28px;
     text-align: center;

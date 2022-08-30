@@ -11,9 +11,6 @@
 		<!-- css -->
 		<link rel="stylesheet" href="<c:url value='/css/deposit.css'/>"/>
 		<!-- js -->
-		<!-- 삭제해야함 -->
-		<meta charset="UTF-8">
-		<title>Insert title here</title>
 	</head>
 	<body>
 		<!-- top.jsp -->
@@ -62,7 +59,7 @@
             <div class="result-box">
                 <div class="search-line">
                     <div class="box">검색 결과 ${fn:length(dpList) }개</div>
-                    <div class="search-box"><input type="text" id="tourName" name="tourName" value="키워드 검색"><i class="fa-solid fa-magnifying-glass"></i></div>
+                    <div class="search-box"><input type="text" id="tourName" name="tourName" placeholder="키워드 검색"><i class="fa-solid fa-magnifying-glass"></i></div>
                 </div>
                 <div class="item-list">
                 <c:forEach items="${dpList }" var="list">
