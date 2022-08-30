@@ -46,15 +46,15 @@
 		</foreach>
 		</if>
 		<if test="join_member.size()!=0"> 
-		AND o.join_member IN 
-		<foreach collection="join_member" item="join_member" open="(" close=")" separator=",">
-			#{join_member}
+		AND  
+		<foreach collection="join_member" item="join_member" open="(" close=")" separator="OR">
+			b.join_member LIKE CONCAT('%',#{join_member},'%')
 		</foreach>
 		</if>
 		<if test="join_way.size()!=0"> 
-		AND o.join_way IN 
+		AND b.join_way LIKE
 		<foreach collection="join_way" item="join_way" open="(" close=")" separator=",">
-			#{join_way}
+			%#{join_way}%
 		</foreach>
 		</if>
 		<if test="save_trm.size()!=0"> 
