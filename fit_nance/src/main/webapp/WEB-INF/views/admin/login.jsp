@@ -14,17 +14,17 @@
 	</head>
 	<body>
 		<main class="form-signin w-100 m-auto">
-		  <form method="post" action="/adminLoginProc">
+		  <form id="login_form" method="post" action="/adminLoginProc">
 		    <div class="box-logo">
 		        <img class="mb-5 w-50" src="<c:url value='/image/lg_fitnance.png'/>" alt="fit:nance">
 		    </div>    
 		
 		    <div class="form-floating mb-3">
-		        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+		        <input type="email" name="memId" class="form-control" id="floatingInput" placeholder="name@example.com">
 		        <label for="floatingInput">이메일</label>
 		    </div>
 		    <div class="form-floating">
-		      <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+		      <input type="password" name="memPwd" class="form-control" id="floatingPassword" placeholder="Password">
 		      <label for="floatingPassword">비밀번호</label>
 		    </div>
 		
@@ -37,4 +37,5 @@
 		  </form>
 		</main>
 	</body>
+	<!-- <script src="../js/admin/admin_login.js"></script> -->
 </html>

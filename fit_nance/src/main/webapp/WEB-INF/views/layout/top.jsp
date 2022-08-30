@@ -3,6 +3,11 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<sec:authorize access="isAuthenticated()">
+    <sec:authentication property="principal" var="principal" />
+</sec:authorize>
+<%-- <c:set var="principal" value="${principal}" />
+<c:set var="role" value="${principal.role}" /> --%>
 
 <header>
     <div class="box-nav wrap">
@@ -27,11 +32,21 @@
 	                    		<i class="fa-solid fa-user"></i>
 	                        </a>
                         </sec:authorize>
-                        <sec:authorize access="hasAnyRole('ROLE_USER')">
+                       <%--  <sec:authorize access="isAuthenticated()">
 	                        <a class="btn-login" href="<c:url value='/mypage'/>">
 	                        	<i class="fa-solid fa-user"></i>
 	                        </a>
-                        </sec:authorize>
+                        </sec:authorize> --%>
+                        <%-- <c:if test="${role != ''}"> 
+	                        <a class="btn-login" href="<c:url value='/mypage'/>">
+	                        	<i class="fa-solid fa-user"></i>
+	                        </a>
+                        </c:if> --%>
+                        <%-- <c:if test="${role == 'ROLE_ADMIN'}"> 
+	                        <a class="btn-login" href="<c:url value='/admin/dashboard'/>">
+	                        	<i class="fa-solid fa-user"></i>
+	                        </a>
+                        </c:if> --%>
                     </li>
                 </ul>
             </div>
