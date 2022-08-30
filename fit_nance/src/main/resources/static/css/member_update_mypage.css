@@ -134,6 +134,10 @@ button{
 
 }
 
+#input-update-profile-name::placeholder{
+    color: #aaa;
+}
+
 .div-update-profile-birth{
     position:relative;
 }
@@ -150,6 +154,10 @@ button{
     font-size: 16px;
     color: #222;
     appearance: none;
+}
+
+#input-update-profile-birth-year::placeholder{
+    color: #aaa;
 }
 
 .update-birth-year{
@@ -172,6 +180,11 @@ button{
     font-size: 16px;
     color: #222;
     appearance: none;
+    outline:none;
+}
+
+#select-update-profile-birth-month::placeholder{
+    color: #aaa;
 }
 
 .update-birth-month{
@@ -194,6 +207,11 @@ button{
     font-size: 16px;
     color: #222;
     appearance: none;
+    outline:none;
+}
+
+#select-update-profile-birth-day::placeholder{
+    color: #aaa;
 }
 
 .update-birth-day{
@@ -204,18 +222,7 @@ button{
     color: #222;
 }
 
-#input-update-profile-hp{
-    width:100%;
-    height: 60px;
-    margin: 10px 0 50px 0;
-    padding:22px 0 19px 0;
-    font-family: Pretendard;
-    font-size: 16px;
-    color: #222;
-    background-color: #fff;
-    border:none;
-    border-bottom: solid 1px #aaa;
-}
+
 
 .box-update-profile-more-title{
     margin:60px 0;
@@ -235,7 +242,7 @@ button{
 }
 
 #select-update-user_bank{
-    width:127px;
+    width:100%;
     height: 60px;
     margin:10px 0 30px 0;
     padding: 20px 0;
@@ -244,14 +251,19 @@ button{
     border-bottom: solid 1px #aaa;
     font-size: 16px;
     color:#aaa;
+    outline:none;
     appearance: none;
-    background: url('/image/chevron-down-solid.png') no-repeat 90% 50%;
+    background: url('/image/chevron-down-solid.png') no-repeat 98% 50%;
     background-size: 13px;
+}
+
+#select-update-user_bank::placeholder{
+    color: #aaa;
 }
 
 
 #input-update-user_bank{
-    width: 550px;
+    width:100%;
     height: 60px;
     margin: 10px 0 30px 16px;
     padding: 22px 0;
@@ -259,6 +271,10 @@ button{
     border:none;
     border-bottom: solid 1px #aaa;
     font-size: 16px;
+    color: #aaa;
+}
+
+#input-update-user_bank::placeholder{
     color: #aaa;
 }
 
@@ -316,4 +332,21 @@ button{
     font-size: 20px;
     font-weight: 600;
     color: #fff;
+}
+
+
+.a-delete-profile{
+    width:100%;
+    height: 60px;
+    text-align:center;
+    padding: 22px 0 19px 0;
+    margin: 80px 0 20px 0;
+    background-color: #fff;
+}
+
+.a-delete-profile a{
+    font-family: Pretendard;
+    font-size: 16px;
+    text-decoration: underline;
+    color: #aaa;
 }

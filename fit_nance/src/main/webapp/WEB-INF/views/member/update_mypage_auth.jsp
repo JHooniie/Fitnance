@@ -20,7 +20,7 @@
                     <div class="box-form-update_auth-password">
                         <div class="box-password-input">
                         	<input type="hidden" name="memId"  id="user_id" vlaue="${sessionScope.sid }">
-                            <input type="password" name="memPwd"  id="user_pw" placeholder="비밀번호를 입력해주세요">
+                            <input type="password" name="memPwd"  id="user_pw" class="input-user-pw" placeholder="비밀번호를 입력해주세요">
                             <i class="fa-solid fa-eye-slash"></i>
                         </div>
                         <!-- </form> -->

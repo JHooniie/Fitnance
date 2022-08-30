@@ -29,10 +29,10 @@
                             <span class="span-update span-update-profile-Email">비밀번호</span><br>
                             <div class="a-update-profile-password"><a href="<c:url value='/update-password'/>">비밀번호 변경하기</a></div>
                             <label for="input-update-profile-name"><span class="span-update span-update-profile-name">이름</span></label><br>
-                            <input type="text" id="input-update-profile-name" value="홍길동">
+                            <input type="text" id="input-update-profile-name" value="" placeholder="홍길동">
                             <label for="input-update-profile-birth"><span class="span-update span-update-profile-birth">생년월일</span></label><br>
                             <div class="div-update-profile-birth">
-                                <input type="text" id="input-update-profile-birth-year" name="input-update-profile-birth-year">
+                                <input type="text" id="input-update-profile-birth-year" name="input-update-profile-birth-year" placeholder="1990">
                                 <div class="update-birth-year">년</div>
                                 <select id="select-update-profile-birth-month" name="select-update-profile-birth-month">
                                     <option value="01">1</option>
@@ -43,8 +43,6 @@
                                 </select>
                                 <div class="update-birth-day">일</div>
                             </div><br>
-                            <label for="input-update-profile-hp"><span class="span-update span-update-profile-hp">휴대폰 번호</span></label><br>
-                            <input type="text" id="input-update-profile-hp" placeholder="- 없이 입력해주세요.">
                         </div>
                         <div class="box-update-profile-more">
                             <div class="box-update-profile-more-title">
@@ -61,13 +59,13 @@
                                     <option value="농협">농협</option>
                                     <option value="기업">기업</option>
                                 </select>
-                                <input type="text" id="input-update-user_bank" name="input-update-user_bank" placeholder="계좌번호를 입력해주세요">
                                     <input type="checkbox" name="checkbox-checkAgree" id="checkbox-checkAgree" value="checkbox-checkAgree">
                                     <label class="label-information-checkAgree">광고/마케팅 수신동의</label>
                                 <p>수신동의하시면 추천 상품을 이메일로 먼저 알려드릴게요!</p>
                             </div>
                             <button id="btn-reset-profile">취소하기</button>
                             <button id="btn-update-profile">수정하기</button>
+                            <div class="a-delete-profile"><a href="<c:url value='/update-password'/>">회원 탈퇴</a></div>
                         </div>
                         </form>
                     </div>
