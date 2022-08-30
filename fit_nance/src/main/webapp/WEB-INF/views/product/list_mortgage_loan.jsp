@@ -76,14 +76,16 @@
 	                    </div>
 	                </div>
 	                <div class="div_reset_filter">
-	                    <div class="btn_reset_filter">
+	                    <button class="btn_reset_filter">
 	                        <!-- <img class="img_ic_reset" src="/image/arrow-rotate-right-solid.png"> -->
 	                        <i class="fa-solid fa-rotate-right"></i>
 	                        <span>필터 초기화</span>
-	                    </div>
+	                    </button>
 	                </div>
 	            </div>
 	            <div class="panel_list_prdt">
+	            	
+	                <form id="form_joinwawy" method="post" action="<c:url value='/list_mortgage_loan'/>">
 	                <div class="div_search_list">
 	                    <div class="div_list_result">
 	                        <span>검색 결과 ${fn:length(list_home_loan) }개</span>
@@ -93,6 +95,7 @@
 	                        <img src="/image/magnifying-glass-solid.png">
 	                    </div>
 	                </div>
+	                </form>
 	                
 	                <div class="div_list_prdt">
 	                    <div class="prdt_result_search prdt">

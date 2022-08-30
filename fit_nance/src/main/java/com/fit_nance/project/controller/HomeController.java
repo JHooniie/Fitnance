@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.fit_nance.project.model.CharterLoanListVO;
 import com.fit_nance.project.model.DepositListVO;
@@ -17,6 +18,8 @@ import com.fit_nance.project.model.HomeLoanListVO;
 import com.fit_nance.project.model.InstallListVO;
 import com.fit_nance.project.model.PersonalLoanListVO;
 import com.fit_nance.project.service.LoanListService;
+import com.fit_nance.project.model.SavingFilterVO;
+import com.fit_nance.project.service.HomeLoanListService;
 import com.fit_nance.project.service.ProductService;
 
 @Controller
@@ -181,12 +184,14 @@ public class HomeController {
 	
 	@RequestMapping("/filter_saving")
 	@ResponseBody
-	public String filter_saving(@RequestParam(value="rsrv_type_nm") ArrayList<String> rsrv_type_nm2,
+	public ArrayList<InstallListVO> filter_saving(@RequestParam(value="rsrv_type_nm") ArrayList<String> rsrv_type_nm2,
 								@RequestParam(value="join_member") ArrayList<String> join_member2,
 								@RequestParam(value="join_way") ArrayList<String> join_way2,
 								@RequestParam(value="save_trm") ArrayList<String> save_trm2
-								)
+								,Model model)
 	{	
+		SavingFilterVO vo= new SavingFilterVO();
+		
 		ArrayList<String> rsrv_type_nm=new ArrayList<String>();
 		ArrayList<String> join_member=new ArrayList<String>();
 		ArrayList<String> join_way=new ArrayList<String>();
@@ -195,32 +200,48 @@ public class HomeController {
 		for(int i=1; i<rsrv_type_nm2.size();i++) {
 			rsrv_type_nm.add(rsrv_type_nm2.get(i));
 		}
-		for(String a : rsrv_type_nm) {
-			System.out.print(a+",");
-		}
-		System.out.println();
+		if(rsrv_type_nm!=null) vo.setRsrv_type_nm(rsrv_type_nm);
+		
 		for(int i=1; i<join_member2.size();i++) {
 			join_member.add(join_member2.get(i));
 		}
+		if(join_member!=null) vo.setJoin_member(join_member);
+		for(int i=1; i<join_way2.size();i++) {
+			join_way.add(join_way2.get(i));
+		}
+		if(join_way!=null) vo.setJoin_way(join_way);
+		for(int i=1; i<save_trm2.size();i++) {
+			save_trm.add(save_trm2.get(i));
+		}
+		if(save_trm!=null)vo.setSave_trm(save_trm);
+		/*for(String a : rsrv_type_nm) {
+			System.out.print(a+",");
+		}
+		
+		System.out.println();
 		for(String a : join_member) {
 			System.out.print(a+",");
 		}
 		System.out.println();
-		for(int i=1; i<join_way2.size();i++) {
-			join_way.add(join_way2.get(i));
-		}
 		for(String a : join_way) {
 			System.out.print(a+",");
 		}
 		System.out.println();
-		for(int i=1; i<save_trm2.size();i++) {
-			save_trm.add(save_trm2.get(i));
-		}
 		for(String a : save_trm) {
 			System.out.print(a+",");
+		}*/
+		
+		ArrayList<InstallListVO> insList= pService.selectInstallFilter(vo);
+		/*for(int i =0;i<installList.size();i++){
+				System.out.println(installList.get(i));
 		}
-		return "product2/saving";
+		System.out.println(installList.size());*/
+		model.addAttribute("insList", insList);
+		
+		return insList;
 	}
+	
+	
 	
 	
 	@RequestMapping("/deposit_detail")

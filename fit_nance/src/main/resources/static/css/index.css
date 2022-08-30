@@ -24,7 +24,7 @@ h3{
 }
 
 .index_title_main{
-    margin: 200px 0px 200px 0px;
+    margin: 290px 0px 200px 0px;
 }
 
 .div_scroll{
@@ -39,8 +39,6 @@ h3{
     cursor: pointer;
 }
 
-/* 수정 필요 */
-
 .index_main .div_index_img1{
     display: flex;
     justify-content: center;
@@ -52,8 +50,13 @@ h3{
     height: 760px;
     border-radius: 40px;
     background-color: #eeeeee;
+    overflow: hidden;
 }
 
+.index_main .div_index_img1 .img_index_main video{
+    height: 100%;
+    margin-left: -100px;
+}
 
 .index_sub1,
 .index_sub2{
@@ -73,8 +76,13 @@ h3{
 
 .index_sub1 .div_index_img2{
     margin: 0px 0px 0px 320px;
+    overflow: hidden;
 }
 
+.index_sub1 .div_index_img2 video{
+    height: 100%;
+    margin-left: -60%;
+}
 
 .index_sub1 .div_index_img2,
 .index_sub2 .div_index_img2{
@@ -92,9 +100,33 @@ h3{
 .index_sub1 .index_title_sub{
     margin: 0px 115px 0px 0px;
 }
+
+.index_sub1 .index_title_sub .title_sub_maintitle,
+.index_sub2 .index_title_sub .title_sub_maintitle{
+    margin-bottom: 25px;
+}
+
+.index_sub1 .index_title_sub .title_sub_maintitle h2,
+.index_sub2 .index_title_sub .title_sub_maintitle h2{
+    font-size: 50px;
+    font-weight: 700;
+}
+
+.index_sub1 .index_title_sub .title_sub_subtitle span,
+.index_sub2 .index_title_sub .title_sub_subtitle span{
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 30px;
+}
    
 .index_sub2 .div_index_img2{
     margin: 0px 0px 0px 130px;
+    overflow: hidden;
+}
+
+.index_sub2 .div_index_img2 video{
+    height: 100%;
+    margin-left: -31%;
 }
 
 .index_sub2 .index_title_sub{
@@ -102,12 +134,17 @@ h3{
 }
 
 .index_sub3{
-    margin: 100px 0px 130px 0px;
+    margin: 100px 0px 0 0px;
 }
 
 .index_sub3 .index_title_sub .title_sub_maintitle{
     text-align: center;
     margin: 0px 0px 90px 0px;
+}
+
+.index_sub3 .index_title_sub .title_sub_maintitle h2{
+    font-size: 50px;
+    font-weight: 600;
 }
 
 .div_index_img3{

@@ -34,4 +34,35 @@
 		ON b.fin_prdt_cd=o.fin_prdt_cd
 		GROUP BY b.fin_prdt_cd;
 	</select>
+	
+	<select id="selectInstallFilter" resultMap="resultInstallList">
+		SELECT b.pIndex, b.fin_co_no, b.kor_co_nm, b.fin_prdt_cd, b.fin_prdt_nm,b.join_way,b.mtrt_int,b.spcl_cnd,b.join_deny,b.join_member,b.etc_note, b.max_limit,o.oIndex,o.intr_rate_type,o.intr_rate_type_nm,o.rsrv_type,o.rsrv_type_nm,o.save_trm,o.intr_rate,o.intr_rate2
+		FROM installment_base b, installment_option o
+		WHERE b.fin_prdt_cd=o.fin_prdt_cd 
+		<if test="rsrv_type_nm.size()!=0"> 
+		AND o.rsrv_type_nm IN 
+		<foreach collection="rsrv_type_nm" item="rsrv_type_nm" open="(" close=")" separator=",">
+			#{rsrv_type_nm}
+		</foreach>
+		</if>
+		<if test="join_member.size()!=0"> 
+		AND o.join_member IN 
+		<foreach collection="join_member" item="join_member" open="(" close=")" separator=",">
+			#{join_member}
+		</foreach>
+		</if>
+		<if test="join_way.size()!=0"> 
+		AND o.join_way IN 
+		<foreach collection="join_way" item="join_way" open="(" close=")" separator=",">
+			#{join_way}
+		</foreach>
+		</if>
+		<if test="save_trm.size()!=0"> 
+		AND o.save_trm IN 
+		<foreach collection="save_trm" item="save_trm" open="(" close=")" separator=",">
+			#{save_trm}
+		</foreach>
+		</if>
+		GROUP BY b.fin_prdt_cd;
+	</select>
 </mapper>
