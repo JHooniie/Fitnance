@@ -28,7 +28,7 @@
         </div>
         <div class="middle2">
             <div class="middle2-box1">
-                적금 계산기
+                <a href="<c:url value='calculator_deposit'/>">적금 계산기</a>
             </div>
             <div class="middle2-box2">
                 목돈 모으기 계산기

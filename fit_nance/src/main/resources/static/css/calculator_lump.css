@@ -24,7 +24,7 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
 
 /* calculator deposit */
 .middle{
-    margin-top:134.5px;
+    margin-top:224.5px;
     display:flex;
     flex-direction: column;
 }
