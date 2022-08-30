@@ -1,5 +1,6 @@
 package com.fit_nance.project.service;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,6 +47,11 @@ public class MemberService implements IMemberService {
 		
 		return dao.passwordCheck(map);
 
+	}
+
+	@Override
+	public MemberVO myInfo(String memId) {
+		return dao.myInfo(memId);
 	}
 
 }

@@ -7,9 +7,14 @@ public class MemberVO {
 	private String memId;
 	private String memPwd;
 	private String memName;
-	private String memHP;
 	private String memBirth;
 	private boolean memEmailRecd;
+	
+	private String provider;
+	private String providerId;
+	private String memCertified;
+	
+	
 	public int getMemNo() {
 		return memNo;
 	}
@@ -40,12 +45,6 @@ public class MemberVO {
 	public void setMemName(String memName) {
 		this.memName = memName;
 	}
-	public String getMemHP() {
-		return memHP;
-	}
-	public void setMemHP(String memHP) {
-		this.memHP = memHP;
-	}
 	public String getMemBirth() {
 		return memBirth;
 	}
@@ -58,6 +57,25 @@ public class MemberVO {
 	public void setMemEmailRecd(boolean memEmailRecd) {
 		this.memEmailRecd = memEmailRecd;
 	}
+	public String getProvider() {
+		return provider;
+	}
+	public void setProvider(String provider) {
+		this.provider = provider;
+	}
+	public String getProviderId() {
+		return providerId;
+	}
+	public void setProviderId(String providerId) {
+		this.providerId = providerId;
+	}
+	public String getMemCertified() {
+		return memCertified;
+	}
+	public void setMemCertified(String memCertified) {
+		this.memCertified = memCertified;
+	}
+
 	
 	
 	
