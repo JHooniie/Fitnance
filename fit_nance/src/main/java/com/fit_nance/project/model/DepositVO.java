@@ -12,7 +12,7 @@ public class DepositVO {
 	int join_deny;
 	String join_member;
 	String etc_note;
-	double max_limit;
+	int max_limit;
 	public int getPIndex() {
 		return pIndex;
 	}
@@ -79,10 +79,10 @@ public class DepositVO {
 	public void setEtc_note(String etc_note) {
 		this.etc_note = etc_note;
 	}
-	public double getMax_limit() {
+	public int getMax_limit() {
 		return max_limit;
 	}
-	public void setMax_limit(double max_limit) {
+	public void setMax_limit(int max_limit) {
 		this.max_limit = max_limit;
 	}
 	

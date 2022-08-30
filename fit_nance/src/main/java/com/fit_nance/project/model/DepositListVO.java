@@ -12,11 +12,11 @@ public class DepositListVO {
 	int join_deny;
 	String join_member;
 	String etc_note;
-	double max_limit;
+	int max_limit;
 	private int oIndex;
 	private String intr_rate_type;
 	private String intr_rate_type_nm;
-	private String save_trm;
+	private int save_trm;
 	private double intr_rate;
 	private double intr_rate2;
 	public int getpIndex() {
@@ -85,10 +85,10 @@ public class DepositListVO {
 	public void setEtc_note(String etc_note) {
 		this.etc_note = etc_note;
 	}
-	public double getMax_limit() {
+	public int getMax_limit() {
 		return max_limit;
 	}
-	public void setMax_limit(double max_limit) {
+	public void setMax_limit(int max_limit) {
 		this.max_limit = max_limit;
 	}
 	public int getoIndex() {
@@ -109,10 +109,10 @@ public class DepositListVO {
 	public void setIntr_rate_type_nm(String intr_rate_type_nm) {
 		this.intr_rate_type_nm = intr_rate_type_nm;
 	}
-	public String getSave_trm() {
+	public int getSave_trm() {
 		return save_trm;
 	}
-	public void setSave_trm(String save_trm) {
+	public void setSave_trm(int save_trm) {
 		this.save_trm = save_trm;
 	}
 	public double getIntr_rate() {
