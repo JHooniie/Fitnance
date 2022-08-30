@@ -15,11 +15,13 @@ import com.fit_nance.project.model.InstallOptionVO;
 import com.fit_nance.project.model.InstallVO;
 import com.fit_nance.project.model.PensionListVO;
 import com.fit_nance.project.model.PensionVO;
+import com.fit_nance.project.model.PersonalLoanListVO;
 import com.fit_nance.project.model.PsOptionVO;
 import com.fit_nance.project.service.DepoOptionService;
 import com.fit_nance.project.service.DepositService;
 import com.fit_nance.project.service.InsOptionService;
 import com.fit_nance.project.service.InstallmentService;
+import com.fit_nance.project.service.LoanListService;
 import com.fit_nance.project.service.PensionService;
 import com.fit_nance.project.service.ProductService;
 import com.fit_nance.project.service.PsOptionService;
@@ -46,6 +48,9 @@ public class ProductController {
 	
 	@Autowired
 	PsOptionService psoService;
+	
+	@Autowired
+	LoanListService creditloanlistService;
 	
 	@RequestMapping("/insertProduct")
 	public String insertProduct() {
@@ -120,9 +125,18 @@ public class ProductController {
 		return "product/prd_recom_process";
 	}
 	
-	// 상품 추천 프로세스
+	// 상품 전체
 	@RequestMapping("/prd_all")
-	public String viewPrdAll() {
+	public String viewPrdAll(Model model) {
+		ArrayList<InstallListVO> installList= pService.selectInstall();
+		model.addAttribute("insList", installList);
+		
+		ArrayList<DepositListVO> dpList= pService.selectDeposit();
+		model.addAttribute("dpList", dpList);
+		
+		ArrayList<PersonalLoanListVO> list_credit_loan = creditloanlistService.selectPersonalLoanList();
+		model.addAttribute("clList", list_credit_loan);
+		
 		return "product/prd_all";
 	}
 }
