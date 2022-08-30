@@ -8,8 +8,9 @@ public class MemberVO {
 	private String memPwd;
 	private String memName;
 	private String memBirth;
+	private String memGender;
+	private String memBank;
 	private boolean memEmailRecd;
-	
 	private String provider;
 	private String providerId;
 	private String certified;
@@ -74,6 +75,18 @@ public class MemberVO {
 	}
 	public void setCertified(String certified) {
 		this.certified = certified;
+	}
+	public String getMemGender() {
+		return memGender;
+	}
+	public void setMemGender(String memGender) {
+		this.memGender = memGender;
+	}
+	public String getMemBank() {
+		return memBank;
+	}
+	public void setMemBank(String memBank) {
+		this.memBank = memBank;
 	}
 
 	
