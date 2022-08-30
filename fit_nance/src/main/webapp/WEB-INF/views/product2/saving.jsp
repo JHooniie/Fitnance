@@ -131,7 +131,7 @@
 	                </div>
 	            </div>
 	            
-	            <div class="result-box-filter"></div>
+	            <div class="result-box-filter" id="result-box-filter"></div>
 	        </div>
         </div>
     </div>
