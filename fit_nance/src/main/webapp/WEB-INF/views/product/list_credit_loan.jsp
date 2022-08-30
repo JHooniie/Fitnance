@@ -19,7 +19,6 @@
 		<!-- top.jsp -->
 		<c:import url="/WEB-INF/views/layout/top.jsp" />
 		<!-- section.jsp -->
-		<
 		<section id="section">
 	        <div class="div_background">
 	            <div class="div_background_top"></div>
@@ -63,7 +62,8 @@
 	                </div>
 	                <div class="div_reset_filter">
 	                    <div class="btn_reset_filter">
-	                        <img class="img_ic_reset" src="/image/arrow-rotate-right-solid.png">
+	                        <!-- <img class="img_ic_reset" src="/image/arrow-rotate-right-solid.png"> -->
+	                        <i class="fa-solid fa-rotate-right"></i>
 	                        <span>필터 초기화</span>
 	                    </div>
 	                </div>
@@ -71,7 +71,7 @@
 	            <div class="panel_list_prdt">
 	                <div class="div_search_list">
 	                    <div class="div_list_result">
-	                        <span>검색 결과 00개</span>
+	                        <span>검색 결과 ${fn:length(list_credit_loan)}개</span>
 	                    </div>
 	                    <div class="div_search_prdt">
 	                        <input class="input_search_prdt" placeholder="키워드 검색">
@@ -81,7 +81,10 @@
 	                
 	                <div class="div_list_prdt">
 	                    <div class="prdt_result_search prdt">
+	                    <form id="form_prdt" method="post" action="<c:url value='/view_prdt_detail'/>">
+	                    	<input type="hidden" id="input_prdt_cd" name="input_prdt_cd" class="input_prdt_cd" type="text">
 	                        <!-- 검색 결과 상품 - 시작 -->
+	                        <c:forEach items="${list_credit_loan }" var="list" varStatus="status">
 	                        <div class="div_prdt">
 	                            <div class="div_prdt_info">
 	                                <div class="div_ic_co">
@@ -91,17 +94,19 @@
 	                                    <div class="top_prdt_info">
 	                                        <div class="div_nm_co">
 	                                            <span class="prdt_nm_co">
-	                                                농협은행주식회사
+	                                                ${list.kor_co_nm}
 	                                            </span>
 	                                        </div>
 	                                        <div class="div_nm_prdt">
 	                                            <span class="prdt_nm_loan">
-	                                                NH신용대출
+	                                                ${list.fin_prdt_nm }
 	                                            </span>
 	                                            <div class="div_joinway">
+	                                                <c:forTokens var="joinway" items="${list.join_way }" delims=",">
 	                                                <div class="div_joinway_block">
-	                                                    <span>영업점</span>
+	                                                    <span>${joinway }</span>
 	                                                </div>
+	                                            	</c:forTokens>
 	                                            </div>
 	                                        </div>
 	                                    </div>
@@ -109,10 +114,10 @@
 	                                        <!-- <div class="div_lend_prdt"> -->
 	                                            <div class="div_lend_rate">
 	                                                <span class="lend_rate_title">
-	                                                    최저 금리
+	                                                    평균 금리
 	                                                </span>
 	                                                <span class="lend_rate_prdt">
-	                                                    5.02<span>%</span>
+	                                                    ${list.crdt_grad_avg }<span>%</span>
 	                                                </span>
 	                                            </div>
 	                                        <!-- </div> -->
@@ -128,12 +133,15 @@
 	                                        <img class="img_ic_favorite" src="/image/heart-solid.png">
 	                                    </div>
 	                                </div>
-	                                <div class="btn_prdt_info">
+	                                <button class="btn_prdt_info">
 	                                    자세히 보기
-	                                </div>
+	                                    <span style="display:none" id="prdt_cd" class="prdt_cd">${list.fin_prdt_cd }</span>
+	                                </button>
 	                            </div>
 	                        </div>
 	                        <!-- 검색 결과 상품 - 끝 -->
+	                        </c:forEach>
+	                        </form>
 	                    </div>
 	                    <div class="page_prdt_list">
 	                        <div class="div_page_prev">

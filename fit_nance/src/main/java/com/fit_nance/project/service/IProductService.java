@@ -11,6 +11,7 @@ import com.fit_nance.project.model.InstallVO;
 import com.fit_nance.project.model.PensionListVO;
 import com.fit_nance.project.model.PensionVO;
 import com.fit_nance.project.model.PsOptionVO;
+import com.fit_nance.project.model.SavingFilterVO;
 
 public interface IProductService {
 	public void insertDeposit(DepositVO depo);
@@ -19,6 +20,8 @@ public interface IProductService {
 	public void insertInsOption(InstallOptionVO dOption);
 	public void insertPension(PensionVO ps);
 	public void insertPsOption(PsOptionVO psOption);
+	
+	public ArrayList<InstallListVO> selectInstallFilter(SavingFilterVO sf);
 	
 	public ArrayList<InstallListVO> selectInstall();
 	public ArrayList<DepositListVO> selectDeposit();

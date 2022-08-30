@@ -1,6 +1,7 @@
 package com.fit_nance.project.dao;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import com.fit_nance.project.model.DepoOptionVO;
 import com.fit_nance.project.model.DepositListVO;
@@ -19,6 +20,8 @@ public interface IProductDAO {
 	public void insertInsOption(InstallOptionVO dOption);
 	public void insertPension(PensionVO ps);
 	public void insertPsOption(PsOptionVO psOption);
+	
+	public ArrayList<InstallListVO> selectInstallFilter(HashMap<String,Object> map);
 
 	public ArrayList<InstallListVO> selectInstall();
 	public ArrayList<DepositListVO> selectDeposit();

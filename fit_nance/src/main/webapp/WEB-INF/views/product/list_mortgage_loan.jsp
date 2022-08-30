@@ -47,10 +47,10 @@
 	                <div class="div_prdt_joinway">
 	                    <div class="title_prdt_joinway">가입방법</div>
 	                    <div class="option_prdt_joinway">
-	                        <div class="btn_prdt_joinway1">영업점<input id="input_prdt_joinway1" class="input_prdt_joinway1" name="input_prdt_joinway1"></div>
-	                        <div class="btn_prdt_joinway2">인터넷<input id="input_prdt_joinway2" class="input_prdt_joinway2" name="input_prdt_joinway2"></div>
-	                        <div class="btn_prdt_joinway3">스마트폰<input id="input_prdt_joinway3" class="input_prdt_joinway3" name="input_prdt_joinway3"></div>
-	                        <div class="btn_prdt_joinway4">모집인<input id="input_prdt_joinway4" class="input_prdt_joinway4" name="input_prdt_joinway4"></div>
+	                        <div class="btn_prdt_joinway1">영업점</div>
+	                        <div class="btn_prdt_joinway2">인터넷</div>
+	                        <div class="btn_prdt_joinway3">스마트폰</div>
+	                        <div class="btn_prdt_joinway4">모집인</div>
 	                    </div>
 	                </div>
 	                <div class="div_mrtg_type">
@@ -76,14 +76,16 @@
 	                    </div>
 	                </div>
 	                <div class="div_reset_filter">
-	                    <div class="btn_reset_filter">
+	                    <button class="btn_reset_filter">
 	                        <!-- <img class="img_ic_reset" src="/image/arrow-rotate-right-solid.png"> -->
 	                        <i class="fa-solid fa-rotate-right"></i>
 	                        <span>필터 초기화</span>
-	                    </div>
+	                    </button>
 	                </div>
 	            </div>
 	            <div class="panel_list_prdt">
+	            	
+	                <form id="form_joinwawy" method="post" action="<c:url value='/list_mortgage_loan'/>">
 	                <div class="div_search_list">
 	                    <div class="div_list_result">
 	                        <span>검색 결과 ${fn:length(list_home_loan) }개</span>
@@ -93,6 +95,7 @@
 	                        <img src="/image/magnifying-glass-solid.png">
 	                    </div>
 	                </div>
+	                </form>
 	                
 	                <div class="div_list_prdt">
 	                    <div class="prdt_result_search prdt">
@@ -101,7 +104,7 @@
 	                        <!-- 검색 결과 상품 - 시작 -->
 	                        
 	                        <c:forEach items="${list_home_loan }" var="list" varStatus="status">
-	                        <c:set var="dindex" value="${status.current }"/>
+	                        <%-- <c:set var="dindex" value="${status.current }"/> --%>
 	                        <div class="div_prdt">
 	                            <div class="div_prdt_info">
 	                                <div class="div_ic_co">
@@ -160,7 +163,7 @@
 	                                </div>
 	                                <button class="btn_prdt_info">
 	                                    자세히 보기
-	                                    <span id="prdt_cd" class="prdt_cd">${list.fin_prdt_cd }</span>
+	                                    <span style="display:none" id="prdt_cd" class="prdt_cd">${list.fin_prdt_cd }</span>
 	                                </button>
 	                            </div>
 	                        </div>
