@@ -3,19 +3,27 @@
 }
 
 #section{
-    width: 1920px;
+    /* width: 1920px; */
     /* display: flex;
     flex-direction: column;
     /* justify-content: center; */
-    
 }
 
 .div_background{
+    height: 308px;
+    margin-top: 90px;
+    padding-top: 130px;
+    background-color: #EDF4FF;
+}
+
+.div_background_wrap{
     position: relative;
 }
 
 .div_background .div_background_top{
+    padding-top: 90px;
     height: 308px;
+    box-sizing: content-box;
     background-color: #edf4ff;
 }
 
@@ -25,25 +33,31 @@
 }
 
 .div_background .div_background_title{
-    position: absolute;
-    top: 130px;
-    left: 320px;
+    display:inline-block;
+}
+
+.div_background .div_background_title .background_title_main{
+    display: block;
     font-size: 56px;
     font-weight: bold;
     color: #222222;
 }
 
+
+
 .div_background .div_background_title .background_title_sub{
+    display: inline-block;
     font-size: 22px;
     font-weight: normal;
     color: #222222;
+    margin-top: 32px;
 }
 
 .div_background .div_background_image{
-    
     position: absolute;
-    right: 309.6px;
-    bottom: 0;
+    display: inline-block;
+    right: 0;
+    bottom: -50px;
 }
 
 .div_background_image img{
@@ -53,7 +67,7 @@
 
 .div_list{
     width: 1280px;
-    margin: 82.6px 320px 82.6px 320px;
+    margin-top: 150px;
     /* border: 1px solid rgb(40, 23, 23); */
     display: flex;
     justify-content: center;
@@ -89,7 +103,7 @@
     cursor: pointer;
 }
 
-/* 가입방법 */
+/* 가입 방법 */
 
 .panel_filter .div_prdt_joinway .title_prdt_joinway{
     margin: 30px 0px 12px 0px;
@@ -110,8 +124,7 @@
     justify-content: center;
     align-items: center;
     border-radius: 5px;
-    font-weight: 500;
-    background-color: #ffffff;
+    font-weight: 400;
     border: 1px solid #dddddd;
     cursor: pointer;
 }
@@ -139,7 +152,7 @@
     background-color: #1f4dff;
 }
 
-/* 담보유형 */
+/* 대출 한도 */
 
 .panel_filter .div_mrtg_type .title_mrtg_type{
     margin: 30px 0px 12px 0px;
@@ -160,7 +173,7 @@
     align-items: center;
     border: 1px solid #dddddd;
     border-radius: 5px;
-    font-weight: 500;
+    font-weight: 400;
     cursor: pointer;
 }
 
@@ -203,7 +216,7 @@
     align-items: center;
     border: 1px solid #dddddd;
     border-radius: 5px;
-    font-weight: 500;
+    font-weight: 400;
     letter-spacing: -0.58px;
     cursor: pointer;
 }
@@ -249,7 +262,7 @@
     align-items: center;
     border: 1px solid #dddddd;
     border-radius: 5px;
-    font-weight: 500;
+    font-weight: 400;
     cursor: pointer;
 }
 
@@ -351,6 +364,10 @@
     border: none;
     outline: none;
     font-size: 16px;
+    color: #222222;
+}
+
+.panel_list_prdt .div_search_prdt input::placeholder{
     color: #aaaaaa;
 }
 
@@ -420,7 +437,7 @@
 
 .top_prdt_info .div_nm_prdt .prdt_nm_loan{
     font-size: 22px;
-    font-weight: bold;
+    font-weight: 600;
     margin-right: 5px;
 }
 
@@ -429,8 +446,7 @@
 }
 
 .top_prdt_info .div_joinway div{
-    width: 50px;
-    height: 32px;
+    padding: 8px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -501,7 +517,7 @@
 }
 
 .div_btn_prdt .div_btn_add .btn_add_favorite{
-    margin-left: 20px;
+    margin-left: 15px;
 }
 
 .div_btn_prdt .div_btn_add .btn_add_compare,
@@ -520,7 +536,7 @@
 }
 
 .div_btn_prdt .div_btn_add .btn_add_favorite_clicked{
-    margin-left: 20px;
+    margin-left: 15px;
 }
 
 .div_btn_prdt .div_btn_add .btn_add_compare_clicked,
@@ -539,13 +555,13 @@
     height: 52px;
     display: flex;
     justify-content: center;
-    align-items: center;    
+    align-items: center;
     border: 1px solid #dddddd;
     border-radius: 5px;
     font-size: 16px;
     color: #222222;
     background-color: #ffffff;
-    font-weight: 500;
+    font-weight: 400;
     cursor: pointer;
 }
 

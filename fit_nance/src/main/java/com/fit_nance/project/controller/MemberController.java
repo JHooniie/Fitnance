@@ -1,17 +1,14 @@
 package com.fit_nance.project.controller;
 
-import java.util.HashMap;
-
-import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.fit_nance.project.config.auth.PrincipalDetails;
 import com.fit_nance.project.model.MemberVO;
 import com.fit_nance.project.service.MemberService;
 
@@ -25,6 +22,8 @@ public class MemberController {
 	public String loginForm() {
 		return "member/login";
 	}
+	
+
 	
 //	@ResponseBody
 //	@RequestMapping("/login")
@@ -54,6 +53,29 @@ public class MemberController {
 		memService.insertMember(vo);
 		
 		return "redirect:/loginForm";
+	}
+	
+	@ResponseBody
+	@RequestMapping("/user")
+	public String user(@AuthenticationPrincipal PrincipalDetails principalDetails) {
+		System.out.println("principalDetails-user : " + principalDetails.getAttributes());
+		return "user";
+	}
+	
+	@ResponseBody
+	@RequestMapping("/test/login")
+	public String testLogin(
+			Authentication authentication,
+			@AuthenticationPrincipal UserDetails userDetails,
+			MemberVO vo) {
+		PrincipalDetails principalDetails = (PrincipalDetails)authentication.getPrincipal();
+
+		
+		System.out.println("authentication : " + principalDetails.getProvider());
+		System.out.println("authentication : " + principalDetails.getMemBirth());
+		System.out.println("authentication : " + principalDetails.toString());
+		System.out.println("UserDetails : " + userDetails);
+		return "세션 정보 확인";
 	}
 	
 	@RequestMapping("/signupForm")

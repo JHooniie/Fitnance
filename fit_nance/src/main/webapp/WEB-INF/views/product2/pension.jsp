@@ -25,7 +25,7 @@
                 <ul>
                     <li>연금<br>
                     관련 문구</li>
-                    <li>연금 관련 문구 연금 관련 문구</li>
+                    <li class="middle-sub-text">연금 관련 문구 연금 관련 문구</li>
                 </ul>
             </div>
             <div class="middle-image">

@@ -19,26 +19,24 @@
 		<!-- top.jsp -->
 		<c:import url="/WEB-INF/views/layout/top.jsp" />
 		<!-- section.jsp -->
-		<
 		<section id="section">
-	        <div class="div_background">
-	            <div class="div_background_top"></div>
-	            <div class="div_background_bottom"></div>
-	            <div class="div_background_title">
-	                <span class="background_title_main">
-	                    주택 담보<br>
-	                    대출
-	                </span>
-	                <br>
-	                <span class="background_title_sub">
-	                    내게 맞는 주택담보대출 찾기
-	                </span>
-	            </div>
-	            <div class="div_background_image">
-	                <img src="/image/img_mortgage.png">
-	            </div>
-	        </div>
-	        <div class="div_list">
+			<div class="div_background">
+				<div class="div_background_wrap wrap">
+		            <div class="div_background_title">
+		                <span class="background_title_main">
+		                    주택 담보<br>
+		                    대출
+		                </span>
+		                <span class="background_title_sub">
+		                    내게 맞는 주택담보대출 찾기
+		                </span>
+		            </div>
+		            <div class="div_background_image">
+		                <img src="/image/img_mortgage.png">
+		            </div>
+		        </div>
+			</div>
+	        <div class="div_list wrap">
 	            <div class="panel_filter">
 	                <div class="div_prdt_compare">
 	                    <div class="btn_prdt_compare">
@@ -105,7 +103,7 @@
 	                        <!-- 검색 결과 상품 - 시작 -->
 	                        
 	                        <c:forEach items="${list_home_loan }" var="list" varStatus="status">
-	                        <c:set var="dindex" value="${status.current }"/>
+	                        <%-- <c:set var="dindex" value="${status.current }"/> --%>
 	                        <div class="div_prdt">
 	                            <div class="div_prdt_info">
 	                                <div class="div_ic_co">
@@ -164,7 +162,7 @@
 	                                </div>
 	                                <button class="btn_prdt_info">
 	                                    자세히 보기
-	                                    <span id="prdt_cd" class="prdt_cd">${list.fin_prdt_cd }</span>
+	                                    <span style="display:none" id="prdt_cd" class="prdt_cd">${list.fin_prdt_cd }</span>
 	                                </button>
 	                            </div>
 	                        </div>

@@ -16,7 +16,7 @@ public class AdminController {
 	@Autowired
 	NoticeService nService;
 	
-	@RequestMapping("/admin")
+	@RequestMapping("/adminLoginForm")
 	public String viewLogin() {
 		return "admin/login";
 	}
