@@ -11,9 +11,6 @@
 		<!-- css -->
 		<link rel="stylesheet" href="<c:url value='/css/pension.css'/>"/>
 		<!-- js -->
-		<!-- 삭제해야함 -->
-		<meta charset="UTF-8">
-		<title>Insert title here</title>
 	</head>
 	<body>
 		<!-- top.jsp -->
@@ -59,7 +56,7 @@
             <div class="result-box">
                 <div class="search-line">
                     <div class="box">검색 결과 ${fn:length(psList) }개</div>
-                    <div class="search-box"><input type="text" id="tourName" name="tourName" value="키워드 검색"><i class="fa-solid fa-magnifying-glass"></i></div>
+                    <div class="search-box"><input type="text" id="tourName" name="tourName" placeholder="키워드 검색"><i class="fa-solid fa-magnifying-glass"></i></div>
                 </div>
                 <div class="item-list">
                 <c:forEach items="${psList }" var="list">
@@ -73,7 +70,7 @@
                             <div class="text-box">
                                 <div class="bank-name">${list.kor_co_nm }</div>
                                 <div class="item-line">
-                                    <div class="item-name">${list.fin_prdt_nm }
+                                    <div class="item-name"><div class="item-name-prdt">${list.fin_prdt_nm }</div>
                                     <c:forEach items="${list.join_way }" var="jw">
 	                                    	<span>${jw}</span>
 	                                    </c:forEach></div>
