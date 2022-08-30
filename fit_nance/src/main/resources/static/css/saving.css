@@ -53,14 +53,15 @@
 }
 
 .select-box .select-option{
-    border:1px solid #f2f2f2;
+    border: 1px solid #DDDDDD;
     display: inline-block;
+    height: 42px;
     border-radius: 5px;
-    padding:10px;
-    font-size: 12px;
+    font-size: 14px;
     text-align: center;
     margin-top:10px;
     margin-right:3px;
+    line-height: 42px;
 }
 
 .select-box .select-option1{ 
@@ -128,37 +129,43 @@
     border: 0px;
     width:280px;
     height: 40px;
-    color: #f2f2f2;
+    color: #222222;
+    outline: none;
+    font-size: 16px;
+}
+
+#tourName::placeholder{
+    color: #AAAAAA;
 }
 
 .search-box{
-    border-bottom: 3px solid #e3e3e3;
+    border-bottom: 1px solid #AAAAAA;
 }
 
 
 .box{
-    width:100px;
-    
+    width: 110px;
 }
 
 .item-box-all{
     margin-top:26px;
-    border-bottom:4px solid #f2f2f2;
+    border-bottom: 1px solid #DDDDDD;
 }
 
 .item-box{
-    display:flex;
+    display:
+    flex;
+    align-items: center;
 }
 
 .image-box{
-    width:50px;
-    height:50px;
+    width: 55px;
+    height: 55px;
     background-color: #f2f2f2;
-    
 }
 
 .bank-name{
-    margin-bottom: 5px;
+    margin-bottom: 7px;
 }
 
 .text-box{
@@ -182,9 +189,14 @@
 .item-name span{
     font-size: 14px;
     font-weight: 500;
+    border-radius: 5px;
     background-color: #f2f2f2;
     height:32px;
     padding:8px;
+    margin-left: 6px;
+}
+
+.item-name span:first-child{
     margin-left: 15px;
 }
 
@@ -256,7 +268,8 @@
     margin-left: 70px;
     flex-direction: row;
     justify-content: space-between;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
+    align-items: flex-end;
 }
 
 .percent-box{
@@ -295,14 +308,22 @@
 }
 
 .view-detail{
-    border:2px solid #f2f2f2;
+    border:1px solid #DDDDDD;
     width: 154px;
     height: 52px;
     border-radius: 5px;
     text-align: center;
-    padding : 15px;
-    color:black;
-    font-weight: 500;
+    padding: 15px;
+    color: #222222;
+    font-weight: 400;
+}
+
+.view-detail:hover{
+    border:1px solid #1F4DFF;
+}
+
+.view-detail:hover a{
+    color:#1F4DFF;
 }
 
 .page-list{
