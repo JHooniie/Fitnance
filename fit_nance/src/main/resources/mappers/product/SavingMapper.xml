@@ -52,9 +52,9 @@
 		</foreach>
 		</if>
 		<if test="join_way.size()!=0"> 
-		AND b.join_way LIKE
-		<foreach collection="join_way" item="join_way" open="(" close=")" separator=",">
-			%#{join_way}%
+		AND
+		<foreach collection="join_way" item="join_way" open="(" close=")" separator="OR">
+			b.join_way LIKE CONCAT('%',#{join_way},'%')
 		</foreach>
 		</if>
 		<if test="save_trm.size()!=0"> 
