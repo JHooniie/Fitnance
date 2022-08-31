@@ -9,16 +9,16 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.ModelAndView;
 
 import com.fit_nance.project.model.CharterLoanListVO;
 import com.fit_nance.project.model.DepositListVO;
 import com.fit_nance.project.model.HomeLoanFilterVO;
 import com.fit_nance.project.model.HomeLoanListVO;
 import com.fit_nance.project.model.InstallListVO;
+import com.fit_nance.project.model.PensionListVO;
 import com.fit_nance.project.model.PersonalLoanListVO;
-import com.fit_nance.project.service.LoanListService;
 import com.fit_nance.project.model.SavingFilterVO;
+import com.fit_nance.project.service.LoanListService;
 import com.fit_nance.project.service.ProductService;
 
 @Controller
@@ -418,7 +418,70 @@ public class HomeController {
 	}
 	
 	@RequestMapping("/pension_detail")
-	public String pension_detail() {
+	public String pension_detail(@RequestParam int index, Model model) {
+		ArrayList<PensionListVO> ps = pService.selectPensionAll();
+		
+		String fin_co_no = null;
+		String kor_co_nm=null;
+		String fin_prdt_nm=null;
+		String join_way=null;
+		double avg_prft_rate =0.0;
+		String pnsn_kind_nm=null;
+		String sale_strt_day=null;
+		String prdt_type_nm=null;
+		String sale_co=null;
+		String pnsn_recp_trm_nm=null;
+		String pnsn_entr_age_nm=null;
+		String mon_paym_atm_nm=null;
+		String paym_prd_nm=null;
+		String pnsn_strt_age_nm=null;
+		double pnsn_recp_amt=0.0;
+		double btrm_prft_rate_1=0.0;
+		double btrm_prft_rate_2=0.0;
+		double btrm_prft_rate_3=0.0;
+		
+		for(PensionListVO vo : ps) {
+			if(vo.getoIndex()==index) {
+				fin_co_no=vo.getFin_co_no();
+				kor_co_nm=vo.getKor_co_nm();
+				fin_prdt_nm=vo.getFin_prdt_nm();
+				join_way=vo.getJoin_way();
+				avg_prft_rate=vo.getAvg_prft_rate();
+				pnsn_kind_nm=vo.getPnsn_kind_nm();
+				sale_strt_day=vo.getSale_strt_day();
+				prdt_type_nm=vo.getPrdt_type_nm();
+				sale_co=vo.getSale_co();
+				pnsn_recp_trm_nm=vo.getPnsn_recp_trm_nm();
+				pnsn_entr_age_nm=vo.getPnsn_entr_age_nm();
+				mon_paym_atm_nm=vo.getMon_paym_atm_nm();
+				paym_prd_nm=vo.getPaym_prd_nm();
+				pnsn_strt_age_nm=vo.getPnsn_strt_age_nm();
+				pnsn_recp_amt=vo.getPnsn_recp_amt();
+				btrm_prft_rate_1=vo.getBtrm_prft_rate_1();
+				btrm_prft_rate_2=vo.getBtrm_prft_rate_2();
+				btrm_prft_rate_3=vo.getBtrm_prft_rate_3();
+			}
+		}
+		
+		model.addAttribute("fin_co_no", fin_co_no);
+		model.addAttribute("kor_co_nm", kor_co_nm);
+		model.addAttribute("fin_prdt_nm", fin_prdt_nm);
+		model.addAttribute("join_way", join_way);
+		model.addAttribute("avg_prft_rate", avg_prft_rate);
+		model.addAttribute("pnsn_kind_nm", pnsn_kind_nm);
+		model.addAttribute("sale_strt_day", sale_strt_day);
+		model.addAttribute("prdt_type_nm", prdt_type_nm);
+		model.addAttribute("sale_co", sale_co);
+		model.addAttribute("pnsn_recp_trm_nm", pnsn_recp_trm_nm);
+		model.addAttribute("pnsn_entr_age_nm", pnsn_entr_age_nm);
+		model.addAttribute("mon_paym_atm_nm", mon_paym_atm_nm);
+		model.addAttribute("paym_prd_nm", paym_prd_nm);
+		model.addAttribute("pnsn_strt_age_nm", pnsn_strt_age_nm);
+		model.addAttribute("pnsn_recp_amt", pnsn_recp_amt);
+		model.addAttribute("btrm_prft_rate_1", btrm_prft_rate_1);
+		model.addAttribute("btrm_prft_rate_2", btrm_prft_rate_2);
+		model.addAttribute("btrm_prft_rate_3", btrm_prft_rate_3);
+		
 		return "product2/pension_detail";
 	}
 	
