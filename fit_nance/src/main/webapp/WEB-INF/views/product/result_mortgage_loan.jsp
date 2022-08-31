@@ -11,8 +11,6 @@
 		<!-- css -->
 		<link rel="stylesheet" href="<c:url value='/css/list_mortgage_loan.css' />"/>
 		<!-- js -->
-		<script src="<c:url value='/js/result_mortgage_loan.js' />"></script>
-		
 		<meta charset="UTF-8">
 	</head>
 	<body>
@@ -42,7 +40,6 @@
 	                            <div class="div_prdt_info">
 	                                <div class="div_ic_co">
 	                                    <!-- 각 은행 로고 image -->
-	                                    <img src="<c:url value='/image/bank/${list.fin_co_no}.png'/>">
 	                                </div>
 	                                <div class="div_prdt_base">
 	                                    <div class="top_prdt_info">
@@ -97,7 +94,7 @@
 	                                </div>
 	                                <button class="btn_prdt_info">
 	                                    자세히 보기
-	                                    <span id="prdt_cd" class="prdt_cd">${list.fin_prdt_cd }</span>
+	                                    <span style="display:none" id="prdt_cd" class="prdt_cd">${list.fin_prdt_cd }</span>
 	                                </button>
 	                            </div>
 	                        </div>
