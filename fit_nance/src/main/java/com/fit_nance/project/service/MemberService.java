@@ -4,6 +4,7 @@ import java.util.HashMap;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Primary;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 //import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -39,11 +40,14 @@ public class MemberService implements IMemberService {
 	}
 
 	@Override
-	public int passwordCheck(String memId, String memPwd) {
+	public MemberVO passwordCheck(String memId, String memPwd) {
+		
+		String encodedPwd = bCryptPasswordEncoder.encode(memPwd);
+		
 		
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		map.put("memId", memId);
-		map.put("memPwd", memPwd);
+		map.put("memPwd", encodedPwd);
 		
 		return dao.passwordCheck(map);
 
@@ -52,6 +56,18 @@ public class MemberService implements IMemberService {
 	@Override
 	public MemberVO myInfo(String memId) {
 		return dao.myInfo(memId);
+	}
+
+	@Override
+	public void updateMemInfo(MemberVO vo) {
+		dao.updateMemInfo(vo);
+		
+	}
+
+	@Override
+	public MemberVO detailViewMemInfo(String memId) {
+
+		return dao.detailViewMemInfo(memId);
 	}
 
 }

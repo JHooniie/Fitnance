@@ -5,9 +5,8 @@
 <sec:authorize access="isAuthenticated()">
     <sec:authentication property="principal" var="principal" />
 </sec:authorize>
-<c:set var="name" value="${principal.name}" />
-<c:set var="password" value="${principal.password}" />
-
+<c:set var="provider" value="${principal.provider}" />
+<c:set var="memId" value="${principal.username}" />
 <!DOCTYPE html>
 <html>
 	<head>
@@ -29,19 +28,21 @@
                         </div>
                     </div>
                     <div class="box-update-profile-content">
-                        <form id="form-update-profile" action="">
+                        <form id="form-update-profile" action="<c:url value='/update_memInfo'/>">
                         <div class="box-update-profile-basic">
                             <label for="input-update-profile-Email"><span class="span-update span-update-profile-Email">이메일</span></label><br>
-                            <input type="text" id="input-update-profile-Email" value="${principal.username}" readonly>
-                            <c:if test="${password == ''}"> 
+                            <input type="text" id="input-update-profile-Email" name="memId" value="${principal.username}" readonly>
+                            <c:if test="${provider eq null}"> 
 	                            <span class="span-update span-update-profile-Email">비밀번호</span><br>
 	                            <div class="a-update-profile-password"><a href="<c:url value='/update-password'/>">비밀번호 변경하기</a></div>
 	                        </c:if>
                             <label for="input-update-profile-name"><span class="span-update span-update-profile-name">이름</span></label><br>
-                            <c:if test="${password == ''}"> 
-                            <input type="text" id="input-update-profile-name" value="${principal.name}" readonly>
+                            <c:if test="${provider ne null}"> 
+                            <input type="text" id="input-update-profile-name" name="memName" value="${principal.name}" readonly>
                             </c:if>
-                            <input type="text" id="input-update-profile-name" value="${principal.name}">
+                            <c:if test="${provider eq null}"> 
+                            <input type="text" id="input-update-profile-name" name="memName" value="${principal.name}">
+                            </c:if>
                             <label for="input-update-profile-birth"><span class="span-update span-update-profile-birth">생년월일</span></label><br>
                             <div class="div-update-profile-birth">
                                 <input type="text" id="input-update-profile-birth-year" name="input-update-profile-birth-year" placeholder="1990">
@@ -61,26 +62,43 @@
                                 <h3>아래의 정보를 더 입력하시면<br>
                                 더 <span>핏</span>:하게 추천해 드릴게요!</h3>
                             </div>
-                            <label for="select-update-user_bank"><span class="span-update span-update-profile-user_bank">주거래 은행 계좌정보 입력</span></label><br>
-                                <select name="select-update-user_bank" id="select-update-user_bank" required>
-                                    <option id="option-select" value="">은행 선택</option>
-                                    <option value="국민">국민</option>
-                                    <option value="우리">우리</option>
-                                    <option value="카카오">카카오</option>
-                                    <option value="신한">신한</option>
-                                    <option value="농협">농협</option>
-                                    <option value="기업">기업</option>
-                                </select>
-                                    <input type="checkbox" name="checkbox-checkAgree" id="checkbox-checkAgree" value="checkbox-checkAgree">
+                            <label for="btn-user_bank"><span class="span-bank-more-information">주거래 은행 계좌정보 입력</span></label><br>
+                                <button id="btn-user_bank" id="btn-user_bank"><span class="span-bank-btn">은행 선택</span></button>
+                                <input id="input-user_bank" type="hidden" name="memBank">
+                                    <input type="checkbox" name="memEmailRecd" id="checkbox-checkAgree">
                                     <label class="label-information-checkAgree">광고/마케팅 수신동의</label>
                                 <p>수신동의하시면 추천 상품을 이메일로 먼저 알려드릴게요!</p>
                             </div>
-                            <button id="btn-reset-profile">취소하기</button>
-                            <button id="btn-update-profile">수정하기</button>
+                            <button id="btn-reset-profile" type="reset">취소하기</button>
+                            <button id="btn-update-profile" type="submit">수정하기</button>
                             <div class="a-delete-profile"><a href="<c:url value='/update-password'/>">회원 탈퇴</a></div>
                         </div>
                         </form>
                     </div>
+          <div id="modal-signup" class="modal-overlay">
+            <div class="modal-window">
+                <div class="modal-title">
+                    <span class="modal-bankselect-title">은행 선택</span>
+                    <div class="modal-bank-close"><i class="fa-solid fa-x"></i></div>
+                </div>
+                <div class="modal-bank-content">
+                    <c:forEach begin="0" end="30" step="1" varStatus="status">
+                    <figure class="figure-bank">
+                        <div class="figure-bank-img"></div>
+                        <input type="hidden" value="대구은행">
+                    <figcaption class="caption-bank">대구</figcaption>
+                    </figure>
+                    <figure class="figure-bank">
+                        <div class="figure-bank-img"></div>
+                    <figcaption class="caption-bank">
+                        <input type="hidden" value="광주은행">
+                        광주
+                    </figcaption>
+                    </figure>
+                    </c:forEach>
+                </div>
+            </div>
+        </div>
                 </div>
             </div>
         </div>
@@ -88,5 +106,5 @@
     <!-- login end -->
 	    <c:import url="/WEB-INF/views/layout/footer.jsp" />
 	</body>
-	<script src="../js/login.js"></script>
+	<script src="../js/member_update_mypage.js"></script>
 </html>

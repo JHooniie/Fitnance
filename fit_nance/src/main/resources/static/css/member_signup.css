@@ -647,27 +647,29 @@ input[type=checkbox]{
 /* 은행 선택 모달 */
 .modal-overlay {
     position: absolute;
-    display:none;
-    top:0; 
-    left: 0; 
-    bottom: 0; 
+    display:
+    none;
+    top:0;
+    left: 0;
+    bottom: 0;
     right: 0;
-    background-color: #222, 0.15;
+    background-color: #2222;
     overflow: hidden;
+    z-index: 2;
 }
 
 
 .modal-window {
-    position: absolute;
+    position: fixed;
     width: 480px;
     height: 699px;
-    top: 127px;
-    left: 720px;
-    margin: 0 auto;
+    top: 50%;
+    left: 50%;
+    margin-left: -240px;
+    margin-top: -350px;
     padding: 40px 30px;
     background-color: #fff;
-    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-    border: none;
+    box-shadow: 0 8px 32px 0 rgb(171 171 171 / 37%);
     border-radius: 10px;
     overflow: scroll;
 }

@@ -10,7 +10,7 @@ public class MemberVO {
 	private String memBirth;
 	private String memGender;
 	private String memBank;
-	private boolean memEmailRecd;
+	private String memEmailRecd;
 	private String provider;
 	private String providerId;
 	private String certified;
@@ -52,10 +52,10 @@ public class MemberVO {
 	public void setMemBirth(String memBirth) {
 		this.memBirth = memBirth;
 	}
-	public boolean isMemEmailRecd() {
+	public String getMemEmailRecd() {
 		return memEmailRecd;
 	}
-	public void setMemEmailRecd(boolean memEmailRecd) {
+	public void setMemEmailRecd(String memEmailRecd) {
 		this.memEmailRecd = memEmailRecd;
 	}
 	public String getProvider() {

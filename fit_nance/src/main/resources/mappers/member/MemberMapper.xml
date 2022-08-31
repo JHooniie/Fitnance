@@ -38,24 +38,6 @@
 		WHERE memId = #{memId}
 	</select>
 	
-	<select id="basicMember" parameterType="string" resultMap="memResult">
-		SELECT *
-		FROM member
-		WHERE memId = #{memId}
-	</select>
-	
-	<select id="loginCheck" parameterType="hashmap" resultType="string">
-		SELECT memId 
-		FROM member 
-		WHERE memId=#{memId}
-  	</select>
-	
-	<select id="passwordCheck" parameterType="string" resultType="string">
-		SELECT memPwd 
-		FROM member 
-		WHERE memId=#{memId}
-  	</select>
-	
 	<!-- 회원가입 -->
 	<insert id="insertMember" parameterType="com.fit_nance.project.model.MemberVO">
 		INSERT member(memRole, memId, memPwd, memName, memBirth, memGender, memBank, memEmailRecd, certified)
@@ -64,8 +46,27 @@
 	
 	<!-- OAUTH회원가입 -->
 	<insert id="insertOAuthMember" parameterType="com.fit_nance.project.model.MemberVO">
-		INSERT member(memRole, memId, memPwd, memName,memBirth, memEmailRecd, provider, providerId)
+		INSERT member(memRole, memId, memPwd, memName,memBirth,memGender, memBank, memEmailRecd, provider, providerId)
 		VALUES ( #{memRole}, #{memId}, #{memPwd}, #{memName}, #{memBirth}, #{memGender}, #{memBank}, #{memEmailRecd}, #{provider}, #{providerId})
 	</insert>
 	
+	<!-- 개인정보 수정 -->
+	<update id="updateMemInfo" parameterType="com.fit_nance.project.model.MemberVO">
+		UPDATE member
+		SET memName=#{memName}, memBirth=#{memBirth}, memBank=#{memBank}, memEmailRecd=#{memEmailRecd}
+		WHERE memId=#{memId}
+	</update>
+	
+	<!-- 공지사항 상세 보기 -->
+	<select id="detailViewMemInfo" parameterType="hashmap" resultType="com.fit_nance.project.model.MemberVO">
+		SELECT * 
+		FROM member 
+		WHERE memId=#{memId} AND memPwd=#{memPwd}
+	</select>
+	
+	<select id="passwordCheck" parameterType="string" resultType="com.fit_nance.project.model.MemberVO">
+		SELECT * 
+		FROM member 
+		WHERE memId=#{memId}
+  	</select>
 </mapper>

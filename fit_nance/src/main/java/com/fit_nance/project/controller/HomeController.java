@@ -109,7 +109,7 @@ public class HomeController {
 		vo.setList_lend_type(list_lend_type);
 		
 		//HashMap<String, Object> map = null;
-		map.put("list_join_way", list_join_way);
+//		map.put("list_join_way", list_join_way);
 		map.put("list_mrtg_type", list_mrtg_type);
 		map.put("list_rpay_type", list_rpay_type);
 		map.put("list_lend_type", list_lend_type);

@@ -1,6 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<sec:authorize access="isAuthenticated()">
+    <sec:authentication property="principal" var="principal" />
+</sec:authorize>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -13,21 +17,20 @@
 		<section id="update_auth_section">
         <div class="update_auth_page wrap">
             <div class="update_auth_container">
-               <!--  <form id="form-passwordCheck"> -->
+               <form id="form-passwordCheck" action="<c:url value='/pre_update_mypage'/>">
                 <div class="box-update_auth-password">
                     <h3>내 정보 수정하기</h3>
                     <span class="span-update_auth-password-title">정보 보호를 위해 비밀번호를 한 번 더 입력해주세요</span>
                     <div class="box-form-update_auth-password">
                         <div class="box-password-input">
-                        	<input type="hidden" name="memId"  id="user_id" vlaue="${sessionScope.sid }">
+                        	<input type="hidden" name="memId" value="${principal.username }">
                             <input type="password" name="memPwd"  id="user_pw" class="input-user-pw" placeholder="비밀번호를 입력해주세요">
                             <i class="fa-solid fa-eye-slash"></i>
                         </div>
-                        <!-- </form> -->
-                        <button id="btn-password-check" onclick="location.href='<c:url value='/update-mypage'/>'"><span class="btn-span">비밀번호로 인증하기</span></button>
+                        </form>
+                        <button id="btn-password-check" type="submit"><span class="btn-span">비밀번호로 인증하기</span></button>
                     </div>
                 </div>
-            
             </div>
         </div>
     </section>

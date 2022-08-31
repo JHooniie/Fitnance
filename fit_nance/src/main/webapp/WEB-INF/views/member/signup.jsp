@@ -97,14 +97,15 @@
                     <h3>추가 정보 입력</h3>
                     <div class="box-form-signup-more-information">
                             <div class="box-gender-select">
-                                <input type="radio" id="radio-gender-select-man" class="radio-gender-select" name="radio-gender-select">
+                                <input type="radio" id="radio-gender-select-man" class="radio-gender-select" value="남성" name="memGender">
                                 <label for="radio-gender-select-man">남성</label>
-                                <input type="radio" id="radio-gender-select-woman" class="radio-gender-select" name="radio-gender-select">
+                                <input type="radio" id="radio-gender-select-woman" class="radio-gender-select" value="여성" name="memGender">
                                 <label for="radio-gender-select-woman">여성</label>
                             </div>
                             <div class="box-bank-select">
                                 <label for="btn-user_bank"><span class="span-bank-more-information">주거래 은행 계좌정보 입력</span></label><br>
                                 <button id="btn-user_bank" id="btn-user_bank"><span class="span-bank-btn">은행 선택</span></button>
+                                <input id="input-user_bank" type="hidden" name="memBank">
                                 <button id="btn-more-information-finish" type="submit"><span class="btn-span">정보 입력 완료</span></button>
                             </div>
                     </div>

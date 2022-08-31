@@ -376,28 +376,50 @@ $(document).ready(function(){
 
 
     //모달창
+
+
+    // const body = document.querySelector('body');
+    // let scrollPosition = 0;
+
+    // // 팝업 오픈
+    // function enable() {
+    // scrollPosition = window.pageYOffset;
+    // body.style.overflow = 'hidden';
+    // body.style.position = 'fixed';
+    // body.style.top = `-${scrollPosition}px`;
+    // body.style.width = '100%';
+    // }
+    // // 팝업 닫기
+    // function disable() {
+    // body.style.removeProperty('overflow');
+    // body.style.removeProperty('position');
+    // body.style.removeProperty('top');
+    // body.style.removeProperty('width');
+    // window.scrollTo(0, scrollPosition);
+    // }
+
     //창 켜기
     $('#btn-user_bank').click(function(event){
         event.preventDefault();
             $('#modal-signup').css('display','block');
-            $('body').css('overflow','hidden');
             
     });
         
     //창 끄기
     $('.modal-bank-close').click(function(){
         $('#modal-signup').css('display','none');
-        $('body').css('overflow','scroll');
     });
 
+    
+    
+
     $('.figure-bank').click(function(event){
-        alert($(this).find('input').val());
         $('.span-bank-btn').html($(this).find('input').val());
+        $('#input-user_bank').attr("value",$(this).find('input').val());
         $('.span-bank-btn').css('color','#222')
         $('#modal-signup').css('display','none');
-        $('body').css('overflow','scroll');
         
-            
+        
     });
 
 });
