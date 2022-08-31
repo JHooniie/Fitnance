@@ -32,7 +32,7 @@
 	                    		<i class="fa-solid fa-user"></i>
 	                        </a>
                         </sec:authorize>
-                        <sec:authorize access="isAuthenticated()">
+                        <sec:authorize access="hasAnyRole('ROLE_USER')">
 	                        <a class="btn-login" href="<c:url value='/mypage'/>">
 	                        	<i class="fa-solid fa-user"></i>
 	                        </a>
