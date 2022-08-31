@@ -26,7 +26,6 @@
 	                <div class="div_prdt_info">
 	                    <div class="div_ic_co">
 	                        <!-- 각 은행 로고 image -->
-	                        <img src="<c:url value='/image/bank/${prdt.fin_co_no}.png'/>">
 	                    </div>
 	                    <div class="div_prdt_base">
 	                        <div class="top_prdt_info">
