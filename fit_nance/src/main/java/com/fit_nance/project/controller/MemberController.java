@@ -108,7 +108,7 @@ public class MemberController {
 	
 
 	
-	 @RequestMapping("/pre_update_mypage")
+	 @RequestMapping("/user/pre_update_mypage")
 	public String update_mypageForm(Authentication auth, @RequestParam("memPwd") String pwd, RedirectAttributes rtt) {
 		System.out.println(pwd);
 		 PrincipalDetails princ = (PrincipalDetails)auth.getPrincipal();
@@ -127,7 +127,7 @@ public class MemberController {
     }
 
 		// 회원정보 수정폼
-		@RequestMapping("/update_mypage")
+		@RequestMapping("/user/update_mypage")
 		public String update_mypageForm(Authentication auth, Model model) {
 			PrincipalDetails princ = (PrincipalDetails)auth.getPrincipal();
 			
@@ -141,7 +141,7 @@ public class MemberController {
 
 	
 	// 회원정보 수정
-	@RequestMapping("/update_memInfo")
+	@RequestMapping("/user/update_memInfo")
 	public String updateMemInfo(Authentication auth, MemberVO vo) {
 		PrincipalDetails princ = (PrincipalDetails)auth.getPrincipal();
 		
@@ -166,7 +166,7 @@ public class MemberController {
 //		return "member/myPage";
 //	}
 	
-	@RequestMapping("/passwordCheckForm")
+	@RequestMapping("/user/passwordCheckForm")
 	public String passwordCheckForm() {
 		return "member/update_mypage_auth";
 	}

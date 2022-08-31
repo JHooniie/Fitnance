@@ -28,7 +28,7 @@
                         <span class="span-profile-name">${principal.name}<br>
                         <span class="span-profile-Email">${principal.username}</span><br>
                         <a href="<c:url value='/logout'/>">로그아웃</a>
-                        <button onclick="location.href='<c:url value='/passwordCheckForm'/>'"><span>프로필 수정하기</span></button>
+                        <button onclick="location.href='<c:url value='/user/passwordCheckForm'/>'"><span>프로필 수정하기</span></button>
                     </div>
                 </div>
             </div>
