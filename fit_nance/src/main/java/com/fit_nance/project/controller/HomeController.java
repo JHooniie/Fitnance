@@ -446,7 +446,7 @@ public class HomeController {
 		String mon_paym_atm_nm=null;
 		String paym_prd_nm=null;
 		String pnsn_strt_age_nm=null;
-		double pnsn_recp_amt=0.0;
+		int pnsn_recp_amt=0;
 		double btrm_prft_rate_1=0.0;
 		double btrm_prft_rate_2=0.0;
 		double btrm_prft_rate_3=0.0;
