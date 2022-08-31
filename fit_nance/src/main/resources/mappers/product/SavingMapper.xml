@@ -59,7 +59,7 @@
 		</if>
 		<if test="join_way.size()!=0"> 
 		AND
-		<foreach collection="join_way" item="join_way" open="(" close=")" separator="AND">
+		<foreach collection="join_way" item="join_way" open="(" close=")" separator="OR">
 			b.join_way LIKE CONCAT('%',#{join_way},'%')
 		</foreach>
 		</if>

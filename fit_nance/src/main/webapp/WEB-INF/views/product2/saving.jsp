@@ -131,6 +131,7 @@
 	            </div>
 	            
 	            <div id="result-box-filter"></div>
+	            <div id="result-box-filter2"></div>
 	        </div>
         </div>
     </div>
