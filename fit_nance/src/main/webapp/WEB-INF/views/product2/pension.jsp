@@ -45,7 +45,7 @@
                     <div class="select-option select-option1">20만원</div>
                     <div class="select-option select-option1">30만원</div>
 
-                    <div class="select-title">연금개시여녕</div>
+                    <div class="select-title">연금개시연령</div>
                     <div class="select-option select-option1">60세</div>
                     <div class="select-option select-option1">65세</div>
 
@@ -66,7 +66,9 @@
 	           			%>
                     <div class="item-box-all">
                         <div class="item-box">
-                            <div class="image-box"></div>
+                            <div class="image-box">
+                            	<img src="<c:url value='/image/bank/${list.fin_co_no}.png'/>">
+                            </div>
                             <div class="text-box">
                                 <div class="bank-name">${list.kor_co_nm }</div>
                                 <div class="item-line">

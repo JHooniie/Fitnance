@@ -5,13 +5,19 @@
 .image-box{
     width:80px;
     height:80px;
-    background-color: #f2f2f2;
-    
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.image-box>img{
+    width:80px;
 }
 
 .middle{
-    margin-top:130.5px;
-    display:flex;
+    margin-top: 210px;
+    display:
+    flex;
     flex-direction: column;
 }
 
@@ -204,7 +210,7 @@
 }
 
 .period-box #period{
-    appearance:none; /* 화살표 없애기 공통*/
+    appearance:none; 
     margin-left:auto;
     border:0px;
     font-size:18px;
@@ -313,14 +319,15 @@
 }
 
 .go-to-list{
-    margin:auto;
-    border:1px solid #666666;
+	display: block;
+    margin: 0 auto;
+    border: 1px solid #222222;
     width: 200px;
-    height: 52px;
+    height: 60px;
     border-radius: 5px;
     text-align: center;
-    padding : 15px;
     color:#222;
     font-weight: 500;
-    margin-bottom: 130px;
+    font-size: 16px;
+    line-height: 60px;
 }

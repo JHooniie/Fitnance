@@ -11,78 +11,10 @@
 		<!-- css -->
 		<link rel="stylesheet" href="<c:url value='/css/list_mortgage_loan.css' />"/>
 		<!-- js -->
-		<script src="<c:url value='/js/list_mortgage_loan.js' />"></script>
-		
 		<meta charset="UTF-8">
 	</head>
 	<body>
-		<!-- top.jsp -->
-		<c:import url="/WEB-INF/views/layout/top.jsp" />
-		<!-- section.jsp -->
-		<section id="section">
-			<div class="div_background">
-				<div class="div_background_wrap wrap">
-		            <div class="div_background_title">
-		                <span class="background_title_main">
-		                    주택 담보<br>
-		                    대출
-		                </span>
-		                <span class="background_title_sub">
-		                    내게 맞는 주택담보대출 찾기
-		                </span>
-		            </div>
-		            <div class="div_background_image">
-		                <img src="/image/img_mortgage.png">
-		            </div>
-		        </div>
-			</div>
-	        <div class="div_list wrap">
-	            <div class="panel_filter">
-	                <div class="div_prdt_compare">
-	                    <div class="btn_prdt_compare">
-	                        상품 비교하기
-	                    </div>
-	                </div>
-	                <div class="div_prdt_joinway">
-	                    <div class="title_prdt_joinway">가입방법</div>
-	                    <div class="option_prdt_joinway">
-	                        <div class="btn_prdt_joinway1">영업점</div>
-	                        <div class="btn_prdt_joinway2">인터넷</div>
-	                        <div class="btn_prdt_joinway3">스마트폰</div>
-	                        <div class="btn_prdt_joinway4">모집인</div>
-	                    </div>
-	                </div>
-	                <div class="div_mrtg_type">
-	                    <div class="title_mrtg_type">담보유형</div>
-	                    <div class="option_mrtg_type">
-	                        <div class="btn_mrtg_type1">아파트</div>
-	                        <div class="btn_mrtg_type2">아파트 외</div>
-	                    </div>
-	                </div>
-	                <div class="div_rpay_type">
-	                    <div class="title_rpay_type">대출상환유형</div>
-	                    <div class="option_rpay_type">
-	                        <div class="btn_rpay_type1">원리금분할상환</div>
-	                        <div class="btn_rpay_type2">원금분할상환</div>
-	                        <div class="btn_rpay_type3">만기일시상환</div>
-	                    </div>
-	                </div>
-	                <div class="div_lend_type">
-	                    <div class="title_lend_type">대출금리유형</div>
-	                    <div class="option_lend_type">
-	                        <div class="btn_lend_type1">고정금리</div>
-	                        <div class="btn_lend_type2">변동금리</div>
-	                    </div>
-	                </div>
-	                <div class="div_reset_filter">
-	                    <button class="btn_reset_filter">
-	                        <!-- <img class="img_ic_reset" src="/image/arrow-rotate-right-solid.png"> -->
-	                        <i class="fa-solid fa-rotate-right"></i>
-	                        <span>필터 초기화</span>
-	                    </button>
-	                </div>
-	            </div>
-	            <div id="first_list_prdt" class="panel_list_prdt">
+	            <div id="filter_list_prdt" class="panel_list_prdt">
 	            	
 	                <form id="form_joinwawy" method="post" action="<c:url value='/list_mortgage_loan'/>">
 	                <div class="div_search_list">
@@ -91,7 +23,7 @@
 	                    </div>
 	                    <div class="div_search_prdt">
 	                        <input class="input_search_prdt" placeholder="키워드 검색">
-	                        <img src="/image/magnifying-glass-solid.png">
+	                        <img class="img_search_prdt" src="/image/magnifying-glass-solid.png">
 	                    </div>
 	                </div>
 	                </form>
@@ -108,7 +40,6 @@
 	                            <div class="div_prdt_info">
 	                                <div class="div_ic_co">
 	                                    <!-- 각 은행 로고 image -->
-	                                    <img src="<c:url value='/image/bank/${list.fin_co_no}.png'/>">
 	                                </div>
 	                                <div class="div_prdt_base">
 	                                    <div class="top_prdt_info">
@@ -189,12 +120,5 @@
 	                    </div>
 	                </div>
 	            </div>
-	            <div id="result_filter"></div>
-	        </div>
-	    </section>
-		
-		
-		<!-- bottom.jsp -->
-		<c:import url="/WEB-INF/views/layout/footer.jsp" />
 	</body>
 </html>

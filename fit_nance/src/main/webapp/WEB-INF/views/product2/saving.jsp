@@ -82,7 +82,9 @@
 	           			
 	                    <div class="item-box-all">
 	                        <div class="item-box">
-	                            <div class="image-box"></div>
+	                            <div class="image-box">
+	                            	<img src="<c:url value='/image/bank/${list.fin_co_no}.png'/>">
+	                            </div>
 	                            <div class="text-box">
 	                                <div class="bank-name">${list.kor_co_nm }</div>
 	                                <div class="item-line">
@@ -128,7 +130,7 @@
 	                </div>
 	            </div>
 	            
-	            <div class="result-box-filter" id="result-box-filter"></div>
+	            <div id="result-box-filter"></div>
 	        </div>
         </div>
     </div>

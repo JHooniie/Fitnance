@@ -9,9 +9,7 @@
 		<c:import url="/WEB-INF/views/layout/head.jsp" />
 		<!-- css -->
 		<link rel="stylesheet" href="<c:url value='/css/saving.css'/>"/>
-		<!-- js -->
-		<script src="<c:url value='/js/saving.js' />"></script>
-		<!-- 삭제해야함 -->
+		
 		
 		<meta charset="UTF-8">
 	</head>
@@ -30,7 +28,9 @@
 	           			
 	                    <div class="item-box-all">
 	                        <div class="item-box">
-	                            <div class="image-box"></div>
+	                            <div class="image-box">
+	                            	<img src="<c:url value='/image/bank/${list.fin_co_no}.png'/>">
+	                            </div>
 	                            <div class="text-box">
 	                                <div class="bank-name">${list.kor_co_nm }</div>
 	                                <div class="item-line">
