@@ -17,7 +17,7 @@
 		<section id="update_auth_section">
         <div class="update_auth_page wrap">
             <div class="update_auth_container">
-               <form id="form-passwordCheck" action="<c:url value='/pre_update_mypage'/>">
+               <form id="form-passwordCheck" action="<c:url value='/user/pre_update_mypage'/>">
                 <div class="box-update_auth-password">
                     <h3>내 정보 수정하기</h3>
                     <span class="span-update_auth-password-title">정보 보호를 위해 비밀번호를 한 번 더 입력해주세요</span>

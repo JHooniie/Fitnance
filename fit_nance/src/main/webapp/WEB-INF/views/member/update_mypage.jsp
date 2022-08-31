@@ -28,7 +28,7 @@
                         </div>
                     </div>
                     <div class="box-update-profile-content">
-                        <form id="form-update-profile" action="<c:url value='/update_memInfo'/>">
+                        <form id="form-update-profile" action="<c:url value='/user/update_memInfo'/>">
                         <div class="box-update-profile-basic">
                             <label for="input-update-profile-Email"><span class="span-update span-update-profile-Email">이메일</span></label><br>
                             <input type="text" id="input-update-profile-Email" name="memId" value="${principal.username}" readonly>
