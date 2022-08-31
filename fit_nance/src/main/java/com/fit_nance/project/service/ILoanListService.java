@@ -3,6 +3,7 @@ package com.fit_nance.project.service;
 import java.util.ArrayList;
 
 import com.fit_nance.project.model.CharterLoanListVO;
+import com.fit_nance.project.model.HomeLoanFilterVO;
 import com.fit_nance.project.model.HomeLoanListVO;
 import com.fit_nance.project.model.PersonalLoanListVO;
 
@@ -11,7 +12,7 @@ public interface ILoanListService {
 	public ArrayList<HomeLoanListVO> selectHomeLoanList();
 	public HomeLoanListVO selectHomeLoanDetail(String fin_prdt_cd);
 	
-	//public HomeLoanFilterVO selectHomeLoanFilter(HashMap<String, Object> map);
+	public ArrayList<HomeLoanFilterVO> selectHomeLoanFilter(HomeLoanFilterVO vo);
 	
 	
 	// 전세자금

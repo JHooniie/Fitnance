@@ -30,11 +30,15 @@ public class LoanListService implements ILoanListService{
 		return dao.selectHomeLoanDetail(fin_prdt_cd);
 	}
 
-//	@Override
-//	public HomeLoanFilterVO selectHomeLoanFilter(HashMap<String, Object> map) {
-//		// TODO Auto-generated method stub
-//		return null;
-//	}
+	@Override
+	public ArrayList<HomeLoanFilterVO> selectHomeLoanFilter(HomeLoanFilterVO vo) {
+		HashMap<String,Object> map= new HashMap<String,Object>();
+		map.put("list_join_way",vo.getList_join_way());
+		map.put("list_mrtg_type", vo.getList_mrtg_type());
+		map.put("list_rpay_type", vo.getList_rpay_type());
+		map.put("list_lend_type", vo.getList_lend_type());
+		return dao.selectHomeLoanFilter(map);
+	}
 	
 	@Override
 	public ArrayList<CharterLoanListVO> selectCharterLoanList() {
@@ -45,6 +49,8 @@ public class LoanListService implements ILoanListService{
 	public ArrayList<PersonalLoanListVO> selectPersonalLoanList() {
 		return dao.selectPersonalLoanList();
 	}
+
+	
 
 
 }
