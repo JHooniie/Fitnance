@@ -97,28 +97,44 @@
                     <h3>추가 정보 입력</h3>
                     <div class="box-form-signup-more-information">
                             <div class="box-gender-select">
-                                <input type="radio" id="radio-gender-select-man" class="radio-gender-select" name="radio-gender-select">
+                                <input type="radio" id="radio-gender-select-man" class="radio-gender-select" value="남성" name="memGender">
                                 <label for="radio-gender-select-man">남성</label>
-                                <input type="radio" id="radio-gender-select-woman" class="radio-gender-select" name="radio-gender-select">
+                                <input type="radio" id="radio-gender-select-woman" class="radio-gender-select" value="여성" name="memGender">
                                 <label for="radio-gender-select-woman">여성</label>
                             </div>
                             <div class="box-bank-select">
-                                <label for="select-user_bank"><span class="span-bank-more-information">주거래 은행 계좌정보 입력</span></label><br>
-                                <select name="select-user_bank" id="select-user_bank">
-                                    <option value="">은행 선택</option>
-                                    <option value="국민">국민</option>
-                                    <option value="우리">우리</option>
-                                    <option value="카카오">카카오</option>
-                                    <option value="신한">신한</option>
-                                    <option value="농협">농협</option>
-                                    <option value="기업">기업</option>
-                                </select>
-                                <input type="text" id="input-user_bank" name="input-user_bank" placeholder="계좌번호를 입력해주세요">
+                                <label for="btn-user_bank"><span class="span-bank-more-information">주거래 은행 계좌정보 입력</span></label><br>
+                                <button id="btn-user_bank" id="btn-user_bank"><span class="span-bank-btn">은행 선택</span></button>
+                                <input id="input-user_bank" type="hidden" name="memBank">
                                 <button id="btn-more-information-finish" type="submit"><span class="btn-span">정보 입력 완료</span></button>
                             </div>
                     </div>
                 </div>
             </form>
+            </div>
+        </div>
+        <div id="modal-signup" class="modal-overlay">
+            <div class="modal-window">
+                <div class="modal-title">
+                    <span class="modal-bankselect-title">은행 선택</span>
+                    <div class="modal-bank-close"><i class="fa-solid fa-x"></i></div>
+                </div>
+                <div class="modal-bank-content">
+                    <c:forEach begin="0" end="30" step="1" varStatus="status">
+                    <figure class="figure-bank">
+                        <div class="figure-bank-img"></div>
+                        <input type="hidden" value="대구은행">
+                    <figcaption class="caption-bank">대구</figcaption>
+                    </figure>
+                    <figure class="figure-bank">
+                        <div class="figure-bank-img"></div>
+                    <figcaption class="caption-bank">
+                        <input type="hidden" value="광주은행">
+                        광주
+                    </figcaption>
+                    </figure>
+                    </c:forEach>
+                </div>
             </div>
         </div>
     </section>

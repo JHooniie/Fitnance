@@ -32,21 +32,16 @@
 	                    		<i class="fa-solid fa-user"></i>
 	                        </a>
                         </sec:authorize>
-                       <%--  <sec:authorize access="isAuthenticated()">
+                        <sec:authorize access="isAuthenticated()">
 	                        <a class="btn-login" href="<c:url value='/mypage'/>">
 	                        	<i class="fa-solid fa-user"></i>
 	                        </a>
-                        </sec:authorize> --%>
-                        <%-- <c:if test="${role != ''}"> 
-	                        <a class="btn-login" href="<c:url value='/mypage'/>">
-	                        	<i class="fa-solid fa-user"></i>
-	                        </a>
-                        </c:if> --%>
-                        <%-- <c:if test="${role == 'ROLE_ADMIN'}"> 
+                        </sec:authorize>
+                       <sec:authorize access="hasAnyRole('ROLE_ADMIN')">
 	                        <a class="btn-login" href="<c:url value='/admin/dashboard'/>">
 	                        	<i class="fa-solid fa-user"></i>
 	                        </a>
-                        </c:if> --%>
+                        </sec:authorize>
                     </li>
                 </ul>
             </div>

@@ -100,14 +100,19 @@ public class PrincipalDetails implements UserDetails, OAuth2User {
 		return vo.getMemBirth();
 	}
 	
-	public boolean isMemEmailRecd() {
-		return vo.isMemEmailRecd();
+	public String getMemEmailRecd() {
+		return vo.getMemEmailRecd();
 	}
 	
 	public String getProvider() {
 		return vo.getProvider();
 	}
-
+	public String getMemBank() {
+		return vo.getMemBank();
+	}
+	
+	
+	
 	@Override
 	public String toString() {
 		return "{username : " + getUsername()
@@ -115,7 +120,7 @@ public class PrincipalDetails implements UserDetails, OAuth2User {
 				+ ", accountNonLocked : " + isAccountNonLocked() + ", credentialsNonExpired : "
 				+ isCredentialsNonExpired() + ", enabled : " + isEnabled() + ", attributes : " + getAttributes()
 				+ ", vo : " + getVo() + ", name : " + getName() + ", certified : " + getCertified()
-				+ ", birth : " + getMemBirth() + ", emailRecd : " + isMemEmailRecd() + ", provider : "
+				+ ", birth : " + getMemBirth() + ", emailRecd : " + getMemEmailRecd() + ", provider : "
 				+ getProvider() + "}";
 	}
 

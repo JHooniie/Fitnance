@@ -19,7 +19,6 @@ import com.fit_nance.project.model.InstallListVO;
 import com.fit_nance.project.model.PersonalLoanListVO;
 import com.fit_nance.project.service.LoanListService;
 import com.fit_nance.project.model.SavingFilterVO;
-import com.fit_nance.project.service.HomeLoanListService;
 import com.fit_nance.project.service.ProductService;
 
 @Controller
@@ -110,7 +109,7 @@ public class HomeController {
 		vo.setList_lend_type(list_lend_type);
 		
 		//HashMap<String, Object> map = null;
-		map.put("list_join_way", list_join_way);
+//		map.put("list_join_way", list_join_way);
 		map.put("list_mrtg_type", list_mrtg_type);
 		map.put("list_rpay_type", list_rpay_type);
 		map.put("list_lend_type", list_lend_type);

@@ -4,12 +4,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.fit_nance.project.config.auth.PrincipalDetails;
 import com.fit_nance.project.model.MemberVO;
+import com.fit_nance.project.model.NoticeVO;
 import com.fit_nance.project.service.MemberService;
 
 @Controller
@@ -17,6 +22,9 @@ public class MemberController {
 
 	@Autowired
 	MemberService memService;
+	
+	@Autowired 
+    private PasswordEncoder encoder;
 	
 	@RequestMapping("/loginForm")
 	public String loginForm() {
@@ -86,7 +94,67 @@ public class MemberController {
 	@RequestMapping("/mypage")
 	public String mypageForm() {
 
+		
 		return "member/myPage";
+	}
+	
+	// 회원정보 수정 폼 열기 요청 처리
+//	@RequestMapping("/update-mypage")
+//	public String update_mypageForm() {
+//		return "member/update_mypage";
+//	}
+	
+	// 회원정보 수정 폼 열기 요청 처리
+	
+
+	
+	 @RequestMapping("/pre_update_mypage")
+	public String update_mypageForm(Authentication auth, @RequestParam("memPwd") String pwd, RedirectAttributes rtt) {
+		System.out.println(pwd);
+		 PrincipalDetails princ = (PrincipalDetails)auth.getPrincipal();
+		System.out.println(princ.getPassword());
+		
+		String memPwd = princ.getPassword();
+		System.out.println(memPwd);
+		
+		if(encoder.matches(pwd, memPwd)) {
+            return "redirect:./update_mypage";
+        }
+        else {
+            rtt.addFlashAttribute("msg", "비밀번호를 다시 확인해 주세요.");
+            return "redirect:./update_mypage_auth";
+        }
+    }
+
+		// 회원정보 수정폼
+		@RequestMapping("/update_mypage")
+		public String update_mypageForm(Authentication auth, Model model) {
+			PrincipalDetails princ = (PrincipalDetails)auth.getPrincipal();
+			
+			String memId = princ.getUsername();
+			
+			MemberVO mem = memService.detailViewMemInfo(memId);
+			model.addAttribute("mem", mem);
+			
+			return "/member/update_mypage";
+		}
+
+	
+	// 회원정보 수정
+	@RequestMapping("/update_memInfo")
+	public String updateMemInfo(Authentication auth, MemberVO vo) {
+		PrincipalDetails princ = (PrincipalDetails)auth.getPrincipal();
+		
+		
+		memService.updateMemInfo(vo);
+		
+		princ.getName();
+		princ.getMemBirth();
+		princ.getMemBank();
+		princ.getMemEmailRecd();
+		
+		// DB에 데이터 저장한 후 공지사항 목록 화면으로 포워딩
+		return "redirect:./update_mypage";
 	}
 	
 //	@RequestMapping("/mypage/{memId}")
@@ -123,10 +191,7 @@ public class MemberController {
 //		return result;
 //	}
 //	
-	@RequestMapping("/update-mypage")
-	public String update_mypageForm() {
-		return "member/update_mypage";
-	}
+
 	
 	@RequestMapping("/update-password")
 	public String update_passwordForm() {

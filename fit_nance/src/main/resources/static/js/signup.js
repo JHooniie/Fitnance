@@ -14,6 +14,16 @@ $(document).ready(function(){
     var isRunning = false;
 
     //이메일 유효성 검사
+
+    $('.input-user_id').focus(function(){
+        $('#input-user_id').addClass('process-focus');
+    });
+    $('.input-user_id').blur(function(){
+        $('#input-user_id').removeClass('process-focus');
+    });
+
+    
+
     $('#input-user_id').change(function(){
         if(regEmail.test($('#input-user_id').val())){
             $('#input-user_id').removeClass('process-error');
@@ -72,11 +82,17 @@ $(document).ready(function(){
                 });
 
                 //인증번호 완료 후 다음
+
+                $('#input-token_no').focus(function(){
+                    $('#input-token_no').addClass('process-focus');
+                });
+                
+
                 $('#input-token_no').change(function(){
                     if(token_no === $('#input-token_no').val()){
                         $('#text-token-check-error').css('display','none');
                         $('#input-token_no').removeClass('process-error');
-                        $('#input-token_no').addClass('process-complete')
+                        $('#input-token_no').addClass('process-focus')
                         $('#input-token_no').prop('readOnly', true);
                         $('#btn-Email-next').prop('disabled',false);
                         
@@ -104,7 +120,18 @@ $(document).ready(function(){
         
     });
 
+    
+
     // 비밀번호 유효성 검사
+
+    $('#input-user_pw').focus(function(){
+        $('#input-user_pw').addClass('process-focus');
+    });
+    $('#input-user_pw').blur(function(){
+        $('#input-user_pw').removeClass('process-focus');
+    });
+    
+
     $('#input-user_pw').change(function(){
         if(getCheck.test($('#input-user_pw').val())){
             $('#input-user_pw').removeClass('process-error');
@@ -143,6 +170,7 @@ $(document).ready(function(){
             $('#input-user_pw').removeClass('process-error');
             $('#input-user_pw-re').removeClass('process-pass');
             $('#input-user_pw-re').removeClass('process-error');
+            $('#input-user_pw').addClass('process-focus');
             $('#text-password-check-pass').css('display','none');
             $('#text-password-check-error').css('display','none');
             $('#text-password-reCheck-pass').css('display','none');
@@ -159,6 +187,13 @@ $(document).ready(function(){
             $('#input-user_pw-re').prop('readOnly', false);
         }
         return;
+    });
+
+    $('#input-user_pw-re').focus(function(){
+        $('#input-user_pw-re').addClass('process-focus');
+    });
+    $('#input-user_pw-re').blur(function(){
+        $('#input-user_pw-re').removeClass('process-focus');
     });
 
     $('#input-user_pw-re').change(function(){
@@ -221,7 +256,6 @@ $(document).ready(function(){
         }
         return;
     });
-
     
     $('#btn-password-next').click(function(event){
         event.preventDefault();
@@ -270,6 +304,20 @@ $(document).ready(function(){
         if(!$('#input-user_name').val() == "") {
             $('#input-user_birth').prop('readOnly',false);
         }
+    });
+
+    $('#input-user_name').focus(function(){
+        $('#input-user_name').addClass('process-focus');
+    });
+    $('#input-user_name').blur(function(){
+        $('#input-user_name').removeClass('process-focus');
+    });
+
+    $('#input-user_birth').focus(function(){
+        $('#input-user_birth').addClass('process-focus');
+    });
+    $('#input-user_birth').blur(function(){
+        $('#input-user_birth').removeClass('process-focus');
     });
 
     //생년월일 유효성 검사
@@ -324,4 +372,54 @@ $(document).ready(function(){
             $('#select-user_bank').css('color','#aaa');
         }
     }); 
+
+
+
+    //모달창
+
+
+    // const body = document.querySelector('body');
+    // let scrollPosition = 0;
+
+    // // 팝업 오픈
+    // function enable() {
+    // scrollPosition = window.pageYOffset;
+    // body.style.overflow = 'hidden';
+    // body.style.position = 'fixed';
+    // body.style.top = `-${scrollPosition}px`;
+    // body.style.width = '100%';
+    // }
+    // // 팝업 닫기
+    // function disable() {
+    // body.style.removeProperty('overflow');
+    // body.style.removeProperty('position');
+    // body.style.removeProperty('top');
+    // body.style.removeProperty('width');
+    // window.scrollTo(0, scrollPosition);
+    // }
+
+    //창 켜기
+    $('#btn-user_bank').click(function(event){
+        event.preventDefault();
+            $('#modal-signup').css('display','block');
+            
+    });
+        
+    //창 끄기
+    $('.modal-bank-close').click(function(){
+        $('#modal-signup').css('display','none');
+    });
+
+    
+    
+
+    $('.figure-bank').click(function(event){
+        $('.span-bank-btn').html($(this).find('input').val());
+        $('#input-user_bank').attr("value",$(this).find('input').val());
+        $('.span-bank-btn').css('color','#222')
+        $('#modal-signup').css('display','none');
+        
+        
+    });
+
 });
