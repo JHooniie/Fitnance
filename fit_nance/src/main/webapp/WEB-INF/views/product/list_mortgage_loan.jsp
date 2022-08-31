@@ -103,7 +103,7 @@
 	                        <!-- 검색 결과 상품 - 시작 -->
 	                        
 	                        <c:forEach items="${list_home_loan }" var="list" varStatus="status">
-	                        <%-- <c:set var="dindex" value="${status.current }"/> --%>
+	                        <%-- <c:set var="index" value="${list.pIndex }"/> --%>
 	                        <div class="div_prdt">
 	                            <div class="div_prdt_info">
 	                                <div class="div_ic_co">
@@ -163,7 +163,7 @@
 	                                </div>
 	                                <button class="btn_prdt_info">
 	                                    자세히 보기
-	                                    <span style="display:none" id="prdt_cd" class="prdt_cd">${list.fin_prdt_cd }</span>
+	                                    <span id="prdt_cd" class="prdt_cd">${list.fin_prdt_cd }</span>
 	                                </button>
 	                            </div>
 	                        </div>
