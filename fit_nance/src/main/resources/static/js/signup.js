@@ -415,11 +415,11 @@ $(document).ready(function(){
 
     $('.figure-bank').click(function(event){
         $('.span-bank-btn').html($(this).find('input').val());
-        $('#input-user_bank').attr("value",$(this).find('input').val());
         $('.span-bank-btn').css('color','#222')
         $('#modal-signup').css('display','none');
-        
-        
+        $('body').css('overflow','scroll');
+
+
     });
 
 });

@@ -15,7 +15,7 @@
 	});
 	
  	// ajax()를 실행하자마자 호출
- 	callAjax();
+ 	//callAjax();
 	$('#chatForm').on('submit', function(){
 		event.preventDefault();
 		
