@@ -123,10 +123,10 @@
                    <c:forEach items="${bankList }" var="bank">
                     <figure class="figure-bank">
                         <div class="figure-bank-img">
-                        <img src="<c:url value='/image/bank/${bankList.fin_co_no}.png'/>">
+                        <img src="<c:url value='/image/bank/${bank.fin_co_no }.png'/>">
                         </div>
-                        <input type="hidden" value="${bankList.kor_co_nm }">
-                    <figcaption class="caption-bank">${bankList.kor_co_nm }</figcaption>
+                        <input type="hidden" value="${bank.kor_co_nm }">
+                    <figcaption class="caption-bank">${bank.kor_co_nm }</figcaption>
                     </figure>
  
                  </c:forEach>
