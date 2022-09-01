@@ -17,31 +17,7 @@
 		<!-- top.jsp -->
 		<c:import url="/WEB-INF/views/layout/top.jsp" />
 		
-		<header>
-        <div class="box-nav wrap">
-            <!-- logo-->
-            <a href="index.html"><img src="../image/lg_fitnance.png" alt="fit:nacnce"></a>
-            <!-- menu-top--> 
-            <nav class="box-menu-default">
-                <div class="box-menu-top">
-                    <ul>
-                        <li><a href="#">회사소개</a></li>
-                        <li class="li-prd-info"><a href="#">상품안내</a></li>
-                        <li class="li-cal"><a href="#">계산기</a></li>
-                        <li class="li-cus-service"><a href="#">고객센터</a></li>
-                        <li class="li-lang">
-                            <span class="span-lang-kor span-lang-active">KOR</span>
-                            |
-                            <span class="span-lang-eng span-lang-inactive">ENG</span>
-                        </li>
-                        <li>
-                            <div class="btn-login"><i class="fa-solid fa-user"></i></div>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-        </div>
-    </header>
+		
     <div class="middle wrap">
         <div class="middle-top">
             <div class="item-box">
