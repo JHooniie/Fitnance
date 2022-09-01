@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-  
+   
 <mapper namespace="com.fit_nance.project.dao.ILoanListDAO">
 	<resultMap id="resultHomeLoanList" type="com.fit_nance.project.model.HomeLoanListVO">
 		<result property="pIndex" column="pIndex"/>

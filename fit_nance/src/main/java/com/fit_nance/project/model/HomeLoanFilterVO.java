@@ -7,7 +7,7 @@ public class HomeLoanFilterVO {
 	private ArrayList<String> list_mrtg_type;
 	private ArrayList<String> list_rpay_type;
 	private ArrayList<String> list_lend_type;
-	public ArrayList<String> getList_join_way() {
+	public ArrayList<String> getList_join_way() { 
 		return list_join_way;
 	}
 	public void setList_join_way(ArrayList<String> list_join_way) {

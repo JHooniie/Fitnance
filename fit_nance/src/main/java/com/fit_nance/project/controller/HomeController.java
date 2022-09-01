@@ -22,7 +22,7 @@ import com.fit_nance.project.service.LoanListService;
 import com.fit_nance.project.service.ProductService;
 
 @Controller
-public class HomeController {
+public class HomeController { 
 	@Autowired
 	ProductService pService;
 

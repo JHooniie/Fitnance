@@ -13,7 +13,7 @@ public interface ILoanListDAO {
 	public ArrayList<HomeLoanListVO> selectHomeLoanList();
 	public HomeLoanListVO selectHomeLoanDetail(String fin_prdt_cd);
 	
-	public ArrayList<HomeLoanFilterVO> selectHomeLoanFilter(HashMap<String, Object> map);
+	public ArrayList<HomeLoanFilterVO> selectHomeLoanFilter(HashMap<String, Object> map); 
 	
 	
 	// 전세자금
