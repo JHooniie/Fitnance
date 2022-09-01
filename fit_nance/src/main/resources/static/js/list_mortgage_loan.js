@@ -1,11 +1,15 @@
 /**
- * list_mortgage_loan.js
+ * list_mortgage_loan.js 
  */
  
  $(document).ready(function(){
 	$('.input_prdt_cd').val("");
 	
-	$('.input_prdt_joinway1').val("F");
+	var arr_join_way=["join_way"];
+	var arr_mrtg_type=["mrtg_type"];
+	var arr_rpay_type=["rpay_type"];
+	var arr_lend_type=["lend_type"];
+
     // 좌측 필터 버튼 클릭 시
     {
         {// 가입방법
@@ -13,78 +17,326 @@
             $('.btn_prdt_joinway1, .btn_prdt_joinway1_clicked').click(function(){
                 $(this).toggleClass('btn_prdt_joinway1 btn_prdt_joinway1_clicked'); 
                 if($(this).attr('class') == 'btn_prdt_joinway1_clicked'){
-                	$('.input_prdt_joinway1').val('T');
+                	arr_join_way.push("영업점");
                 } else{
-                	$('.input_prdt_joinway1').val('F');
+                	var index = arr_join_way.indexOf("영업점");
+                	arr_join_way.splice(index, 1);
                 }
+                $.ajax({
+                	url: "filter_mortgage_loan",
+                	type: "post",
+                	traditional: true,
+                	data: {
+                			arr_join_way: arr_join_way,
+                			arr_mrtg_type: arr_mrtg_type,
+                			arr_rpay_type: arr_rpay_type,
+                			arr_lend_type: arr_lend_type
+                	},
+                	success: function(result){
+                		$('#result_filter').html(result);
+                		$('#first_list_prdt').hide();
+	                },
+	                error:function(request,status,error){
+                        console.log("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+                    }
+                });
             })
             // 인터넷
             $('.btn_prdt_joinway2, .btn_prdt_joinway2_clicked').click(function(){
                 $(this).toggleClass('btn_prdt_joinway2 btn_prdt_joinway2_clicked'); 
                 if($(this).attr('class') == 'btn_prdt_joinway2_clicked'){
-                	$('.input_prdt_joinway2').val('T');
+                	arr_join_way.push("인터넷");
                 } else{
-                	$('.input_prdt_joinway2').val('F');
-                } 
+                	var index = arr_join_way.indexOf("인터넷");
+                	arr_join_way.splice(index, 1);
+                }
+                $.ajax({
+                	url: "filter_mortgage_loan",
+                	type: "post",
+                	traditional: true,
+                	data: {
+                			arr_join_way: arr_join_way,
+                			arr_mrtg_type: arr_mrtg_type,
+                			arr_rpay_type: arr_rpay_type,
+                			arr_lend_type: arr_lend_type
+                	},
+                	success: function(result){
+                		$('#result_filter').html(result);
+                		$('#first_list_prdt').hide();
+	                },
+	                error:function(request,status,error){
+                        console.log("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+                    }
+                });
             })
             // 스마트폰
             $('.btn_prdt_joinway3, .btn_prdt_joinway3_clicked').click(function(){
                 $(this).toggleClass('btn_prdt_joinway3 btn_prdt_joinway3_clicked'); 
                 if($(this).attr('class') == 'btn_prdt_joinway3_clicked'){
-                	$('.input_prdt_joinway3').val('T');
+                	arr_join_way.push("스마트폰");
                 } else{
-                	$('.input_prdt_joinway3').val('F');
-                } 
+                	var index = arr_join_way.indexOf("스마트폰");
+                	arr_join_way.splice(index, 1);
+                }
+                $.ajax({
+                	url: "filter_mortgage_loan",
+                	type: "post",
+                	traditional: true,
+                	data: {
+                			arr_join_way: arr_join_way,
+                			arr_mrtg_type: arr_mrtg_type,
+                			arr_rpay_type: arr_rpay_type,
+                			arr_lend_type: arr_lend_type
+                	},
+                	success: function(result){
+                		$('#result_filter').html(result);
+                		$('#first_list_prdt').hide();
+	                },
+	                error:function(request,status,error){
+                        console.log("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+                    }
+                });
             })
             // 모집인
             $('.btn_prdt_joinway4, .btn_prdt_joinway4_clicked').click(function(){
                 $(this).toggleClass('btn_prdt_joinway4 btn_prdt_joinway4_clicked'); 
                 if($(this).attr('class') == 'btn_prdt_joinway4_clicked'){
-                	$('.input_prdt_joinway4').val('T');
+                	arr_join_way.push("모집인");
                 } else{
-                	$('.input_prdt_joinway4').val('F');
-                } 
+                	var index = arr_join_way.indexOf("모집인");
+                	arr_join_way.splice(index, 1);
+                }
+                $.ajax({
+                	url: "filter_mortgage_loan",
+                	type: "post",
+                	traditional: true,
+                	data: {
+                			arr_join_way: arr_join_way,
+                			arr_mrtg_type: arr_mrtg_type,
+                			arr_rpay_type: arr_rpay_type,
+                			arr_lend_type: arr_lend_type
+                	},
+                	success: function(result){
+                		$('#result_filter').html(result);
+                		$('#first_list_prdt').hide();
+	                },
+	                error:function(request,status,error){
+                        console.log("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+                    }
+                });
             })
         }
 
         {// 담보유형
             // 아파트
             $('.btn_mrtg_type1, .btn_mrtg_type1_clicked').click(function(){
-                $(this).toggleClass('btn_mrtg_type1 btn_mrtg_type1_clicked'); 
+                $(this).toggleClass('btn_mrtg_type1 btn_mrtg_type1_clicked');  
+                if($(this).attr('class') == 'btn_mrtg_type1_clicked'){
+                	arr_mrtg_type.push("아파트");
+                } else{
+                	var index = arr_mrtg_type.indexOf("아파트");
+                	arr_mrtg_type.splice(index, 1);
+                }
+                $.ajax({
+                	url: "filter_mortgage_loan",
+                	type: "post",
+                	traditional: true,
+                	data: {
+                			arr_join_way: arr_join_way,
+                			arr_mrtg_type: arr_mrtg_type,
+                			arr_rpay_type: arr_rpay_type,
+                			arr_lend_type: arr_lend_type
+                	},
+                	success: function(result){
+                		$('#result_filter').html(result);
+                		$('#first_list_prdt').hide();
+	                },
+	                error:function(request,status,error){
+                        console.log("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+                    }
+                });
             })
             // 아파트 외
             $('.btn_mrtg_type2, .btn_mrtg_type2_clicked').click(function(){
-                $(this).toggleClass('btn_mrtg_type2 btn_mrtg_type2_clicked'); 
+                $(this).toggleClass('btn_mrtg_type2 btn_mrtg_type2_clicked');  
+                if($(this).attr('class') == 'btn_mrtg_type2_clicked'){
+                	arr_mrtg_type.push("아파트 외");
+                } else{
+                	var index = arr_mrtg_type.indexOf("아파트 외");
+                	arr_mrtg_type.splice(index, 1);
+                }
+                $.ajax({
+                	url: "filter_mortgage_loan",
+                	type: "post",
+                	traditional: true,
+                	data: {
+                			arr_join_way: arr_join_way,
+                			arr_mrtg_type: arr_mrtg_type,
+                			arr_rpay_type: arr_rpay_type,
+                			arr_lend_type: arr_lend_type
+                	},
+                	success: function(result){
+                		$('#result_filter').html(result);
+                		$('#first_list_prdt').hide();
+	                },
+	                error:function(request,status,error){
+                        console.log("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+                    }
+                });
             })
         }
 
         {// 대출상환유형
             // 원리금분할상환
             $('.btn_rpay_type1, .btn_rpay_type1_clicked').click(function(){
-                $(this).toggleClass('btn_rpay_type1 btn_rpay_type1_clicked'); 
+                $(this).toggleClass('btn_rpay_type1 btn_rpay_type1_clicked');  
+                if($(this).attr('class') == 'btn_rpay_type1_clicked'){
+                	arr_rpay_type.push("원리금분할상환");
+                } else{
+                	var index = arr_rpay_type.indexOf("원리금분할상환");
+                	arr_rpay_type.splice(index, 1);
+                }
+                $.ajax({
+                	url: "filter_mortgage_loan",
+                	type: "post",
+                	traditional: true,
+                	data: {
+                			arr_join_way: arr_join_way,
+                			arr_mrtg_type: arr_mrtg_type,
+                			arr_rpay_type: arr_rpay_type,
+                			arr_lend_type: arr_lend_type
+                	},
+                	success: function(result){
+                		$('#result_filter').html(result);
+                		$('#first_list_prdt').hide();
+	                },
+	                error:function(request,status,error){
+                        console.log("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+                    }
+                });
             })
             // 원금분할상환
             $('.btn_rpay_type2, .btn_rpay_type2_clicked').click(function(){
-                $(this).toggleClass('btn_rpay_type2 btn_rpay_type2_clicked'); 
+                $(this).toggleClass('btn_rpay_type2 btn_rpay_type2_clicked');  
+                if($(this).attr('class') == 'btn_rpay_type2_clicked'){
+                	arr_rpay_type.push("원금분할상환");
+                } else{
+                	var index = arr_rpay_type.indexOf("원금분할상환");
+                	arr_rpay_type.splice(index, 1);
+                }
+                $.ajax({
+                	url: "filter_mortgage_loan",
+                	type: "post",
+                	traditional: true,
+                	data: {
+                			arr_join_way: arr_join_way,
+                			arr_mrtg_type: arr_mrtg_type,
+                			arr_rpay_type: arr_rpay_type,
+                			arr_lend_type: arr_lend_type
+                	},
+                	success: function(result){
+                		$('#result_filter').html(result);
+                		$('#first_list_prdt').hide();
+	                },
+	                error:function(request,status,error){
+                        console.log("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+                    }
+                });
             })
             // 만기일시상환
             $('.btn_rpay_type3, .btn_rpay_type3_clicked').click(function(){
-                $(this).toggleClass('btn_rpay_type3 btn_rpay_type3_clicked'); 
+                $(this).toggleClass('btn_rpay_type3 btn_rpay_type3_clicked');  
+                if($(this).attr('class') == 'btn_rpay_type3_clicked'){
+                	arr_rpay_type.push("만기일시상환");
+                } else{
+                	var index = arr_rpay_type.indexOf("만기일시상환");
+                	arr_rpay_type.splice(index, 1);
+                }
+                $.ajax({
+                	url: "filter_mortgage_loan",
+                	type: "post",
+                	traditional: true,
+                	data: {
+                			arr_join_way: arr_join_way,
+                			arr_mrtg_type: arr_mrtg_type,
+                			arr_rpay_type: arr_rpay_type,
+                			arr_lend_type: arr_lend_type
+                	},
+                	success: function(result){
+                		$('#result_filter').html(result);
+                		$('#first_list_prdt').hide();
+	                },
+	                error:function(request,status,error){
+                        console.log("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+                    }
+                });
             })
         }
 
         {// 대출금리유형
             // 고정금리
             $('.btn_lend_type1, .btn_lend_type1_clicked').click(function(){
-                $(this).toggleClass('btn_lend_type1 btn_lend_type1_clicked'); 
+                $(this).toggleClass('btn_lend_type1 btn_lend_type1_clicked');  
+                if($(this).attr('class') == 'btn_lend_type1_clicked'){
+                	arr_lend_type.push("고정금리");
+                } else{
+                	var index = arr_lend_type.indexOf("고정금리");
+                	arr_lend_type.splice(index, 1);
+                }
+                $.ajax({
+                	url: "filter_mortgage_loan",
+                	type: "post",
+                	traditional: true,
+                	data: {
+                			arr_join_way: arr_join_way,
+                			arr_mrtg_type: arr_mrtg_type,
+                			arr_rpay_type: arr_rpay_type,
+                			arr_lend_type: arr_lend_type
+                	},
+                	success: function(result){
+                		$('#result_filter').html(result);
+                		$('#first_list_prdt').hide();
+	                },
+	                error:function(request,status,error){
+                        console.log("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+                    }
+                });
             })
             // 변동금리
             $('.btn_lend_type2, .btn_lend_type2_clicked').click(function(){
-                $(this).toggleClass('btn_lend_type2 btn_lend_type2_clicked'); 
+                $(this).toggleClass('btn_lend_type2 btn_lend_type2_clicked');  
+                if($(this).attr('class') == 'btn_lend_type2_clicked'){
+                	arr_lend_type.push("변동금리");
+                } else{
+                	var index = arr_lend_type.indexOf("변동금리");
+                	arr_lend_type.splice(index, 1);
+                }
+                $.ajax({
+                	url: "filter_mortgage_loan",
+                	type: "post",
+                	traditional: true,
+                	data: {
+                			arr_join_way: arr_join_way,
+                			arr_mrtg_type: arr_mrtg_type,
+                			arr_rpay_type: arr_rpay_type,
+                			arr_lend_type: arr_lend_type
+                	},
+                	success: function(result){
+                		$('#result_filter').html(result);
+                		$('#first_list_prdt').hide();
+	                },
+	                error:function(request,status,error){
+                        console.log("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+                    }
+                });
             })
         }
+        
+        {// 필터 초기화
+	       // 추가 예정
+        }
     }
-
+    
     // 각 상품 우측 버튼 클릭 시
     {
         // 비교하기
@@ -101,13 +353,6 @@
 	$('.btn_prdt_info').click(function(){
 		$('.input_prdt_cd').val($(this).find('.prdt_cd').text());
 		var input_prdt_cd = $('.input_prdt_cd').val();
-		//alert(input_prdt_cd);
-		/*$.ajax({
-			method: 'POST',
-			url: 'view_prdt_detail',
-			data: input_prdt_cd,
-			success: function(input_prdt_cd){}
-		});*/
 	});
     
 });  
