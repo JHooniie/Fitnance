@@ -1,8 +1,10 @@
 package com.fit_nance.project.service;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import com.fit_nance.project.model.DepoOptionVO;
+import com.fit_nance.project.model.DepositFilterVO;
 import com.fit_nance.project.model.DepositListVO;
 import com.fit_nance.project.model.DepositVO;
 import com.fit_nance.project.model.InstallListVO;
@@ -22,6 +24,8 @@ public interface IProductService {
 	public void insertPsOption(PsOptionVO psOption);
 	
 	public ArrayList<InstallListVO> selectInstallFilter(SavingFilterVO sf);
+	public ArrayList<DepositListVO> selectDepositFilter(DepositFilterVO sf);
+	public ArrayList<PensionListVO> selectPensionFilter(HashMap<String,Object> map);
 	
 	public ArrayList<InstallListVO> selectInstall();
 	public ArrayList<InstallListVO> selectInstallAll();

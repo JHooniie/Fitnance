@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.fit_nance.project.dao.IProductDAO;
 import com.fit_nance.project.model.DepoOptionVO;
+import com.fit_nance.project.model.DepositFilterVO;
 import com.fit_nance.project.model.DepositListVO;
 import com.fit_nance.project.model.DepositVO;
 import com.fit_nance.project.model.InstallListVO;
@@ -107,6 +108,21 @@ public class ProductService implements IProductService {
 		map.put("join_way", sf.getJoin_way());
 		map.put("save_trm", sf.getSave_trm());
 		return dao.selectInstallFilter(map);
+	}
+
+	@Override
+	public ArrayList<DepositListVO> selectDepositFilter(DepositFilterVO sf) {
+		HashMap<String,Object> map= new HashMap<String,Object>();
+		map.put("join_member", sf.getJoin_member());
+		map.put("join_way", sf.getJoin_way());
+		map.put("save_trm", sf.getSave_trm());
+		return dao.selectDepositFilter(map);
+	}
+
+	@Override
+	public ArrayList<PensionListVO> selectPensionFilter(HashMap<String, Object> map) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

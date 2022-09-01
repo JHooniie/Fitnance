@@ -22,6 +22,8 @@ public interface IProductDAO {
 	public void insertPsOption(PsOptionVO psOption);
 	
 	public ArrayList<InstallListVO> selectInstallFilter(HashMap<String,Object> map);
+	public ArrayList<DepositListVO> selectDepositFilter(HashMap<String,Object> map);
+	public ArrayList<PensionListVO> selectPensionFilter(HashMap<String,Object> map);
 
 	public ArrayList<InstallListVO> selectInstall();
 	public ArrayList<InstallListVO> selectInstallAll();
