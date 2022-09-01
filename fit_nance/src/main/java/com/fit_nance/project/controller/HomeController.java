@@ -1,21 +1,22 @@
 package com.fit_nance.project.controller;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.fit_nance.project.model.CharterLoanFilterVO;
 import com.fit_nance.project.model.CharterLoanListVO;
 import com.fit_nance.project.model.DepositFilterVO;
 import com.fit_nance.project.model.DepositListVO;
+import com.fit_nance.project.model.FAQVO;
 import com.fit_nance.project.model.HomeLoanFilterVO;
 import com.fit_nance.project.model.HomeLoanListVO;
 import com.fit_nance.project.model.InstallListVO;
+import com.fit_nance.project.model.PensionFilterVO;
 import com.fit_nance.project.model.PensionListVO;
 import com.fit_nance.project.model.PersonalLoanListVO;
 import com.fit_nance.project.model.SavingFilterVO;
@@ -28,13 +29,7 @@ public class HomeController {
 	ProductService pService;
 
 	@Autowired
-	LoanListService homeloanlistService;
-	
-	@Autowired
-	LoanListService houseloanlistService;
-	
-	@Autowired
-	LoanListService creditloanlistService;
+	LoanListService loanlistService;
 	
 	@RequestMapping("/")
 	public String index() {
@@ -44,15 +39,15 @@ public class HomeController {
 	// 주택담보 대출
 	@RequestMapping("/list_mortgage_loan")
 	public String list_mortgage_loan(Model model) {
-		ArrayList<HomeLoanListVO> list_home_loan = homeloanlistService.selectHomeLoanList();
-		ArrayList<String> loan_join_way = new ArrayList<String>();
+		ArrayList<HomeLoanListVO> list_home_loan = loanlistService.selectHomeLoanList();
+		//ArrayList<String> loan_join_way = new ArrayList<String>();
 		
-		for(int i=0; i<list_home_loan.size(); i++) {
-			HomeLoanListVO vo = list_home_loan.get(i);
-		}
-		
+//		for(int i=0; i<list_home_loan.size(); i++) {
+//			HomeLoanListVO vo = list_home_loan.get(i);
+//		}
+//		
 		model.addAttribute("list_home_loan", list_home_loan);
-		model.addAttribute("loan_join_way", loan_join_way);
+		//model.addAttribute("loan_join_way", loan_join_way);
 		return "product/list_mortgage_loan"; 
 	}
 
@@ -105,17 +100,17 @@ public class HomeController {
 		vo.setList_rpay_type(list_rpay_type);
 		vo.setList_lend_type(list_lend_type);
 		
-		ArrayList<HomeLoanFilterVO> list_home_loan= homeloanlistService.selectHomeLoanFilter(vo);
+		ArrayList<HomeLoanFilterVO> list_home_loan= loanlistService.selectHomeLoanFilter(vo);
 		
 		model.addAttribute("list_home_loan", list_home_loan);
 		return "product/result_mortgage_loan";
 
 	}
 	
-	@RequestMapping("/view_prdt_detail")
-	public String view_prdt_cd(@RequestParam("input_prdt_cd") String fin_prdt_cd, Model model) {
+	@RequestMapping("/view_mortgage_detail")
+	public String view_mortgage_detail(@RequestParam("input_prdt_cd") String fin_prdt_cd, Model model) {
 		System.out.println(fin_prdt_cd);
-		HomeLoanListVO prdt = homeloanlistService.selectHomeLoanDetail(fin_prdt_cd);
+		HomeLoanListVO prdt = loanlistService.selectHomeLoanDetail(fin_prdt_cd);
 		
 		model.addAttribute("prdt",prdt);
 		return "product/detail_mortgage_loan";
@@ -132,17 +127,71 @@ public class HomeController {
 	//전세자금 대출
 	@RequestMapping("/list_house_loan")
 	public String list_house_loan(Model model) {
-		ArrayList<CharterLoanListVO> list_house_loan = houseloanlistService.selectCharterLoanList();
+		ArrayList<CharterLoanListVO> list_house_loan = loanlistService.selectCharterLoanList();
 		
 		
 		model.addAttribute("list_house_loan", list_house_loan);
 		return "product/list_house_loan"; 
 	}
 	
+	@RequestMapping("/filter_house_loan")
+	public String filter_house_loan(Model model
+										, @RequestParam(value="arr_join_way") ArrayList<String> arr_join_way
+										, @RequestParam(value="arr_rpay_type") ArrayList<String> arr_rpay_type
+										, @RequestParam(value="arr_lend_type") ArrayList<String> arr_lend_type
+										) {
+		
+		CharterLoanFilterVO vo = new CharterLoanFilterVO();
+		
+		ArrayList<String> list_join_way = new ArrayList<String>();
+		ArrayList<String> list_rpay_type = new ArrayList<String>();
+		ArrayList<String> list_lend_type = new ArrayList<String>();
+		
+		for(int i=1; i<arr_join_way.size(); i++) {
+			list_join_way.add(arr_join_way.get(i));
+		}
+		
+		if(list_join_way != null)
+			vo.setList_join_way(list_join_way);
+		
+		for(int i=1; i<arr_rpay_type.size(); i++) {
+			list_rpay_type.add(arr_rpay_type.get(i));
+		}
+
+		if(list_rpay_type != null)
+			vo.setList_rpay_type(list_rpay_type);
+		
+		for(int i=1; i<arr_lend_type.size(); i++) {
+			list_lend_type.add(arr_lend_type.get(i));
+		}
+
+		if(list_lend_type != null)
+			vo.setList_lend_type(list_lend_type);
+		
+		vo.setList_join_way(list_join_way);
+		vo.setList_rpay_type(list_rpay_type);
+		vo.setList_lend_type(list_lend_type);
+		
+		ArrayList<CharterLoanFilterVO> list_house_loan= loanlistService.selectCharterLoanFilter(vo);
+		
+		model.addAttribute("list_house_loan", list_house_loan);
+		return "product/result_house_loan";
+
+	}
+	
+	@RequestMapping("/view_house_detail")
+	public String view_house_detail(@RequestParam("input_prdt_cd") String fin_prdt_cd, Model model) {
+		System.out.println(fin_prdt_cd);
+		CharterLoanListVO prdt = loanlistService.selectCharterLoanDetail(fin_prdt_cd);
+		
+		model.addAttribute("prdt",prdt);
+		return "product/detail_house_loan";
+	}
+	
 	// 개인신용 대출
 	@RequestMapping("/list_credit_loan")
 	public String list_credit_loan(Model model) {
-		ArrayList<PersonalLoanListVO> list_credit_loan = creditloanlistService.selectPersonalLoanList();
+		ArrayList<PersonalLoanListVO> list_credit_loan = loanlistService.selectPersonalLoanList();
 		model.addAttribute("list_credit_loan", list_credit_loan);
 		return "product/list_credit_loan"; 
 	}
@@ -167,7 +216,9 @@ public class HomeController {
 	
 	
 	@RequestMapping("/faq")
-	public String faq() {
+	public String faq(Model model) {
+		ArrayList<FAQVO> FAQList = pService.selectFAQ();
+		model.addAttribute("FAQList", FAQList);
 		return "product2/faq";
 	}
 	
@@ -352,6 +403,43 @@ public class HomeController {
 		model.addAttribute("dpList", dpList);
 		
 		return "product2/deposit_result";
+	}
+	
+	@RequestMapping("/filter_pension")
+	public String filter_pension(
+								@RequestParam(value="pnsn_recp_trm_nm") ArrayList<String> pnsn_recp_trm_nm2,
+								@RequestParam(value="mon_paym_atm_nm") ArrayList<String> mon_paym_atm_nm2,
+								@RequestParam(value="pnsn_strt_age_nm") ArrayList<String> pnsn_strt_age_nm2
+								,Model model)
+	{	
+		PensionFilterVO vo= new PensionFilterVO();
+		
+		ArrayList<String> pnsn_recp_trm_nm=new ArrayList<String>();
+		ArrayList<String> mon_paym_atm_nm=new ArrayList<String>();
+		ArrayList<String> pnsn_strt_age_nm=new ArrayList<String>();
+		
+	
+		
+		for(int i=1; i<pnsn_recp_trm_nm2.size();i++) {
+			pnsn_recp_trm_nm.add(pnsn_recp_trm_nm2.get(i));
+		}
+		if(pnsn_recp_trm_nm!=null) vo.setPnsn_recp_trm_nm(pnsn_recp_trm_nm);
+	
+		for(int i=1; i<mon_paym_atm_nm2.size();i++) {
+			mon_paym_atm_nm.add(mon_paym_atm_nm2.get(i));
+		}
+		if(mon_paym_atm_nm!=null) vo.setMon_paym_atm_nm(mon_paym_atm_nm);
+		for(int i=1; i<pnsn_strt_age_nm2.size();i++) {
+			pnsn_strt_age_nm.add(pnsn_strt_age_nm2.get(i));
+		}
+		if(pnsn_strt_age_nm!=null)vo.setPnsn_strt_age_nm(pnsn_strt_age_nm);
+		
+		
+		ArrayList<PensionListVO> psList= pService.selectPensionFilter(vo);
+		
+		model.addAttribute("psList", psList);
+		
+		return "product2/pension_result";
 	}
 	
 	

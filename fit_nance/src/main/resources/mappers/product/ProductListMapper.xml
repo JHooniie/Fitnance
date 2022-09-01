@@ -17,6 +17,18 @@
 		<result property="lend_rate_type_nm" column="lend_rate_type_nm"/>
 		<result property="lend_rate_min" column="lend_rate_min"/>
 	</resultMap>
+	<resultMap id="resultHouseLoanList" type="com.fit_nance.project.model.CharterLoanListVO">
+		<result property="pIndex" column="pIndex"/>
+		<result property="fin_co_no" column="fin_co_no"/>
+		<result property="kor_co_nm" column="kor_co_nm"/>
+		<result property="fin_prdt_cd" column="fin_prdt_cd"/>
+		<result property="fin_prdt_nm" column="fin_prdt_nm"/>
+		<result property="join_way" column="join_way"/>
+		<result property="loan_lmt" column="loan_lmt"/>
+		<result property="rpay_type_nm" column="rpay_type_nm"/>
+		<result property="lend_rate_type_nm" column="lend_rate_type_nm"/>
+		<result property="lend_rate_min" column="lend_rate_min"/>
+	</resultMap>
 	<resultMap id="resultCreditLoanList" type="com.fit_nance.project.model.PersonalLoanListVO">
 		<result property="pIndex" column="pIndex"/>
 		<result property="fin_co_no" column="fin_co_no"/>
@@ -28,6 +40,7 @@
 		<result property="crdt_prdt_type_nm" column="crdt_prdt_type_nm"/>
 		<result property="crdt_grad_avg" column="crdt_grad_avg"/>
 	</resultMap>
+	
 	
 	<select id="selectHomeLoanList" resultMap="resultHomeLoanList">
 		SELECT B.pIndex, B.fin_co_no, B.kor_co_nm, B.fin_prdt_cd, B.fin_prdt_nm, B.join_way, B.loan_lmt, O.mrtg_type_nm, O.rpay_type_nm, O.lend_rate_type_nm, O.lend_rate_min
@@ -46,8 +59,8 @@
 		) B WHERE B.fin_prdt_cd=#{fin_prdt_cd}
 	</select>
 	
-	<select id="selectCharterLoanList" resultMap="resultHomeLoanList">
-		SELECT B.pIndex, B.fin_co_no, B.kor_co_nm, B.fin_prdt_cd, B.fin_prdt_nm, B.join_way, B.loan_lmt, O.lend_rate_min
+	<select id="selectCharterLoanList" resultMap="resultHouseLoanList">
+		SELECT B.pIndex, B.fin_co_no, B.kor_co_nm, B.fin_prdt_cd, B.fin_prdt_nm, B.join_way, B.loan_lmt, O.rpay_type_nm, O.lend_rate_type_nm, O.lend_rate_min
  		FROM charter_loan_option O INNER JOIN charter_loan_base B
 		ON B.fin_prdt_cd = O.fin_prdt_cd 
 		GROUP BY B.fin_prdt_cd
@@ -61,6 +74,7 @@
 	</select>
 	
 	<!-- 필터링 -->
+	<!-- mortgage_loan -->
 	<select id="selectHomeLoanFilter" resultMap="resultHomeLoanList">
 			SELECT B.pIndex, B.fin_co_no, B.kor_co_nm, B.fin_prdt_cd, B.fin_prdt_nm, B.join_way, B.loan_lmt, O.mrtg_type_nm, O.rpay_type_nm, O.lend_rate_type_nm, O.lend_rate_min
 	 		FROM home_loan_option O INNER JOIN home_loan_base B
@@ -75,6 +89,32 @@
 			AND
 			<foreach collection="list_mrtg_type" item="list_mrtg_type" open="(" close=")" separator="AND">
 				O.mrtg_type_nm LIKE CONCAT('%',#{list_mrtg_type},'%')
+			</foreach>
+		</if>
+		<if test="list_rpay_type.size()>0">
+			AND
+			<foreach collection="list_rpay_type" item="list_rpay_type" open="(" close=")" separator="AND">
+				O.rpay_type_nm LIKE CONCAT ('%',#{list_rpay_type},'%')
+			</foreach>
+		</if>
+		<if test="list_lend_type.size()>0">
+			AND
+			<foreach collection="list_lend_type" item="list_lend_type" open="(" close=")" separator="AND">
+				O.lend_rate_type_nm LIKE CONCAT ('%',#{list_lend_type},'%')
+			</foreach>
+		</if>
+		GROUP BY B.fin_prdt_cd
+	</select>
+	
+	<!-- house_loan -->
+	<select id="selectCharterLoanFilter" resultMap="resultHouseLoanList">
+			SELECT B.pIndex, B.fin_co_no, B.kor_co_nm, B.fin_prdt_cd, B.fin_prdt_nm, B.join_way, B.loan_lmt, O.rpay_type_nm, O.lend_rate_type_nm, O.lend_rate_min
+	 		FROM charter_loan_option O INNER JOIN charter_loan_base B
+			ON B.fin_prdt_cd = O.fin_prdt_cd 
+		<if test="list_join_way.size()>0">
+			 AND 
+			<foreach collection="list_join_way" item="list_join_way" open="(" close=")" separator="AND">
+				B.join_way LIKE CONCAT ('%',#{list_join_way},'%')
 			</foreach>
 		</if>
 		<if test="list_rpay_type.size()>0">

@@ -12,9 +12,11 @@ import com.fit_nance.project.model.DepoOptionVO;
 import com.fit_nance.project.model.DepositFilterVO;
 import com.fit_nance.project.model.DepositListVO;
 import com.fit_nance.project.model.DepositVO;
+import com.fit_nance.project.model.FAQVO;
 import com.fit_nance.project.model.InstallListVO;
 import com.fit_nance.project.model.InstallOptionVO;
 import com.fit_nance.project.model.InstallVO;
+import com.fit_nance.project.model.PensionFilterVO;
 import com.fit_nance.project.model.PensionListVO;
 import com.fit_nance.project.model.PensionVO;
 import com.fit_nance.project.model.PsOptionVO;
@@ -120,9 +122,19 @@ public class ProductService implements IProductService {
 	}
 
 	@Override
-	public ArrayList<PensionListVO> selectPensionFilter(HashMap<String, Object> map) {
+	public ArrayList<PensionListVO> selectPensionFilter(PensionFilterVO pf) {
+		HashMap<String,Object> map= new HashMap<String,Object>();
+		System.out.println(pf.getPnsn_recp_trm_nm());
+		map.put("pnsn_recp_trm_nm", pf.getPnsn_recp_trm_nm());
+		map.put("mon_paym_atm_nm", pf.getMon_paym_atm_nm());
+		map.put("pnsn_strt_age_nm", pf.getPnsn_strt_age_nm());
+		return dao.selectPensionFilter(map);
+	}
+
+	@Override
+	public ArrayList<FAQVO> selectFAQ() {
 		// TODO Auto-generated method stub
-		return null;
+		return dao.selectFAQ();
 	}
 
 }
