@@ -31,6 +31,11 @@
     margin-right: 20px;
 }
 
+.panel_info_prdt .div_prdt_info .div_ic_co img{
+	width: 80px;
+	height: 80px;
+}
+
 .div_prdt_base .div_top_prdt_info{
     display: flex;
     flex-direction: column;
@@ -56,17 +61,23 @@
 
 .div_prdt_base .div_joinway{
     height: 32px;
+    display: flex;
     font-size: 13px;
     color: #222222;
     margin-top: 5px;
 }
 
 .div_prdt_base .div_joinway .div_joinway_block{
-    background-color: #f2f2f2;
     padding: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 13px;
+    background-color: #f2f2f2;
     border-radius: 5px;
-    width: fit-content;
+    margin-left: 10px;
 }
+
 
 .div_prdt_info .div_prdt_base .bot_prdt_info{
     margin-top: 60px;
