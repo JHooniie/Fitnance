@@ -120,7 +120,7 @@
                     <div class="modal-bank-close"><i class="fa-solid fa-x"></i></div>
                 </div>
                 <div class="modal-bank-content">
-                   <%--  <c:forEach items="${bankList }" var="bank"> --%>
+                   <c:forEach items="${bankList }" var="bank">
                     <figure class="figure-bank">
                         <div class="figure-bank-img">
                         <img src="<c:url value='/image/bank/0010001.png'/>">
@@ -129,7 +129,7 @@
                     <figcaption class="caption-bank">우리</figcaption>
                     </figure>
  
-                 <%--    </c:forEach> --%>
+                 </c:forEach>
                 </div>
             </div>
         </div>

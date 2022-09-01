@@ -26,6 +26,7 @@
 	                <div class="div_prdt_info">
 	                    <div class="div_ic_co">
 	                        <!-- 각 은행 로고 image -->
+	                        <img src="<c:url value='/image/bank/${prdt.fin_co_no}.png'/>">
 	                    </div>
 	                    <div class="div_prdt_base">
 	                        <div class="top_prdt_info">
@@ -41,9 +42,11 @@
 	                            </div>
 	                        </div>
 	                        <div class="div_joinway">
-	                            <div class="div_joinway_block">
-	                                <span>${prdt.join_way }</span>
-	                            </div>
+	                            <c:forTokens var="joinway" items="${prdt.join_way }" delims=",">
+	                                <div class="div_joinway_block">
+	                                    <span>${joinway }</span>
+	                                </div>
+                                </c:forTokens>
 	                        </div>
 	                        <div class="bot_prdt_info">
 	                            <!-- <div class="div_lend_prdt"> -->
