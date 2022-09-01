@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<c:set var="memId" value="${principal.username}" />
 <!DOCTYPE html>
 <html>
 	<head>
@@ -16,7 +18,7 @@
 	        <div class="box-prd-recom box-prd-recom-01">
 	            <div class="title-prd-recom">
 	                <h3>
-	                    정은빈님!<br>
+	                    ${principal.name}님!<br>
 	                    더 <span>핏</span>:하게<br>
 	                    추천해 드릴게요!
 	                </h3>

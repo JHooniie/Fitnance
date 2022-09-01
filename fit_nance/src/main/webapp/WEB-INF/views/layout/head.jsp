@@ -2,11 +2,6 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
-<sec:authorize access="isAuthenticated()">
-    <sec:authentication property="principal" var="principal" />
-</sec:authorize>
-<c:set var="username" value="${principal.username}" />
-<input type="hidden" value="${principal.username}">
 
 <meta charset="UTF-8">
 <title>fit:nance - 금융 상품을 한눈에 쏙</title>

@@ -9,11 +9,12 @@
 		<link rel="stylesheet" href="<c:url value='/css/member_signup.css'/>">
 	</head>
 	<body>
+	<form id="form-signup" method="post" action="/signup">
 	<c:import url="/WEB-INF/views/layout/top.jsp" />
 	<section id="signup_section">
         <div class="signup_page wrap">
             <div class="signup_container">
-                <form id="form-signup" method="post" action="/signup">
+                
                 <div class="box-signup-Email">
                     <div class="process_graph process_graph-01"></div>
                     <h3>먼저 이메일이 필요해요 :)</h3>
@@ -104,13 +105,13 @@
                             </div>
                             <div class="box-bank-select">
                                 <label for="btn-user_bank"><span class="span-bank-more-information">주거래 은행 계좌정보 입력</span></label><br>
-                                <button id="btn-user_bank" id="btn-user_bank"><span class="span-bank-btn">은행 선택</span></button>
-                                <input id="input-user_bank" type="hidden" name="memBank">
+                                <button id="btn-user_bank" id="btn-user_bank" type="button"><span class="span-bank-btn">은행 선택</span></button>
+                                <input type="hidden" id="input-user-bank" name="memBank">
                                 <button id="btn-more-information-finish" type="submit"><span class="btn-span">정보 입력 완료</span></button>
                             </div>
                     </div>
                 </div>
-            </form>
+           
             </div>
         </div>
         <div id="modal-signup" class="modal-overlay">
@@ -123,10 +124,11 @@
                    <c:forEach items="${bankList }" var="bank">
                     <figure class="figure-bank">
                         <div class="figure-bank-img">
-                        <img src="<c:url value='/image/bank/${bankList.fin_co_no}.png'/>">
+                        <img src="<c:url value='/image/bank/${bank.fin_co_no }.png'/>">
                         </div>
-                        <input type="hidden" value="${bankList.kor_co_nm }">
-                    <figcaption class="caption-bank">${bankList.kor_co_nm }</figcaption>
+                        <input class="bank-name" type="hidden" value="${bank.kor_co_nm }">
+                        <input class="bank-code" type="hidden" value="${bank.memBank }">
+                    <figcaption class="caption-bank">${bank.kor_co_nm }</figcaption>
                     </figure>
  
                  </c:forEach>
@@ -136,6 +138,19 @@
     </section>
     <!-- login end -->
 	    <c:import url="/WEB-INF/views/layout/footer.jsp" />
+	     </form>
 	</body>
 	<script src="../js/signup.js"></script>
+	<script>
+    $('.figure-bank').click(function(){
+        $('.span-bank-btn').html($(this).children('.bank-name').val());
+        $('#input-user-bank').val($(this).children('.bank-code').val());
+        $('.span-bank-btn').css('color','#222');
+        $('#modal-signup').css('display','none');
+        $('body').css('overflow','scroll');
+
+        console.log($('#input-user-bank').val());
+
+    });
+	</script>
 </html>
