@@ -413,13 +413,14 @@ $(document).ready(function(){
     
     
 
-    $('.figure-bank').click(function(event){
-        $('.span-bank-btn').html($(this).find('input').val());
-        $('.span-bank-btn').css('color','#222')
-        $('#modal-signup').css('display','none');
-        $('body').css('overflow','scroll');
+    // $('.figure-bank').click(function(event){
+    //     $('.span-bank-btn').html($(this).closest('.bank-name').val());
+    //     $('.span-bank-btn').css('color','#222')
+    //     $('#modal-signup').css('display','none');
+    //     $('body').css('overflow','scroll');
 
+    //     console.log($(this).closest('.bank-code').val());
 
-    });
+    // });
 
 });

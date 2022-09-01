@@ -1,5 +1,9 @@
 /* mypage section */
 
+body {
+    position: relative;
+}
+
 input:focus{
     outline:none;
 }
