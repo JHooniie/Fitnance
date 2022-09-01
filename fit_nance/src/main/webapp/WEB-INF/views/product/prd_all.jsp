@@ -19,7 +19,7 @@
 	            <img class="img-prd-all" src="<c:url value='/image/img_prd_all.png'/>" alt="">
 	            <div class="box-prd-01-list">
 	                <h3 class="title-prd-list">김낸스님에게만 추천해드려요!</h3>
-	                <c:forEach var="insList" items="${insList}" begin="76" end="78">
+	                <c:forEach var="insList" items="${insList}" begin="27" end="29">
 	                	<div class="box-prd-list">
 		                    <div class="lg-bank">
 		                    	<img src="<c:url value='/image/bank/${insList.fin_co_no}.png'/>">
@@ -45,28 +45,28 @@
 	                    <div class="box-prd-list">
 	                        <div class="box-bank-info">
 	                            <div class="lg-bank">
-	                            	<img src="<c:url value='/image/bank/${insList[94].fin_co_no}.png'/>">
+	                            	<img src="<c:url value='/image/bank/${insList[27].fin_co_no}.png'/>">
 	                            </div>
-	                            <span class="name-bank">${insList[94].kor_co_nm}</span>
+	                            <span class="name-bank">${insList[27].kor_co_nm}</span>
 	                        </div>                
-	                        <span class="name-prd">${insList[94].fin_prdt_nm}</span>
+	                        <span class="name-prd">${insList[27].fin_prdt_nm}</span>
 	                        <div class="box-percent">
 	                            <span>연</span>
-	                            <span>${insList[94].intr_rate2}</span><span>%</span>
+	                            <span>${insList[27].intr_rate2}</span><span>%</span>
 	                            <span>(세전)</span>
 	                        </div>
 	                    </div>
 	                    <div class="box-prd-list">
 	                        <div class="box-bank-info">
 	                            <div class="lg-bank">
-	                            	<img src="<c:url value='/image/bank/${insList[76].fin_co_no}.png'/>">
+	                            	<img src="<c:url value='/image/bank/${insList[32].fin_co_no}.png'/>">
 	                            </div>
-	                            <span class="name-bank">${insList[76].kor_co_nm}</span>
+	                            <span class="name-bank">${insList[32].kor_co_nm}</span>
 	                        </div>                
-	                        <span class="name-prd">${insList[76].fin_prdt_nm}</span>
+	                        <span class="name-prd">${insList[32].fin_prdt_nm}</span>
 	                        <div class="box-percent">
 	                            <span>연</span>
-	                            <span>${insList[76].intr_rate2}</span><span>%</span>
+	                            <span>${insList[32].intr_rate2}</span><span>%</span>
 	                            <span>(세전)</span>
 	                        </div>
 	                    </div>

@@ -2,7 +2,7 @@ package com.fit_nance.project.model;
 
 public class MemberVO {
 
-	private int memNo;
+
 	private String memRole;
 	private String memId;
 	private String memPwd;
@@ -16,12 +16,7 @@ public class MemberVO {
 	private String certified;
 	
 	
-	public int getMemNo() {
-		return memNo;
-	}
-	public void setMemNo(int memNo) {
-		this.memNo = memNo;
-	}
+
 	public String getMemRole() {
 		return memRole;
 	}

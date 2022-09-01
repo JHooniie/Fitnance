@@ -5,7 +5,7 @@
 <!-- 사이드 -->
 <div class="navbar-nav bg-primary sidebar sidebar-dark accordion" id="accordionSidebar">
     <!-- 로고 -->
-    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<c:url value='/'/>">
         <img class="w-75" src="<c:url value='/image/lg_fitnance_white.png'/>">
     </a>
     <!-- 구분선 -->
