@@ -12,6 +12,7 @@ import com.fit_nance.project.model.DepoOptionVO;
 import com.fit_nance.project.model.DepositFilterVO;
 import com.fit_nance.project.model.DepositListVO;
 import com.fit_nance.project.model.DepositVO;
+import com.fit_nance.project.model.FAQVO;
 import com.fit_nance.project.model.InstallListVO;
 import com.fit_nance.project.model.InstallOptionVO;
 import com.fit_nance.project.model.InstallVO;
@@ -128,6 +129,12 @@ public class ProductService implements IProductService {
 		map.put("mon_paym_atm_nm", pf.getMon_paym_atm_nm());
 		map.put("pnsn_strt_age_nm", pf.getPnsn_strt_age_nm());
 		return dao.selectPensionFilter(map);
+	}
+
+	@Override
+	public ArrayList<FAQVO> selectFAQ() {
+		// TODO Auto-generated method stub
+		return dao.selectFAQ();
 	}
 
 }

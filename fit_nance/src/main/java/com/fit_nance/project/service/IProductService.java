@@ -6,6 +6,7 @@ import com.fit_nance.project.model.DepoOptionVO;
 import com.fit_nance.project.model.DepositFilterVO;
 import com.fit_nance.project.model.DepositListVO;
 import com.fit_nance.project.model.DepositVO;
+import com.fit_nance.project.model.FAQVO;
 import com.fit_nance.project.model.InstallListVO;
 import com.fit_nance.project.model.InstallOptionVO;
 import com.fit_nance.project.model.InstallVO;
@@ -33,4 +34,6 @@ public interface IProductService {
 	public ArrayList<DepositListVO> selectDepositAll();
 	public ArrayList<PensionListVO> selectPension();
 	public ArrayList<PensionListVO> selectPensionAll();
+
+	public ArrayList<FAQVO> selectFAQ();
 }
