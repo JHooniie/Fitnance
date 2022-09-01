@@ -55,12 +55,12 @@
 .select-box .select-option{
     border: 1px solid #DDDDDD;
     display: inline-block;
-    border-radius: 5px;
     height: 42px;
+    border-radius: 5px;
     font-size: 14px;
     text-align: center;
     margin-top:10px;
-    margin-right:5px;
+    margin-right: 5px;
     line-height: 42px;
     cursor: pointer;
 }
@@ -70,19 +70,19 @@
     
 }
 
-.select-box .select-option1:nth-child(3),
-.select-box .select-option1:nth-child(6){ 
+.select-box .select-option1:nth-child(2n-1){ 
     margin-right: 0;
-}{ 
-    margin-right: 0;
+    
 }
 
 .select-box .select-option2{
     width:60.3px;
+
 }
 
-.select-box .select-option2:nth-child(11){
+.select-box .select-option2:nth-child(4){
     margin-right: 0;
+
 }
 
 .select-box .select-option3{
@@ -91,8 +91,8 @@
 }
 
 .select-box .select-option:hover{
-    background-color: #1F4DFF;
-    color:#FFFFFF;
+    border:1px solid #1F4DFF;
+    color:#1F4DFF;
 }
 
 .select-box .filter-reset{
@@ -368,4 +368,55 @@
     background-color: #1F4DFF;
     border-radius: 5px;
     color:#FFFFFF;
+}
+
+.select-option-clicked{
+    border:1px solid #1F4DFF;
+    color: #ffffff;
+    background-color: #1f4dff;
+    display: inline-block;
+    height: 42px;
+    border-radius: 5px;
+    font-size: 14px;
+    text-align: center;
+    margin-top:10px;
+    margin-right: 5px;
+    line-height: 42px;
+    cursor: pointer;
+}
+
+.plus-icon1-clicked{
+    display: inline-block;
+    width:52px;
+    height:52px;
+    border-radius: 5px;
+    border:1px solid #1F4DFF;
+    text-align: center;
+    line-height: 52px;
+    cursor: pointer;
+    margin-left:16px;
+    background-color: #1F4DFF;
+}
+
+.plus-icon1-clicked i {
+    color:#FFFFFF;
+    font-size: 20px;
+}
+
+.plus-icon2-clicked{
+    display: inline-block;
+    width:52px;
+    height:52px;
+    border-radius: 5px;
+    border:1px solid #1F4DFF;
+    text-align: center;
+    line-height: 52px;
+    cursor: pointer;
+    margin-left:16px;
+    background-color: #1F4DFF;
+}
+
+.plus-icon2-clicked i {
+    color:#FFFFFF;
+    font-size: 20px;
 }

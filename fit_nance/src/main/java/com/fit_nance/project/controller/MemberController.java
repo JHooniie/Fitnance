@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.fit_nance.project.config.auth.PrincipalDetails;
+import com.fit_nance.project.model.BankVO;
 import com.fit_nance.project.model.MemberVO;
 import com.fit_nance.project.service.MemberService;
 
@@ -36,8 +37,9 @@ public class MemberController {
 	
 	//회원가입 폼 이동
 	@RequestMapping("/signupForm")
-	public String signupForm() {
-
+	public String signupForm(Model model) {
+		ArrayList<BankVO> bankList = memService.listAllBank();
+		model.addAttribute("bankList", bankList);
 		
 		return "member/signup";
 	}
@@ -143,7 +145,7 @@ public class MemberController {
 		
 		System.out.println("authentication : " + principalDetails.getProvider());
 		System.out.println("authentication : " + principalDetails.getMemBirth());
-		System.out.println("authentication : " + principalDetails.toString());
+		System.out.println("authentication : " + principalDetails.getAttributes());
 		System.out.println("UserDetails : " + userDetails);
 		return "세션 정보 확인";
 	}

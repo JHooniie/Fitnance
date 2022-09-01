@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.fit_nance.project.model.CharterLoanListVO;
+import com.fit_nance.project.model.DepositFilterVO;
 import com.fit_nance.project.model.DepositListVO;
 import com.fit_nance.project.model.HomeLoanFilterVO;
 import com.fit_nance.project.model.HomeLoanListVO;
@@ -299,7 +300,59 @@ public class HomeController {
 		return "product2/saving_result";
 	}*/
 	
+	@RequestMapping("/filter_deposit")
+	public String filter_deposit(
+								@RequestParam(value="join_member") ArrayList<String> join_member2,
+								@RequestParam(value="join_way") ArrayList<String> join_way2,
+								@RequestParam(value="save_trm") ArrayList<String> save_trm2
+								,Model model)
+	{	
+		DepositFilterVO vo= new DepositFilterVO();
+		
+		ArrayList<String> join_member=new ArrayList<String>();
+		ArrayList<String> join_way=new ArrayList<String>();
+		ArrayList<String> save_trm=new ArrayList<String>();
+		
 	
+		
+		for(int i=1; i<join_member2.size();i++) {
+			join_member.add(join_member2.get(i));
+		}
+		if(join_member!=null) vo.setJoin_member(join_member);
+		for(int i=1; i<join_way2.size();i++) {
+			join_way.add(join_way2.get(i));
+		}
+		if(join_way!=null) vo.setJoin_way(join_way);
+		for(int i=1; i<save_trm2.size();i++) {
+			save_trm.add(save_trm2.get(i));
+		}
+		if(save_trm!=null)vo.setSave_trm(save_trm);
+		/*for(String a : rsrv_type_nm) {
+			System.out.print(a+",");
+		}
+		
+		System.out.println();
+		for(String a : join_member) {
+			System.out.print(a+",");
+		}
+		System.out.println();
+		for(String a : join_way) {
+			System.out.print(a+",");
+		}
+		System.out.println();
+		for(String a : save_trm) {
+			System.out.print(a+",");
+		}*/
+		
+		ArrayList<DepositListVO> dpList= pService.selectDepositFilter(vo);
+		/*for(int i =0;i<insList.size();i++){
+				System.out.println(insList.get(i));
+		}
+		System.out.println(insList.size());*/
+		model.addAttribute("dpList", dpList);
+		
+		return "product2/deposit_result";
+	}
 	
 	
 	@RequestMapping("/deposit_detail")
