@@ -1,5 +1,6 @@
 package com.fit_nance.project.service;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +11,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.fit_nance.project.dao.IMemberDAO;
+import com.fit_nance.project.model.BankVO;
 import com.fit_nance.project.model.MemberVO;
 
 @Service
@@ -68,6 +70,11 @@ public class MemberService implements IMemberService {
 	public MemberVO detailViewMemInfo(String memId) {
 
 		return dao.detailViewMemInfo(memId);
+	}
+
+	@Override
+	public ArrayList<BankVO> listAllBank() {
+		return dao.listAllBank();
 	}
 
 }

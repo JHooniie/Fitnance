@@ -3,6 +3,7 @@ package com.fit_nance.project.service;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import com.fit_nance.project.model.BankVO;
 import com.fit_nance.project.model.MemberVO;
 
 public interface IMemberService {
@@ -16,4 +17,7 @@ public interface IMemberService {
 	
 	// 회원정보 상세 보기
 	public MemberVO detailViewMemInfo(String memId);
+	
+	// 회원가입 시 은행 정보 가져오기
+	public ArrayList<BankVO> listAllBank();
 }
