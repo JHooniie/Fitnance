@@ -11,6 +11,7 @@ public class HomeLoanListVO {
 	private String mrtg_type_nm;
 	private String rpay_type_nm;
 	private String lend_rate_type_nm;
+	private double lend_rate_min;
 	
 	public String getMrtg_type_nm() {
 		return mrtg_type_nm;
@@ -30,7 +31,6 @@ public class HomeLoanListVO {
 	public void setLend_rate_type_nm(String lend_rate_type_nm) {
 		this.lend_rate_type_nm = lend_rate_type_nm;
 	}
-	private double lend_rate_min;
 	public String getpIndex() {
 		return pIndex;
 	}

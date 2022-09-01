@@ -1,5 +1,5 @@
  /**
- * list_mortgage_loan.js
+ * list_credit_loan.js
  */
  
  $(document).ready(function(){

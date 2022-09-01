@@ -8,7 +8,21 @@ public class CharterLoanListVO {
 	private String fin_prdt_nm;
 	private String join_way;
 	private String loan_lmt;
+	private String rpay_type_nm;
+	private String lend_rate_type_nm;
 	private double lend_rate_min;
+	public String getLend_rate_type_nm() {
+		return lend_rate_type_nm;
+	}
+	public void setLend_rate_type_nm(String lend_rate_type_nm) {
+		this.lend_rate_type_nm = lend_rate_type_nm;
+	}
+	public String getRpay_type_nm() {
+		return rpay_type_nm;
+	}
+	public void setRpay_type_nm(String rpay_type_nm) {
+		this.rpay_type_nm = rpay_type_nm;
+	}
 	public String getpIndex() {
 		return pIndex;
 	}
