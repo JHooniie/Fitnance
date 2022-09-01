@@ -52,4 +52,29 @@
 		WHERE b.fin_prdt_cd=o.fin_prdt_cd
 		GROUP BY b.fin_prdt_cd;
 	</select>
+	
+	<select id="selectPensionFilter" resultMap="resultPensionList">
+		SELECT b.pIndex, b.fin_co_no, b.kor_co_nm, b.fin_prdt_cd, b.fin_prdt_nm,b.join_way,b.pnsn_kind,b.pnsn_kind_nm,b.sale_strt_day,b.mntn_cnt,b.prdt_type,b.prdt_type_nm,b.avg_prft_rate,b.dcls_rate,b.guar_rate,b.btrm_prft_rate_1,b.btrm_prft_rate_2,b.btrm_prft_rate_3,b.etc,b.sale_co,o.oIndex,o.pnsn_recp_trm,o.pnsn_recp_trm_nm,o.pnsn_entr_age,o.pnsn_entr_age_nm,o.mon_paym_atm,o.mon_paym_atm_nm,o.paym_prd,o.paym_prd_nm,o.pnsn_strt_age,o.pnsn_strt_age_nm,o.pnsn_recp_amt
+		FROM pension_base b , pension_option o
+		WHERE b.fin_prdt_cd=o.fin_prdt_cd
+		<if test="pnsn_recp_trm_nm.size()!=0"> 
+		AND o.pnsn_recp_trm_nm IN 
+		<foreach collection="pnsn_recp_trm_nm" item="pnsn_recp_trm_nm" open="(" close=")" separator=",">
+			#{pnsn_recp_trm_nm}
+		</foreach>
+		</if>
+		<if test="mon_paym_atm_nm.size()!=0"> 
+		AND o.mon_paym_atm_nm IN 
+		<foreach collection="mon_paym_atm_nm" item="mon_paym_atm_nm" open="(" close=")" separator=",">
+			#{mon_paym_atm_nm}
+		</foreach>
+		</if>
+		<if test="pnsn_strt_age_nm.size()!=0"> 
+		AND o.pnsn_strt_age_nm IN 
+		<foreach collection="pnsn_strt_age_nm" item="pnsn_strt_age_nm" open="(" close=")" separator=",">
+			#{pnsn_strt_age_nm}
+		</foreach>
+		</if>
+		GROUP BY b.fin_prdt_cd;
+	</select>
 </mapper>

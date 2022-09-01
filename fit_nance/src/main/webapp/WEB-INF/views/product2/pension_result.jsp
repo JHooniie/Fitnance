@@ -6,61 +6,14 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<!-- head -->
 		<c:import url="/WEB-INF/views/layout/head.jsp" />
 		<!-- css -->
 		<link rel="stylesheet" href="<c:url value='/css/pension.css'/>"/>
-		<!-- js -->
-		<script src="<c:url value='/js/pension.js' />"></script>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
 	</head>
 	<body>
-		<!-- top.jsp -->
-		<c:import url="/WEB-INF/views/layout/top.jsp" />
-		
-		<div class="middle">
-        <div class="back">
-            </div>
-        <div class="wrap">
-        <div class="m">
-            <div class="middle-text">
-                <ul>
-                    <li>연금<br>
-                    관련 문구</li>
-                    <li class="middle-sub-text">연금 관련 문구 연금 관련 문구</li>
-                </ul>
-            </div>
-            <div class="middle-image">
-                <img src="image/img_pension.png">
-            </div>
-        </div>
-        <div class="middel-bottom">
-            <div>
-                <div class="product-compare-box">상품 비교하기</div>   
-                <div class="select-box">
-	                <div class="what-select" value="pnsn_recp_trm_nm">
-	                    <div class="select-title">연금수령기간</div>
-	                    <div class="select-option select-option1" value="10년 확정">10년 확정</div>
-	                    <div class="select-option select-option1" value="20년 확정">20년 확정</div>
-					</div>
-					
-					<div class="what-select" value="mon_paym_atm_nm">
-	                    <div class="select-title">월 납입액</div>
-	                    <div class="select-option select-option1" value="100,000원">10만원</div>
-	                    <div class="select-option select-option1" value="200,000원">20만원</div>
-	                    <div class="select-option select-option1" value="300,000원">30만원</div>
-					</div>
-					
-					<div class="what-select" value="pnsn_strt_age_nm">
-	                    <div class="select-title">연금개시연령</div>
-	                    <div class="select-option select-option1" value="60세">60세</div>
-	                    <div class="select-option select-option1" value="65세">65세</div>
-					</div>
-				
-                    <div class="filter-reset"><i class="fa-solid fa-arrow-rotate-right"></i>  필터 초기화</div>
-                    
-                </div>
-            </div>
-            <div class="result-box">
+		<div class="result-box">
                 <div class="search-line">
                     <div class="box">검색 결과 ${fn:length(psList) }개</div>
                     <div class="search-box"><input type="text" id="tourName" name="tourName" placeholder="키워드 검색"><i class="fa-solid fa-magnifying-glass"></i></div>
@@ -112,12 +65,5 @@
                     </div>
                 </div>
             </div>
-            <div id="result-box-filter"></div>
-        </div>
-        </div>
-    </div>
-		
-		<!-- bottom.jsp -->
-		<c:import url="/WEB-INF/views/layout/footer.jsp" />
 	</body>
 </html>
