@@ -32,7 +32,7 @@ public class PensionListVO {
 	public String paym_prd_nm;
 	public String pnsn_strt_age;
 	public String pnsn_strt_age_nm;
-	public double pnsn_recp_amt;
+	public int pnsn_recp_amt;
 	public int getpIndex() {
 		return pIndex;
 	}
@@ -219,10 +219,10 @@ public class PensionListVO {
 	public void setPnsn_strt_age_nm(String pnsn_strt_age_nm) {
 		this.pnsn_strt_age_nm = pnsn_strt_age_nm;
 	}
-	public double getPnsn_recp_amt() {
+	public int getPnsn_recp_amt() {
 		return pnsn_recp_amt;
 	}
-	public void setPnsn_recp_amt(double pnsn_recp_amt) {
+	public void setPnsn_recp_amt(int pnsn_recp_amt) {
 		this.pnsn_recp_amt = pnsn_recp_amt;
 	}
 	

@@ -419,12 +419,14 @@
     color: #ffffff;
     background-color: #1f4dff;
     display: inline-block;
+    height: 42px;
     border-radius: 5px;
-    padding:10px;
-    font-size: 12px;
+    font-size: 14px;
     text-align: center;
     margin-top:10px;
-    margin-right:3px;
+    margin-right: 5px;
+    line-height: 42px;
+    cursor: pointer;
 }
 
 .plus-icon1-clicked{
