@@ -1,5 +1,5 @@
  /**
- * list_mortgage_loan.js
+ * list_house_loan.js
  */
  
  $(document).ready(function(){
@@ -24,6 +24,3 @@
 	})
     
 });  
-   
-
- 

@@ -8,9 +8,11 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import com.fit_nance.project.dao.ILoanListDAO;
+import com.fit_nance.project.model.CharterLoanFilterVO;
 import com.fit_nance.project.model.CharterLoanListVO;
 import com.fit_nance.project.model.HomeLoanFilterVO;
 import com.fit_nance.project.model.HomeLoanListVO;
+import com.fit_nance.project.model.PersonalLoanFilterVO;
 import com.fit_nance.project.model.PersonalLoanListVO;
 
 @Service
@@ -20,6 +22,7 @@ public class LoanListService implements ILoanListService{
 	@Qualifier("ILoanListDAO")
 	ILoanListDAO dao; 
 	
+	// mortgage_loan
 	@Override
 	public ArrayList<HomeLoanListVO> selectHomeLoanList() {
 		return dao.selectHomeLoanList();
@@ -40,14 +43,43 @@ public class LoanListService implements ILoanListService{
 		return dao.selectHomeLoanFilter(map);
 	}
 	
+	// house_loan
 	@Override
 	public ArrayList<CharterLoanListVO> selectCharterLoanList() {
 		return dao.selectCharterLoanList();
 	}
 
 	@Override
+	public CharterLoanListVO selectCharterLoanDetail(String fin_prdt_cd) {
+		return dao.selectCharterLoanDetail(fin_prdt_cd);
+	}
+
+	@Override
+	public ArrayList<CharterLoanFilterVO> selectCharterLoanFilter(CharterLoanFilterVO vo) {
+		HashMap<String,Object> map= new HashMap<String,Object>();
+		map.put("list_join_way",vo.getList_join_way());
+		map.put("list_rpay_type", vo.getList_rpay_type());
+		map.put("list_lend_type", vo.getList_lend_type());
+		return dao.selectCharterLoanFilter(map);
+	}
+	
+	// credit_loan
+	@Override
 	public ArrayList<PersonalLoanListVO> selectPersonalLoanList() {
 		return dao.selectPersonalLoanList();
+	}
+
+	@Override
+	public PersonalLoanListVO selectPersonalLoanDetail(String fin_prdt_cd) {
+		return dao.selectPersonalLoanDetail(fin_prdt_cd);
+	}
+
+	@Override
+	public ArrayList<PersonalLoanFilterVO> selectPersonalLoanFilter(PersonalLoanFilterVO vo) {
+		HashMap<String,Object> map= new HashMap<String,Object>();
+		map.put("list_join_way",vo.getList_join_way());
+		map.put("list_lend_type", vo.getList_lend_type());
+		return dao.selectPersonalLoanFilter(map);
 	}
 
 	
