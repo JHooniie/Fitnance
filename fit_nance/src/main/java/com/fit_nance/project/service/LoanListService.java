@@ -18,7 +18,7 @@ public class LoanListService implements ILoanListService{
 
 	@Autowired
 	@Qualifier("ILoanListDAO")
-	ILoanListDAO dao;
+	ILoanListDAO dao; 
 	
 	@Override
 	public ArrayList<HomeLoanListVO> selectHomeLoanList() {

@@ -5,7 +5,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <!DOCTYPE html>
 <html>
-	<head>
+	<head> 
 		<!-- head -->
 		<c:import url="/WEB-INF/views/layout/head.jsp" />
 		<!-- css -->

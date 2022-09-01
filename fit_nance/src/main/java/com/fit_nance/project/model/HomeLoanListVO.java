@@ -1,6 +1,6 @@
 package com.fit_nance.project.model;
 
-public class HomeLoanListVO {
+public class HomeLoanListVO { 
 	private String pIndex;
 	private String fin_co_no;
 	private String kor_co_nm;
