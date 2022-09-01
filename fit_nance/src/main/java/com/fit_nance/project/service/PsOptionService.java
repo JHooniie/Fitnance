@@ -72,7 +72,7 @@ public class PsOptionService {
 				vo.setPaym_prd_nm(String.valueOf(depoObj.get("paym_prd_nm")));
 				vo.setPnsn_strt_age(String.valueOf(depoObj.get("pnsn_strt_age")));
 				vo.setPnsn_strt_age_nm(String.valueOf(depoObj.get("pnsn_strt_age_nm")));
-				vo.setPnsn_recp_amt(Double.parseDouble(String.valueOf(depoObj.optString("pnsn_recp_amt","0.0"))));
+				vo.setPnsn_recp_amt(Integer.parseInt(String.valueOf(depoObj.optString("pnsn_recp_amt","0"))));
 		
 				//System.out.println(vo.getEtc_note());
 				depoOptionList.add(vo);

@@ -8,6 +8,10 @@
     background-color: #f2f2f2;
     
 }
+.image-box>img{
+    width:80px;
+}
+
 
 .middle{
     margin-top:130.5px;
