@@ -46,7 +46,7 @@ button .btn-span{
     color: #fff;
 }
 
-/* 이메일 입력 */
+/* ì´ë©”ì¼ ìž…ë ¥ */
 .box-signup-Email{
     position:relative;
     width:100%;
@@ -198,7 +198,7 @@ button .btn-span{
     color:#de3838;
 }
 
-/* 비밀번호 입력 */
+/* ë¹„ë°€ë²ˆí˜¸ ìž…ë ¥ */
 .box-signup-password{
     position:relative;
     width:100%;
@@ -420,7 +420,7 @@ button .btn-span{
 }
 
 
-/* 기본 정보 입력 */
+/* ê¸°ë³¸ ì •ë³´ ìž…ë ¥ */
 .box-signup-information{
     position:relative;
     width:100%;
@@ -558,7 +558,7 @@ input[type=checkbox]{
     color: #222;
 }
 
-/* 추가 정보 입력 */
+/* ì¶”ê°€ ì •ë³´ ìž…ë ¥ */
 .box-signup-more-information{
     position:relative;
     width:100%;
@@ -644,7 +644,7 @@ input[type=checkbox]{
 }
 
 
-/* 은행 선택 모달 */
+/* ì€í–‰ ì„ íƒ ëª¨ë‹¬ */
 .modal-overlay {
     position: absolute;
     display:
@@ -662,7 +662,7 @@ input[type=checkbox]{
 .modal-window {
     position: fixed;
     width: 480px;
-    height: 699px;
+    height: 635px;
     top: 50%;
     left: 50%;
     margin-left: -240px;
@@ -715,9 +715,9 @@ input[type=checkbox]{
 
 .figure-bank {
     display: inline-block;
-    width:46px;
+    width: 62px;
     height: 100%;
-    margin: 30px 27px 0 27px;
+    margin: 30px 19px 0;
     text-align: center;
     cursor: pointer;
 }
@@ -738,8 +738,10 @@ input[type=checkbox]{
 .figure-bank-img{
     width: 46px;
     height: 46px;
+    margin: 0 auto;
+    margin-bottom: 10px;
     border-radius: 10px;
-    background-color: #eee;
+    background-color: #fff;
 }
 .figure-bank img {
     width: 46px;
@@ -754,7 +756,7 @@ input[type=checkbox]{
     color: #222;
 }
 
-/* 진행 그래프 */
+/* ì§„í–‰ ê·¸ëž˜í”„ */
 
 .process_graph{
     position: absolute;

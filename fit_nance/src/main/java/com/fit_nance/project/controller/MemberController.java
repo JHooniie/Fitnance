@@ -1,5 +1,7 @@
 package com.fit_nance.project.controller;
 
+import java.util.ArrayList;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -14,7 +16,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.fit_nance.project.config.auth.PrincipalDetails;
 import com.fit_nance.project.model.MemberVO;
-import com.fit_nance.project.model.NoticeVO;
 import com.fit_nance.project.service.MemberService;
 
 @Controller
@@ -23,6 +24,7 @@ public class MemberController {
 	@Autowired
 	MemberService memService;
 	
+
 	@Autowired 
     private PasswordEncoder encoder;
 	
@@ -88,6 +90,8 @@ public class MemberController {
 	
 	@RequestMapping("/signupForm")
 	public String signupForm() {
+
+		
 		return "member/signup";
 	}
 	

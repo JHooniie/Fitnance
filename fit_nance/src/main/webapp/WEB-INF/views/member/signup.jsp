@@ -120,20 +120,16 @@
                     <div class="modal-bank-close"><i class="fa-solid fa-x"></i></div>
                 </div>
                 <div class="modal-bank-content">
-                    <c:forEach begin="0" end="30" step="1" varStatus="status">
+                   <%--  <c:forEach items="${bankList }" var="bank"> --%>
                     <figure class="figure-bank">
-                        <div class="figure-bank-img"></div>
-                        <input type="hidden" value="대구은행">
-                    <figcaption class="caption-bank">대구</figcaption>
+                        <div class="figure-bank-img">
+                        <img src="<c:url value='/image/bank/0010001.png'/>">
+                        </div>
+                        <input type="hidden" value="우리">
+                    <figcaption class="caption-bank">우리</figcaption>
                     </figure>
-                    <figure class="figure-bank">
-                        <div class="figure-bank-img"></div>
-                    <figcaption class="caption-bank">
-                        <input type="hidden" value="광주은행">
-                        광주
-                    </figcaption>
-                    </figure>
-                    </c:forEach>
+ 
+                 <%--    </c:forEach> --%>
                 </div>
             </div>
         </div>

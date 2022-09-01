@@ -22,4 +22,6 @@ public interface IMemberDAO {
 	public void updateMemInfo(MemberVO vo);
 	// 회원정보 상세 보기
 	public MemberVO detailViewMemInfo(String memId);
+	
+	
 }
