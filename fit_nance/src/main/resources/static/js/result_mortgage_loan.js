@@ -1,7 +1,3 @@
-/**
- * 
- */
- 
  /**
  * list_mortgage_loan.js
  */
@@ -25,13 +21,6 @@
 	$('.btn_prdt_info').click(function(){
 		$('.input_prdt_cd').val($(this).find('.prdt_cd').text());
 		var input_prdt_cd = $('.input_prdt_cd').val();
-		//alert(input_prdt_cd);
-		/*$.ajax({
-			method: 'POST',
-			url: 'view_prdt_detail',
-			data: input_prdt_cd,
-			success: function(input_prdt_cd){}
-		});*/
 	});
     
 });  
