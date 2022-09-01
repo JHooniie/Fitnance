@@ -3,8 +3,8 @@ package com.fit_nance.project.dao;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import com.fit_nance.project.model.BankVO;
 import com.fit_nance.project.model.MemberVO;
-import com.fit_nance.project.model.NoticeVO;
 
 public interface IMemberDAO {
 	
@@ -22,6 +22,7 @@ public interface IMemberDAO {
 	public void updateMemInfo(MemberVO vo);
 	// 회원정보 상세 보기
 	public MemberVO detailViewMemInfo(String memId);
-	
+	// 회원가입 시 은행 정보 가져오기
+	public ArrayList<BankVO> listAllBank();
 	
 }
