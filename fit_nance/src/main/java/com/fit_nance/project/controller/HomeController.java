@@ -1,18 +1,17 @@
 package com.fit_nance.project.controller;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.fit_nance.project.model.CharterLoanListVO;
 import com.fit_nance.project.model.DepositFilterVO;
 import com.fit_nance.project.model.DepositListVO;
+import com.fit_nance.project.model.FAQVO;
 import com.fit_nance.project.model.HomeLoanFilterVO;
 import com.fit_nance.project.model.HomeLoanListVO;
 import com.fit_nance.project.model.InstallListVO;
@@ -168,7 +167,9 @@ public class HomeController {
 	
 	
 	@RequestMapping("/faq")
-	public String faq() {
+	public String faq(Model model) {
+		ArrayList<FAQVO> FAQList = pService.selectFAQ();
+		model.addAttribute("FAQList", FAQList);
 		return "product2/faq";
 	}
 	
