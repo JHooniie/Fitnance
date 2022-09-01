@@ -24,75 +24,30 @@ public class MemberController {
 	@Autowired
 	MemberService memService;
 	
-
 	@Autowired 
     private PasswordEncoder encoder;
+	
 	
 	@RequestMapping("/loginForm")
 	public String loginForm() {
 		return "member/login";
 	}
 	
-
 	
-//	@ResponseBody
-//	@RequestMapping("/login")
-//	public String loginCheck(@RequestParam HashMap<String, Object> param, HttpSession session) {
-//		// 로그인 체크 결과 : 아이디와 비밀번호 전달하고 로그인 성공하면 아이디 반환
-//		String memId = memService.loginCheck(param);
-//		String result = "fail";
-//		// 아이디와 비밀번호 일치하면
-//		if(memId != null) {
-//			// 로그인 성공하면 세션 변수 지정
-//			session.setAttribute("sid", memId);
-//			result = "success";
-//		}
-//		
-//		return result;
-//	}
-	
-	// 로그아웃
-//	@RequestMapping("/logout")
-//	public String userLogout(HttpSession session) {
-//		session.invalidate();
-//		return "redirect:/";
-//	}
-	
-	@RequestMapping("/signup")
-	public String signup(MemberVO vo) {
-		memService.insertMember(vo);
-		
-		return "redirect:/loginForm";
-	}
-	
-	@ResponseBody
-	@RequestMapping("/user")
-	public String user(@AuthenticationPrincipal PrincipalDetails principalDetails) {
-		System.out.println("principalDetails-user : " + principalDetails.getAttributes());
-		return "user";
-	}
-	
-	@ResponseBody
-	@RequestMapping("/test/login")
-	public String testLogin(
-			Authentication authentication,
-			@AuthenticationPrincipal UserDetails userDetails,
-			MemberVO vo) {
-		PrincipalDetails principalDetails = (PrincipalDetails)authentication.getPrincipal();
-
-		
-		System.out.println("authentication : " + principalDetails.getProvider());
-		System.out.println("authentication : " + principalDetails.getMemBirth());
-		System.out.println("authentication : " + principalDetails.toString());
-		System.out.println("UserDetails : " + userDetails);
-		return "세션 정보 확인";
-	}
-	
+	//회원가입 폼 이동
 	@RequestMapping("/signupForm")
 	public String signupForm() {
 
 		
 		return "member/signup";
+	}
+	
+	//회원가입
+	@RequestMapping("/signup")
+	public String signup(MemberVO vo) {
+		memService.insertMember(vo);
+		
+		return "redirect:/loginForm";
 	}
 	
 	@RequestMapping("/mypage")
@@ -102,16 +57,13 @@ public class MemberController {
 		return "member/myPage";
 	}
 	
-	// 회원정보 수정 폼 열기 요청 처리
-//	@RequestMapping("/update-mypage")
-//	public String update_mypageForm() {
-//		return "member/update_mypage";
-//	}
+	// 회원정보 수정 폼 열기 비밀번호 재인증 폼 이동
+	@RequestMapping("/user/passwordCheckForm")
+	public String passwordCheckForm() {
+		return "member/update_mypage_auth";
+	}
 	
-	// 회원정보 수정 폼 열기 요청 처리
-	
-
-	
+	//회원정보 수정 폼 열기 비밀번호 재인증
 	 @RequestMapping("/user/pre_update_mypage")
 	public String update_mypageForm(Authentication auth, @RequestParam("memPwd") String pwd, RedirectAttributes rtt) {
 		System.out.println(pwd);
@@ -161,46 +113,38 @@ public class MemberController {
 		return "redirect:./update_mypage";
 	}
 	
-//	@RequestMapping("/mypage/{memId}")
-//	public String mypageForm(@PathVariable String memId, Model model) {
-//		MemberVO mem = memService.myInfo(memId);
-//		
-//		// 모델 설정
-//		model.addAttribute("mem", mem);
-//		return "member/myPage";
-//	}
-	
-	@RequestMapping("/user/passwordCheckForm")
-	public String passwordCheckForm() {
-		return "member/update_mypage_auth";
-	}
-	
-//	@ResponseBody
-//	@RequestMapping("/passwordCheck")
-//	public String passwordCheck(MemberVO vo, HttpSession session) {
-//
-//		String memId = (String)session.getAttribute("sid");
-//
-//		vo.setMemId(memId);
-//		
-//		
-//		String result = memService.passwordCheck(memId);
-//		String memPwd = MemberVO
-//		// 아이디와 비밀번호 일치하면
-//		if(memPwd != null) {
-//			// 로그인 성공하면 세션 변수 지정
-//			result = "success";
-//		}
-//		
-//		return result;
-//	}
-//	
 
-	
 	@RequestMapping("/update-password")
 	public String update_passwordForm() {
 		return "member/update_mypage_password";
 	}
 	
 	
+	
+	
+	
+	
+	//스프링 시큐리티 세션 정보 확인
+	@ResponseBody
+	@RequestMapping("/user")
+	public String user(@AuthenticationPrincipal PrincipalDetails principalDetails) {
+		System.out.println("principalDetails-user : " + principalDetails);
+		return "user";
+	}
+	
+	@ResponseBody
+	@RequestMapping("/test/login")
+	public String testLogin(
+			Authentication authentication,
+			@AuthenticationPrincipal UserDetails userDetails,
+			MemberVO vo) {
+		PrincipalDetails principalDetails = (PrincipalDetails)authentication.getPrincipal();
+
+		
+		System.out.println("authentication : " + principalDetails.getProvider());
+		System.out.println("authentication : " + principalDetails.getMemBirth());
+		System.out.println("authentication : " + principalDetails.toString());
+		System.out.println("UserDetails : " + userDetails);
+		return "세션 정보 확인";
+	}
 }
