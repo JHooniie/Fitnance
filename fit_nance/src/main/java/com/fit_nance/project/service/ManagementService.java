@@ -1,6 +1,7 @@
 package com.fit_nance.project.service;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -23,8 +24,8 @@ public class ManagementService implements IManagementService {
 		
 
 	@Override
-	public void updateMemberRole(String memRole) {
-		dao.updateMemberRole(memRole);
+	public void updateMemberRole(HashMap<String, Object> map) {
+		dao.updateMemberRole(map);
 		
 	}
 

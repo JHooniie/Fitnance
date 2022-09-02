@@ -7,7 +7,7 @@
 		<c:import url="/WEB-INF/views/admin/layout/admin_head.jsp" />
 		<!--  -->
 		<link rel="stylesheet" href="<c:url value='/css/admin/admin_notice_form.css'/>">
-		<script src="<c:url value='/js/admin/admin_notice_form.js'/>"></script>
+		<script src="<c:url value='/js/admin/admin_management_form.js'/>"></script>
 	</head>
 	<body id="page-top">
 		<!-- Page Wrapper -->

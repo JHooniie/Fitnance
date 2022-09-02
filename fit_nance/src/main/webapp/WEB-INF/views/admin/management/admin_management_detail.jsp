@@ -7,7 +7,7 @@
 		<c:import url="/WEB-INF/views/admin/layout/admin_head.jsp" />
 		<!--  -->
 		<link rel="stylesheet" href="<c:url value='/css/admin/admin_notice_form.css'/>">
-		<script src="<c:url value='/js/admin/admin_notice_form.js'/>"></script>
+		<script src="<c:url value='/js/admin/admin_management_form.js'/>"></script>
 	</head>
 	<body id="page-top">
 		<!-- Page Wrapper -->
@@ -36,11 +36,12 @@
                                         <tr>
                                             <th class="align-middle" width="10%">아이디</th>
                                             <td>${mem.memId}
+                                            <input type="hidden" id="memId" name="memId" value="${mem.memId}">
                                             </td>
                                         </tr>
                                         <tr>
                                             <th class="align-middle">권한</th>
-                                            <td><input type="text" name="memRole" value="${mem.memRole}">
+                                            <td><input type="text" id="memRole" name="memRole" value="${mem.memRole}">
                                             <button type="button" id="updateRoleBtn" class="btn btn-primary">변경</button>
                                             </td>
                                         </tr>
@@ -51,7 +52,7 @@
                                         </tr>
                                     </table>
                                     <div class="box-btn">
-                                        <a href="<c:url value='/admin/updateNotice/${notice.noticeIndex}'/>" class="btn btn-outline-secondary">수정하기</a>
+                                        <a href="<c:url value='/admin/management'/>" class="btn btn-outline-secondary">목록으로</a>
                                     </div>
 	                            </div>
 	                        </div>

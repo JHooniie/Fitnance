@@ -1,6 +1,7 @@
 package com.fit_nance.project.controller;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -8,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.fit_nance.project.model.MemberVO;
 import com.fit_nance.project.service.ManagementService;
@@ -18,7 +20,7 @@ public class ManagementController {
 	@Autowired
 	ManagementService mService;
 	
-	// 공지사항 전체 리스트 조회
+	// 회원정보 전체 리스트 조회
 	@RequestMapping("/admin/management")
 	public String viewManegement(Model model) {
 		ArrayList<MemberVO> memList = mService.listAllMember();
@@ -55,12 +57,21 @@ public class ManagementController {
 	}
 	
 	// 회원 권한 수정
+	@ResponseBody
 	@RequestMapping("/admin/updateMemberRole")
-	public String updateMemberRole(@RequestParam("memRole") String memRole ) {
-		mService.updateMemberRole(memRole);
+	public String updateMemberRole(@RequestParam HashMap<String, Object> param ) {
+		mService.updateMemberRole(param);
+		String result = "fail";
+		System.out.println(param.get("memRole"));
 		
+		if(param.get("memRole") == "ROLE_USER") {
+			result = "success";
+		}
+		else if(param.get("memRole") == "ROLE_ADMIN") {
+			result = "success";
+		}
 		// DB에 데이터 저장한 후 회원 관리 목록 화면으로 포워딩
-		return "redirect:./management";
+		return result;
 	}
 //	
 //	// 공지사항 삭제

@@ -1,6 +1,7 @@
 package com.fit_nance.project.dao;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import com.fit_nance.project.model.MemberVO;
 
@@ -9,7 +10,7 @@ public interface IManagementDAO {
 	public ArrayList<MemberVO> listAllMember();
 	
 	// 회원 권한 수정
-	public void updateMemberRole(String memRole);
+	public void updateMemberRole(HashMap<String, Object> param);
 	
 	// 회원 삭제
 	public void deleteMember(String memId);

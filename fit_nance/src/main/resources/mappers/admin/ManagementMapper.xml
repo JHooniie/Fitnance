@@ -24,9 +24,10 @@
 	</select>
 	
 	<!-- 회원 권한 수정 -->
-	<update id="updateMemberRole" parameterType="string">
+	<update id="updateMemberRole" parameterType="hashmap">
 		UPDATE member
 		SET memRole=#{memRole}
+		WHERE memId = #{memId}
 	</update>
   
   	<!-- 회원정보 상세 보기 -->
