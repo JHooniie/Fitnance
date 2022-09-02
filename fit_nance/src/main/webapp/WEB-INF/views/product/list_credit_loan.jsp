@@ -81,7 +81,7 @@
 	                <div class="div_list_prdt">
 	                    <div class="prdt_result_search prdt">
 	                    <form id="form_prdt" method="post" action="<c:url value='/view_credit_detail'/>">
-	                    	<input  id="input_prdt_cd" name="input_prdt_cd" class="input_prdt_cd" type="text">
+	                    	<input type="hidden" id="input_prdt_cd" name="input_prdt_cd" class="input_prdt_cd" type="text">
 	                        <!-- 검색 결과 상품 - 시작 -->
 	                        <c:forEach items="${list_credit_loan }" var="list" varStatus="status">
 	                        <div class="div_prdt">
@@ -135,7 +135,7 @@
 	                                </div>
 	                                <button class="btn_prdt_info">
 	                                    자세히 보기
-	                                    <span  id="prdt_cd" class="prdt_cd">${list.fin_prdt_cd }</span>
+	                                    <span style="display:none" id="prdt_cd" class="prdt_cd">${list.fin_prdt_cd }</span>
 	                                </button>
 	                            </div>
 	                        </div>
