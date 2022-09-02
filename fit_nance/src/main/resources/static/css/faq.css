@@ -91,26 +91,54 @@
     letter-spacing: -0.48px;
     text-align: left;
     color: #222;
+    display:none;
 }
 
 
-.middle-bottom .more{
-    font-size: 18px;
+.middle-bottom .more,
+.middle-bottom .more-down{
+	font-size: 18px;
     line-height: 1.67;
     letter-spacing: -0.54px;
     text-align: center;
     color: #666;
     display: inline-block;
     padding-top: 30px;
+    
 }
 
-.middle-bottom .more i{
+.middle-bottom .more-up{
+	font-size: 18px;
+    line-height: 1.67;
+    letter-spacing: -0.54px;
+    text-align: center;
+    color: #666;
+    display: none;
+    padding-top: 30px;
+}
+
+.middle-bottom .more i,
+.middle-bottom .more-down i,
+.middle-bottom .more-up i{
     color : #aaa;
     padding-left: 11px;
+    cursor: pointer;
 }
 
 input{
     outline:none;
 }
 
+.icon:hover{
+	cursor: pointer;
+}
+
+.icon:hover i{
+	cursor: pointer;
+}
+
 input::placeholder { color : #AAA }
+
+.more-items{
+	display:none;
+}
