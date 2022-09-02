@@ -26,7 +26,7 @@
     </div>
     <!-- 회원관리 메뉴 -->
     <div id="navMember" class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+        <a class="nav-link collapsed" href="<c:url value='/admin/management'/>" data-toggle="collapse" data-target="#collapseTwo"
             aria-expanded="true" aria-controls="collapseTwo">
             <i class="fa-solid fa-user-check"></i>
             <span>회원 관리</span>

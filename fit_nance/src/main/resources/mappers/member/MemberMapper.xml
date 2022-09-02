@@ -20,9 +20,9 @@
 	
 	<!-- 회원정보 조회 -->
 	<select id="myInfo" parameterType="string" resultType="com.fit_nance.project.model.MemberVO">
-  	SELECT * 
-  	FROM member 
-  	ORDER BY memId
+	  	SELECT * 
+	  	FROM member 
+	  	ORDER BY memId
   </select>
   
 	<!-- 기존 사용자 검색 -->

@@ -267,6 +267,13 @@ public class HomeController {
 		return "product2/faq";
 	}
 	
+	@RequestMapping("/faq_search")
+	public String faq_search(@RequestParam(value="oldVal") String a,Model model) {
+		ArrayList<FAQVO> FAQList = pService.selectFAQ_search(a);
+		model.addAttribute("FAQList", FAQList);
+		return "product2/faq_search";
+	}
+	
 	/*@RequestMapping("/filter_saving")
 	@ResponseBody
 	public ArrayList<InstallListVO> filter_saving(@RequestParam(value="rsrv_type_nm") ArrayList<String> rsrv_type_nm2,

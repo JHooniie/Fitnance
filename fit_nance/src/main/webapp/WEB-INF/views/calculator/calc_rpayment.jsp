@@ -3,6 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -43,11 +44,11 @@
 	                    <div class="div_lend_loan">
 	                        <p>대출 금액</p>
 	                        <div class="div_input_lend_loan">
-	                            <input class="input_lend_loan" placeholder="대출 금액">
+	                            <input class="input_lend_loan" placeholder="대출 금액" type="text" oninput="this.value = this.value.replace(/[^0-9.,]/g, '').replace(/(\..*)\./g, '$1');">
 	                            <h3>원</h3>
 	                        </div>
 	                        <div class="div_btn_input">
-	                            <input class="btn_reset button" type="button" value="초기화">
+	                            <input id="reset_lend_loan" class="btn_reset button" type="button" value="초기화">
 	                            <input class="btn_lend_100m button" type="button" value="+1억">
 	                            <input class="btn_lend_50m button" type="button" value="+5,000만">
 	                            <input class="btn_lend_10m button" type="button" value="+1,000만">
@@ -57,12 +58,12 @@
 	                    <div class="div_dly_rate">
 	                        <p>연 이자율</p>
 	                        <div class="div_input_dly_rate">
-	                            <input class="input_dly_rate" placeholder="연 이자율">
+	                            <input class="input_dly_rate" placeholder="연 이자율" type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
 	                            <h3>%</h3>
 	                        </div>
 	                        <div class="div_btn_input">
-	                            <input class="btn_reset button" type="button" value="초기화">
-	                            <input class="btn_rate_0.1p button" type="button" value="+0.1%">
+	                            <input id="reset_dly_rate" class="btn_reset button" type="button" value="초기화">
+	                            <input class="btn_rate_0_1p button" type="button" value="+0.1%">
 	                            <input class="btn_rate_1p button" type="button" value="+1%">
 	                            <input class="btn_rate_2p button" type="button" value="+2%">
 	                            <input class="btn_rate_5p button" type="button" value="+5%">
@@ -71,29 +72,29 @@
 	                    <div class="div_rpay_period">
 	                        <p>상환기간</p>
 	                        <div class="div_input_rpay_period">
-	                            <input class="input_rpay_period" placeholder="상환기간">
+	                            <input class="input_rpay_period" placeholder="상환기간" type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
 	                            <h3>년</h3>
 	                        </div>
 	                        <div class="div_btn_input">
-	                            <input class="btn_reset button" type="button" value="초기화">
-	                            <input class="btn_period_1y button" type="button" value="1년">
-	                            <input class="btn_period_2y button" type="button" value="2년">
-	                            <input class="btn_period_5y button" type="button" value="5년">
-	                            <input class="btn_period_10y button" type="button" value="10년">
+	                            <input id="reset_rpay_period" class="btn_reset button" type="button" value="초기화">
+	                            <input class="btn_rpay_1y button" type="button" value="+1년">
+	                            <input class="btn_rpay_2y button" type="button" value="+2년">
+	                            <input class="btn_rpay_5y button" type="button" value="+5년">
+	                            <input class="btn_rpay_10y button" type="button" value="+10년">
 	                        </div>
 	                    </div>
 	                    <div class="div_grace_period">
-	                        <p>상환기간</p>
+	                        <p>거치기간</p>
 	                        <div class="div_input_grace_period">
-	                            <input class="input_grace_period" placeholder="거치기간">
+	                            <input class="input_grace_period" placeholder="거치기간" type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
 	                            <h3>년</h3>
 	                        </div>
 	                        <div class="div_btn_input">
-	                            <input class="btn_reset button" type="button" value="초기화">
-	                            <input class="btn_period_1y button" type="button" value="1년">
-	                            <input class="btn_period_2y button" type="button" value="2년">
-	                            <input class="btn_period_5y button" type="button" value="5년">
-	                            <input class="btn_period_10y button" type="button" value="10년">
+	                            <input id="reset_grace_period" class="btn_reset button" type="button" value="초기화">
+	                            <input class="btn_grace_1y button" type="button" value="+1년">
+	                            <input class="btn_grace_2y button" type="button" value="+2년">
+	                            <input class="btn_grace_5y button" type="button" value="+5년">
+	                            <input class="btn_grace_10y button" type="button" value="+10년">
 	                        </div>
 	                    </div>
 	                    <div class="btn_calc">
@@ -110,7 +111,7 @@
 	                    </div>
 	                    <div class="div_result_content">
 	                        <table>
-	                            <th class="index">회차</th><th>이자</th><th>원금</th><th>내야하는 금액</th>
+	                            <tr><th class="index">회차</th><th>이자</th><th>원금</th><th>내야하는 금액</th></tr>
 	                            <tr><td class="index">1</td><td>266,667원</td><td>266,667원</td><td>974,867원</td></tr>
 	                            <tr><td class="index">12</td><td>245,614원</td><td>266,667원</td><td>974,867원</td></tr>
 	                            <tr><td class="index">24</td><td>221,932원</td><td>266,667원</td><td>974,867원</td></tr>

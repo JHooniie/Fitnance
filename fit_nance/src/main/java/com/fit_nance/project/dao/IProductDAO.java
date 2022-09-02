@@ -34,4 +34,5 @@ public interface IProductDAO {
 	public ArrayList<PensionListVO> selectPensionAll();
 	
 	public ArrayList<FAQVO> selectFAQ();
+	public ArrayList<FAQVO> selectFAQ_search(String a);
 }
