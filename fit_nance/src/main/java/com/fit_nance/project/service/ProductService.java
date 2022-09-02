@@ -137,4 +137,10 @@ public class ProductService implements IProductService {
 		return dao.selectFAQ();
 	}
 
+	@Override
+	public ArrayList<FAQVO> selectFAQ_search(String a) {
+		// TODO Auto-generated method stub
+		return dao.selectFAQ_search(a);
+	}
+
 }

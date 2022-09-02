@@ -14,4 +14,12 @@
 	<select id="selectFAQ" resultMap="resultFAQ">
 		SELECT * FROM FAQ;
 	</select>
+	
+	<select id="selectFAQ_search" resultMap="resultFAQ">
+		SELECT * FROM FAQ
+		<if test="a!=null"> 
+		WHERE FAQTitle LIKE CONCAT('%',#{A},'%')
+		</if>
+		;
+	</select>
 </mapper>
