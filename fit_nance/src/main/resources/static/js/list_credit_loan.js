@@ -7,7 +7,7 @@
 	$('.input_prdt_cd').val("");
 	
 	var arr_join_way=["join_way"];
-	var arr_lend_type=["lend_type"];
+	var arr_crdt_prdt_type=["crdt_prdt_type"];
 	
     // 좌측 필터 버튼 클릭 시
     {
@@ -27,9 +27,10 @@
                 	traditional: true,
                 	data: {
                 			arr_join_way: arr_join_way,
-                			arr_lend_type: arr_lend_type
+                			arr_crdt_prdt_type: arr_crdt_prdt_type
                 	},
                 	success: function(result){
+                		console.log(arr_join_way);
                 		$('#result_filter').html(result);
                 		$('#first_list_prdt').hide();
 	                },
@@ -53,7 +54,7 @@
                 	traditional: true,
                 	data: {
                 			arr_join_way: arr_join_way,
-                			arr_lend_type: arr_lend_type
+                			arr_crdt_prdt_type: arr_crdt_prdt_type
                 	},
                 	success: function(result){
                 		$('#result_filter').html(result);
@@ -79,7 +80,7 @@
                 	traditional: true,
                 	data: {
                 			arr_join_way: arr_join_way,
-                			arr_lend_type: arr_lend_type
+                			arr_crdt_prdt_type: arr_crdt_prdt_type
                 	},
                 	success: function(result){
                 		$('#result_filter').html(result);
@@ -105,7 +106,7 @@
                 	traditional: true,
                 	data: {
                 			arr_join_way: arr_join_way,
-                			arr_lend_type: arr_lend_type
+                			arr_crdt_prdt_type: arr_crdt_prdt_type
                 	},
                 	success: function(result){
                 		$('#result_filter').html(result);
@@ -123,10 +124,10 @@
             $('.btn_lend_type1, .btn_lend_type1_clicked').click(function(){
                 $(this).toggleClass('btn_lend_type1 btn_lend_type1_clicked');  
                 if($(this).attr('class') == 'btn_lend_type1_clicked'){
-                	arr_lend_type.push("일반신용");
+                	arr_crdt_prdt_type.push("일반신용");
                 } else{
-                	var index = arr_lend_type.indexOf("일반신용");
-                	arr_lend_type.splice(index, 1);
+                	var index = arr_crdt_prdt_type.indexOf("일반신용");
+                	arr_crdt_prdt_type.splice(index, 1);
                 }
                 $.ajax({
                 	url: "filter_credit_loan",
@@ -134,7 +135,7 @@
                 	traditional: true,
                 	data: {
                 			arr_join_way: arr_join_way,
-                			arr_lend_type: arr_lend_type
+                			arr_crdt_prdt_type: arr_crdt_prdt_type
                 	},
                 	success: function(result){
                 		$('#result_filter').html(result);
@@ -149,10 +150,10 @@
             $('.btn_lend_type2, .btn_lend_type2_clicked').click(function(){
                 $(this).toggleClass('btn_lend_type2 btn_lend_type2_clicked');  
                 if($(this).attr('class') == 'btn_lend_type2_clicked'){
-                	arr_lend_type.push("마이너스한도");
+                	arr_crdt_prdt_type.push("마이너스한도");
                 } else{
-                	var index = arr_lend_type.indexOf("마이너스한도");
-                	arr_lend_type.splice(index, 1);
+                	var index = arr_crdt_prdt_type.indexOf("마이너스한도");
+                	arr_crdt_prdt_type.splice(index, 1);
                 }
                 $.ajax({
                 	url: "filter_credit_loan",
@@ -160,7 +161,7 @@
                 	traditional: true,
                 	data: {
                 			arr_join_way: arr_join_way,
-                			arr_lend_type: arr_lend_type
+                			arr_crdt_prdt_type: arr_crdt_prdt_type
                 	},
                 	success: function(result){
                 		$('#result_filter').html(result);
@@ -184,6 +185,11 @@
         $('.btn_add_favorite, .btn_add_favorite_clicked').click(function(){
             $(this).toggleClass('btn_add_favorite btn_add_favorite_clicked'); 
         })
+		// 자세히 보기
+		$('.btn_prdt_info').click(function(){
+			$('.input_prdt_cd').val($(this).find('.prdt_cd').text());
+			var input_prdt_cd = $('.input_prdt_cd').val();
+		})
     }
 
     

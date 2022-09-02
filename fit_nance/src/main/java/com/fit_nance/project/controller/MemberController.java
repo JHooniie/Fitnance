@@ -121,9 +121,43 @@ public class MemberController {
 		return "member/update_mypage_password";
 	}
 	
+	// 회원정보 수정 폼 열기 비밀번호 재인증 폼 이동
+	@RequestMapping("/user/withdrawal_passwordCheckForm")
+	public String withdrawal_passwordCheckForm() {
+		return "member/withhdrawal_check_member";
+	}
 	
+	//회원정보 수정 폼 열기 비밀번호 재인증
+	 @RequestMapping("/user/pre_withdrawal_check")
+	public String pre_withdrawal_check(Authentication auth, @RequestParam("memPwd") String pwd, RedirectAttributes rtt) {
+		System.out.println(pwd);
+		 PrincipalDetails princ = (PrincipalDetails)auth.getPrincipal();
+		System.out.println(princ.getPassword());
+		
+		String memPwd = princ.getPassword();
+		System.out.println(memPwd);
+		
+		if(encoder.matches(pwd, memPwd)) {
+			
+            return "redirect:./user/withdrawal_member";
+        }
+        else {
+            rtt.addFlashAttribute("msg", "비밀번호를 다시 확인해 주세요.");
+            return "redirect:/withdrawal_passwordCheckForm";
+        }
+    }
+	 // 회원탈퇴
+	 @RequestMapping("/user/withdrawal_member")
+		public String withdrawal_member(Authentication auth, MemberVO vo) {
+			PrincipalDetails princ = (PrincipalDetails)auth.getPrincipal();
 	
-	
+			
+			memService.withdrawal_member(vo);
+			
+			
+			// DB에 데이터 저장한 후 공지사항 목록 화면으로 포워딩
+			return "redirect:/logout";
+		}
 	
 	
 	//스프링 시큐리티 세션 정보 확인
@@ -142,7 +176,7 @@ public class MemberController {
 			MemberVO vo) {
 		PrincipalDetails principalDetails = (PrincipalDetails)authentication.getPrincipal();
 
-		
+		principalDetails.setVo(null);
 		System.out.println("authentication : " + principalDetails.getProvider());
 		System.out.println("authentication : " + principalDetails.getMemBirth());
 		System.out.println("authentication : " + principalDetails.getAttributes());

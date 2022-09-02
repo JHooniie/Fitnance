@@ -24,4 +24,9 @@
         
         
     });
+    
+    $('#a-delete-profile-check').click(function(){
+        confirm("회원탈퇴를 진행하시겠습니까?")
+    });
+
 });

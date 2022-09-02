@@ -24,5 +24,7 @@ public interface IMemberDAO {
 	public MemberVO detailViewMemInfo(String memId);
 	// 회원가입 시 은행 정보 가져오기
 	public ArrayList<BankVO> listAllBank();
+	// 회원정보 탈퇴
+	public void withdrawal_member(MemberVO vo);
 	
 }

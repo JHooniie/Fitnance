@@ -20,4 +20,7 @@ public interface IMemberService {
 	
 	// 회원가입 시 은행 정보 가져오기
 	public ArrayList<BankVO> listAllBank();
+	
+	//회원탈퇴
+	public void withdrawal_member(MemberVO vo);
 }

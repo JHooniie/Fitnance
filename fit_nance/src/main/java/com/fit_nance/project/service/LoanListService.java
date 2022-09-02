@@ -78,7 +78,7 @@ public class LoanListService implements ILoanListService{
 	public ArrayList<PersonalLoanFilterVO> selectPersonalLoanFilter(PersonalLoanFilterVO vo) {
 		HashMap<String,Object> map= new HashMap<String,Object>();
 		map.put("list_join_way",vo.getList_join_way());
-		map.put("list_lend_type", vo.getList_lend_type());
+		map.put("list_crdt_prdt_type", vo.getList_crdt_prdt_type());
 		return dao.selectPersonalLoanFilter(map);
 	}
 

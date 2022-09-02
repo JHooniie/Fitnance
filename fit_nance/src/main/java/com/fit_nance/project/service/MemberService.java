@@ -25,6 +25,7 @@ public class MemberService implements IMemberService {
 	@Autowired
 	private BCryptPasswordEncoder bCryptPasswordEncoder;
 	
+	//회원 가입
 	@Override
 	public void insertMember(MemberVO vo) {
 		// 비밀번호 암호화 처리한 후 mapper에게 전달
@@ -35,46 +36,59 @@ public class MemberService implements IMemberService {
 		dao.insertMember(vo);
 	}
 
-	@Override
-	public String loginCheck(HashMap<String, Object> map) {
+	
 
-		return dao.loginCheck(map);
-	}
-
-	@Override
-	public MemberVO passwordCheck(String memId, String memPwd) {
-		
-		String encodedPwd = bCryptPasswordEncoder.encode(memPwd);
-		
-		
-		HashMap<String, Object> map = new HashMap<String, Object>();
-		map.put("memId", memId);
-		map.put("memPwd", encodedPwd);
-		
-		return dao.passwordCheck(map);
-
-	}
-
-	@Override
-	public MemberVO myInfo(String memId) {
-		return dao.myInfo(memId);
-	}
-
+	//회원정보 수정
 	@Override
 	public void updateMemInfo(MemberVO vo) {
 		dao.updateMemInfo(vo);
 		
 	}
 
+	//회원 정보 불러오기
 	@Override
 	public MemberVO detailViewMemInfo(String memId) {
 
 		return dao.detailViewMemInfo(memId);
 	}
+	
+	//회원 탈퇴
+	@Override
+	public void withdrawal_member(MemberVO vo) {
+		dao.withdrawal_member(vo);
+	}
 
+	//?? 다시 확인
 	@Override
 	public ArrayList<BankVO> listAllBank() {
 		return dao.listAllBank();
 	}
 
+	//?? 다시 확인
+		@Override
+		public String loginCheck(HashMap<String, Object> map) {
+
+			return dao.loginCheck(map);
+		}
+
+		//?? 다시 확인
+		@Override
+		public MemberVO passwordCheck(String memId, String memPwd) {
+			
+			String encodedPwd = bCryptPasswordEncoder.encode(memPwd);
+			
+			
+			HashMap<String, Object> map = new HashMap<String, Object>();
+			map.put("memId", memId);
+			map.put("memPwd", encodedPwd);
+			
+			return dao.passwordCheck(map);
+
+		}
+		
+		//?? 다시 확인
+		@Override
+		public MemberVO myInfo(String memId) {
+			return dao.myInfo(memId);
+		}
 }
