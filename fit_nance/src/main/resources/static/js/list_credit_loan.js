@@ -30,7 +30,6 @@
                 			arr_crdt_prdt_type: arr_crdt_prdt_type
                 	},
                 	success: function(result){
-                		console.log(arr_join_way);
                 		$('#result_filter').html(result);
                 		$('#first_list_prdt').hide();
 	                },
@@ -172,6 +171,43 @@
                     }
                 });
             })
+        }
+        {// 필터 초기화
+	    	$('.btn_reset_filter').click(function(){
+	       		arr_join_way.splice(1, arr_join_way.length);
+	       		arr_crdt_prdt_type.splice(1, arr_crdt_prdt_type.length);
+	       		
+	       		$('.btn_prdt_joinway1_clicked').addClass('btn_prdt_joinway1');
+	            $('.btn_prdt_joinway1_clicked').removeClass('btn_prdt_joinway1_clicked');
+	            $('.btn_prdt_joinway2_clicked').addClass('btn_prdt_joinway2');
+	            $('.btn_prdt_joinway2_clicked').removeClass('btn_prdt_joinway2_clicked');
+	            $('.btn_prdt_joinway3_clicked').addClass('btn_prdt_joinway3');
+	            $('.btn_prdt_joinway3_clicked').removeClass('btn_prdt_joinway3_clicked');
+	            $('.btn_prdt_joinway4_clicked').addClass('btn_prdt_joinway4');
+	            $('.btn_prdt_joinway4_clicked').removeClass('btn_prdt_joinway4_clicked');
+	       		
+                $('.btn_lend_type1_clicked').addClass('btn_lend_type1');
+                $('.btn_lend_type1_clicked').removeClass('btn_lend_type1_clicked');
+                $('.btn_lend_type2_clicked').addClass('btn_lend_type2');
+                $('.btn_lend_type2_clicked').removeClass('btn_lend_type2_clicked');
+                
+	       		$.ajax({
+                	url: "filter_credit_loan",
+                	type: "post",
+                	traditional: true,
+                	data: {
+                			arr_join_way: arr_join_way,
+                			arr_crdt_prdt_type: arr_crdt_prdt_type
+                	},
+                	success: function(result){
+                		$('#result_filter').html(result);
+                		$('#first_list_prdt').hide();
+	                },
+	                error:function(request,status,error){
+                        console.log("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+                    }
+                });
+	       	});
         }
     }
 

@@ -98,7 +98,7 @@
 	                <div class="div_list_prdt">
 	                    <div class="prdt_result_search prdt">
 	                    <form id="form_prdt" method="post" action="<c:url value='/view_house_detail'/>">
-	                    	<input  id="input_prdt_cd" name="input_prdt_cd" class="input_prdt_cd" type="text">
+	                    	<input type="hidden" id="input_prdt_cd" name="input_prdt_cd" class="input_prdt_cd" type="text">
 	                        <!-- 검색 결과 상품 - 시작 -->
 	                        
 	                        <c:forEach items="${list_house_loan }" var="list" varStatus="status">

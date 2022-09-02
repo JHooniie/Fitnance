@@ -84,7 +84,7 @@
                             </div>
                             <button class="btn_prdt_info">
                                 자세히 보기
-                                <span id="prdt_cd" class="prdt_cd">${list.fin_prdt_cd }</span>
+                                <span style="display:none" id="prdt_cd" class="prdt_cd">${list.fin_prdt_cd }</span>
                             </button>
                         </div>
                     </div>
