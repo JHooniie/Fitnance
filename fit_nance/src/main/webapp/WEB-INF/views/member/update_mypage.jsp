@@ -71,7 +71,7 @@
                             </div>
                             <button id="btn-reset-profile" type="reset">취소하기</button>
                             <button id="btn-update-profile" type="submit">수정하기</button>
-                            <div class="a-delete-profile"><a href="<c:url value='/update-password'/>">회원 탈퇴</a></div>
+                            <div class="a-delete-profile"><a id="a-delete-profile-check" href="<c:url value='/user/withdrawal_passwordCheckForm'/>">회원 탈퇴</a></div>
                         </div>
                         </form>
                     </div>
