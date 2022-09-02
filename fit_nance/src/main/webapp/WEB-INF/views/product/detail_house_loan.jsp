@@ -63,7 +63,7 @@
 	                                        최대 한도
 	                                    </span>
 	                                    <span class="loan_lmt_prdt">
-	                                        ${prdt.loan_lmt }
+	                                        ${prdt.loan_lmt }<span>억</span>
 	                                    </span>
 	                                </div>
 	                            <!-- </div> -->
@@ -94,7 +94,7 @@
 	                    </div>
 	                </div>
 	            </div>
-	            <button class="btn_list_mortgage" type="button"><span>목록으로 돌아가기</span></button>
+	            <button class="btn_list_house" type="button"><span>목록으로 돌아가기</span></button>
 	        </div>
 	    </section>
 		

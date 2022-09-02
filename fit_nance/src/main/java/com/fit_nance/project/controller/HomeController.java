@@ -18,6 +18,7 @@ import com.fit_nance.project.model.HomeLoanListVO;
 import com.fit_nance.project.model.InstallListVO;
 import com.fit_nance.project.model.PensionFilterVO;
 import com.fit_nance.project.model.PensionListVO;
+import com.fit_nance.project.model.PersonalLoanFilterVO;
 import com.fit_nance.project.model.PersonalLoanListVO;
 import com.fit_nance.project.model.SavingFilterVO;
 import com.fit_nance.project.service.LoanListService;
@@ -194,6 +195,50 @@ public class HomeController {
 		ArrayList<PersonalLoanListVO> list_credit_loan = loanlistService.selectPersonalLoanList();
 		model.addAttribute("list_credit_loan", list_credit_loan);
 		return "product/list_credit_loan"; 
+	}
+	
+	@RequestMapping("/filter_credit_loan")
+	public String filter_credit_loan(Model model
+										, @RequestParam(value="arr_join_way") ArrayList<String> arr_join_way
+										, @RequestParam(value="arr_crdt_prdt_type") ArrayList<String> arr_crdt_prdt_type
+										) {
+		
+		PersonalLoanFilterVO vo = new PersonalLoanFilterVO();
+		
+		ArrayList<String> list_join_way = new ArrayList<String>();
+		ArrayList<String> list_crdt_prdt_type = new ArrayList<String>();
+		
+		for(int i=1; i<arr_join_way.size(); i++) {
+			list_join_way.add(arr_join_way.get(i));
+		}
+		
+		if(list_join_way != null)
+			vo.setList_join_way(list_join_way);
+		
+		for(int i=1; i<list_crdt_prdt_type.size(); i++) {
+			list_crdt_prdt_type.add(list_crdt_prdt_type.get(i));
+		}
+
+		if(list_crdt_prdt_type != null)
+			vo.setList_crdt_prdt_type(list_crdt_prdt_type);
+		
+		vo.setList_join_way(list_join_way);
+		vo.setList_crdt_prdt_type(list_crdt_prdt_type);
+		
+		ArrayList<PersonalLoanFilterVO> list_credit_loan= loanlistService.selectPersonalLoanFilter(vo);
+		
+		model.addAttribute("list_credit_loan", list_credit_loan);
+		return "product/result_credit_loan";
+
+	}
+	
+	@RequestMapping("/view_credit_detail")
+	public String view_credit_detail(@RequestParam("input_prdt_cd") String fin_prdt_cd, Model model) {
+		System.out.println(fin_prdt_cd);
+		PersonalLoanListVO prdt = loanlistService.selectPersonalLoanDetail(fin_prdt_cd);
+		
+		model.addAttribute("prdt",prdt);
+		return "product/detail_credit_loan";
 	}
 	
 	// 대출이자 계산기
