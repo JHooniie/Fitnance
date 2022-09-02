@@ -70,6 +70,7 @@ h5 .result{
     border: 0px;
     outline-style: none;
     padding: 0px 20px 0px 0px;
+    cursor: pointer;
 }
 
 .panel_calc_input .div_btn_input{
@@ -141,6 +142,7 @@ h5 .result{
     background-color: #1f4dff;
     border-radius: 5px;
     border: 0px;
+    cursor: pointer;
 }
 
 .panel_calc_input .btn_calc span{
