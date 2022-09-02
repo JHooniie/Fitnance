@@ -69,4 +69,7 @@
 		FROM member 
 		WHERE memId=#{memId}
   	</select>
+  	<delete id="withdrawal_member" parameterType="com.fit_nance.project.model.MemberVO">
+		DELETE FROM member WHERE memId=#{memId}
+	</delete>
 </mapper>
