@@ -34,13 +34,19 @@
 	                            <div class="table-responsive">
                                     <table class="table table-bordered" width="100%" cellspacing="0">
                                         <tr>
-                                            <th class="align-middle" width="10%">제목</th>
-                                            <td>${notice.noticeTitle}
+                                            <th class="align-middle" width="10%">아이디</th>
+                                            <td>${mem.memId}
                                             </td>
                                         </tr>
                                         <tr>
-                                            <th class="align-middle">내용</th>
-                                            <td>${notice.noticeContent}
+                                            <th class="align-middle">권한</th>
+                                            <td><input type="text" name="memRole" value="${mem.memRole}">
+                                            <button type="button" id="updateRoleBtn" class="btn btn-primary">변경</button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th class="align-middle">성명</th>
+                                            <td>${mem.memName}
                                             </td>
                                         </tr>
                                     </table>
