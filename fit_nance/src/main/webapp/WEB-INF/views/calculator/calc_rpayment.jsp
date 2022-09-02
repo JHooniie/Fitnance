@@ -105,8 +105,8 @@
 	                    <div class="div_result_title">
 	                        <h4>계산 결과</h4>
 	                        <h5>
-	                            <p><span>100,000,000</span>원을 <span>10년</span> 동안 <span>원리금균등상환</span>으로 대출을 받았을 때</p>
-	                            <p><span>3.2%</span> 기준 매월 <span class="result">974,867원</span>씩 갚아야 합니다.</p>
+	                            <p><span class="calc_lend_loan">100,000,000원</span>을 <span class="calc_rpay_period">10년</span> 동안 <span class="calc_rpay_option">원리금균등상환</span>으로 대출을 받았을 때</p>
+	                            <p><span class="calc_dly_rate">3.2%</span> 기준 매월 <span class="calc_result">974,867원</span>씩 갚아야 합니다.</p>
 	                        </h5>
 	                    </div>
 	                    <div class="div_result_content">
