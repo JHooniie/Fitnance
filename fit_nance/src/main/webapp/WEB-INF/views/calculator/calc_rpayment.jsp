@@ -44,7 +44,7 @@
 	                    <div class="div_lend_loan">
 	                        <p>대출 금액</p>
 	                        <div class="div_input_lend_loan">
-	                            <input class="input_lend_loan" placeholder="대출 금액" type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
+	                            <input class="input_lend_loan" placeholder="대출 금액" type="text" oninput="this.value = this.value.replace(/[^0-9.,]/g, '').replace(/(\..*)\./g, '$1');">
 	                            <h3>원</h3>
 	                        </div>
 	                        <div class="div_btn_input">
