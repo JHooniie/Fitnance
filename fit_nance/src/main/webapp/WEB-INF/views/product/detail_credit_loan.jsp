@@ -52,18 +52,10 @@
 	                            <!-- <div class="div_lend_prdt"> -->
 	                                <div class="div_lend_rate">
 	                                    <span class="lend_rate_title">
-	                                        최저 금리
+	                                        평균 금리
 	                                    </span>
 	                                    <span class="lend_rate_prdt">
-	                                        ${prdt.lend_rate_min }<span>%</span>
-	                                    </span>
-	                                </div>
-	                                <div class="div_loan_lmt">
-	                                    <span class="loan_lmt_title">
-	                                        최대 한도
-	                                    </span>
-	                                    <span class="loan_lmt_prdt">
-	                                        ${prdt.loan_lmt }
+	                                        ${prdt.crdt_grad_avg }<span>%</span>
 	                                    </span>
 	                                </div>
 	                            <!-- </div> -->
@@ -77,24 +69,29 @@
 	                </div>
 	                <div class="div_content_prdt">
 	                    <div class="panel_content_prdt">
-	                        <span>대출 부대 비용</span><br><br>
-	                        인지세 : 해당세액의 50% (대출금액 5천만원 이하 시 없음)<br>
-	                        주택신보출연료 : 0.17 ~ 0.21%<br>
-	                        주택신보보증료 : 연 0.12 ~ 연 0.40%<br>
+	                        <span>대출금리 (단위 : %)</span><br><br>
+	                        * KCB & NICE 개인신용평점 900점 이상, 당행 자체신용등급 1등급 기준, 교육세 포함<br>
+	                        <table>
+	                            <tr><td>기준금리</td><td>가산금리</td><td>우대금리</td><td>대출금리</td></tr>
+	                            <tr><td>2.44</td><td>2.87</td><td>0.74</td><td>4.57</td></tr>
+	                        </table>
 	                        <br><br>
-	                        <span>중도 상환 수수료</span><br><br>
-	                        고정금리 : 주택상환금액x0.7%x(대출잔액일수/3년)<br>
-	                        변동금리 : 주택상환금액x0.6%x(대출잔액일수/3년)<br>
-	                        <br><br>
-	                        <span>연체 이자율</span><br><br>
-	                        적용금리 + 3% (최고연체이자율 : 12%)<br>
-	                        <br><br>
-	                        <span>대출 한도</span><br><br>
-	                        최대 2.2억원<br>
+	                        <span>대출금리 = 기준금리 + 가산금리 - 가감조정금리</span>
+	                        <br><br><br>
+	                        <span>기준금리</span><br><br>
+	                        MOR(Market Opportunity Rate)은 금융채 유통수익률 등 기간별 시장금리의 지표금리로<br>
+	                        한국자산평가, KIS채권평가에서 고시하는 기간별 금융채(금융기관 AA등급 기준. 단, 은행의 신용<br>
+	                        등급 변동에 따라 달라질 수 있음) 유통수익률을 기초로 산출됩니다.
+	                        <br><br><br>
+	                        <span>가산금리</span><br><br>
+	                        고객별 가산금리는, 당행 자체신용등급 또는 개인신용평점에 따라 차등 적용<br>
+	                        <br><br><br>
+	                        <span>우대금리</span><br><br>
+	                        최고 0.99% 이내에서 우대<br>
 	                    </div>
 	                </div>
 	            </div>
-	            <button class="btn_list_mortgage" type="button"><span>목록으로 돌아가기</span></button>
+	            <button class="btn_list_credit" type="button"><span>목록으로 돌아가기</span></button>
 	        </div>
 	    </section>
 		
