@@ -106,7 +106,7 @@
 	                        <h4>계산 결과</h4>
 	                        <h5>
 	                            <p><span><span class="calc_lend_loan">0</span>원</span>을 <span><span class="calc_rpay_period">0</span>년</span> 동안 <span class="calc_rpay_option">원리금균등상환</span>으로 대출을 받았을 때</p>
-	                            <p><span><span class="calc_dly_rate">0</span>%</span> 기준 <span class="span_calc_rpay">매월 <span class="calc_rpay"><span class="calc_rpay_result">0</span>원</span>씩 </span>갚아야 합니다.</p>
+	                            <p><span><span class="calc_dly_rate">0</span>%</span> 기준 <span class="span_calc_rpay">매월 <span class="calc_rpay"><span class="calc_rpay_result1">0</span>원</span>씩 </span>갚아야 합니다.</p>
 	                        </h5>
 	                    </div>
 	                    <div class="div_result_content">
