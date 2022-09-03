@@ -90,6 +90,11 @@
     border:1px solid #1F4DFF;
     color:#1F4DFF;
 }
+.product-compare-box a{
+	color:#1F4DFF;
+    font-weight: 500;
+}
+
 
 .select-box .filter-reset{
     margin-top: 30px;
