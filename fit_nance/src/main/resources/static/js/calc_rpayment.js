@@ -152,4 +152,23 @@
 	 		$('.input_grace_period').val(result_grace_peroid);
 	 	});
 	}
+	
+	{// 계산하기
+		$('.btn_calc').click(function(){
+			if($('.input_lend_loan').val() == ""){
+				alert("대출 금액을 입력해주세요");
+				return false;
+			} else if($('.input_dly_rate').val() == ""){
+				alert("연 이자율을 입력해주세요");
+				return false;
+			} else if($('.input_rpay_period').val() == ""){
+				alert("상환기간을 입력해주세요");
+				return false;
+			} else if($('.input_grace_period').val() == ""){
+				alert("거치기간을 입력해주세요");
+				return false;
+			}
+			
+		});
+	}
  });
