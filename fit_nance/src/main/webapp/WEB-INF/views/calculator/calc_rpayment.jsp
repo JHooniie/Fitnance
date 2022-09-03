@@ -35,9 +35,9 @@
 	                        <p>상환방식</p>
 	                        <div class="div_select_rpay_type">
 	                            <select class="select_rpay_type">
-	                                <option value="option_rpay_type1">원리금분할상환</option>
-	                                <option value="option_rpay_type2">원금분할상환</option>
-	                                <option value="option_rpay_type3">만기일시상환</option>
+	                                <option value="원리금분할상환">원리금분할상환</option>
+	                                <option value="원금분할상환">원금분할상환</option>
+	                                <option value="만기일시상환">만기일시상환</option>
 	                            </select>
 	                        </div>
 	                    </div>
@@ -105,28 +105,18 @@
 	                    <div class="div_result_title">
 	                        <h4>계산 결과</h4>
 	                        <h5>
-	                            <p><span class="calc_lend_loan">100,000,000원</span>을 <span class="calc_rpay_period">10년</span> 동안 <span class="calc_rpay_option">원리금균등상환</span>으로 대출을 받았을 때</p>
-	                            <p><span class="calc_dly_rate">3.2%</span> 기준 매월 <span class="calc_result">974,867원</span>씩 갚아야 합니다.</p>
+	                            <p><span><span class="calc_lend_loan">0</span>원</span>을 <span><span class="calc_rpay_period">0</span>년</span> 동안 <span class="calc_rpay_option">원리금균등상환</span>으로 대출을 받았을 때</p>
+	                            <p><span><span class="calc_dly_rate">0</span>%</span> 기준 <span class="span_calc_rpay">매월 <span class="calc_rpay"><span class="calc_rpay_result1">0</span>원</span>씩 </span>갚아야 합니다.</p>
 	                        </h5>
 	                    </div>
 	                    <div class="div_result_content">
-	                        <table>
+	                        <table id="table">
 	                            <tr><th class="index">회차</th><th>이자</th><th>원금</th><th>내야하는 금액</th></tr>
-	                            <tr><td class="index">1</td><td>266,667원</td><td>266,667원</td><td>974,867원</td></tr>
-	                            <tr><td class="index">12</td><td>245,614원</td><td>266,667원</td><td>974,867원</td></tr>
-	                            <tr><td class="index">24</td><td>221,932원</td><td>266,667원</td><td>974,867원</td></tr>
-	                            <tr><td class="index">36</td><td>266,667원</td><td>266,667원</td><td>266,667원</td></tr>
-	                            <tr><td class="index">48</td><td>266,667원</td><td>266,667원</td><td>266,667원</td></tr>
-	                            <tr><td class="index">60</td><td>266,667원</td><td>266,667원</td><td>266,667원</td></tr>
-	                            <tr><td class="index">72</td><td>266,667원</td><td>266,667원</td><td>266,667원</td></tr>
-	                            <tr><td class="index">84</td><td>266,667원</td><td>266,667원</td><td>266,667원</td></tr>
-	                            <tr><td class="index">96</td><td>266,667원</td><td>266,667원</td><td>266,667원</td></tr>
-	                            <tr><td class="index">108</td><td>266,667원</td><td>266,667원</td><td>266,667원</td></tr>
-	                            <tr><td class="index">120</td><td>266,667원</td><td>266,667원</td><td>266,667원</td></tr>
+								<!-- 계산 결과 배열 출력 -->
 	                        </table>
 	                        <div class="total_result_content">
 	                            <span>총 이자액</span>
-	                            <span>16,984,025원</span>
+	                            <span><span class="total_rpay_rate">0</span>원</span>
 	                        </div>
 	                    </div>
 	                </div>
