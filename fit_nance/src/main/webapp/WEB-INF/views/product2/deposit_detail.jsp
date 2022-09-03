@@ -11,6 +11,7 @@
 		<!-- css -->
 		<link rel="stylesheet" href="<c:url value='/css/deposit_detail.css'/>"/>
 		<!-- js -->
+		<script src="<c:url value='/js/deposit_detail.js' />"></script>
 		<!-- 삭제해야함 -->
 	</head>
 	<body>
@@ -40,8 +41,8 @@
                         </div>
                         <div class="percent2">
                             <ul>
-                                <li>최대 (세전)</li>
-                                <li><span>${intr_rate2 }</span>%</li>
+                                <li>최소</li>
+                                <li><span>${save_trm }</span>개월부터</li>
                             </ul>
                         </div>
                     </div>
@@ -69,14 +70,14 @@
                 </div>
                 <div class="calculator">
                     <div class="cal-title1">총 목표 금액</div>
-                    <div class="price-box"><input type="text" id="price" name="price">원</div>
+                    <div class="price-box"><input type="text" id="price" name="price" onkeyup="input_num(this);">원</div>
                     <div class="title-box">
                         <div class="cal-title2">적립 기간</div>
                         <div class="cal-title2">연 이자율</div>
                     </div>
                     <div class="sub-input">
                         <div class="period-box">
-                            <select id="period" name="period">
+                            <select id="period" name="period" onchange="calcu()">
                                 <option value="3개월">3개월</option>
                                 <option value="6개월">6개월</option>
                                 <option value="12개월">12개월</option>
@@ -86,12 +87,12 @@
                             <div class="icon"><i class="fa-solid fa-angle-down"></i></div>
                         </div>
                         <div class="rate-box">
-                            <input type="text" id="interest-rate" name="interest-rate" value="2.35"> <span>%</span>
+                            <input type="text" id="interest-rate" name="interest-rate" value="${intr_rate2 }" onkeyup="calcu()"> <span>%</span>
                         </div>
                     </div>
                     <div class="total-box">
                         <div class="sub-title">총 저축 금액</div>
-                        <div class="total"><span>3,600,000</span>원</div>
+                        <div class="total"><span class="total-span"></span>원</div>
                     </div>
                     <div class="more-box">
                         <div class="more-title">더 자세한 결과값을 보고싶으시다면</div>

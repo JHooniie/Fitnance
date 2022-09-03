@@ -139,6 +139,7 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
 }
 
 .calculate{
+	cursor:pointer;
     padding:23px;
     width:440px;
     height:70px;
