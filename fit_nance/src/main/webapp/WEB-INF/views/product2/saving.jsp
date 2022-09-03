@@ -34,7 +34,7 @@
 	        </div>
 	        <div class="middel-bottom">
 	            <div>
-	                <div class="product-compare-box"><a href="<c:url value='saving_detail'/>">상품 비교하기</a></div>   
+	                <div class="product-compare-box"><a href="<c:url value='saving_compare'/>">상품 비교하기</a></div>   
 	                <div class="select-box">
 	                    <div class="what-select" value="rsrv_type_nm">
 	                        <div class="select-title" >예치방식</div>

@@ -35,7 +35,7 @@
         </div>
         <div class="middel-bottom">
             <div>
-                <div class="product-compare-box">상품 비교하기</div>   
+                <div class="product-compare-box"><a href="<c:url value='pension_compare'/>">상품 비교하기</a></div>   
                 <div class="select-box">
 	                <div class="what-select" value="pnsn_recp_trm_nm">
 	                    <div class="select-title">연금수령기간</div>

@@ -45,7 +45,7 @@
             <tr><td id="title">과거수익률(2년전)</td><td>1.97%</td><td>단리</td><td>단리</td></tr>
             <tr><td id="title">과거수익률(3년전)</td><td>3.35%</td><td>단리</td><td>단리</td></tr>
         </table>
-        <div class="go-to-list">목록으로 돌아가기</div>
+        <div class="go-to-list"><a href="<c:url value='pension'/>">목록으로 돌아가기</a></div>
     </div>
 		
 				<!-- bottom.jsp -->
