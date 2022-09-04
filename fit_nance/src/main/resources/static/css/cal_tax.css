@@ -1,0 +1,129 @@
+section.wrap{
+    margin-top: 220px;
+    letter-spacing: -1px;
+}
+
+.box-cal-title{
+    width: 100%;
+}
+
+.box-cal-title h3{
+    font-size: 38px;
+    font-weight: 600;
+}
+
+.box-cal-title span{
+    display: inline-block;
+    margin-top: 20px;
+    font-size: 17px;
+    font-weight: 300;
+}
+
+.sec-cal-col{
+    display: flex;
+    margin-top: 80px;
+}
+
+.sec-cal-col .box-cal-col h4{
+    font-size: 26px;
+    font-weight: 600;
+}
+
+.sec-cal-col .box-cal-left-col{
+    width: 440px;
+    margin-right: 110px;
+}
+
+.sec-cal-col .box-cal-left-col .box-cal-input{
+    margin-top: 50px;
+}
+
+.sec-cal-col .box-cal-left-col .box-cal-input>span{
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.sec-cal-col .box-cal-left-col .box-cal-input .input-cal{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 60px;
+    margin-top: 10px;
+    border-bottom: 1px solid #AAAAAA;
+}
+
+.sec-cal-col .box-cal-left-col .box-cal-input .input-cal input{
+    width: 382px;
+    margin-right: 20px;
+    font-size: 20px;
+    font-weight: 600;
+    text-align: right;
+    outline: none;
+    border: none;
+}
+
+.sec-cal-col .box-cal-left-col .box-cal-input .input-cal input::placeholder{
+    color: #AAAAAA;
+}
+
+.sec-cal-col .box-cal-left-col .box-cal-input .input-cal span{
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.sec-cal-col .box-cal-left-col .btn-submit{
+    width: 100%;
+    height: 70px;
+    margin-top: 50px;
+    border: none;
+    border-radius: 5px;
+    background-color: #1F4DFF;
+    color: #FFFFFF;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 70px;
+    cursor: pointer;
+}
+
+.sec-cal-col .box-cal-right-col{
+    width: 730px;
+}
+
+.sec-cal-col .box-cal-right-col .box-cal-result-text{
+    width: 100%;
+    border-bottom: 1px solid #AAAAAA;
+    padding-bottom: 60px;
+}
+
+.sec-cal-col .box-cal-right-col .box-cal-result-text>span{
+    display: inline-block;
+    margin-top: 40px;
+    font-size: 18px;
+    line-height: 30px;
+}
+
+.sec-cal-col .box-cal-right-col .box-cal-result-text>span span.text-result{
+    color: #1F4DFF;
+    font-weight: 600;
+}
+
+.sec-cal-col .box-cal-right-col .box-cal-result-text>span b{
+    font-weight: 600;
+}
+
+.sec-cal-col .box-cal-right-col .box-cal-result-num h4{
+    margin-top: 60px;
+}
+
+.sec-cal-col .box-cal-right-col .box-cal-result-num span{
+    display: block;
+    margin-top: 15px;
+    font-size: 16px;
+}
+
+.sec-cal-col .box-cal-right-col .box-cal-result-num span.text-result-num{
+    margin-top: 40px;
+    color: #1F4DFF;
+    font-size: 36px;
+    font-weight: 500;
+}
