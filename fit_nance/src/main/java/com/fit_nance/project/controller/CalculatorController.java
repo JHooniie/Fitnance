@@ -28,11 +28,11 @@ public class CalculatorController {
 	@ResponseBody
 	@RequestMapping("/calc_rpay")
 	public ArrayList<Calc_rpayVO> calc_rpay(Model model
-			, @RequestParam(value="calc_rpay_type") String calc_rpay_type
-			, @RequestParam(value="calc_lend_loan") int calc_lend_loan
-			, @RequestParam(value="calc_dly_rate_year") double calc_dly_rate_year
-			, @RequestParam(value="calc_rpay_period") int calc_rpay_period
-			, @RequestParam(value="calc_grace_period") int calc_grace_period
+			, @RequestParam(value="calc_rpay_type") String calc_rpay_type// 상환 방식
+			, @RequestParam(value="calc_lend_loan") int calc_lend_loan// 대출 원금
+			, @RequestParam(value="calc_dly_rate_year") double calc_dly_rate_year// 연 이자율
+			, @RequestParam(value="calc_rpay_period") int calc_rpay_period// 상환 기간
+			, @RequestParam(value="calc_grace_period") int calc_grace_period// 거치 기간
 			) {
 //		System.out.println("상환 방식 : "+calc_rpay_type);
 //		System.out.println("대출 금액 : "+calc_lend_loan);
@@ -54,8 +54,8 @@ public class CalculatorController {
 			// 상환금
 			int result = (int) Math.round(result1 / result2);
 			
-			int money = calc_lend_loan;// 잔금
-			int total = money;
+			int money = calc_lend_loan;// 원금
+			int total = money;// 잔금
 			int rpay = result;// 매 월 상환금
 			int rate = (int)(total * calc_dly_rate_month / 100);// 이자
 			int rpay_month = rpay - rate;

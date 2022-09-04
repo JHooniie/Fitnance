@@ -7,7 +7,7 @@
 	var result_lend_loan = 0;		// 대출 금액
 	var result_dly_rate = 0;		// 연 이자율
 	var result_rpay_period = 0;		// 상환 기간
-	//var result_grace_peroid = 0;	// 거치 기간
+	var result_grace_peroid = 0;	// 거치 기간
 	
 	{// 대출 금액 input 값 입력 시 3자리수 콤마 추가
 		$(".input_lend_loan").on("keyup", function(){
@@ -248,21 +248,6 @@
                     console.log("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
                 }
             });
-			
-			// 원리금분할상환
-			if($('.select_rpay_type').val() == "원리금분할상환"){
-			
-			}
-			// 원금분할상환
-			else if($('.select_rpay_type').val() == "원금분할상환"){
-			
-			}
-			// 만기일시상환
-			else {
-			
-			}
-			
-			
 		});
 	}
  });
