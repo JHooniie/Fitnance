@@ -153,6 +153,11 @@ h5 .result{
     margin-top: 80px;
 }
 
+/* .panel_calc_result .div_result_title .calc_rpay, */
+.panel_calc_result .div_result_title .calc_rpay_result1,
+.panel_calc_result .div_result_title .calc_rpay_result2{
+	color: #1f4dff;
+}
 
 .div_result_content table{
     font-size: 20px;

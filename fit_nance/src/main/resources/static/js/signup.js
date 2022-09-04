@@ -140,16 +140,7 @@ $(document).ready(function(){
             $('#text-password-check-pass').css('display','flex');
             $('#input-user_pw-re').prop('readOnly', false);
 
-            // //비밀번호 확인 시 확인표시 제거
-            // $('#input-user_pw-re').focus(function(){
-            //     $('#input-user_pw').removeClass('process-pass');
-            //     $('#text-password-check-pass').css('display','none');
-            // });
-            // //비밀번호 포커스 이동 시 확인표시 재생성
-            // $('#input-user_pw').focus(function(){
-            //     $('#input-user_pw').addClass('process-pass');
-            //     $('#text-password-check-pass').css('display','flex');
-            // });
+
 
             
         }
@@ -342,17 +333,7 @@ $(document).ready(function(){
                     $('.box-signup-more-information').css('display','block');
                 });
                 });
-        //     $('#checkbox-checkAgree').click(function(){
-        //         $('#btn-information-finish').prop('disabled',false);
-        //         $('#btn-information-next').prop('disabled',false);
-
-        //         $('#checkbox-checkAgree').click(function(){
-        //             $('#btn-information-finish').prop('disabled',true);
-        //             $('#btn-information-next').prop('disabled',true);
-        //         });
-        //     });
-        // }
-
+ 
 
         }
         else if(!regBirth.test($('#input-user_birth').val())){
@@ -375,29 +356,7 @@ $(document).ready(function(){
 
 
 
-    //모달창
-
-
-    // const body = document.querySelector('body');
-    // let scrollPosition = 0;
-
-    // // 팝업 오픈
-    // function enable() {
-    // scrollPosition = window.pageYOffset;
-    // body.style.overflow = 'hidden';
-    // body.style.position = 'fixed';
-    // body.style.top = `-${scrollPosition}px`;
-    // body.style.width = '100%';
-    // }
-    // // 팝업 닫기
-    // function disable() {
-    // body.style.removeProperty('overflow');
-    // body.style.removeProperty('position');
-    // body.style.removeProperty('top');
-    // body.style.removeProperty('width');
-    // window.scrollTo(0, scrollPosition);
-    // }
-
+ 
     //창 켜기
     $('#btn-user_bank').click(function(event){
         event.preventDefault();

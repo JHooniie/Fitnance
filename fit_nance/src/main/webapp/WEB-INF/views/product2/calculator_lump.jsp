@@ -11,6 +11,7 @@
 		<!-- css -->
 		<link rel="stylesheet" href="<c:url value='/css/calculator_lump.css'/>"/>
 		<!-- js -->
+		<script src="<c:url value='/js/calculator_lump.js' />"></script>
 		<!-- 삭제해야함 -->
 		
 		<meta charset="UTF-8">
@@ -41,7 +42,7 @@
             <div class="middle4-subbox1">
                 <div class="sub-title">총 목표 금액</div>
                 <div class="sub-input">
-                    <input type="text" id="amount-paid" name="amount-paid" placeholder="총 목표 금액"><span>원</span>
+                    <input type="text" id="amount-paid" name="amount-paid" onkeyup="input_num(this);" placeholder="총 목표 금액"><span>원</span>
                 </div>
                 <div class="sub-title">적립 기간</div>
                 <div class="sub-input">
@@ -76,26 +77,23 @@
                     <div class="box3">비과세</div>
                 </div>
                 <div class="sub-detail">
-                    <ul>
-                        <li>목표금액 <span>1,000,000</span>원을 모으려면 <span>12개월</span> 동안 연 이율 <span>2.4</span>%의 <span>단리</span>로</li>
-                        <li>월 <span>824,269</span>원을 저축하셔야 합니다.</li>
-                    </ul>
+                    
                 </div>
-                <div class="sub-title2">세율별 총 이자액</div>
+                <div class="sub-title2">세율별 월 적립액</div>
                 <div class="sub-line1">
                     <div class="line-left">일반세율</div>
                     <div class="line-middle">15.4%</div>
-                    <div class="line-right"><span>57,740</span>원</div>
+                    <div class="line-right"><span class="num1"></span>원</div>
                 </div>
                 <div class="sub-line1">
                     <div class="line-left">세금우대</div>
                     <div class="line-middle">9.5%</div>
-                    <div class="line-right"><span>61,766</span>원</div>
+                    <div class="line-right"><span class="num2"></span>원</div>
                 </div>
                 <div class="sub-line2">
                     <div class="line-left">비과세</div>
                     <div class="line-middle">0.0%</div>
-                    <div class="line-right"><span>68,250</span>원</div>
+                    <div class="line-right"><span class="num3"></span>원</div>
                 </div>
             </div>
         </div>

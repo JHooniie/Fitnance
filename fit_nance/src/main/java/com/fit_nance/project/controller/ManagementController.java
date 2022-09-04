@@ -29,22 +29,6 @@ public class ManagementController {
 		return "admin/management/admin_management";
 	}
 	
-	// 공지사항 등록 폼 열기
-//	@RequestMapping("/admin/registNotice")
-//	public String viewNoticeForm() {
-//		return "admin/notice/admin_notice_form";
-//	}
-//	
-//	// 공지사항 등록
-//	@RequestMapping("/admin/insertNotice")
-//	public String insertNotice(NoticeVO notice) {
-//		nService.insertNotice(notice);
-//		
-//		// DB에 데이터 저장한 후 공지사항 목록 화면으로 포워딩
-//		return "redirect:/admin/notice";
-////		return "redirect:./notice";
-//	}
-//	
 	// 공지사항 수정 폼 열기 요청 처리
 	@RequestMapping("/admin/memberDetailView/{memId}")
 	public String memberDetailView(@PathVariable String memId, Model model) {
@@ -73,30 +57,5 @@ public class ManagementController {
 		// DB에 데이터 저장한 후 회원 관리 목록 화면으로 포워딩
 		return result;
 	}
-//	
-//	// 공지사항 삭제
-//	@ResponseBody
-//	@RequestMapping("/admin/deleteNotice")
-//	public int deleteCart(@RequestParam("checkArr[]") ArrayList<Integer> chkArr) {
-//		int result = 0;
-//		
-//		if(chkArr != null) {
-//			for(int noticeIndex : chkArr) {
-//				nService.deleteNotice(noticeIndex);
-//			}
-//			result = 1;
-//		}
-//		
-//		return result;
-//	}
-//	
-//	// 공지사항 상세 보기
-//	@RequestMapping("/admin/memberDetailView/{noticeIndex}")
-//	public String detailViewProduct(@PathVariable int noticeIndex, Model model) {
-//		NoticeVO notice = nService.detailViewNotice(noticeIndex);
-//		model.addAttribute("notice", notice);
-//		
-//		return "admin/notice/admin_notice_detail";
-//	}
 
 }

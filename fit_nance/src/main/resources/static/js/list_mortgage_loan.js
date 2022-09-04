@@ -9,7 +9,9 @@
 	var arr_mrtg_type=["mrtg_type"];
 	var arr_rpay_type=["rpay_type"];
 	var arr_lend_type=["lend_type"];
-
+	
+	var index_result_list = Number($('.index_result_list').val());
+	
     // 좌측 필터 버튼 클릭 시
     {
         {// 가입방법

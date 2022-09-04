@@ -19,7 +19,7 @@ $(document).ready(function(){
 		$('.more-down').click(function(){
 			$(this).css('display','none');
 			$('.more-items').css('display','block');
-			$('.more-up').css('display','inline-block');
+			$('.more-up').css('display','block');
 		})
 		
 		$('.more-up').click(function(){

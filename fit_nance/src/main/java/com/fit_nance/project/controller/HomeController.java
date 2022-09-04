@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.fit_nance.project.model.CharterLoanFilterVO;
 import com.fit_nance.project.model.CharterLoanListVO;
@@ -239,15 +240,6 @@ public class HomeController {
 		
 		model.addAttribute("prdt",prdt);
 		return "product/detail_credit_loan";
-	}
-	
-	// 대출이자 계산기
-	@RequestMapping("/calc_rpayment")
-	public String calc_rpayment(Model model) {
-//		ArrayList<HomeLoanListVO> list_home_loan = new ArrayList<HomeLoanListVO>();
-//		ArrayList<HomeLoanListVO> list_home_loan = homeloanlistService.selectHomeLoanList();
-//		model.addAttribute("list_home_loan", list_home_loan);
-		return "calculator/calc_rpayment"; 
 	}
 	
 	// 서비스 이용 문의
