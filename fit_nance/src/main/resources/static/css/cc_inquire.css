@@ -1,0 +1,348 @@
+*{
+    /* border: 1px solid red; */
+}
+
+h1{
+    font-size: 38px;
+    color: #222222;
+}
+
+h2{
+    font-size: 20px;
+    color: #222222;
+    font-weight: 600;
+}
+
+.div_register_email h2{
+    margin: 0px 52px 0px 0px;
+    font-weight: 600;
+}
+
+.div_register_email span{
+    font-size: 20px;
+    color: #666666;
+}
+
+input::placeholder{
+    color: #aaaaaa;
+}
+
+textarea::placeholder{
+    color: #aaaaaa;
+}
+
+.div_service_inquire{
+    display: flex;
+    flex-direction: column;
+    width: 1280px;
+    margin: 0 auto;
+    margin-top: 210px;
+}
+
+.div_service_inquire .tab_service_inquire{
+    margin: 80px 0px 0px 0px;
+}
+
+/* 탭 선택 전 */
+.tab_service_inquire .tab_service_nav .nav_register_inquire,
+.tab_service_inquire .tab_service_nav .nav_list_inquire{
+    color: #aaaaaa;
+    border-bottom: 1px solid #aaaaaa;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+/* 탭 선택 후 */
+.tab_service_inquire .tab_service_nav .nav_register_inquire_selected,
+.tab_service_inquire .tab_service_nav .nav_list_inquire_selected{
+    color: #222222;
+    border-bottom: 1px solid #222222;
+}
+
+/* 문의 메뉴 탭 */
+.tab_service_inquire .tab_service_nav span{
+    font-size: 20px;
+    color: #aaaaaa;
+}
+
+.tab_service_content .tab_register_inquire{
+    margin: 0px 0px 130px 0px;
+}
+
+.tab_service_content .tab_register_inquire div{
+    margin: 60px 0px 0px 0px;
+}
+
+.div_service_inquire .tab_service_inquire{
+    display: flex;
+    flex-direction: column;
+}
+
+.tab_service_inquire .tab_service_nav{
+    display:flex;
+}
+
+.tab_service_inquire .tab_service_nav div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 640px;
+    height: 60px;
+    border-bottom: 1px solid #aaaaaa;
+}
+
+.tab_service_inquire .div_login_notice{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 80px 0px 130px 0px;
+}
+
+.div_login_notice .title_login_notice{
+    font-size: 26px;
+    text-align: center;
+    line-height: 39px;;
+    letter-spacing: -0.65px;
+    color: #222222;
+}
+
+.div_login_notice .image_login_notice{
+    margin: 60px 0px 30px 0px;
+}
+
+.div_login_notice .image_login_notice img{
+    width: 67.7px;
+    height: 70px;
+}
+
+.div_login_notice .link_login_notice{
+    font-size: 26px;
+    text-align: center;
+}
+
+.div_login_notice .link_login_notice a{
+    color: #222222;
+}
+
+.div_login_notice .link_login_notice a > img{
+    width: 8px;
+    height: 14px;
+    margin: 0px 0px 0px 10px;
+}
+
+.div_login_notice .text_login_notice{
+    font-size: 16px;
+    text-align: center;
+    line-height: 24px;
+    color: #aaaaaa;
+    margin: 25px 0px 0px 0px;
+}
+
+/* 답변 받을 이메일 주소 */
+.tab_register_inquire .div_register_email{
+    display: flex;
+    align-items: center;
+}
+
+/* 문의 유형 */
+.tab_register_inquire .div_register_type select{
+    width: 440px;
+    height: 60px;
+    margin: 20px 0px 0px 0px;
+    font-size: 20px;
+    border: 0px;
+    border-bottom: 1px solid #cccccc;
+    outline-style: none;
+    /* appearance: none; */
+}
+
+select{
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background: url(/image/angle-down-solid.png) no-repeat 95% 50%;
+    background-size: 15px;
+}
+
+.tab_register_inquire .div_register_type select option{
+    color: #222222;
+}
+
+.tab_register_inquire .div_register_type select option[value=""][disabled]{
+    display: none;
+}
+
+/* 문의 제목 */
+.tab_register_inquire .div_register_title input{
+    width: 1280px;
+    height: 60px;
+    margin: 20px 0px 0px 0px;
+    font-size: 20px;
+    border: 0px;
+    border-bottom: 1px solid #cccccc;
+    outline-style: none;
+}
+
+/* 문의 내용 */
+.tab_register_inquire .div_register_content textarea{
+    width: 1220px;
+    height: 535px;
+    margin: 20px 0px 0px 0px;
+    padding: 30px 30px 30px 30px;
+    font-size: 20px;
+    border: 1px solid #cccccc;
+    outline-style: none;
+    resize: none;
+}
+
+.tab_service_content .tab_register_inquire .div_register_btn{
+    margin: 70px 0px 0px 0px;
+    padding: 0px 190px 0px 190px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.tab_service_content .tab_register_inquire .div_register_btn button{
+    width: 440px;
+    height: 70px;
+    border-radius: 5px;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.tab_register_inquire .div_register_btn .btn_reset{
+    background-color: #ffffff;
+    border: 1px solid #dddddd;
+    cursor: pointer;
+}
+
+.tab_register_inquire .div_register_btn .btn_submit{
+    background-color:  #1f4dff;
+    border: 0px;
+    cursor: pointer;
+} 
+
+/* 조회하기 - 문의사항 리스트 */
+
+.tab_list_inquire, .div_detail_inquire{
+    margin-top: 30px;
+}
+
+.tab_list_inquire .div_list_inquire .top_list_inquire{
+    width: 1280px;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    background-color: #eeeeee;
+}
+
+.tab_list_inquire .div_list_inquire .top_list_inquire div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #222222;
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0px 0px 0px 30px;
+}
+
+.div_list_inquire .top_list_inquire .date_list_inquire{
+    width: 150px;
+}
+
+.tab_list_inquire .div_list_inquire .content_list_inquire{
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff;
+    border-bottom: 1px solid #cccccc;
+    cursor: pointer;
+}
+
+.tab_list_inquire .div_list_inquire .content_list_inquire div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #222222;
+    font-size: 18px;
+    font-weight: 400;
+    margin: 0px 0px 0px 30px;
+}
+
+.div_list_inquire .content_list_inquire .date_list_inquire{
+    width: 150px;
+}
+
+/* 문의사항 - 조회하기 내용 */
+
+.div_detail_inquire{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 30px 0px 0px 0px;
+    color: #222222;
+    font-size: 18px;
+}
+
+.div_detail_inquire .top_detail_inquire{
+    min-width: 1280px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    background-color: #eeeeee;
+    font-weight: 600;
+}
+
+.div_detail_inquire .top_detail_inquire .title_detail_inquire{
+    padding: 0px 0px 0px 30px;
+    width: 1100px;
+}
+
+.div_detail_inquire .top_detail_inquire .date_detail_inquire{
+    width: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.div_detail_inquire .content_detail_inquire .question_detail_inquire{
+   min-width: 1280px;
+   padding: 50px 30px 40px 30px;
+   width: 1220px;
+   line-height: 1.94;
+}
+
+.div_detail_inquire .content_detail_inquire p{
+    font-weight: 400;
+}
+
+.div_detail_inquire .content_detail_inquire .answer_detail_inquire{
+    min-width: 1280px;
+    padding: 30px 30px 40px 30px;
+    margin: 0px 0px 80px 0px;
+    background-color: #f9f9f9;
+    line-height: 1.94;
+}
+
+.content_detail_inquire .answer_detail_inquire .answer_detail_text{
+	font-weight: 600;
+    margin: 0px 0px 50px 0px;
+}
+
+/* 목록으로 돌아가기 버튼 */
+.div_detail_inquire button{
+    width: 200px;
+    height: 60px;
+    color: #222222;
+    border: 1px solid #222222;
+    border-radius: 5px;
+    background-color: #ffffff;
+    cursor: pointer;
+}
+
+.div_detail_inquire button span{
+    font-size: 16px;
+    font-weight: 500;
+}

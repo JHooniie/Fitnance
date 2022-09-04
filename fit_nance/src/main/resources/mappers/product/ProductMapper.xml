@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.fit_nance.project.dao.ILoanDAO">
+	
+	<!-- 전세자금대출 api 데이터 -->
+	<!-- 전세자금대출 api baseList 등록 -->
+	<insert id="insertCharterLoanBaseList" parameterType="com.fit_nance.project.model.CharterLoanBaseVO">
+		INSERT INTO charter_loan_base (pIndex, fin_co_no, kor_co_nm, fin_prdt_cd, fin_prdt_nm, join_way, loan_inci_expn, erly_rpay_fee, dly_rate, loan_lmt)
+		VALUES (#{pIndex}, #{fin_co_no}, #{kor_co_nm}, #{fin_prdt_cd}, #{fin_prdt_nm}, #{join_way}, #{loan_inci_expn}, #{erly_rpay_fee}, #{dly_rate}, #{loan_lmt})
+	</insert>
+	<!-- 전세자금대출 api optionList 데이터 등록 -->
+	<insert id="insertCharterLoanOptList" parameterType="com.fit_nance.project.model.CharterLoanOptVO">
+		INSERT INTO charter_loan_option (oIndex, fin_co_no, fin_prdt_cd, rpay_type, rpay_type_nm, lend_rate_type, lend_rate_type_nm, lend_rate_min, lend_rate_max, lend_rate_avg)
+		VALUES (#{oIndex}, #{fin_co_no}, #{fin_prdt_cd}, #{rpay_type}, #{rpay_type_nm}, #{lend_rate_type}, #{lend_rate_type_nm}, #{lend_rate_min}, #{lend_rate_max}, #{lend_rate_avg})
+	</insert>
+	
+	<!-- -->
+	<!-- 주택담보대출 api baseList 데이터 등록 -->
+	<insert id="insertHomeLoanBaseList" parameterType="com.fit_nance.project.model.HomeLoanBaseVO">
+		INSERT INTO home_loan_base (pIndex, fin_co_no, kor_co_nm, fin_prdt_cd, fin_prdt_nm, join_way, loan_inci_expn, erly_rpay_fee, dly_rate, loan_lmt)
+		VALUES (#{pIndex}, #{fin_co_no}, #{kor_co_nm}, #{fin_prdt_cd}, #{fin_prdt_nm}, #{join_way}, #{loan_inci_expn}, #{erly_rpay_fee}, #{dly_rate}, #{loan_lmt})
+	</insert>
+	<!-- 주택담보대출 api optionList 데이터 등록 -->
+	<insert id="insertHomeLoanOptList" parameterType="com.fit_nance.project.model.HomeLoanOptVO">
+		INSERT INTO home_loan_option (oIndex, fin_co_no, fin_prdt_cd, mrtg_type, mrtg_type_nm, rpay_type, rpay_type_nm, lend_rate_type, lend_rate_type_nm, lend_rate_min, lend_rate_max, lend_rate_avg)
+		VALUES (#{oIndex}, #{fin_co_no}, #{fin_prdt_cd}, #{mrtg_type}, #{mrtg_type_nm}, #{rpay_type}, #{rpay_type_nm}, #{lend_rate_type}, #{lend_rate_type_nm}, #{lend_rate_min}, #{lend_rate_max}, #{lend_rate_avg})
+	</insert>
+	
+	<!-- -->
+	<!-- 개인신용대출 api baseList 데이터 등록 -->
+	<insert id="insertPersonalLoanBaseList" parameterType="com.fit_nance.project.model.PersonalLoanBaseVO">
+		INSERT INTO personal_loan_base (pIndex, fin_co_no, kor_co_nm, fin_prdt_cd, fin_prdt_nm, join_way, crdt_prdt_type, crdt_prdt_type_nm, cb_name)
+		VALUES (#{pIndex}, #{fin_co_no}, #{kor_co_nm}, #{fin_prdt_cd}, #{fin_prdt_nm}, #{join_way}, #{crdt_prdt_type}, #{crdt_prdt_type_nm}, #{cb_name})
+	</insert>
+	<!-- 개인신용대출 api optionList 데이터 등록 -->
+	<insert id="insertPersonalLoanOptList" parameterType="com.fit_nance.project.model.PersonalLoanOptVO">
+		INSERT INTO personal_loan_option (oIndex, fin_co_no, fin_prdt_cd, crdt_prdt_type, crdt_lend_rate_type, crdt_lend_rate_type_nm, crdt_grad_1, crdt_grad_4, crdt_grad_5, crdt_grad_6, crdt_grad_10, crdt_grad_11, crdt_grad_12, crdt_grad_13, crdt_grad_avg)
+		VALUES (#{oIndex}, #{fin_co_no}, #{fin_prdt_cd}, #{crdt_prdt_type}, #{crdt_lend_rate_type}, #{crdt_lend_rate_type_nm}, #{crdt_grad_1}, #{crdt_grad_4}, #{crdt_grad_5}, #{crdt_grad_6}, #{crdt_grad_10}, #{crdt_grad_11}, #{crdt_grad_12}, #{crdt_grad_13}, #{crdt_grad_avg})
+	</insert>
+	
+	
+	
+</mapper>

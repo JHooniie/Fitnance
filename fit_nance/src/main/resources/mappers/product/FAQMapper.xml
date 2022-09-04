@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.fit_nance.project.dao.IProductDAO">
+	<resultMap id="resultFAQ" type="com.fit_nance.project.model.FAQVO">
+		<result property="FAQIndex" column="FAQIndex"/>
+		<result property="FAQTitle" column="FAQTitle"/>
+		<result property="FAQContent" column="FAQContent"/>
+		<result property="adminId" column="adminId"/>
+	</resultMap>
+	
+	<select id="selectFAQ" resultMap="resultFAQ">
+		SELECT * FROM FAQ;
+	</select>
+	
+	<select id="selectFAQ_search" resultMap="resultFAQ">
+		SELECT * FROM FAQ
+		<if test="a!=null"> 
+		WHERE FAQTitle LIKE CONCAT('%',#{A},'%')
+		</if>
+		;
+	</select>
+</mapper>

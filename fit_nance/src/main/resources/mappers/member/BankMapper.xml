@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.fit_nance.project.dao.IMemberDAO">
+	<resultMap id="bankResult" type="com.fit_nance.project.model.BankVO" >
+		<result property="memBank" column="memBank"/>
+		<result property="fin_co_no" column="fin_co_no"/>
+		<result property="kor_co_nm" column="kor_co_nm"/>
+	</resultMap>
+	
+	<!-- 은행정보 조회 -->
+	<select id="listAllBank" resultMap="bankResult">
+		SELECT * 
+		FROM bank
+		ORDER BY memBank
+	</select>
+  
+
+</mapper>
