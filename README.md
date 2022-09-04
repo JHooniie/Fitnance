@@ -1,2 +1,0 @@
-# Fitnance
-Fitnance.project
