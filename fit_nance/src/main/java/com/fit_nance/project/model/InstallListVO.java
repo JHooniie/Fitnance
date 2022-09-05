@@ -1,17 +1,17 @@
 package com.fit_nance.project.model;
 
 public class InstallListVO {
-	int pIndex;
-	String fin_co_no;
-	String fin_prdt_cd;
-	String kor_co_nm;
-	String fin_prdt_nm;
-	String join_way;
-	String mtrt_int;
-	String spcl_cnd;
-	int join_deny;
-	String join_member;
-	String etc_note;
+	private int pIndex;
+	private String fin_co_no;
+	private String kor_co_nm;
+	private String fin_prdt_cd;	
+	private String fin_prdt_nm;
+	private String join_way;
+	private String mtrt_int;
+	private String spcl_cnd;
+	private int join_deny;
+	private String join_member;
+	private String etc_note;
 	int max_limit;
 	private int oIndex;
 	private String intr_rate_type;
