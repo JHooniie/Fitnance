@@ -5,6 +5,7 @@ import java.util.HashMap;
 
 import com.fit_nance.project.model.DepositListVO;
 import com.fit_nance.project.model.InstallListVO;
+import com.fit_nance.project.model.PensionListVO;
 
 public interface IListDAO {
 	// 적금
@@ -22,5 +23,13 @@ public interface IListDAO {
 	public DepositListVO selectDepositDetail(int oIndex);
 	// 필터
 	public ArrayList<DepositListVO> selectDepositFilter(HashMap<String,Object> map); 
+	
+	// 연금
+	// 전체 리스트 출력
+	public ArrayList<PensionListVO> selectPensionList();
+	// 상품 디테일
+	public PensionListVO selectPensionDetail(int oIndex);
+	// 필터
+	public ArrayList<PensionListVO> selectPensionFilter(HashMap<String,Object> map); 
 
 }

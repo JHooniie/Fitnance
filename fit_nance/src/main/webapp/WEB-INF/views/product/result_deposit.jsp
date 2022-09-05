@@ -37,8 +37,8 @@
                                   </c:forEach></div>
                              </div>
                          </div>
-                         <div class="plus-icon"><i class="fa-solid fa-folder-plus"></i></div>
-                         <div class="plus-icon"><i class="fa-solid fa-heart"></i></div>
+                         <div class="plus-icon plus-icon1"><i class="fa-solid fa-folder-plus"></i></div>
+                         <div class="plus-icon plus-icon2"><i class="fa-solid fa-heart"></i></div>
                      </div>
                 
                      <div class="item-box2">

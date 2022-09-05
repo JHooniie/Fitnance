@@ -13,6 +13,8 @@ import com.fit_nance.project.model.DepositFilterVO;
 import com.fit_nance.project.model.DepositListVO;
 import com.fit_nance.project.model.InstallListFilterVO;
 import com.fit_nance.project.model.InstallListVO;
+import com.fit_nance.project.model.PensionFilterVO;
+import com.fit_nance.project.model.PensionListVO;
 import com.fit_nance.project.service.ListService;
 
 @Controller
@@ -120,18 +122,18 @@ public class ListController {
 		return "product/detail_deposit"; 
 	}
 	
-	// 적금 필터링
+	// 예금 필터링
 	@RequestMapping("/filterDeposit")
 	public String filterDeposit(@RequestParam(value="join_member") ArrayList<String> join_member2,
 								@RequestParam(value="join_way") ArrayList<String> join_way2,
 								@RequestParam(value="save_trm") ArrayList<String> save_trm2,
 								Model model) {
 		
-		DepositFilterVO vo= new DepositFilterVO();
+		DepositFilterVO vo = new DepositFilterVO();
 		
-		ArrayList<String> join_member=new ArrayList<String>();
-		ArrayList<String> join_way=new ArrayList<String>();
-		ArrayList<String> save_trm=new ArrayList<String>();
+		ArrayList<String> join_member = new ArrayList<String>();
+		ArrayList<String> join_way = new ArrayList<String>();
+		ArrayList<String> save_trm = new ArrayList<String>();
 		
 		for(int i=1; i<join_member2.size();i++) {
 			join_member.add(join_member2.get(i));
@@ -158,16 +160,88 @@ public class ListController {
 		vo.setJoin_way(join_way);
 		vo.setSave_trm(save_trm);
 				
-		ArrayList<DepositListVO> dpList= listService.selectDepositFilter(vo);
+		ArrayList<DepositListVO> dpList = listService.selectDepositFilter(vo);
 		
 		model.addAttribute("dpList", dpList);
 		
 		return "product/result_deposit";
 	}
 	
-	// 적금 비교함 가기
+	// 예금 비교함 가기
 	@RequestMapping("/compareDeposit")
 	public String viewCompareDeposit() {
 		return "product/compare_deposit";
+	}
+	
+	
+	// 연금
+	// 연금 전체 리스트 조회
+	@RequestMapping("/listPension")
+	public String viewListPension(Model model) {
+		ArrayList<PensionListVO> psList = listService.selectPensionList();
+		model.addAttribute("psList", psList);
+		
+		return "product/list_pension";
+	}
+	
+	// 연금 상세 보기
+	@RequestMapping("/detailPension/{oIndex}")
+	public String viewDetailPension(@PathVariable int oIndex, Model model) {
+		PensionListVO pension = listService.selectPensionDetail(oIndex);
+		model.addAttribute("pension", pension);
+		
+		return "product/detail_pension"; 
+	}
+	
+	// 연금 필터링
+	@RequestMapping("/filterPension")
+	public String filterPension(@RequestParam(value="pnsn_recp_trm_nm") ArrayList<String> pnsn_recp_trm_nm2,
+								@RequestParam(value="mon_paym_atm_nm") ArrayList<String> mon_paym_atm_nm2,
+								@RequestParam(value="pnsn_strt_age_nm") ArrayList<String> pnsn_strt_age_nm2,
+								Model model) {
+		
+		PensionFilterVO vo = new PensionFilterVO();
+		
+		ArrayList<String> pnsn_recp_trm_nm = new ArrayList<String>();
+		ArrayList<String> mon_paym_atm_nm = new ArrayList<String>();
+		ArrayList<String> pnsn_strt_age_nm = new ArrayList<String>();
+		
+		for(int i=1; i<pnsn_recp_trm_nm2.size();i++) {
+			pnsn_recp_trm_nm.add(pnsn_recp_trm_nm2.get(i));
+		}
+		
+		if(pnsn_recp_trm_nm!=null)
+			vo.setPnsn_recp_trm_nm(pnsn_recp_trm_nm);
+	
+		for(int i=1; i<mon_paym_atm_nm2.size();i++) {
+			mon_paym_atm_nm.add(mon_paym_atm_nm2.get(i));
+		}
+		
+		if(mon_paym_atm_nm!=null)
+			vo.setMon_paym_atm_nm(mon_paym_atm_nm);
+		
+		for(int i=1; i<pnsn_strt_age_nm2.size();i++) {
+			pnsn_strt_age_nm.add(pnsn_strt_age_nm2.get(i));
+		}
+		
+		if(pnsn_strt_age_nm!=null)
+			vo.setPnsn_strt_age_nm(pnsn_strt_age_nm);
+		
+		vo.setPnsn_recp_trm_nm(pnsn_recp_trm_nm);
+		vo.setMon_paym_atm_nm(mon_paym_atm_nm);
+		vo.setPnsn_strt_age_nm(pnsn_strt_age_nm);
+		
+		
+		ArrayList<PensionListVO> psList = listService.selectPensionFilter(vo);
+		
+		model.addAttribute("psList", psList);
+		
+		return "product/result_pension";
+	}
+	
+	// 연금 비교함 가기
+	@RequestMapping("/comparePension")
+	public String viewComparePension() {
+		return "product/compare_pension";
 	}
 }

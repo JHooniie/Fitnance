@@ -12,6 +12,8 @@ import com.fit_nance.project.model.DepositFilterVO;
 import com.fit_nance.project.model.DepositListVO;
 import com.fit_nance.project.model.InstallListFilterVO;
 import com.fit_nance.project.model.InstallListVO;
+import com.fit_nance.project.model.PensionFilterVO;
+import com.fit_nance.project.model.PensionListVO;
 
 @Service
 public class ListService implements IListService {
@@ -63,6 +65,27 @@ public class ListService implements IListService {
 		map.put("save_trm", vo.getSave_trm());
 		
 		return dao.selectDepositFilter(map);
+	}
+
+	@Override
+	public ArrayList<PensionListVO> selectPensionList() {
+		return dao.selectPensionList();
+	}
+
+	@Override
+	public PensionListVO selectPensionDetail(int oIndex) {
+		return dao.selectPensionDetail(oIndex);
+	}
+
+	@Override
+	public ArrayList<PensionListVO> selectPensionFilter(PensionFilterVO vo) {
+		HashMap<String,Object> map= new HashMap<String,Object>();
+		
+		map.put("pnsn_recp_trm_nm", vo.getPnsn_recp_trm_nm());
+		map.put("mon_paym_atm_nm", vo.getMon_paym_atm_nm());
+		map.put("pnsn_strt_age_nm", vo.getPnsn_strt_age_nm());
+		
+		return dao.selectPensionFilter(map);
 	}
 
 }

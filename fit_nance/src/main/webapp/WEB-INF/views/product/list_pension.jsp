@@ -11,7 +11,7 @@
 		<!-- css -->
 		<link rel="stylesheet" href="<c:url value='/css/pension.css'/>"/>
 		<!-- js -->
-		<script src="<c:url value='/js/pension.js' />"></script>
+		<script src="<c:url value='/js/list_pension.js' />"></script>
 	</head>
 	<body>
 		<!-- top.jsp -->
@@ -35,25 +35,25 @@
         </div>
         <div class="middel-bottom">
             <div>
-                <div class="product-compare-box"><a href="<c:url value='pension_compare'/>">상품 비교하기</a></div>   
+                <div class="product-compare-box"><a href="<c:url value='/comparePension'/>">상품 비교하기</a></div>   
                 <div class="select-box">
-	                <div class="what-select" value="pnsn_recp_trm_nm">
+	                <div class="what-select">
 	                    <div class="select-title">연금수령기간</div>
-	                    <div class="select-option select-option1" value="10년 확정">10년 확정</div>
-	                    <div class="select-option select-option1" value="20년 확정">20년 확정</div>
+	                    <div class="select-option select-option-recp-trm1">10년 확정</div>
+	                    <div class="select-option select-option-recp-trm2">20년 확정</div>
 					</div>
 					
-					<div class="what-select" value="mon_paym_atm_nm">
+					<div class="what-select">
 	                    <div class="select-title">월 납입액</div>
-	                    <div class="select-option select-option1" value="100,000원">10만원</div>
-	                    <div class="select-option select-option1" value="200,000원">20만원</div>
-	                    <div class="select-option select-option1" value="300,000원">30만원</div>
+	                    <div class="select-option-pay_atm select-option-pay_atm1">10만원</div>
+	                    <div class="select-option-pay_atm select-option-pay_atm2">20만원</div>
+	                    <div class="select-option-pay_atm select-option-pay_atm3">30만원</div>
 					</div>
 					
-					<div class="what-select" value="pnsn_strt_age_nm">
+					<div class="what-select">
 	                    <div class="select-title">연금개시연령</div>
-	                    <div class="select-option select-option1" value="60세">60세</div>
-	                    <div class="select-option select-option1" value="65세">65세</div>
+	                    <div class="select-option select-option-strt-age1">60세</div>
+	                    <div class="select-option select-option-strt-age2">65세</div>
 					</div>
 				
                     <div class="filter-reset"><i class="fa-solid fa-arrow-rotate-right"></i>  필터 초기화</div>
@@ -67,8 +67,6 @@
                 </div>
                 <div class="item-list">
                 <c:forEach items="${psList }" var="list">
-                <c:set var="index" value="${list.oIndex}"/>
-	                	
                     <div class="item-box-all">
                         <div class="item-box">
                             <div class="image-box">
@@ -83,8 +81,8 @@
 	                                    </c:forEach></div>
                                 </div>
                             </div>
-                            <div class="plus-icon"><i class="fa-solid fa-folder-plus"></i></div>
-                            <div class="plus-icon"><i class="fa-solid fa-heart"></i></div>
+                            <div class="plus-icon plus-icon1"><i class="fa-solid fa-folder-plus"></i></div>
+                            <div class="plus-icon plus-icon2"><i class="fa-solid fa-heart"></i></div>
                         </div>
                    
                         <div class="item-box2">
@@ -96,7 +94,7 @@
                                     </ul>
                                 </div>
                             </div>
-                            <div class="view-detail"><a href="<c:url value='pension_detail?index=${index }'/>">자세히 보기</a></div>
+                            <div class="view-detail"><a href="<c:url value='/detailPension/${list.oIndex}'/>">자세히 보기</a></div>
                         </div>
                     </div>
                     </c:forEach>
@@ -105,15 +103,12 @@
                         <div class="page-icon"><i class="fa-solid fa-angle-left"></i></div>
                         <div class="page-num">
                             <div class="page-num1">1</div>
-                            <div class="page-num2">2</div>
-                            <div class="page-num3">3</div>
                         </div>
                         <div class="page-icon"><i class="fa-solid fa-angle-right"></i></div>
                     </div>
                 </div>
             </div>
-            <div id="result-box-filter"></div>
-        </div>
+       	 </div>
         </div>
     </div>
 		
