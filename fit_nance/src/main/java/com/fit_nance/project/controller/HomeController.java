@@ -19,7 +19,7 @@ import com.fit_nance.project.model.PensionFilterVO;
 import com.fit_nance.project.model.PensionListVO;
 import com.fit_nance.project.model.PersonalLoanFilterVO;
 import com.fit_nance.project.model.PersonalLoanListVO;
-import com.fit_nance.project.service.LoanListService;
+import com.fit_nance.project.service.ListLoanService;
 import com.fit_nance.project.service.ProductService;
 
 @Controller
@@ -28,7 +28,7 @@ public class HomeController {
 	ProductService pService;
 
 	@Autowired
-	LoanListService loanlistService;
+	ListLoanService loanlistService;
 	
 	// 메인페이지
 	@RequestMapping("/")
@@ -42,93 +42,6 @@ public class HomeController {
 		return "product2/intro";
 	}
 	
-	// 주택담보 대출
-	@RequestMapping("/list_mortgage_loan")
-	public String list_mortgage_loan(Model model) {
-		ArrayList<HomeLoanListVO> list_home_loan = loanlistService.selectHomeLoanList();
-		//ArrayList<String> loan_join_way = new ArrayList<String>();
-		
-//		for(int i=0; i<list_home_loan.size(); i++) {
-//			HomeLoanListVO vo = list_home_loan.get(i);
-//		}
-//		
-		model.addAttribute("list_home_loan", list_home_loan);
-		//model.addAttribute("loan_join_way", loan_join_way);
-		return "product/list_mortgage_loan"; 
-	}
-
-	
-	@RequestMapping("/filter_mortgage_loan")
-	public String filter_mortgage_loan(Model model
-										, @RequestParam(value="arr_join_way") ArrayList<String> arr_join_way
-										, @RequestParam(value="arr_mrtg_type") ArrayList<String> arr_mrtg_type
-										, @RequestParam(value="arr_rpay_type") ArrayList<String> arr_rpay_type
-										, @RequestParam(value="arr_lend_type") ArrayList<String> arr_lend_type
-										) {
-		
-		HomeLoanFilterVO vo = new HomeLoanFilterVO();
-		
-		ArrayList<String> list_join_way = new ArrayList<String>();
-		ArrayList<String> list_mrtg_type = new ArrayList<String>();
-		ArrayList<String> list_rpay_type = new ArrayList<String>();
-		ArrayList<String> list_lend_type = new ArrayList<String>();
-		
-		for(int i=1; i<arr_join_way.size(); i++) {
-			list_join_way.add(arr_join_way.get(i));
-		}
-		
-		if(list_join_way != null)
-			vo.setList_join_way(list_join_way);
-		
-		for(int i=1; i<arr_mrtg_type.size(); i++) {
-			list_mrtg_type.add(arr_mrtg_type.get(i));
-		}
-
-		if(list_mrtg_type != null)
-			vo.setList_mrtg_type(list_mrtg_type);
-		
-		for(int i=1; i<arr_rpay_type.size(); i++) {
-			list_rpay_type.add(arr_rpay_type.get(i));
-		}
-
-		if(list_rpay_type != null)
-			vo.setList_rpay_type(list_rpay_type);
-		
-		for(int i=1; i<arr_lend_type.size(); i++) {
-			list_lend_type.add(arr_lend_type.get(i));
-		}
-
-		if(list_lend_type != null)
-			vo.setList_lend_type(list_lend_type);
-		
-		vo.setList_join_way(list_join_way);
-		vo.setList_mrtg_type(list_mrtg_type);
-		vo.setList_rpay_type(list_rpay_type);
-		vo.setList_lend_type(list_lend_type);
-		
-		ArrayList<HomeLoanFilterVO> list_home_loan= loanlistService.selectHomeLoanFilter(vo);
-		
-		model.addAttribute("list_home_loan", list_home_loan);
-		return "product/result_mortgage_loan";
-
-	}
-	
-	@RequestMapping("/view_mortgage_detail")
-	public String view_mortgage_detail(@RequestParam("input_prdt_cd") String fin_prdt_cd, Model model) {
-		System.out.println(fin_prdt_cd);
-		HomeLoanListVO prdt = loanlistService.selectHomeLoanDetail(fin_prdt_cd);
-		
-		model.addAttribute("prdt",prdt);
-		return "product/detail_mortgage_loan";
-	}
-	
-	@RequestMapping("/detail_mortgage_loan")
-	public String detail_mortgage(Model model) {
-//		ArrayList<HomeLoanListVO> list_home_loan = new ArrayList<HomeLoanListVO>();
-//		ArrayList<HomeLoanListVO> list_home_loan = homeloanlistService.selectHomeLoanList();
-//		model.addAttribute("list_home_loan", list_home_loan);
-		return "product/detail_mortgage_loan"; 
-	}
 	
 	//전세자금 대출
 	@RequestMapping("/list_house_loan")
@@ -249,9 +162,6 @@ public class HomeController {
 	// 서비스 이용 문의
 	@RequestMapping("/cc_inquire")
 	public String servicec_inquire(Model model) {
-//		ArrayList<HomeLoanListVO> list_home_loan = new ArrayList<HomeLoanListVO>();
-//		ArrayList<HomeLoanListVO> list_home_loan = homeloanlistService.selectHomeLoanList();
-//		model.addAttribute("list_home_loan", list_home_loan);
 		return "cc/cc_inquire"; 
 	}
 	
@@ -270,112 +180,6 @@ public class HomeController {
 		return "product2/faq_search";
 	}
 	
-	@RequestMapping("/filter_pension")
-	public String filter_pension(
-								@RequestParam(value="pnsn_recp_trm_nm") ArrayList<String> pnsn_recp_trm_nm2,
-								@RequestParam(value="mon_paym_atm_nm") ArrayList<String> mon_paym_atm_nm2,
-								@RequestParam(value="pnsn_strt_age_nm") ArrayList<String> pnsn_strt_age_nm2
-								,Model model)
-	{	
-		PensionFilterVO vo= new PensionFilterVO();
-		
-		ArrayList<String> pnsn_recp_trm_nm=new ArrayList<String>();
-		ArrayList<String> mon_paym_atm_nm=new ArrayList<String>();
-		ArrayList<String> pnsn_strt_age_nm=new ArrayList<String>();
-		
-	
-		
-		for(int i=1; i<pnsn_recp_trm_nm2.size();i++) {
-			pnsn_recp_trm_nm.add(pnsn_recp_trm_nm2.get(i));
-		}
-		if(pnsn_recp_trm_nm!=null) vo.setPnsn_recp_trm_nm(pnsn_recp_trm_nm);
-	
-		for(int i=1; i<mon_paym_atm_nm2.size();i++) {
-			mon_paym_atm_nm.add(mon_paym_atm_nm2.get(i));
-		}
-		if(mon_paym_atm_nm!=null) vo.setMon_paym_atm_nm(mon_paym_atm_nm);
-		for(int i=1; i<pnsn_strt_age_nm2.size();i++) {
-			pnsn_strt_age_nm.add(pnsn_strt_age_nm2.get(i));
-		}
-		if(pnsn_strt_age_nm!=null)vo.setPnsn_strt_age_nm(pnsn_strt_age_nm);
-		
-		
-		ArrayList<PensionListVO> psList= pService.selectPensionFilter(vo);
-		
-		model.addAttribute("psList", psList);
-		
-		return "product2/pension_result";
-	}
-	
-	@RequestMapping("/pension_detail")
-	public String pension_detail(@RequestParam int index, Model model) {
-		ArrayList<PensionListVO> ps = pService.selectPensionAll();
-		
-		String fin_co_no = null;
-		String kor_co_nm=null;
-		String fin_prdt_nm=null;
-		String join_way=null;
-		double avg_prft_rate =0.0;
-		String pnsn_kind_nm=null;
-		String sale_strt_day=null;
-		String prdt_type_nm=null;
-		String sale_co=null;
-		String pnsn_recp_trm_nm=null;
-		String pnsn_entr_age_nm=null;
-		String mon_paym_atm_nm=null;
-		String paym_prd_nm=null;
-		String pnsn_strt_age_nm=null;
-		int pnsn_recp_amt=0;
-		double btrm_prft_rate_1=0.0;
-		double btrm_prft_rate_2=0.0;
-		double btrm_prft_rate_3=0.0;
-		
-		for(PensionListVO vo : ps) {
-			if(vo.getoIndex()==index) {
-				fin_co_no=vo.getFin_co_no();
-				kor_co_nm=vo.getKor_co_nm();
-				fin_prdt_nm=vo.getFin_prdt_nm();
-				join_way=vo.getJoin_way();
-				avg_prft_rate=vo.getAvg_prft_rate();
-				pnsn_kind_nm=vo.getPnsn_kind_nm();
-				sale_strt_day=vo.getSale_strt_day();
-				prdt_type_nm=vo.getPrdt_type_nm();
-				sale_co=vo.getSale_co();
-				pnsn_recp_trm_nm=vo.getPnsn_recp_trm_nm();
-				pnsn_entr_age_nm=vo.getPnsn_entr_age_nm();
-				mon_paym_atm_nm=vo.getMon_paym_atm_nm();
-				paym_prd_nm=vo.getPaym_prd_nm();
-				pnsn_strt_age_nm=vo.getPnsn_strt_age_nm();
-				pnsn_recp_amt=vo.getPnsn_recp_amt();
-				btrm_prft_rate_1=vo.getBtrm_prft_rate_1();
-				btrm_prft_rate_2=vo.getBtrm_prft_rate_2();
-				btrm_prft_rate_3=vo.getBtrm_prft_rate_3();
-			}
-		}
-		
-		model.addAttribute("fin_co_no", fin_co_no);
-		model.addAttribute("kor_co_nm", kor_co_nm);
-		model.addAttribute("fin_prdt_nm", fin_prdt_nm);
-		model.addAttribute("join_way", join_way);
-		model.addAttribute("avg_prft_rate", avg_prft_rate);
-		model.addAttribute("pnsn_kind_nm", pnsn_kind_nm);
-		model.addAttribute("sale_strt_day", sale_strt_day);
-		model.addAttribute("prdt_type_nm", prdt_type_nm);
-		model.addAttribute("sale_co", sale_co);
-		model.addAttribute("pnsn_recp_trm_nm", pnsn_recp_trm_nm);
-		model.addAttribute("pnsn_entr_age_nm", pnsn_entr_age_nm);
-		model.addAttribute("mon_paym_atm_nm", mon_paym_atm_nm);
-		model.addAttribute("paym_prd_nm", paym_prd_nm);
-		model.addAttribute("pnsn_strt_age_nm", pnsn_strt_age_nm);
-		model.addAttribute("pnsn_recp_amt", pnsn_recp_amt);
-		model.addAttribute("btrm_prft_rate_1", btrm_prft_rate_1);
-		model.addAttribute("btrm_prft_rate_2", btrm_prft_rate_2);
-		model.addAttribute("btrm_prft_rate_3", btrm_prft_rate_3);
-		
-		return "product2/pension_detail";
-	}
-	
-	
 	@RequestMapping("/calculator_deposit")
 	public String calculator_deposit() {
 		return "product2/calculator_deposit";
@@ -386,19 +190,5 @@ public class HomeController {
 		return "product2/calculator_lump";
 	}
 	
-	@RequestMapping("/deposit_compare")
-	public String deposit_compare() {
-		return "product2/deposit_compare";
-	}
 	
-	@RequestMapping("/pension_compare")
-	public String pension_compare() {
-		return "product2/pension_compare";
-	}
-	
-	// 대출상품 비교
-	@RequestMapping("/compare_loan")
-	public String compare_loan() {
-		return "product/compare_loan";
-	}
 }

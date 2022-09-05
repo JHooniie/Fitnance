@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
-import com.fit_nance.project.dao.IListDAO;
+import com.fit_nance.project.dao.IListSavingDAO;
 import com.fit_nance.project.model.DepositFilterVO;
 import com.fit_nance.project.model.DepositListVO;
 import com.fit_nance.project.model.InstallListFilterVO;
@@ -16,11 +16,11 @@ import com.fit_nance.project.model.PensionFilterVO;
 import com.fit_nance.project.model.PensionListVO;
 
 @Service
-public class ListService implements IListService {
+public class ListSavingService implements IListSavingService {
 	
 	@Autowired
-	@Qualifier("IListDAO")
-	IListDAO dao;
+	@Qualifier("IListSavingDAO")
+	IListSavingDAO dao;
 	
 	// 적금	
 	@Override
@@ -66,7 +66,8 @@ public class ListService implements IListService {
 		
 		return dao.selectDepositFilter(map);
 	}
-
+	
+	// 연금
 	@Override
 	public ArrayList<PensionListVO> selectPensionList() {
 		return dao.selectPensionList();

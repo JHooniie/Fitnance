@@ -15,13 +15,13 @@ import com.fit_nance.project.model.InstallListFilterVO;
 import com.fit_nance.project.model.InstallListVO;
 import com.fit_nance.project.model.PensionFilterVO;
 import com.fit_nance.project.model.PensionListVO;
-import com.fit_nance.project.service.ListService;
+import com.fit_nance.project.service.ListSavingService;
 
 @Controller
-public class ListController {
+public class ListSavingController {
 	
 	@Autowired
-	ListService listService;
+	ListSavingService listService;
 	
 	// 적금
 	// 적금 전체 리스트 조회

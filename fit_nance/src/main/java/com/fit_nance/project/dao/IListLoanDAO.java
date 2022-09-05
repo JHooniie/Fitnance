@@ -5,16 +5,17 @@ import java.util.HashMap;
 
 import com.fit_nance.project.model.CharterLoanFilterVO;
 import com.fit_nance.project.model.CharterLoanListVO;
-import com.fit_nance.project.model.HomeLoanFilterVO;
 import com.fit_nance.project.model.HomeLoanListVO;
 import com.fit_nance.project.model.PersonalLoanFilterVO;
 import com.fit_nance.project.model.PersonalLoanListVO;
 
-public interface ILoanListDAO {
+public interface IListLoanDAO {
+	// 각각 전체 리스트 출력/상품 디테일/필터 순으로 작성
+	
 	// 주택담보
-	public ArrayList<HomeLoanListVO> selectHomeLoanList();
-	public HomeLoanListVO selectHomeLoanDetail(String fin_prdt_cd);
-	public ArrayList<HomeLoanFilterVO> selectHomeLoanFilter(HashMap<String, Object> map); 
+	public ArrayList<HomeLoanListVO> listAllHomeLoan();
+	public HomeLoanListVO detailViewHomeLoan(int oIndex);
+	public ArrayList<HomeLoanListVO> selectHomeLoanFilter(HashMap<String, Object> map);
 	
 	// 전세자금
 	public ArrayList<CharterLoanListVO> selectCharterLoanList();
