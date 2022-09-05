@@ -57,7 +57,7 @@
         </ul>
         <ul>
             <li>예/적금</li>
-            <li><a href="<c:url value='/saving'/>">적금 상품</a></li>
+            <li><a href="<c:url value='/listInstall'/>">적금 상품</a></li>
             <li><a href="<c:url value='/deposit'/>">예금 상품</a></li>
             <li><a href="<c:url value='/pension'/>">연금 저축</a></li>
         </ul>

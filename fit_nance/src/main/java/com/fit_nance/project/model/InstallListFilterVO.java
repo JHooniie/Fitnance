@@ -2,7 +2,7 @@ package com.fit_nance.project.model;
 
 import java.util.ArrayList;
 
-public class SavingFilterVO {
+public class InstallListFilterVO {
 	ArrayList<String> rsrv_type_nm= new ArrayList<String>();
 	ArrayList<String> join_member= new ArrayList<String>();
 	ArrayList<String> join_way= new ArrayList<String>();
