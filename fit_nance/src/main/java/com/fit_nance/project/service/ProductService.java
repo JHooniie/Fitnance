@@ -20,7 +20,7 @@ import com.fit_nance.project.model.PensionFilterVO;
 import com.fit_nance.project.model.PensionListVO;
 import com.fit_nance.project.model.PensionVO;
 import com.fit_nance.project.model.PsOptionVO;
-import com.fit_nance.project.model.SavingFilterVO;
+import com.fit_nance.project.model.InstallListFilterVO;
 
 @Service
 public class ProductService implements IProductService {
@@ -102,7 +102,7 @@ public class ProductService implements IProductService {
 	}
 
 	@Override
-	public ArrayList<InstallListVO> selectInstallFilter(SavingFilterVO sf) {
+	public ArrayList<InstallListVO> selectInstallFilter(InstallListFilterVO sf) {
 		// TODO Auto-generated method stub
 		HashMap<String,Object> map= new HashMap<String,Object>();
 		map.put("rsrv_type_nm",sf.getRsrv_type_nm());

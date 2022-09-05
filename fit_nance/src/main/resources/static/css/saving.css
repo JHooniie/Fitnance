@@ -59,6 +59,7 @@
 .select-box .select-option{
     border: 1px solid #DDDDDD;
     display: inline-block;
+    width: 95px;
     height: 42px;
     border-radius: 5px;
     font-size: 14px;
@@ -69,34 +70,41 @@
     cursor: pointer;
 }
 
-.select-box .select-option1{ 
-    width:95px;
-    
-}
-
-.select-box .select-option1:nth-child(2n-1){ 
+.select-box .select-option:nth-child(2n-1){ 
     margin-right: 0;
-    
-}
-
-.select-box .select-option2{
-    width:60.3px;
-
-}
-
-.select-box .select-option2:nth-child(4){
-    margin-right: 0;
-
-}
-
-.select-box .select-option3{
-    width:128px;
-    margin-right: 0.5px;
 }
 
 .select-box .select-option:hover{
     border:1px solid #1F4DFF;
     color:#1F4DFF;
+}
+
+.select-box .select-option-save-trm{
+    border: 1px solid #DDDDDD;
+    display: inline-block;
+    width: 60px;
+    height: 42px;
+    border-radius: 5px;
+    font-size: 14px;
+    text-align: center;
+    margin-top:10px;
+    margin-right: 5px;
+    line-height: 42px;
+    cursor: pointer;
+}
+
+.select-box .select-option-save-trm:hover{
+    border:1px solid #1F4DFF;
+    color:#1F4DFF;
+}
+
+.select-box .select-option-save-trm:nth-child(4){
+    margin-right:0;
+}
+
+.select-box .select-option-save-trm:nth-child(6){
+	width: 130px;
+    margin-right:0;
 }
 
 .select-box .filter-reset{
@@ -135,10 +143,8 @@
 
 .result-box{
     margin-left: 100px;
-    /*margin-top:-500px;*/
+    /* margin-top:-500px; */
     width : 990px;
-    margin-right: 320px;
-
 }
 
 .middel-bottom{
@@ -414,53 +420,49 @@
     
 }
 
-.select-option-clicked{
-    border:1px solid #1F4DFF;
+.select-option.select-option-clicked{
     color: #ffffff;
     background-color: #1f4dff;
-    display: inline-block;
-    height: 42px;
-    border-radius: 5px;
-    font-size: 14px;
-    text-align: center;
-    margin-top:10px;
-    margin-right: 5px;
-    line-height: 42px;
-    cursor: pointer;
 }
 
-.plus-icon1-clicked{
-    display: inline-block;
-    width:52px;
-    height:52px;
-    border-radius: 5px;
+.select-option-save-trm.select-option-clicked{
+    color: #ffffff;
+    background-color: #1f4dff;
+}
+
+.select-option.select-option-clicked:hover{
+    color: #ffffff;
+}
+
+.select-option-save-trm.select-option-clicked:hover{
+    color: #ffffff;
+}
+
+.plus-icon-clicked{
     border:1px solid #1F4DFF;
-    text-align: center;
-    line-height: 52px;
-    cursor: pointer;
-    margin-left:16px;
     background-color: #1F4DFF;
 }
 
-.plus-icon1-clicked i {
+.plus-icon-clicked i {
     color:#FFFFFF;
     font-size: 20px;
 }
 
-.plus-icon2-clicked{
-    display: inline-block;
-    width:52px;
-    height:52px;
-    border-radius: 5px;
-    border:1px solid #1F4DFF;
-    text-align: center;
-    line-height: 52px;
-    cursor: pointer;
-    margin-left:16px;
-    background-color: #1F4DFF;
-}
-
-.plus-icon2-clicked i {
+.plus-icon-clicked:hover i {
     color:#FFFFFF;
     font-size: 20px;
+}
+
+.no-list{
+	display: block;
+	width: 990px;
+	margin-top: 100px;
+	color: #999;
+	font-size: 18px;
+	text-align: center;
+	line-height: 35px;
+}
+
+.no-list i{
+	color: #999;
 }

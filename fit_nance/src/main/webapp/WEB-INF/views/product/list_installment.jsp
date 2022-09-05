@@ -10,7 +10,7 @@
 		<!-- css -->
 		<link rel="stylesheet" href="<c:url value='/css/saving.css'/>"/>
 		<!-- js -->
-		<script src="<c:url value='/js/saving.js' />"></script>
+		<script src="<c:url value='/js/list_installment.js' />"></script>
 	</head>
 	<body>
 		<!-- top.jsp -->
@@ -34,52 +34,47 @@
 	        </div>
 	        <div class="middel-bottom">
 	            <div>
-	                <div class="product-compare-box"><a href="<c:url value='saving_compare'/>">상품 비교하기</a></div>   
+	                <div class="product-compare-box"><a href="<c:url value='/compareInstall'/>">상품 비교하기</a></div>   
 	                <div class="select-box">
-	                    <div class="what-select" value="rsrv_type_nm">
-	                        <div class="select-title" >예치방식</div>
-	                        <div class="select-option select-option1" value="자유적립식">자유적립식</div>
-	                        <div class="select-option select-option1" value="정액적립식">정액적립식</div>
+	                    <div class="what-select">
+	                        <div class="select-title">예치방식</div>
+	                        <div class="select-option select-option-rsrv-type1">자유적립식</div>
+	                        <div class="select-option select-option-rsrv-type2">정액적립식</div>
 	                    </div>
 	
-	                    <div class="what-select" value="join_member">
-	                        <div class="select-title" >가입대상</div>
-	                        <div class="select-option select-option1" value="개인">개인</div>
-	                        <div class="select-option select-option1" value="기업">기업</div>
+	                    <div class="what-select">
+	                        <div class="select-title">가입대상</div>
+	                        <div class="select-option select-option-join_member1">개인</div>
+	                        <div class="select-option select-option-join_member2">기업</div>
 	                    </div>
 	
-	                    <div class="what-select" value="join_way">
+	                    <div class="what-select">
 	                        <div class="select-title">가입방법</div>
-	                        <div class="select-option select-option1" value="영업점">영업점</div>
-	                        <div class="select-option select-option1" value="인터넷">인터넷</div>
-	                        <div class="select-option select-option1" value="스마트폰">스마트폰</div>
+	                        <div class="select-option select-option-join-way1">영업점</div>
+	                        <div class="select-option select-option-join-way2">인터넷</div>
+	                        <div class="select-option select-option-join-way3">스마트폰</div>
 	                    </div>
 	
-	                    <div class="what-select" value="save_trm">
+	                    <div class="what-select">
 	                        <div class="select-title">가입기간</div>
-	                        <div class="select-option select-option2" value="3">3개월</div>
-	                        <div class="select-option select-option2" value="6">6개월</div>
-	                        <div class="select-option select-option2" value="12">12개월</div>
-	                        <div class="select-option select-option2" value="24">24개월</div>
-	                        <div class="select-option select-option3" value="36">36개월 이상</div>
+	                        <div class="select-option-save-trm select-option-save_trm1">3개월</div>
+	                        <div class="select-option-save-trm select-option-save_trm2">6개월</div>
+	                        <div class="select-option-save-trm select-option-save_trm3">12개월</div>
+	                        <div class="select-option-save-trm select-option-save_trm4">24개월</div>
+	                        <div class="select-option-save-trm select-option-save_trm5">36개월 이상</div>
 	                    </div>
 	
-	                    <div class="filter-reset"><i class="fa-solid fa-arrow-rotate-right"></i>  필터 초기화</div>
+	                    <div class="filter-reset"><i class="fa-solid fa-arrow-rotate-right"></i>필터 초기화</div>
 	                    
 	                </div>
 	            </div>
 	            <div class="result-box">
 	                <div class="search-line">
-	                    <div class="box">검색 결과 ${fn:length(insList) }개</div>
+	                    <div class="box">검색 결과 ${fn:length(installList) }개</div>
 	                    <div class="search-box"><input type="text" id="tourName" name="tourName" placeholder="키워드 검색"><i class="fa-solid fa-magnifying-glass"></i></div>
 	                </div>
 	                <div class="item-list">
-	                	<c:forEach items="${insList }" var="list">
-	                	<c:set var="index" value="${list.oIndex}"/>
-	                	<% 
-	           				int index= (int)pageContext.getAttribute("index");
-	           			%>
-	           			
+	                	<c:forEach items="${installList }" var="list">	           			
 	                    <div class="item-box-all">
 	                        <div class="item-box">
 	                            <div class="image-box">
@@ -113,7 +108,7 @@
 	                                    </ul>
 	                                </div>
 	                            </div>
-	                            <div class="view-detail"><a href="<c:url value='saving_detail?index=${index }'/>">자세히 보기</a></div>
+	                            <div class="view-detail"><a href="<c:url value='/detailInstall/${list.oIndex}'/>">자세히 보기</a></div>
 	                        </div>
 	                    </div>
 	                    </c:forEach>
@@ -129,8 +124,6 @@
 	                    </div>
 	                </div>
 	            </div>
-	            
-	            <div id="result-box-filter"></div>
 	        </div>
         </div>
     </div>
