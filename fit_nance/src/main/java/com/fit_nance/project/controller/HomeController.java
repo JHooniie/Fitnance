@@ -7,7 +7,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.fit_nance.project.model.CharterLoanFilterVO;
 import com.fit_nance.project.model.CharterLoanListVO;
@@ -16,12 +15,10 @@ import com.fit_nance.project.model.DepositListVO;
 import com.fit_nance.project.model.FAQVO;
 import com.fit_nance.project.model.HomeLoanFilterVO;
 import com.fit_nance.project.model.HomeLoanListVO;
-import com.fit_nance.project.model.InstallListVO;
 import com.fit_nance.project.model.PensionFilterVO;
 import com.fit_nance.project.model.PensionListVO;
 import com.fit_nance.project.model.PersonalLoanFilterVO;
 import com.fit_nance.project.model.PersonalLoanListVO;
-import com.fit_nance.project.model.InstallListFilterVO;
 import com.fit_nance.project.service.LoanListService;
 import com.fit_nance.project.service.ProductService;
 
@@ -33,11 +30,13 @@ public class HomeController {
 	@Autowired
 	LoanListService loanlistService;
 	
+	// 메인페이지
 	@RequestMapping("/")
 	public String index() {
 		return "index";
 	}
 	
+	// 회사소개
 	@RequestMapping("/intro")
 	public String intro() {
 		return "product2/intro";
@@ -271,60 +270,6 @@ public class HomeController {
 		return "product2/faq_search";
 	}
 	
-	@RequestMapping("/filter_deposit")
-	public String filter_deposit(
-								@RequestParam(value="join_member") ArrayList<String> join_member2,
-								@RequestParam(value="join_way") ArrayList<String> join_way2,
-								@RequestParam(value="save_trm") ArrayList<String> save_trm2
-								,Model model)
-	{	
-		DepositFilterVO vo= new DepositFilterVO();
-		
-		ArrayList<String> join_member=new ArrayList<String>();
-		ArrayList<String> join_way=new ArrayList<String>();
-		ArrayList<String> save_trm=new ArrayList<String>();
-		
-	
-		
-		for(int i=1; i<join_member2.size();i++) {
-			join_member.add(join_member2.get(i));
-		}
-		if(join_member!=null) vo.setJoin_member(join_member);
-		for(int i=1; i<join_way2.size();i++) {
-			join_way.add(join_way2.get(i));
-		}
-		if(join_way!=null) vo.setJoin_way(join_way);
-		for(int i=1; i<save_trm2.size();i++) {
-			save_trm.add(save_trm2.get(i));
-		}
-		if(save_trm!=null)vo.setSave_trm(save_trm);
-		/*for(String a : rsrv_type_nm) {
-			System.out.print(a+",");
-		}
-		
-		System.out.println();
-		for(String a : join_member) {
-			System.out.print(a+",");
-		}
-		System.out.println();
-		for(String a : join_way) {
-			System.out.print(a+",");
-		}
-		System.out.println();
-		for(String a : save_trm) {
-			System.out.print(a+",");
-		}*/
-		
-		ArrayList<DepositListVO> dpList= pService.selectDepositFilter(vo);
-		/*for(int i =0;i<insList.size();i++){
-				System.out.println(insList.get(i));
-		}
-		System.out.println(insList.size());*/
-		model.addAttribute("dpList", dpList);
-		
-		return "product2/deposit_result";
-	}
-	
 	@RequestMapping("/filter_pension")
 	public String filter_pension(
 								@RequestParam(value="pnsn_recp_trm_nm") ArrayList<String> pnsn_recp_trm_nm2,
@@ -360,62 +305,6 @@ public class HomeController {
 		model.addAttribute("psList", psList);
 		
 		return "product2/pension_result";
-	}
-	
-	
-	@RequestMapping("/deposit_detail")
-	public String deposit_detail(@RequestParam int index, Model model) {
-		ArrayList<DepositListVO> dpsList= pService.selectDepositAll();
-		String fin_co_no=null;
-		String kor_co_nm=null;
-		String fin_prdt_nm =null;
-		String join_way=null;
-		double intr_rate=0.0;
-		double intr_rate2=0.0;
-		String join_member=null;
-		String intr_rate_type_nm=null;
-		int save_trm=0;	
-		int join_deny=0;
-		String join_deny2=null;
-		String mtrt_int=null;
-		String spcl_cnd=null;
-		String etc_note=null;
-		
-		for(DepositListVO vo:dpsList) {
-			if(vo.getoIndex()==index) {
-				fin_co_no = vo.getFin_co_no();
-				kor_co_nm = vo.getKor_co_nm();
-				fin_prdt_nm=vo.getFin_prdt_nm();
-				join_way=vo.getJoin_way();
-				intr_rate=vo.getIntr_rate();
-				intr_rate2=vo.getIntr_rate2();
-				join_member=vo.getJoin_member();
-				intr_rate_type_nm=vo.getIntr_rate_type_nm();
-				save_trm=vo.getSave_trm();
-				join_deny=vo.getJoin_deny();
-				mtrt_int=vo.getMtrt_int();
-				spcl_cnd=vo.getSpcl_cnd();
-				etc_note=vo.getEtc_note();
-			}
-		}
-		if (join_deny==0) join_deny2="제한없음";
-		else if(join_deny==1) join_deny2="서민전용";
-		else join_deny2="일부제한";
-		
-		model.addAttribute("fin_co_no", fin_co_no);
-		model.addAttribute("kor_co_nm", kor_co_nm);
-		model.addAttribute("fin_prdt_nm", fin_prdt_nm);
-		model.addAttribute("join_way", join_way);
-		model.addAttribute("intr_rate", intr_rate);
-		model.addAttribute("intr_rate2", intr_rate2);
-		model.addAttribute("join_member", join_member);
-		model.addAttribute("intr_rate_type_nm", intr_rate_type_nm);
-		model.addAttribute("save_trm", save_trm);
-		model.addAttribute("join_deny", join_deny2);
-		model.addAttribute("mtrt_int", mtrt_int);
-		model.addAttribute("spcl_cnd", spcl_cnd);
-		model.addAttribute("etc_note", etc_note);
-		return "product2/deposit_detail";
 	}
 	
 	@RequestMapping("/pension_detail")

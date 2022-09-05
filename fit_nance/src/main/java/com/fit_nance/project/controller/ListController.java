@@ -9,8 +9,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.fit_nance.project.model.InstallListVO;
+import com.fit_nance.project.model.DepositFilterVO;
+import com.fit_nance.project.model.DepositListVO;
 import com.fit_nance.project.model.InstallListFilterVO;
+import com.fit_nance.project.model.InstallListVO;
 import com.fit_nance.project.service.ListService;
 
 @Controller
@@ -31,7 +33,7 @@ public class ListController {
 	
 	// 적금 상세 보기
 	@RequestMapping("/detailInstall/{oIndex}")
-	public String detail_mortgage(@PathVariable int oIndex, Model model) {
+	public String viewDetailInstall(@PathVariable int oIndex, Model model) {
 		InstallListVO installment = listService.selectInstallDetail(oIndex);
 		model.addAttribute("installment", installment);
 		
@@ -40,7 +42,7 @@ public class ListController {
 	
 	// 적금 필터링
 	@RequestMapping("/filterInstall")
-	public String filter_saving(@RequestParam(value="rsrv_type_nm") ArrayList<String> rsrv_type_nm2,
+	public String filterInstall(@RequestParam(value="rsrv_type_nm") ArrayList<String> rsrv_type_nm2,
 								@RequestParam(value="join_member") ArrayList<String> join_member2,
 								@RequestParam(value="join_way") ArrayList<String> join_way2,
 								@RequestParam(value="save_trm") ArrayList<String> save_trm2,
@@ -94,7 +96,78 @@ public class ListController {
 	
 	// 적금 비교함 가기
 	@RequestMapping("/compareInstall")
-	public String saving_compare() {
+	public String viewCompareInstall() {
 		return "product/compare_installment";
+	}
+	
+	
+	// 예금
+	// 예금 전체 리스트 조회
+	@RequestMapping("/listDeposit")
+	public String viewListDeposit(Model model) {
+		ArrayList<DepositListVO> dpList = listService.selectDepositList();
+		model.addAttribute("dpList", dpList);
+		
+		return "product/list_deposit";
+	}
+	
+	// 예금 상세 보기
+	@RequestMapping("/detailDeposit/{oIndex}")
+	public String viewDetailDeposit(@PathVariable int oIndex, Model model) {
+		DepositListVO deposit = listService.selectDepositDetail(oIndex);
+		model.addAttribute("deposit", deposit);
+		
+		return "product/detail_deposit"; 
+	}
+	
+	// 적금 필터링
+	@RequestMapping("/filterDeposit")
+	public String filterDeposit(@RequestParam(value="join_member") ArrayList<String> join_member2,
+								@RequestParam(value="join_way") ArrayList<String> join_way2,
+								@RequestParam(value="save_trm") ArrayList<String> save_trm2,
+								Model model) {
+		
+		DepositFilterVO vo= new DepositFilterVO();
+		
+		ArrayList<String> join_member=new ArrayList<String>();
+		ArrayList<String> join_way=new ArrayList<String>();
+		ArrayList<String> save_trm=new ArrayList<String>();
+		
+		for(int i=1; i<join_member2.size();i++) {
+			join_member.add(join_member2.get(i));
+		}
+		
+		if(join_member!=null)
+			vo.setJoin_member(join_member);
+		
+		for(int i=1; i<join_way2.size();i++) {
+			join_way.add(join_way2.get(i));
+		}
+		
+		if(join_way!=null)
+			vo.setJoin_way(join_way);
+		
+		for(int i=1; i<save_trm2.size();i++) {
+			save_trm.add(save_trm2.get(i));
+		}
+		
+		if(save_trm!=null)
+			vo.setSave_trm(save_trm);
+		
+		vo.setJoin_member(join_member);
+		vo.setJoin_way(join_way);
+		vo.setSave_trm(save_trm);
+				
+		ArrayList<DepositListVO> dpList= listService.selectDepositFilter(vo);
+		
+		model.addAttribute("dpList", dpList);
+		
+		return "product/result_deposit";
+	}
+	
+	// 적금 비교함 가기
+	@RequestMapping("/compareDeposit")
+	public String viewCompareDeposit() {
+		return "product/compare_deposit";
 	}
 }
