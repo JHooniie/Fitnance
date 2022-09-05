@@ -3,9 +3,10 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
    
-<mapper namespace="com.fit_nance.project.dao.ILoanListDAO">
-	<resultMap id="resultHomeLoanList" type="com.fit_nance.project.model.HomeLoanListVO">
+<mapper namespace="com.fit_nance.project.dao.IListLoanDAO">
+	<resultMap id="resultHLList" type="com.fit_nance.project.model.HomeLoanListVO">
 		<result property="pIndex" column="pIndex"/>
+		<result property="oIndex" column="oIndex"/>
 		<result property="fin_co_no" column="fin_co_no"/>
 		<result property="kor_co_nm" column="kor_co_nm"/>
 		<result property="fin_prdt_cd" column="fin_prdt_cd"/>
@@ -15,7 +16,15 @@
 		<result property="mrtg_type_nm" column="mrtg_type_nm"/>
 		<result property="rpay_type_nm" column="rpay_type_nm"/>
 		<result property="lend_rate_type_nm" column="lend_rate_type_nm"/>
+		<result property="loan_inci_expn" column="loan_inci_expn"/>
+		<result property="erly_rpay_fee" column="erly_rpay_fee"/>
+		<result property="dly_rate" column="dly_rate"/>
+		<result property="mrtg_type" column="mrtg_type"/>
+		<result property="rpay_type" column="rpay_type"/>
+		<result property="lend_rate_type" column="lend_rate_type"/>
 		<result property="lend_rate_min" column="lend_rate_min"/>
+		<result property="lend_rate_max" column="lend_rate_max"/>
+		<result property="lend_rate_avg" column="lend_rate_avg"/>
 	</resultMap>
 	<resultMap id="resultHouseLoanList" type="com.fit_nance.project.model.CharterLoanListVO">
 		<result property="pIndex" column="pIndex"/>
@@ -41,68 +50,27 @@
 		<result property="crdt_grad_avg" column="crdt_grad_avg"/>
 	</resultMap>
 	
-	<!-- 상품 list -->
-	<!-- mortgage_loan -->
-	<select id="selectHomeLoanList" resultMap="resultHomeLoanList">
-		SELECT B.pIndex, B.fin_co_no, B.kor_co_nm, B.fin_prdt_cd, B.fin_prdt_nm, B.join_way, B.loan_lmt, O.mrtg_type_nm, O.rpay_type_nm, O.lend_rate_type_nm, O.lend_rate_min
- 		FROM home_loan_option O INNER JOIN home_loan_base B
-		ON B.fin_prdt_cd = O.fin_prdt_cd 
-		GROUP BY B.fin_prdt_cd
+	<!-- 전체 주택 담보 상품 조회 -->
+	<select id="listAllHomeLoan" resultMap="resultHLList">
+		SELECT O.oIndex, B.pIndex, O.fin_co_no, B.kor_co_nm, B.fin_prdt_nm, B.join_way, O.lend_rate_min
+		FROM home_loan_option O INNER JOIN home_loan_base B
+		ON B.pIndex = O.pIndex
+		WHERE O.oIndex IN (SELECT max(oIndex) from home_loan_option GROUP BY pIndex)
+		ORDER BY O.lend_rate_min
 	</select>
 	
-	<!-- houseLoan -->
-	<select id="selectCharterLoanList" resultMap="resultHouseLoanList">
-		SELECT B.pIndex, B.fin_co_no, B.kor_co_nm, B.fin_prdt_cd, B.fin_prdt_nm, B.join_way, B.loan_lmt, O.rpay_type_nm, O.lend_rate_type_nm, O.lend_rate_min
- 		FROM charter_loan_option O INNER JOIN charter_loan_base B
-		ON B.fin_prdt_cd = O.fin_prdt_cd 
-		GROUP BY B.fin_prdt_cd
+	<!-- 주택 담보 detail -->
+	<select id="detailViewHomeLoan" parameterType="int" resultType="com.fit_nance.project.model.HomeLoanListVO">
+		SELECT * FROM home_loan_option O
+			INNER JOIN home_loan_base B ON B.pIndex = O.pIndex
+		WHERE O.oIndex=#{oIndex}
 	</select>
 	
-	<!-- creditLoan -->
-	<select id="selectPersonalLoanList" resultMap="resultCreditLoanList">
-		SELECT B.pIndex, B.fin_co_no, B.kor_co_nm, B.fin_prdt_cd, B.fin_prdt_nm, B.join_way, B.crdt_prdt_type, B.crdt_prdt_type_nm, O.crdt_grad_avg
-	 		FROM personal_loan_option O INNER JOIN personal_loan_base B
-			ON B.fin_prdt_cd = O.fin_prdt_cd
-		GROUP BY B.fin_prdt_cd
-	</select>
-	
-	<!-- 상품 detail -->
-	<!-- mortgage_loan -->
-	<select id="selectHomeLoanDetail" parameterType="com.fit_nance.project.model.HomeLoanBaseVO" resultMap="resultHomeLoanList">
-		SELECT * FROM(
-			SELECT B.pIndex, B.fin_co_no, B.kor_co_nm, B.fin_prdt_cd, B.fin_prdt_nm, B.join_way, B.loan_lmt, O.mrtg_type, O.rpay_type, O.lend_rate_type, O.lend_rate_min
-	 		FROM home_loan_option O INNER JOIN home_loan_base B
-			ON B.fin_prdt_cd = O.fin_prdt_cd 
-			GROUP BY B.fin_prdt_cd
-		) B WHERE B.fin_prdt_cd=#{fin_prdt_cd}
-	</select>
-	
-	<!-- houseLoan -->
-	<select id="selectCharterLoanDetail" resultMap="resultHouseLoanList">
-		SELECT * FROM(
-			SELECT B.pIndex, B.fin_co_no, B.kor_co_nm, B.fin_prdt_cd, B.fin_prdt_nm, B.join_way, B.loan_lmt, O.rpay_type_nm, O.lend_rate_type_nm, O.lend_rate_min
-	 		FROM charter_loan_option O INNER JOIN charter_loan_base B
-			ON B.fin_prdt_cd = O.fin_prdt_cd 
-			GROUP BY B.fin_prdt_cd
-		) B WHERE B.fin_prdt_cd=#{fin_prdt_cd}
-	</select>
-	
-	<!-- creditLoan -->
-	<select id="selectPersonalLoanDetail" resultMap="resultCreditLoanList">
-		SELECT * FROM(
-			SELECT B.pIndex, B.fin_co_no, B.kor_co_nm, B.fin_prdt_cd, B.fin_prdt_nm, B.join_way, B.crdt_prdt_type, B.crdt_prdt_type_nm, O.crdt_grad_avg
-	 		FROM personal_loan_option O INNER JOIN personal_loan_base B
-			ON B.fin_prdt_cd = O.fin_prdt_cd
-			GROUP BY B.fin_prdt_cd
-		) B WHERE B.fin_prdt_cd=#{fin_prdt_cd}
-	</select>
-	
-	<!-- 필터링 -->
-	<!-- mortgage_loan -->
-	<select id="selectHomeLoanFilter" resultMap="resultHomeLoanList">
-			SELECT B.pIndex, B.fin_co_no, B.kor_co_nm, B.fin_prdt_cd, B.fin_prdt_nm, B.join_way, B.loan_lmt, O.mrtg_type_nm, O.rpay_type_nm, O.lend_rate_type_nm, O.lend_rate_min
-	 		FROM home_loan_option O INNER JOIN home_loan_base B
-			ON B.fin_prdt_cd = O.fin_prdt_cd 
+	<!-- 주택 담보 필터링 -->
+	<select id="selectHomeLoanFilter" resultMap="resultHLList">
+		SELECT O.oIndex, B.pIndex, O.fin_co_no, B.kor_co_nm, B.fin_prdt_nm, B.join_way, O.lend_rate_min
+		FROM home_loan_option O
+			INNER JOIN home_loan_base B ON B.pIndex = O.pIndex
 		<if test="list_join_way.size()>0">
 			 AND 
 			<foreach collection="list_join_way" item="list_join_way" open="(" close=")" separator="AND">
@@ -127,8 +95,50 @@
 				O.lend_rate_type_nm LIKE CONCAT ('%',#{list_lend_type},'%')
 			</foreach>
 		</if>
+		WHERE O.oIndex IN (SELECT max(oIndex) from home_loan_option GROUP BY pIndex)
+		ORDER BY O.lend_rate_min
+	</select>
+	
+	
+	<!-- houseLoan -->
+	<select id="selectCharterLoanList" resultMap="resultHouseLoanList">
+		SELECT B.pIndex, B.fin_co_no, B.kor_co_nm, B.fin_prdt_cd, B.fin_prdt_nm, B.join_way, B.loan_lmt, O.rpay_type_nm, O.lend_rate_type_nm, O.lend_rate_min
+ 		FROM charter_loan_option O INNER JOIN charter_loan_base B
+		ON B.fin_prdt_cd = O.fin_prdt_cd 
 		GROUP BY B.fin_prdt_cd
 	</select>
+	
+	<!-- creditLoan -->
+	<select id="selectPersonalLoanList" resultMap="resultCreditLoanList">
+		SELECT B.pIndex, B.fin_co_no, B.kor_co_nm, B.fin_prdt_cd, B.fin_prdt_nm, B.join_way, B.crdt_prdt_type, B.crdt_prdt_type_nm, O.crdt_grad_avg
+	 		FROM personal_loan_option O INNER JOIN personal_loan_base B
+			ON B.fin_prdt_cd = O.fin_prdt_cd
+		GROUP BY B.fin_prdt_cd
+	</select>
+	
+	<!-- 상품 detail -->
+	
+	<!-- houseLoan -->
+	<select id="selectCharterLoanDetail" resultMap="resultHouseLoanList">
+		SELECT * FROM(
+			SELECT B.pIndex, B.fin_co_no, B.kor_co_nm, B.fin_prdt_cd, B.fin_prdt_nm, B.join_way, B.loan_lmt, O.rpay_type_nm, O.lend_rate_type_nm, O.lend_rate_min
+	 		FROM charter_loan_option O INNER JOIN charter_loan_base B
+			ON B.fin_prdt_cd = O.fin_prdt_cd 
+			GROUP BY B.fin_prdt_cd
+		) B WHERE B.fin_prdt_cd=#{fin_prdt_cd}
+	</select>
+	
+	<!-- creditLoan -->
+	<select id="selectPersonalLoanDetail" resultMap="resultCreditLoanList">
+		SELECT * FROM(
+			SELECT B.pIndex, B.fin_co_no, B.kor_co_nm, B.fin_prdt_cd, B.fin_prdt_nm, B.join_way, B.crdt_prdt_type, B.crdt_prdt_type_nm, O.crdt_grad_avg
+	 		FROM personal_loan_option O INNER JOIN personal_loan_base B
+			ON B.fin_prdt_cd = O.fin_prdt_cd
+			GROUP BY B.fin_prdt_cd
+		) B WHERE B.fin_prdt_cd=#{fin_prdt_cd}
+	</select>
+	
+	<!-- 필터링 -->
 	
 	<!-- house_loan -->
 	<select id="selectCharterLoanFilter" resultMap="resultHouseLoanList">

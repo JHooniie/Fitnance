@@ -6,8 +6,6 @@
 <sec:authorize access="isAuthenticated()">
     <sec:authentication property="principal" var="principal" />
 </sec:authorize>
-<%-- <c:set var="principal" value="${principal}" />
-<c:set var="role" value="${principal.role}" /> --%>
 
 <header>
     <div class="box-nav wrap">
@@ -58,12 +56,12 @@
         <ul>
             <li>예/적금</li>
             <li><a href="<c:url value='/listInstall'/>">적금 상품</a></li>
-            <li><a href="<c:url value='/deposit'/>">예금 상품</a></li>
-            <li><a href="<c:url value='/pension'/>">연금 저축</a></li>
+            <li><a href="<c:url value='/listDeposit'/>">예금 상품</a></li>
+            <li><a href="<c:url value='/listPension'/>">연금 저축</a></li>
         </ul>
         <ul>
             <li>대출</li>
-            <li><a href="<c:url value='/list_mortgage_loan'/>">주택 담보 대출</a></li>
+            <li><a href="<c:url value='/listMortgageLoan'/>">주택 담보 대출</a></li>
             <li><a href="<c:url value='/list_house_loan'/>">전세 자금 대출</a></li>
             <li><a href="<c:url value='/list_credit_loan'/>">신용 대출</a></li>
         </ul>
