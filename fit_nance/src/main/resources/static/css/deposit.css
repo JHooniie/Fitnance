@@ -388,7 +388,7 @@
 }
 
 
-.plus-icon1-clicked{
+.plus-icon-clicked{
     display: inline-block;
     width:52px;
     height:52px;
@@ -401,27 +401,13 @@
     background-color: #1F4DFF;
 }
 
-.plus-icon1-clicked i {
+.plus-icon-clicked i {
     color:#FFFFFF;
     font-size: 20px;
 }
 
-.plus-icon2-clicked{
-    display: inline-block;
-    width:52px;
-    height:52px;
-    border-radius: 5px;
-    border:1px solid #1F4DFF;
-    text-align: center;
-    line-height: 52px;
-    cursor: pointer;
-    margin-left:16px;
-    background-color: #1F4DFF;
-}
-
-.plus-icon2-clicked i {
+.plus-icon-clicked:hover i {
     color:#FFFFFF;
-    font-size: 20px;
 }
 
 .no-list{
