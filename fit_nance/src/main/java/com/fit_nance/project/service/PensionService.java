@@ -10,6 +10,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.stereotype.Service;
 
+import com.fit_nance.project.model.APIKey;
 import com.fit_nance.project.model.DepoOptionVO;
 import com.fit_nance.project.model.DepositVO;
 import com.fit_nance.project.model.PensionVO;
@@ -21,9 +22,9 @@ public class PensionService {
 	public ArrayList<PensionVO> pension() {
 		
 		ArrayList<PensionVO> depoList = new ArrayList<PensionVO>();
-		ArrayList<PsOptionVO> depoOptionList = new ArrayList<PsOptionVO>();
-		String key= "bedd120336310b8a230653bd987c0c31";
 		
+		APIKey apiKey = new APIKey();
+		String key = apiKey.getSavingKey();
 		
 		String urlDep="http://finlife.fss.or.kr/finlifeapi/annuitySavingProductsSearch.json?auth="
 				+key

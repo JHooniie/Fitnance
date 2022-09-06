@@ -10,6 +10,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.stereotype.Service;
 
+import com.fit_nance.project.model.APIKey;
 import com.fit_nance.project.model.CharterLoanBaseVO;
 
 @Service
@@ -18,7 +19,12 @@ public class CharterLoanBaseService {
 		ArrayList<CharterLoanBaseVO> chaterLoanList = new ArrayList<CharterLoanBaseVO>();
 		BufferedReader br = null;
 		
-		StringBuilder urlBuilder = new StringBuilder("http://finlife.fss.or.kr/finlifeapi/rentHouseLoanProductsSearch.json?auth=c2c7484c2f7707de0e03bf8ddb9d735d&topFinGrpNo=020000&pageNo=1");
+		APIKey apiKey = new APIKey();
+		String key = apiKey.getLoanKey();
+		
+		StringBuilder urlBuilder = new StringBuilder("http://finlife.fss.or.kr/finlifeapi/rentHouseLoanProductsSearch.json?auth="
+													 + key
+													 + "&topFinGrpNo=020000&pageNo=1");
 		
 		URL url = new URL(urlBuilder.toString());
 		

@@ -10,6 +10,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.stereotype.Service;
 
+import com.fit_nance.project.model.APIKey;
 import com.fit_nance.project.model.InstallVO;
 
 @Service
@@ -18,8 +19,9 @@ public class InstallmentService {
 	public ArrayList<InstallVO> install() {
 		
 		ArrayList<InstallVO> installList = new ArrayList<InstallVO>();
-		String key= "bedd120336310b8a230653bd987c0c31";
 		
+		APIKey apiKey = new APIKey();
+		String key = apiKey.getSavingKey();
 		
 		String urlDep="http://finlife.fss.or.kr/finlifeapi/savingProductsSearch.json?auth="
 				+key
