@@ -38,6 +38,32 @@ public class LoanDBController {
 	@Autowired
 	LoanService loanService;
 	
+	@RequestMapping("/insertHomeLoanBaseList")
+	public String insertHomeLoanBaseList(Model model) throws Exception{
+		ArrayList<HomeLoanBaseVO> list_mortgage_base = new ArrayList<HomeLoanBaseVO>(); 
+		
+		list_mortgage_base = homeloanbaseService.homeloanBase();
+		
+		for(int i=0; i<list_mortgage_base.size(); i++) {
+			loanService.insertHomeLoanBaseList(list_mortgage_base.get(i));
+		}
+		
+		return "index";
+	}
+	
+	@RequestMapping("/insertHomeLoanOptList")
+	public String insertHomeLoanOptList() throws Exception{
+		ArrayList<HomeLoanOptVO> option = new ArrayList<HomeLoanOptVO>();
+		
+		option = homeloanoptService.homeloanOpt();
+		
+		for(int i=0; i<option.size(); i++) {
+			loanService.insertHomeLoanOptList(option.get(i));
+		}
+		
+		return "index";
+	}
+	
 	@RequestMapping("/insertCharterLoanBaseList")
 	public String insertCharterLoanBaseList() throws Exception{
 		ArrayList<CharterLoanBaseVO> base = new ArrayList<CharterLoanBaseVO>();
@@ -59,32 +85,6 @@ public class LoanDBController {
 		
 		for(int i=0; i<option.size(); i++) {
 			loanService.insertCharterLoanOptList(option.get(i));
-		}
-		
-		return "index";
-	}
-	
-	@RequestMapping("/insertHomeLoanBaseList")
-	public String insertHomeLoanBaseList(Model model) throws Exception{
-		ArrayList<HomeLoanBaseVO> list_mortgage_base = new ArrayList<HomeLoanBaseVO>(); 
-		
-		list_mortgage_base = homeloanbaseService.homeloanBase();
-		
-		for(int i=0; i<list_mortgage_base.size(); i++) {
-			loanService.insertHomeLoanBaseList(list_mortgage_base.get(i));
-		}
-		
-		return "product/list_mortgage_loan";
-	}
-	
-	@RequestMapping("/insertHomeLoanOptList")
-	public String insertHomeLoanOptList() throws Exception{
-		ArrayList<HomeLoanOptVO> option = new ArrayList<HomeLoanOptVO>();
-		
-		option = homeloanoptService.homeloanOpt();
-		
-		for(int i=0; i<option.size(); i++) {
-			loanService.insertHomeLoanOptList(option.get(i));
 		}
 		
 		return "index";

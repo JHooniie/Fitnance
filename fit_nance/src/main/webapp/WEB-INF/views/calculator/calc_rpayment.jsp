@@ -13,21 +13,17 @@
 		<link rel="stylesheet" href="<c:url value='/css/calc_rpayment.css' />"/>
 		<!-- js -->
 		<script src="<c:url value='/js/calc_rpayment.js' />"></script>
-		
-		<meta charset="UTF-8">
 	</head>
 	<body>
 		<!-- top.jsp -->
 		<c:import url="/WEB-INF/views/layout/top.jsp" />
 		<!-- section.jsp -->
-		<section id="section">
+		<section class="wrap">
 	        <div class="div_calc">
 	            <div class="div_calc_title">
 	                <h1>대출 이자 계산기</h1>
-	                <h2>
-	                    <p>매월 얼마씩 갚아야 하지?</p>
-	                    <p>원금과 이자가 매월 얼마씩 나가는지, 대출 기간 동안 총 비용은 어떻게 되는지 계산해드립니다.</p>
-	                </h2>
+                    <p>매월 얼마씩 갚아야 하지?<br>
+                    원금과 이자가 매월 얼마씩 나가는지, 대출 기간 동안 총 비용은 어떻게 되는지 계산해드립니다.</p>
 	            </div>
 	            <div class="div_calc_content">
 	                <div class="panel_calc_input">

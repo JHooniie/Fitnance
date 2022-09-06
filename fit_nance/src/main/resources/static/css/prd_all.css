@@ -57,7 +57,6 @@
     height: 70px;
     margin: 0 auto;
     border-radius: 10px;
-    background-color: #F2F2F2;
     overflow: hidden;
 }
 
@@ -169,7 +168,6 @@ section.bg-gray{
     height: 30px;
     margin-right: 12px;
     border-radius: 4px;
-    background-color: #F2F2F2;
     overflow: hidden;
 }
 
@@ -288,7 +286,6 @@ section.bg-gray{
     height: 25px;
     margin-right: 10px;
     border-radius: 4px;
-    background-color: #F2F2F2;
     overflow: hidden;
 }
 

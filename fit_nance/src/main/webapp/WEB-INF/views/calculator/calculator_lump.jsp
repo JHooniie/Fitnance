@@ -9,15 +9,11 @@
 		<!-- head -->
 		<c:import url="/WEB-INF/views/layout/head.jsp" />
 		<!-- css -->
-		<link rel="stylesheet" href="<c:url value='/css/calculator_deposit.css'/>"/>
+		<link rel="stylesheet" href="<c:url value='/css/calculator_lump.css'/>"/>
 		<!-- js -->
-		<script src="<c:url value='/js/calculator_deposit.js' />"></script>
-		<!-- 삭제해야함 -->
-		
-		<meta charset="UTF-8">
+		<script src="<c:url value='/js/calculator_lump.js' />"></script>
 	</head>
 	<body>
-		<!-- top.jsp -->
 		<c:import url="/WEB-INF/views/layout/top.jsp" />
 		
 		<div class="middle wrap">
@@ -29,10 +25,10 @@
         </div>
         <div class="middle2">
             <div class="middle2-box1">
-                적금 계산기
+                <a href="<c:url value='/calc_deposit'/>">적금 계산기</a>
             </div>
             <div class="middle2-box2">
-                <a href="<c:url value='calculator_lump'/>">목돈 모으기 계산기</a>
+                목돈 모으기 계산기
             </div>
         </div>
         <div class="middle3">
@@ -40,9 +36,9 @@
         </div>
         <div class="middle4">
             <div class="middle4-subbox1">
-                <div class="sub-title">매월 납입 금액</div>
+                <div class="sub-title">총 목표 금액</div>
                 <div class="sub-input">
-                    <input type="text" id="amount-paid" name="amount-paid" onkeyup="input_num(this);" placeholder="매월 납입 금액"><span>원</span>
+                    <input type="text" id="amount-paid" name="amount-paid" onkeyup="input_num(this);" placeholder="총 목표 금액"><span>원</span>
                 </div>
                 <div class="sub-title">적립 기간</div>
                 <div class="sub-input">
@@ -53,6 +49,7 @@
                         <option value="24개월">24개월</option>
                         <option value="36개월 이상">36개월 이상</option>
                    </select>
+                   <span><div class="icon"><i class="fa-solid fa-angle-down"></i></div></span>
                 </div>
                 <div class="sub-title">연 이자율</div>
                 <div class="sub-input">
@@ -64,22 +61,21 @@
                         <option value="단리">단리</option>
                         <option value="복리">복리</option>
                     </select>
+                    <span><div class="icon"><i class="fa-solid fa-angle-down"></i></div></span>
                 </div>
                 <div class="calculate">계산하기</div>
             </div>
             <div class="middle4-subbox2">
                 <div class="sub-title1">계산 결과</div>
                 <div class="sub-box">
-                    <div class="box1" value="1">일반세율</div>
-                    <div class="box2" value="2">세금우대</div>
-                    <div class="box3" value="3">비과세</div>
+                    <div class="box1">일반세율</div>
+                    <div class="box2">세금우대</div>
+                    <div class="box3">비과세</div>
                 </div>
                 <div class="sub-detail">
-          
-             
-                  
+                    
                 </div>
-                <div class="sub-title2">세율별 총 이자액</div>
+                <div class="sub-title2">세율별 월 적립액</div>
                 <div class="sub-line1">
                     <div class="line-left">일반세율</div>
                     <div class="line-middle">15.4%</div>
@@ -98,7 +94,6 @@
             </div>
         </div>
     </div>
-		
 		<!-- bottom.jsp -->
 		<c:import url="/WEB-INF/views/layout/footer.jsp" />
 	</body>

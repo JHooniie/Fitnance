@@ -36,8 +36,9 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
 
 /* calculator deposit */
 .middle{
-    margin-top:224.5px;
-    display:flex;
+    margin-top: 220px;
+    display:
+    flex;
     flex-direction: column;
 }
 
@@ -73,7 +74,7 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
     width:174px;
     height: 52px;
     border-radius: 5px;
-    border:2px solid #f2f2f2;
+    border: 1px solid #DDDDDD;
     color: #222222;
     font-size: 16px;
     text-align: center;
@@ -104,12 +105,12 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
 
 .middle4 .middle4-subbox1 .sub-input{
     font-size:20px;
-    display:flex;
+    display:
+    flex;
     width: 440px;
     height: 60px;
     margin-bottom: 50px;
-    border-bottom:4px solid #f2f2f2;
-    
+    border-bottom: 1px solid #AAAAAA;
 }
 
 .middle4 .middle4-subbox1 .sub-input #amount-paid, #period,#interest-rate, #interest-rate-system{
@@ -191,13 +192,13 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
     font-weight: 500;
     padding:13px;
     border-radius: 5px;
-    border:2px solid #f2f2f2;
+    border: 1px solid #DDDDDD;
     margin-right: 10px;
 }
 
 .sub-detail{
     height:111px;
-    border-bottom:4px solid #f2f2f2;
+    border-bottom: 1px solid #DDDDDD;
     margin-bottom: 60px;
 }
 
@@ -230,7 +231,7 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
     padding-top:30px;
 }
 .middle4-subbox2 .sub-line1{
-    border-bottom:4px solid #f2f2f2;
+    border-bottom: 1px solid #DDDDDD;
 }
 
 .middle4-subbox2 .line-left{

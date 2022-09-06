@@ -10,6 +10,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.stereotype.Service;
 
+import com.fit_nance.project.model.APIKey;
 import com.fit_nance.project.model.DepoOptionVO;
 
 @Service
@@ -17,13 +18,14 @@ public class DepoOptionService {
 	StringBuffer resultDep = new StringBuffer();
 	public ArrayList<DepoOptionVO> deposit() {
 		ArrayList<DepoOptionVO> depoOptionList = new ArrayList<DepoOptionVO>();
-		String key= "bedd120336310b8a230653bd987c0c31";
 		
+		APIKey apiKey = new APIKey();
+		String key = apiKey.getSavingKey();
 		
 		String urlDep="http://finlife.fss.or.kr/finlifeapi/depositProductsSearch.json?auth="
-				+key
-				+"&topFinGrpNo="+"020000"
-				+"&pageNo="+"1";
+					  +key
+					  +"&topFinGrpNo="+"020000"
+					  +"&pageNo="+"1";
 		try {
 		 URL url = new URL(urlDep);
          HttpURLConnection urlConnection = (HttpURLConnection)url.openConnection();

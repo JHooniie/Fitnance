@@ -19,12 +19,12 @@ public interface IListLoanService {
 	
 	// 전세자금 house_loan
 	public ArrayList<CharterLoanListVO> selectCharterLoanList();
-	public CharterLoanListVO selectCharterLoanDetail(String fin_prdt_cd);
-	public ArrayList<CharterLoanFilterVO> selectCharterLoanFilter(CharterLoanFilterVO vo);
+	public CharterLoanListVO selectCharterLoanDetail(int oIndex);
+	public ArrayList<CharterLoanListVO> selectCharterLoanFilter(CharterLoanFilterVO vo);
 	
 	// 개인신용
 	public ArrayList<PersonalLoanListVO> selectPersonalLoanList();
-	public PersonalLoanListVO selectPersonalLoanDetail(String fin_prdt_cd);
-	public ArrayList<PersonalLoanFilterVO> selectPersonalLoanFilter(PersonalLoanFilterVO vo);
+	public PersonalLoanListVO selectPersonalLoanDetail(int oIndex);
+	public ArrayList<PersonalLoanListVO> selectPersonalLoanFilter(PersonalLoanFilterVO vo);
 	
 }

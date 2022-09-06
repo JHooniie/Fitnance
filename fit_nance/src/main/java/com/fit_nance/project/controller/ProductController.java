@@ -10,12 +10,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.fit_nance.project.model.DepositListVO;
 import com.fit_nance.project.model.InstallListVO;
 import com.fit_nance.project.model.PersonalLoanListVO;
+import com.fit_nance.project.service.ListLoanService;
 import com.fit_nance.project.service.ListSavingService;
 
 @Controller
 public class ProductController {
 	@Autowired
 	ListSavingService listSavingService;
+	
+	@Autowired
+	ListLoanService listLoanService;
 	
 	// 상품 추천 프로세스
 	@RequestMapping("/prd_recom")
@@ -32,8 +36,8 @@ public class ProductController {
 		ArrayList<DepositListVO> dpList= listSavingService.selectDepositList();
 		model.addAttribute("dpList", dpList);
 		
-//		ArrayList<PersonalLoanListVO> list_credit_loan = creditloanlistService.selectPersonalLoanList();
-//		model.addAttribute("clList", list_credit_loan);
+		ArrayList<PersonalLoanListVO> clList = listLoanService.selectPersonalLoanList();
+		model.addAttribute("clList", clList);
 		
 		return "product/prd_all";
 	}

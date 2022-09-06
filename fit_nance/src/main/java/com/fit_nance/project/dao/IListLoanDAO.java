@@ -3,10 +3,8 @@ package com.fit_nance.project.dao;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import com.fit_nance.project.model.CharterLoanFilterVO;
 import com.fit_nance.project.model.CharterLoanListVO;
 import com.fit_nance.project.model.HomeLoanListVO;
-import com.fit_nance.project.model.PersonalLoanFilterVO;
 import com.fit_nance.project.model.PersonalLoanListVO;
 
 public interface IListLoanDAO {
@@ -19,11 +17,11 @@ public interface IListLoanDAO {
 	
 	// 전세자금
 	public ArrayList<CharterLoanListVO> selectCharterLoanList();
-	public CharterLoanListVO selectCharterLoanDetail(String fin_prdt_cd);
-	public ArrayList<CharterLoanFilterVO> selectCharterLoanFilter(HashMap<String, Object> map);
+	public CharterLoanListVO selectCharterLoanDetail(int oIndex);
+	public ArrayList<CharterLoanListVO> selectCharterLoanFilter(HashMap<String, Object> map);
 	
 	// 개인신용
 	public ArrayList<PersonalLoanListVO> selectPersonalLoanList();
-	public PersonalLoanListVO selectPersonalLoanDetail(String fin_prdt_cd);
-	public ArrayList<PersonalLoanFilterVO> selectPersonalLoanFilter(HashMap<String, Object> map);
+	public PersonalLoanListVO selectPersonalLoanDetail(int oIndex);
+	public ArrayList<PersonalLoanListVO> selectPersonalLoanFilter(HashMap<String, Object> map);
 }
