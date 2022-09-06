@@ -13,7 +13,17 @@ import com.fit_nance.project.model.Calc_rpayVO;
 @Controller
 public class CalculatorController {
 	
-	@RequestMapping("/cal_tax")
+	@RequestMapping("/calc_deposit")
+	public String calculator_deposit() {
+		return "calculator/calculator_deposit";
+	}
+	
+	@RequestMapping("/calc_lump")
+	public String calculator_lump() {
+		return "calculator/calculator_lump";
+	}
+	
+	@RequestMapping("/calc_tax")
 	public String viewNotice() {
 		return "calculator/cal_tax";
 	}
@@ -34,11 +44,6 @@ public class CalculatorController {
 			, @RequestParam(value="calc_rpay_period") int calc_rpay_period// 상환 기간
 			, @RequestParam(value="calc_grace_period") int calc_grace_period// 거치 기간
 			) {
-//		System.out.println("상환 방식 : "+calc_rpay_type);
-//		System.out.println("대출 금액 : "+calc_lend_loan);
-//		System.out.println("연 이자율 : "+calc_dly_rate_year);
-//		System.out.println("상환 기간 : "+calc_rpay_period);
-//		System.out.println("거치 기간 : "+calc_grace_period);
 		
 		ArrayList<Calc_rpayVO> list_rpay = new ArrayList<Calc_rpayVO>();
 

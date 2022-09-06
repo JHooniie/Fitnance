@@ -70,8 +70,8 @@
     <div class="box-menu-03-bottom li-cal wrap">
         <ul>
             <li>목돈 계산기</li>
-            <li><a href="<c:url value='/calculator_deposit'/>">적금 계산기</a></li>
-            <li><a href="<c:url value='/calculator_lump'/>">목돈 모으기 계산기</a></li>
+            <li><a href="<c:url value='/calc_deposit'/>">적금 계산기</a></li>
+            <li><a href="<c:url value='/calc_lump'/>">목돈 모으기 계산기</a></li>
         </ul>
         <ul>
             <li>대출 계산기</li>
@@ -79,7 +79,7 @@
         </ul>
         <ul>
             <li>연말정산 계산기</li>
-            <li><a href="<c:url value='/cal_tax'/>">카드/현금 연말정산 계산기</a></li>
+            <li><a href="<c:url value='/calc_tax'/>">카드/현금 연말정산 계산기</a></li>
         </ul>
     </div>
     <!-- 고객센터 -->
