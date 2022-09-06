@@ -133,10 +133,7 @@
 	                                        <img class="img_ic_favorite" src="/image/heart-solid.png">
 	                                    </div>
 	                                </div>
-	                                <button class="btn_prdt_info">
-	                                    자세히 보기
-	                                    <span style="display:none" id="prdt_cd" class="prdt_cd">${list.fin_prdt_cd }</span>
-	                                </button>
+	                                <a class="btn_prdt_info" href="<c:url value='/detailCreditLoan/${list.oIndex}'/>">자세히 보기</a>
 	                            </div>
 	                        </div>
 	                        <!-- 검색 결과 상품 - 끝 -->

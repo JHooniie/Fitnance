@@ -53,6 +53,7 @@ public class CharterLoanOptService {
 			JSONObject tempObj = (JSONObject) option.get(i);
 			
 			vo.setoIndex(i);
+			vo.setFin_co_no((String) tempObj.get("fin_co_no"));
 			vo.setFin_prdt_cd((String) tempObj.get("fin_prdt_cd"));
 			vo.setRpay_type((String) tempObj.get("rpay_type"));
 			vo.setRpay_type_nm((String) tempObj.get("rpay_type_nm"));

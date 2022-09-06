@@ -72,7 +72,7 @@
     justify-content: center;
 }
 
-/* 필터 div */
+/* í•„í„° div */
 
 .div_list .panel_filter{
     width: 202px;
@@ -102,7 +102,7 @@
     cursor: pointer;
 }
 
-/* 가입방법 */
+/* ê°€ìž…ë°©ë²• */
 
 .panel_filter .div_prdt_joinway .title_prdt_joinway{
     margin: 30px 0px 12px 0px;
@@ -143,15 +143,11 @@
     background-color: #1f4dff;
 }
 
-.div_prdt_joinway .option_prdt_joinway .btn_prdt_joinway1_clicked,
-.div_prdt_joinway .option_prdt_joinway .btn_prdt_joinway2_clicked,
-.div_prdt_joinway .option_prdt_joinway .btn_prdt_joinway3_clicked,
-.div_prdt_joinway .option_prdt_joinway .btn_prdt_joinway4_clicked{
+.div_prdt_joinway .option_prdt_joinway .btn_prdt_joinway_clicked{
     color: #ffffff;
     background-color: #1f4dff;
 }
 
-/* 대출금리유형 */
 
 .panel_filter .div_loan_lmt .title_loan_lmt{
     margin: 30px 0px 12px 0px;
@@ -186,7 +182,7 @@
     border: 0px;
     outline: none;
 }
-/* 필터 초기화 */
+/* í•„í„° ì´ˆê¸°í™” */
 
 .panel_filter .div_rpay_type .title_rpay_type{
     margin: 30px 0px 12px 0px;
@@ -226,9 +222,7 @@
     background-color: #1f4dff;
 }
 
-.div_rpay_type .option_rpay_type .btn_rpay_type1_clicked,
-.div_rpay_type .option_rpay_type .btn_rpay_type2_clicked,
-.div_rpay_type .option_rpay_type .btn_rpay_type3_clicked{
+.div_rpay_type .option_rpay_type .btn_rpay_type_clicked{
     color: #ffffff;
     background-color: #1f4dff;
 }
@@ -268,13 +262,12 @@
     background-color: #1f4dff;
 }
 
-.div_lend_type .option_lend_type .btn_lend_type1_clicked,
-.div_lend_type .option_lend_type .btn_lend_type2_clicked{
+.div_lend_type .option_lend_type .btn_lend_type_clicked{
     color: #ffffff;
     background-color: #1f4dff;
 }
 
-/* 필터 초기화 */
+/* í•„í„° ì´ˆê¸°í™” */
 
 .panel_filter .div_reset_filter .btn_reset_filter{
     width: 200px;
@@ -321,7 +314,7 @@
 }
 
 
-/* 상품 리스트 div */
+/* ìƒí’ˆ ë¦¬ìŠ¤íŠ¸ div */
 
 .div_list .panel_list_prdt{
     width: 990px;
@@ -464,7 +457,7 @@
     color: #222222;
 }
 
-/* 최저 금리 */
+/* ìµœì € ê¸ˆë¦¬ */
 .bot_prdt_info .div_lend_rate .lend_rate_title{
     font-size: 14px;
 }
@@ -505,7 +498,7 @@
 } */
 
 /* 22 * 19.3  146 */
-/* 리스트 각 상품 우측 버튼 */
+/* ë¦¬ìŠ¤íŠ¸ ê° ìƒí’ˆ ìš°ì¸¡ ë²„íŠ¼ */
 .div_btn_prdt{
     display: flex;
     flex-direction: column;
@@ -661,4 +654,18 @@
     color: #ffffff;
     /* border: 1px solid #1f4dff; */
     background-color: #1f4dff;
+}
+
+.no-list{
+	display: block;
+	width: 990px;
+	margin-top: 100px;
+	color: #999;
+	font-size: 18px;
+	text-align: center;
+	line-height: 35px;
+}
+
+.no-list i{
+	color: #999;
 }
