@@ -162,6 +162,31 @@
     margin-bottom: 0px;
 }
 
+.panel_detail_prdt .div_content_prdt .panel_content_prdt span.panel_content_title{
+    display: block;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.panel_detail_prdt .div_content_prdt .panel_content_prdt span.panel_content_detail{
+    display: block;
+    font-weight: 400;
+    margin-bottom: 40px;
+}
+
+.panel_detail_prdt .div_content_prdt .panel_content_prdt span.panel_content_detail:last-child{
+    margin-bottom: 0px;
+}
+
+.div_content_prdt table{
+	width: 400px;
+	margin-bottom: 40px;
+}
+
+.div_content_prdt table tr{
+	height: 25px;
+}
+
 /* 목록으로 돌아가기 버튼 */
 .div_detail_prdt button{
     width: 200px;
@@ -177,3 +202,4 @@
     font-size: 16px;
     font-weight: 600;
 }
+

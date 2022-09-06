@@ -198,8 +198,8 @@ public class ListLoanController {
 		if(list_join_way != null)
 			vo.setList_join_way(list_join_way);
 		
-		for(int i=1; i<list_crdt_prdt_type.size(); i++) {
-			list_crdt_prdt_type.add(list_crdt_prdt_type.get(i));
+		for(int i=1; i<arr_crdt_prdt_type.size(); i++) {
+			list_crdt_prdt_type.add(arr_crdt_prdt_type.get(i));
 		}
 
 		if(list_crdt_prdt_type != null)

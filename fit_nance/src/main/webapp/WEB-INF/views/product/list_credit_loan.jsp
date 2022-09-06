@@ -67,10 +67,10 @@
 	                    </div>
 	                </div>
 	            </div>
-	            <div id="first_list_prdt" class="panel_list_prdt">
+	            <div id="result_list_prdt" class="panel_list_prdt">
 	                <div class="div_search_list">
 	                    <div class="div_list_result">
-	                        <span>검색 결과 ${fn:length(list_credit_loan)}개</span>
+	                        <span>검색 결과 ${fn:length(clList)}개</span>
 	                    </div>
 	                    <div class="div_search_prdt">
 	                        <input class="input_search_prdt" placeholder="키워드 검색">
@@ -83,7 +83,7 @@
 	                    <form id="form_prdt" method="post" action="<c:url value='/view_credit_detail'/>">
 	                    	<input type="hidden" id="input_prdt_cd" name="input_prdt_cd" class="input_prdt_cd" type="text">
 	                        <!-- 검색 결과 상품 - 시작 -->
-	                        <c:forEach items="${list_credit_loan }" var="list" varStatus="status">
+	                        <c:forEach items="${clList }" var="list" varStatus="status">
 	                        <div class="div_prdt">
 	                            <div class="div_prdt_info">
 	                                <div class="div_ic_co">
@@ -156,7 +156,6 @@
 	                    </div>
 	                </div>
 	            </div>
-	            <div id="result_filter"></div>
 	        </div>
 	    </section>
 		

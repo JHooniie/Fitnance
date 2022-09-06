@@ -122,6 +122,7 @@
 		FROM charter_loan_option O
 			INNER JOIN charter_loan_base B ON B.pIndex = O.pIndex
 		WHERE O.oIndex IN (SELECT max(oIndex) from charter_loan_option GROUP BY pIndex)
+		ORDER BY O.oIndex DESC
 	</select>
 	
 	<!-- 전세 자금 detail -->
@@ -155,6 +156,7 @@
 			</foreach>
 		</if>
 		WHERE O.oIndex IN (SELECT max(oIndex) from charter_loan_option GROUP BY pIndex)
+		ORDER BY O.oIndex DESC
 	</select>
 	
 	<!-- 신용대출 -->
@@ -163,6 +165,7 @@
 		FROM personal_loan_option O
 			INNER JOIN personal_loan_base B ON B.pIndex = O.pIndex
 		WHERE O.oIndex IN (SELECT max(oIndex) from personal_loan_option GROUP BY pIndex)
+		ORDER BY O.pIndex DESC
 	</select>
 	
 	<!-- 신용대출 detail -->
@@ -186,9 +189,10 @@
 		<if test="list_crdt_prdt_type.size()>0">
 			AND
 			<foreach collection="list_crdt_prdt_type" item="list_crdt_prdt_type" open="(" close=")" separator="AND">
-				B.crdt_prdt_type_nm LIKE CONCAT ('%',#{list_crdt_prdt_type},'%')
+				B.crdt_prdt_type LIKE CONCAT ('%',#{list_crdt_prdt_type},'%')
 			</foreach>
 		</if>
 		WHERE O.oIndex IN (SELECT max(oIndex) from personal_loan_option GROUP BY pIndex)
+		ORDER BY O.pIndex DESC
 	</select>
 </mapper>
