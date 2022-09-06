@@ -12,9 +12,6 @@
 		<link rel="stylesheet" href="<c:url value='/css/calculator_deposit.css'/>"/>
 		<!-- js -->
 		<script src="<c:url value='/js/calculator_deposit.js' />"></script>
-		<!-- 삭제해야함 -->
-		
-		<meta charset="UTF-8">
 	</head>
 	<body>
 		<!-- top.jsp -->
@@ -32,7 +29,7 @@
                 적금 계산기
             </div>
             <div class="middle2-box2">
-                <a href="<c:url value='calculator_lump'/>">목돈 모으기 계산기</a>
+                <a href="<c:url value='/calc_lump'/>">목돈 모으기 계산기</a>
             </div>
         </div>
         <div class="middle3">

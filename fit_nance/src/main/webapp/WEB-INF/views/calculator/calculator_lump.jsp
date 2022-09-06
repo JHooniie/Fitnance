@@ -12,10 +12,6 @@
 		<link rel="stylesheet" href="<c:url value='/css/calculator_lump.css'/>"/>
 		<!-- js -->
 		<script src="<c:url value='/js/calculator_lump.js' />"></script>
-		<!-- 삭제해야함 -->
-		
-		<meta charset="UTF-8">
-		<title>Insert title here</title>
 	</head>
 	<body>
 		<c:import url="/WEB-INF/views/layout/top.jsp" />
@@ -29,7 +25,7 @@
         </div>
         <div class="middle2">
             <div class="middle2-box1">
-                <a href="<c:url value='calculator_deposit'/>">적금 계산기</a>
+                <a href="<c:url value='/calc_deposit'/>">적금 계산기</a>
             </div>
             <div class="middle2-box2">
                 목돈 모으기 계산기
