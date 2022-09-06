@@ -143,10 +143,7 @@
     background-color: #1f4dff;
 }
 
-.div_prdt_joinway .option_prdt_joinway .btn_prdt_joinway1_clicked,
-.div_prdt_joinway .option_prdt_joinway .btn_prdt_joinway2_clicked,
-.div_prdt_joinway .option_prdt_joinway .btn_prdt_joinway3_clicked,
-.div_prdt_joinway .option_prdt_joinway .btn_prdt_joinway4_clicked{
+.div_prdt_joinway .option_prdt_joinway .btn_prdt_joinway_clicked{
     color: #ffffff;
     background-color: #1f4dff;
 }
@@ -187,8 +184,7 @@
     background-color: #1f4dff;
 }
 
-.div_lend_type .option_lend_type .btn_lend_type1_clicked,
-.div_lend_type .option_lend_type .btn_lend_type2_clicked{
+.div_lend_type .option_lend_type .btn_lend_type_clicked{
     color: #ffffff;
     background-color: #1f4dff;
 }
@@ -546,4 +542,19 @@
 .div_list_prdt .page_prdt_list .div_page_num .page_num_clicked{
     color: #ffffff;
     background-color: #1f4dff;
+}
+
+
+.no-list{
+	display: block;
+	width: 990px;
+	margin-top: 100px;
+	color: #999;
+	font-size: 18px;
+	text-align: center;
+	line-height: 35px;
+}
+
+.no-list i{
+	color: #999;
 }

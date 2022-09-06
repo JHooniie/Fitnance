@@ -10,6 +10,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.stereotype.Service;
 
+import com.fit_nance.project.model.APIKey;
 import com.fit_nance.project.model.CharterLoanOptVO;
 
 @Service
@@ -18,7 +19,12 @@ public class CharterLoanOptService {
 		ArrayList<CharterLoanOptVO> charterloanList = new ArrayList<CharterLoanOptVO>();
 		BufferedReader br = null;
 		
-		StringBuilder urlBuilder = new StringBuilder("http://finlife.fss.or.kr/finlifeapi/rentHouseLoanProductsSearch.json?auth=c2c7484c2f7707de0e03bf8ddb9d735d&topFinGrpNo=020000&pageNo=1");
+		APIKey apiKey = new APIKey();
+		String key = apiKey.getLoanKey();
+		
+		StringBuilder urlBuilder = new StringBuilder("http://finlife.fss.or.kr/finlifeapi/rentHouseLoanProductsSearch.json?"
+													 + "auth=" + key
+													 + "&topFinGrpNo=020000&pageNo=1");
 		
 		URL url = new URL(urlBuilder.toString());
 		
@@ -53,6 +59,7 @@ public class CharterLoanOptService {
 			JSONObject tempObj = (JSONObject) option.get(i);
 			
 			vo.setoIndex(i);
+			vo.setFin_co_no((String) tempObj.get("fin_co_no"));
 			vo.setFin_prdt_cd((String) tempObj.get("fin_prdt_cd"));
 			vo.setRpay_type((String) tempObj.get("rpay_type"));
 			vo.setRpay_type_nm((String) tempObj.get("rpay_type_nm"));

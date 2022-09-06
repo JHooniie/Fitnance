@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
-import com.fit_nance.project.dao.ILoanListDAO;
+import com.fit_nance.project.dao.IListLoanDAO;
 import com.fit_nance.project.model.CharterLoanFilterVO;
 import com.fit_nance.project.model.CharterLoanListVO;
 import com.fit_nance.project.model.HomeLoanFilterVO;
@@ -16,25 +16,25 @@ import com.fit_nance.project.model.PersonalLoanFilterVO;
 import com.fit_nance.project.model.PersonalLoanListVO;
 
 @Service
-public class LoanListService implements ILoanListService{
+public class ListLoanService implements IListLoanService{
 
 	@Autowired
-	@Qualifier("ILoanListDAO")
-	ILoanListDAO dao; 
+	@Qualifier("IListLoanDAO")
+	IListLoanDAO dao; 
 	
-	// mortgage_loan
+	// 주택담보
 	@Override
-	public ArrayList<HomeLoanListVO> selectHomeLoanList() {
-		return dao.selectHomeLoanList();
+	public ArrayList<HomeLoanListVO> listAllHomeLoan() {
+		return dao.listAllHomeLoan();
 	}
 
 	@Override
-	public HomeLoanListVO selectHomeLoanDetail(String fin_prdt_cd) {
-		return dao.selectHomeLoanDetail(fin_prdt_cd);
+	public HomeLoanListVO detailViewHomeLoan(int oIndex) {
+		return dao.detailViewHomeLoan(oIndex);
 	}
 
 	@Override
-	public ArrayList<HomeLoanFilterVO> selectHomeLoanFilter(HomeLoanFilterVO vo) {
+	public ArrayList<HomeLoanListVO> selectHomeLoanFilter(HomeLoanFilterVO vo) {
 		HashMap<String,Object> map= new HashMap<String,Object>();
 		map.put("list_join_way",vo.getList_join_way());
 		map.put("list_mrtg_type", vo.getList_mrtg_type());
@@ -50,16 +50,17 @@ public class LoanListService implements ILoanListService{
 	}
 
 	@Override
-	public CharterLoanListVO selectCharterLoanDetail(String fin_prdt_cd) {
-		return dao.selectCharterLoanDetail(fin_prdt_cd);
+	public CharterLoanListVO selectCharterLoanDetail(int oIndex) {
+		return dao.selectCharterLoanDetail(oIndex);
 	}
 
 	@Override
-	public ArrayList<CharterLoanFilterVO> selectCharterLoanFilter(CharterLoanFilterVO vo) {
+	public ArrayList<CharterLoanListVO> selectCharterLoanFilter(CharterLoanFilterVO vo) {
 		HashMap<String,Object> map= new HashMap<String,Object>();
 		map.put("list_join_way",vo.getList_join_way());
 		map.put("list_rpay_type", vo.getList_rpay_type());
 		map.put("list_lend_type", vo.getList_lend_type());
+		
 		return dao.selectCharterLoanFilter(map);
 	}
 	
@@ -70,19 +71,19 @@ public class LoanListService implements ILoanListService{
 	}
 
 	@Override
-	public PersonalLoanListVO selectPersonalLoanDetail(String fin_prdt_cd) {
-		return dao.selectPersonalLoanDetail(fin_prdt_cd);
+	public PersonalLoanListVO selectPersonalLoanDetail(int oIndex) {
+		return dao.selectPersonalLoanDetail(oIndex);
 	}
 
 	@Override
-	public ArrayList<PersonalLoanFilterVO> selectPersonalLoanFilter(PersonalLoanFilterVO vo) {
+	public ArrayList<PersonalLoanListVO> selectPersonalLoanFilter(PersonalLoanFilterVO vo) {
 		HashMap<String,Object> map= new HashMap<String,Object>();
 		map.put("list_join_way",vo.getList_join_way());
 		map.put("list_crdt_prdt_type", vo.getList_crdt_prdt_type());
+		
 		return dao.selectPersonalLoanFilter(map);
 	}
 
 	
-
 
 }

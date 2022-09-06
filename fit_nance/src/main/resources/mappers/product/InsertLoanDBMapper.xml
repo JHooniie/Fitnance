@@ -5,19 +5,6 @@
   
 <mapper namespace="com.fit_nance.project.dao.ILoanDAO">
 	
-	<!-- 전세자금대출 api 데이터 -->
-	<!-- 전세자금대출 api baseList 등록 -->
-	<insert id="insertCharterLoanBaseList" parameterType="com.fit_nance.project.model.CharterLoanBaseVO">
-		INSERT INTO charter_loan_base (pIndex, fin_co_no, kor_co_nm, fin_prdt_cd, fin_prdt_nm, join_way, loan_inci_expn, erly_rpay_fee, dly_rate, loan_lmt)
-		VALUES (#{pIndex}, #{fin_co_no}, #{kor_co_nm}, #{fin_prdt_cd}, #{fin_prdt_nm}, #{join_way}, #{loan_inci_expn}, #{erly_rpay_fee}, #{dly_rate}, #{loan_lmt})
-	</insert>
-	<!-- 전세자금대출 api optionList 데이터 등록 -->
-	<insert id="insertCharterLoanOptList" parameterType="com.fit_nance.project.model.CharterLoanOptVO">
-		INSERT INTO charter_loan_option (oIndex, fin_co_no, fin_prdt_cd, rpay_type, rpay_type_nm, lend_rate_type, lend_rate_type_nm, lend_rate_min, lend_rate_max, lend_rate_avg)
-		VALUES (#{oIndex}, #{fin_co_no}, #{fin_prdt_cd}, #{rpay_type}, #{rpay_type_nm}, #{lend_rate_type}, #{lend_rate_type_nm}, #{lend_rate_min}, #{lend_rate_max}, #{lend_rate_avg})
-	</insert>
-	
-	<!-- -->
 	<!-- 주택담보대출 api baseList 데이터 등록 -->
 	<insert id="insertHomeLoanBaseList" parameterType="com.fit_nance.project.model.HomeLoanBaseVO">
 		INSERT INTO home_loan_base (pIndex, fin_co_no, kor_co_nm, fin_prdt_cd, fin_prdt_nm, join_way, loan_inci_expn, erly_rpay_fee, dly_rate, loan_lmt)
@@ -29,7 +16,17 @@
 		VALUES (#{oIndex}, #{fin_co_no}, #{fin_prdt_cd}, #{mrtg_type}, #{mrtg_type_nm}, #{rpay_type}, #{rpay_type_nm}, #{lend_rate_type}, #{lend_rate_type_nm}, #{lend_rate_min}, #{lend_rate_max}, #{lend_rate_avg})
 	</insert>
 	
-	<!-- -->
+	<!-- 전세자금대출 api baseList 등록 -->
+	<insert id="insertCharterLoanBaseList" parameterType="com.fit_nance.project.model.CharterLoanBaseVO">
+		INSERT INTO charter_loan_base (pIndex, fin_co_no, kor_co_nm, fin_prdt_cd, fin_prdt_nm, join_way, loan_inci_expn, erly_rpay_fee, dly_rate, loan_lmt)
+		VALUES (#{pIndex}, #{fin_co_no}, #{kor_co_nm}, #{fin_prdt_cd}, #{fin_prdt_nm}, #{join_way}, #{loan_inci_expn}, #{erly_rpay_fee}, #{dly_rate}, #{loan_lmt})
+	</insert>
+	<!-- 전세자금대출 api optionList 데이터 등록 -->
+	<insert id="insertCharterLoanOptList" parameterType="com.fit_nance.project.model.CharterLoanOptVO">
+		INSERT INTO charter_loan_option (oIndex, fin_co_no, fin_prdt_cd, rpay_type, rpay_type_nm, lend_rate_type, lend_rate_type_nm, lend_rate_min, lend_rate_max, lend_rate_avg)
+		VALUES (#{oIndex}, #{fin_co_no}, #{fin_prdt_cd}, #{rpay_type}, #{rpay_type_nm}, #{lend_rate_type}, #{lend_rate_type_nm}, #{lend_rate_min}, #{lend_rate_max}, #{lend_rate_avg})
+	</insert>
+	
 	<!-- 개인신용대출 api baseList 데이터 등록 -->
 	<insert id="insertPersonalLoanBaseList" parameterType="com.fit_nance.project.model.PersonalLoanBaseVO">
 		INSERT INTO personal_loan_base (pIndex, fin_co_no, kor_co_nm, fin_prdt_cd, fin_prdt_nm, join_way, crdt_prdt_type, crdt_prdt_type_nm, cb_name)

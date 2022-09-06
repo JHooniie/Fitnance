@@ -16,9 +16,6 @@ $(document).ready(function(){
 	} else if(path == 'calc') {
 		$('.box-menu-top ul li').removeClass('menu-active');
 		$('.li-cal').addClass('menu-active');
-	} else if(path == 'cal_') {
-		$('.box-menu-top ul li').removeClass('menu-active');
-		$('.li-cal').addClass('menu-active');
 	} else if(path == 'noti') {
 		$('.box-menu-top ul li').removeClass('menu-active');
 		$('.li-cus-service').addClass('menu-active');

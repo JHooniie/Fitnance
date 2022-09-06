@@ -17,32 +17,30 @@
 	<body>
 		<!-- top.jsp -->
 		<c:import url="/WEB-INF/views/layout/top.jsp" />
-		
-		
     <div class="middle wrap">
         <div class="middle-top">
             <div class="item-box">
                 <div class="image-box">
-                	<img src="<c:url value='/image/bank/${fin_co_no}.png'/>">
+                	<img src="<c:url value='/image/bank/${deposit.fin_co_no}.png'/>">
                 </div>
                 <div class="text-box">
-                    <div class="bank-name">${kor_co_nm }</div>
-                    <div class="item-name">${fin_prdt_nm }</div>
+                    <div class="bank-name">${deposit.kor_co_nm }</div>
+                    <div class="item-name">${deposit.fin_prdt_nm }</div>
                     <div class="sub-text-box">
-                    <div class="sub-text"><c:forEach items="${join_way }" var="jw">
+                    <div class="sub-text"><c:forEach items="${deposit.join_way }" var="jw">
 	                                    	<span>${jw}</span>
 	                                    </c:forEach></div></div>
                     <div class="percent-box">
                         <div class="percent1">
                             <ul>
                                 <li>1년기준 (세전)</li>
-                                <li><span>${intr_rate }</span>%</li>
+                                <li><span>${deposit.intr_rate }</span>%</li>
                             </ul>
                         </div>
                         <div class="percent2">
                             <ul>
                                 <li>최소</li>
-                                <li><span>${save_trm }</span>개월부터</li>
+                                <li><span>${deposit.save_trm }</span>개월부터</li>
                             </ul>
                         </div>
                     </div>
@@ -52,21 +50,21 @@
             <div class="middle-last-box">
                 <div class="details">
                     <div class="details-title">가입 대상</div>
-                    <div class="details-content">${join_member }</div>
+                    <div class="details-content">${deposit.join_member }</div>
                     <div class="details-title">저축 금리 유형</div>
-                    <div class="details-content">${intr_rate_type_nm }</div>
+                    <div class="details-content">${deposit.intr_rate_type_nm }</div>
                     <div class="details-title">저축 기간</div>
-                    <div class="details-content">최대 ${save_trm }개월</div>
+                    <div class="details-content">최대 ${deposit.save_trm }개월</div>
                     <div class="details-title">가입 방법</div>
-                    <div class="details-content">${join_way }</div>
+                    <div class="details-content">${deposit.join_way }</div>
                     <div class="details-title">가입 제한</div>
-                    <div class="details-content">${join_deny }</div>
+                    <div class="details-content">${deposit.join_deny }</div>
                     <div class="details-title">만기 후 이자율</div>
-                    <div class="details-content"><span>${mtrt_int }</span></div>
+                    <div class="details-content"><span>${deposit.mtrt_int }</span></div>
                     <div class="details-title">우대 조건</div>
-                    <div class="details-content"><span>${spcl_cnd }</span></div>
+                    <div class="details-content"><span>${deposit.spcl_cnd }</span></div>
                     <div class="details-title">기타 유의사항</div>
-                    <div class="details-content"><span>${etc_note }</span></div>
+                    <div class="details-content"><span>${deposit.etc_note }</span></div>
                 </div>
                 <div class="calculator">
                     <div class="cal-title1">총 목표 금액</div>
@@ -87,7 +85,7 @@
                             <div class="icon"><i class="fa-solid fa-angle-down"></i></div>
                         </div>
                         <div class="rate-box">
-                            <input type="text" id="interest-rate" name="interest-rate" value="${intr_rate2 }" onkeyup="calcu()"> <span>%</span>
+                            <input type="text" id="interest-rate" name="interest-rate" value="${deposit.intr_rate2 }" onkeyup="calcu()"> <span>%</span>
                         </div>
                     </div>
                     <div class="total-box">
