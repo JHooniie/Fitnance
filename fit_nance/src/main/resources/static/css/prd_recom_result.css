@@ -200,18 +200,18 @@
 	position: absolute;
 	left: 0;
 	top: 0;
-	width: 2500px; /* ìŠ¬ë¼ì´ë“œí•  ì‚¬ì§„ê³¼ ë§ˆì§„ ì´ ë„“ì´ */
+	width: 2500px; /* 슬라이드할 사진과 마진 총 넓이 */
 	transition: left 0.5s ease-out; 
-	/*ease-out: ì²˜ìŒì—ëŠ” ëŠë ¸ë‹¤ê°€ ì ì  ë¹¨ë¼ì§*/
+	/*ease-out: 처음에는 느렸다가 점점 빨라짐*/
 }
 
-/* ì²« ë²ˆì§¸ ìŠ¬ë¼ì´ë“œ ê°€ìš´ë°ì— ì •ë ¬í•˜ê¸°ìœ„í•´
-ì²«ë²ˆì§¸ ìŠ¬ë¼ì´ë“œë§Œ margin-leftì¡°ì • */
+/* 첫 번째 슬라이드 가운데에 정렬하기위해
+첫번째 슬라이드만 margin-left조정 */
 .prd-recom-content .wrap-tip #slideShow .img-slides li:first-child{
   margin-left: 100px;
 }
 
-/* ìŠ¬ë¼ì´ë“œë“¤ ì˜†ìœ¼ë¡œ ì •ë ¬ */
+/* 슬라이드들 옆으로 정렬 */
 .prd-recom-content .wrap-tip #slideShow .img-slides li:not(:last-child){
   float: left;
   margin-right: 100px;
@@ -240,7 +240,7 @@
   cursor: pointer;
 }
 
-/* ì´ì „, ë‹¤ìŒ í™”ì‚´í‘œì— ë§ˆìš°ìŠ¤ ì»¤ì„œê°€ ì˜¬ë¼ê°€ ìžˆì„ë•Œ */
+/* 이전, 다음 화살표에 마우스 커서가 올라가 있을때 */
 .prd-recom-content .wrap-tip #slideShow .img-controller span:hover{
   background-color: rgba(128, 128, 128, 0.11);
 }
