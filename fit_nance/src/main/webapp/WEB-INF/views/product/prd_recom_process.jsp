@@ -22,7 +22,7 @@
 	                    더 <span>핏</span>:하게<br>
 	                    추천해 드릴게요!
 	                </h3>
-	                <img src="<c:url value='/image/img_prd_recom_pc_1.png'/>" alt="">
+	                <img src="<c:url value='/images/img_prd_recom_pc_1.png'/>" alt="">
 	            </div>
 	            <button class="btn-prd-recom btn-prd-recom-01" type="button">네! 좋아요!</button>
 	        </div>
@@ -39,22 +39,22 @@
 	            <div class="box-pc-01 box-pc-01-fm">
 	                <div class="box-pc-y">
 	                    <span>네!<br>모으고 있어요!</span>
-	                    <img src="<c:url value='/image/img_prd_recom_pc_2.png'/>" alt="">
+	                    <img src="<c:url value='/images/img_prd_recom_pc_2.png'/>" alt="">
 	                </div>
 	                <div class="box-pc-n">
 	                    <span>아니요!<br>이제 모으고 싶어요!</span>
-	                    <img src="<c:url value='/image/img_prd_recom_pc_3.png'/>" alt="">
+	                    <img src="<c:url value='/images/img_prd_recom_pc_3.png'/>" alt="">
 	                </div>
 	            </div>
 	            <!-- 성별이 남자인 경우 -->
 	            <div class="box-pc-01 box-pc-01-m">
 	                <div class="box-pc-y">
 	                    <span>네!<br>모으고 있어요!</span>
-	                    <img src="<c:url value='/image/img_prd_recom_pc_4.png'/>" alt="">
+	                    <img src="<c:url value='/images/img_prd_recom_pc_4.png'/>" alt="">
 	                </div>
 	                <div class="box-pc-n">
 	                    <span>아니요!<br>이제 모으고 싶어요!</span>
-	                    <img src="<c:url value='/image/img_prd_recom_pc_5.png'/>" alt="">
+	                    <img src="<c:url value='/images/img_prd_recom_pc_5.png'/>" alt="">
 	                </div>
 	            </div>
 	            <button class="btn-prd-recom btn-prd-recom-02" type="button" disabled>다음</button>
@@ -71,11 +71,11 @@
 	            <div class="box-pc-02">
 	                <div class="box-pc-y">
 	                    <span>예/적금을<br>이용하고 있어요!</span>
-	                    <img src="<c:url value='/image/img_prd_recom_pc_6.png'/>" alt="">
+	                    <img src="<c:url value='/images/img_prd_recom_pc_6.png'/>" alt="">
 	                </div>
 	                <div class="box-pc-n">
 	                    <span>주식/펀드를<br>이용하고 있어요!</span>
-	                    <img src="<c:url value='/image/img_prd_recom_pc_7.png'/>" alt="">
+	                    <img src="<c:url value='/images/img_prd_recom_pc_7.png'/>" alt="">
 	                </div>
 	            </div>
 	            <button class="btn-prd-recom btn-prd-recom-03" type="button" disabled>다음</button>
@@ -102,7 +102,7 @@
 	        <!-- process 4 end -->
 	        <!-- process 5 -->
 	        <div class="box-prd-recom box-prd-recom-05">
-	            <img src="<c:url value='/image/img_prd_recom_pc_8.png'/>" alt="">
+	            <img src="<c:url value='/images/img_prd_recom_pc_8.png'/>" alt="">
 	            <div class="title-prd-recom title-prd-recom-05">
 	                <h3>가입한 이메일로 보내드렸어요!</h3>
 	                <span>이메일로 전송된 리포트에서 딱 맞는 예/적금을 확인해보세요</span>

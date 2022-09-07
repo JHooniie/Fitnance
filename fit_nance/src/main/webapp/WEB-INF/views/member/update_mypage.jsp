@@ -24,7 +24,7 @@
                     <div class="box-update-profileImg">
                         <div class="box-profileImg-overlay"></div>
                         <div class="box-update-profileImg-img-center">
-                            <img src="<c:url value='image/lg_fitnance_initial_mypage.png'/>">
+                            <img src="<c:url value='images/lg_fitnance_initial_mypage.png'/>">
                         </div>
                     </div>
                     <div class="box-update-profile-content">

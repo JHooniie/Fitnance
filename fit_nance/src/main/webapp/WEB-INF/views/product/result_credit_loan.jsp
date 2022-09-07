@@ -14,7 +14,7 @@
 	             </div>
 	             <div class="div_search_prdt">
 	                 <input class="input_search_prdt" placeholder="키워드 검색">
-	                 <img src="/image/magnifying-glass-solid.png">
+	                <i class="fa-solid fa-magnifying-glass"></i>
 	             </div>
 	         </div>
 			<div>
@@ -28,7 +28,7 @@
 	             </div>
 	             <div class="div_search_prdt">
 	                 <input class="input_search_prdt" placeholder="키워드 검색">
-	                 <img src="/image/magnifying-glass-solid.png">
+	                 <i class="fa-solid fa-magnifying-glass"></i>
 	             </div>
 	         </div>
 	         
@@ -42,7 +42,7 @@
 	                     <div class="div_prdt_info">
 	                         <div class="div_ic_co">
 	                             <!-- 각 은행 로고 image -->
-	                             <img src="<c:url value='/image/bank/${list.fin_co_no}.png'/>">
+	                             <img src="<c:url value='/images/bank/${list.fin_co_no}.png'/>">
 	                         </div>
 	                         <div class="div_prdt_base">
 	                             <div class="top_prdt_info">
@@ -80,13 +80,13 @@
 	                     </div>
 	                     <div class="div_btn_prdt">
 	                         <div class="div_btn_add">
-	                             <div class="btn_add_compare">
-	                                 <img class="img_ic_compare" src="/image/folder-plus-solid.png">
-	                             </div>
-	                             <div class="btn_add_favorite">
-	                                 <img class="img_ic_favorite" src="/image/heart-solid.png">
-	                             </div>
-	                         </div>
+                                    <div class="btn_add_compare">
+                                    	<i class="fa-solid fa-folder-plus"></i>
+                                    </div>
+                                    <div class="btn_add_favorite">
+                                        <i class="fa-solid fa-heart"></i>
+                                    </div>
+                                </div>
 	                         <a class="btn_prdt_info" href="<c:url value='/detailCreditLoan/${list.oIndex}'/>">자세히 보기</a>
 	                     </div>
 	                 </div>
@@ -95,19 +95,19 @@
 	                 </form>
 	             </div>
 	             <div class="page_prdt_list">
-	                 <div class="div_page_prev">
-	                     <img src="/image/chevron-left-solid.png">
-	                 </div>
-	                 <div class="div_page_num">
-	                     <div class="page_num_clicked">1</div>
-	                     <div class="page_num">2</div>
-	                     <div class="page_num">3</div>
-	                     <div class="page_num">4</div>
-	                 </div>
-	                 <div class="div_page_next">
-	                     <img src="/image/chevron-right-solid.png">
-	                 </div>
-	             </div>
+                     <div class="div_page_prev">
+                         <i class="fa-solid fa-chevron-left"></i>
+                     </div>
+                     <div class="div_page_num">
+                         <div class="page_num_clicked">1</div>
+                         <div class="page_num">2</div>
+                         <div class="page_num">3</div>
+                         <div class="page_num">4</div>
+                     </div>
+                     <div class="div_page_next">
+                         <i class="fa-solid fa-chevron-right"></i>
+                     </div>
+                 </div>
 	         </div>
 		</c:otherwise>
 	</c:choose>

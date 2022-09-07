@@ -11,8 +11,6 @@
 		<link rel="stylesheet" href="<c:url value='/css/compare_loan.css' />"/>
 		<!-- js -->
 		<script src="<c:url value='/js/compare_loan.js' />"></script>
-		
-		<meta charset="UTF-8">
 	</head>
 	<body>
 		<!-- top.jsp -->

@@ -31,7 +31,7 @@
                         금융 상품을 fit:하게<br />
                         추천해드려요!
                     </li>
-                    <li>ai기술을 이용해</li>
+                    <li>AI 기술을 이용해</li>
                     <li>최신 정보로 여러분에게 딱맞는</li>
                     <li>금융 상품을 소개해 드릴게요</li>
                 </ul>
@@ -40,7 +40,7 @@
                 <ul>
                     <li>
                         <img
-                            src="<c:url value='/image/lg_fitnance_b_white.png'/>"
+                            src="<c:url value='/images/lg_fitnance_b_white.png'/>"
                             class="middle2-image"
                             alt="fit:nacnce"
                         />

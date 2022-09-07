@@ -29,7 +29,7 @@
 			            </ul>
 			        </div>
 			        <div class="middle-image">
-			            <img src="image/img_savings.png">
+			            <img src="/images/img_savings.png">
 			        </div>
 		        </div>
 		        <div class="middel-bottom">
@@ -78,7 +78,7 @@
 		                    <div class="item-box-all">
 		                        <div class="item-box">
 		                            <div class="image-box">
-		                            	<img src="<c:url value='/image/bank/${list.fin_co_no}.png'/>">
+		                            	<img src="<c:url value='/images/bank/${list.fin_co_no}.png'/>">
 		                            </div>
 		                            <div class="text-box">
 		                                <div class="bank-name">${list.kor_co_nm }</div>

@@ -12,8 +12,6 @@
 		<link rel="stylesheet" href="<c:url value='/css/detail_mortgage_loan.css' />"/>
 		<!-- js -->
 		<script src="<c:url value='/js/detail_mortgage_loan.js' />"></script>
-		
-		<meta charset="UTF-8">
 	</head>
 	<body>
 		<!-- top.jsp -->
@@ -26,7 +24,7 @@
 	                <div class="div_prdt_info">
 	                    <div class="div_ic_co">
 	                        <!-- 각 은행 로고 image -->
-	                        <img src="<c:url value='/image/bank/${homeloan.fin_co_no}.png'/>">
+	                        <img src="<c:url value='/images/bank/${homeloan.fin_co_no}.png'/>">
 	                    </div>
 	                    <div class="div_prdt_base">
 	                        <div class="top_prdt_info">
