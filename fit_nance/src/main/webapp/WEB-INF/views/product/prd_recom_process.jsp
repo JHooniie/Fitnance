@@ -57,7 +57,7 @@
 	                    <img src="<c:url value='/image/img_prd_recom_pc_5.png'/>" alt="">
 	                </div>
 	            </div>
-	            <button class="btn-prd-recom btn-prd-recom-02" type="button" disabled=>다음</button>
+	            <button class="btn-prd-recom btn-prd-recom-02" type="button" disabled>다음</button>
 	        </div>
 	        <!-- process 2 end -->
 	        <!-- process 3 -->
