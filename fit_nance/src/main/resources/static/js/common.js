@@ -36,6 +36,13 @@ $(document).ready(function(){
         $('header').removeClass('header-active');
     }, function() {
         $('.box-menu-02-bottom').removeClass('dp-flex');
+        if(path == 'noti') {
+			$('header').addClass('header-active');
+		} else if(path == 'faq') {
+			$('header').addClass('header-active');
+		} else if(path == 'cc_i') {
+			$('header').addClass('header-active');
+		}
     });
 
     // 계산기 마우스 호버
@@ -44,6 +51,13 @@ $(document).ready(function(){
         $('header').removeClass('header-active');
     }, function() {
         $('.box-menu-03-bottom').removeClass('dp-flex');
+        if(path == 'noti') {
+			$('header').addClass('header-active');
+		} else if(path == 'faq') {
+			$('header').addClass('header-active');
+		} else if(path == 'cc_i') {
+			$('header').addClass('header-active');
+		}
     });
 
     // 고객센터 마우스 호버

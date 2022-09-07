@@ -25,7 +25,7 @@
 	                    </h1>
 	                </div>
 	                <div class="div_scroll">
-	                    <img src="/images/angle-down-solid.png">
+	                    <i class="fa-solid fa-chevron-down"></i>
 	                </div>
 	                <div class="div_index_img1">
 	                    <div class="img_index_main">

@@ -425,14 +425,20 @@
     border: 1px solid #dddddd;
 }
 
+.div_btn_prdt .div_btn_add .btn_add_compare i,
+.div_btn_prdt .div_btn_add .btn_add_favorite i{
+    color: #CCCCCC;
+    font-size: 20px;
+}
+
 .div_btn_prdt .div_btn_add .btn_add_compare:hover,
 .div_btn_prdt .div_btn_add .btn_add_favorite:hover{
     border: 1px solid #1f4dff;
 }
 
-.div_btn_prdt .div_btn_add .btn_add_compare:hover img,
-.div_btn_prdt .div_btn_add .btn_add_favorite:hover img{
-    filter: invert(19%) sepia(64%) saturate(3028%) hue-rotate(224deg) brightness(129%) contrast(122%);
+.div_btn_prdt .div_btn_add .btn_add_compare:hover i,
+.div_btn_prdt .div_btn_add .btn_add_favorite:hover i{
+    color: #1F4DFF;
 }
 
 .div_btn_prdt .div_btn_add .btn_add_favorite_clicked{
@@ -445,9 +451,10 @@
     background-color: #1f4dff;
 }
 
-.div_btn_prdt .div_btn_add .btn_add_compare_clicked img,
-.div_btn_prdt .div_btn_add .btn_add_favorite_clicked img{
-    filter: invert(99%) sepia(0%) saturate(1019%) hue-rotate(49deg) brightness(117%) contrast(100%);
+.div_btn_prdt .div_btn_add .btn_add_compare_clicked i,
+.div_btn_prdt .div_btn_add .btn_add_favorite_clicked i{
+    font-size: 20px;
+    color: #FFFFFF;
 }
 
 .div_btn_prdt .btn_prdt_info{
@@ -497,6 +504,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    /* border: 1px solid red; */
     margin-top: 60px;
 }
 
@@ -511,11 +519,15 @@
     cursor: pointer;
 }
 
-.div_list_prdt .page_prdt_list .div_page_prev img,
-.div_list_prdt .page_prdt_list .div_page_next img{
-    width: 9.4px;
-    height: 9.4px;
-    filter: invert(82%) sepia(0%) saturate(9%) hue-rotate(178deg) brightness(84%) contrast(87%);
+.div_list_prdt .page_prdt_list .div_page_prev i,
+.div_list_prdt .page_prdt_list .div_page_next i{
+    font-size: 9px;
+    color: #AAAAAA;
+}
+
+.div_list_prdt .page_prdt_list .div_page_prev:hover,
+.div_list_prdt .page_prdt_list .div_page_next:hover{
+    
 }
 
 .div_list_prdt .page_prdt_list .div_page_num{
@@ -536,14 +548,19 @@
 
 .div_list_prdt .page_prdt_list .div_page_num div:hover{
     color: #ffffff;
+    /* border: 1px solid #1f4dff; */
     background-color: #1f4dff;
 }
 
-.div_list_prdt .page_prdt_list .div_page_num .page_num_clicked{
+.div_prdt_joinway .option_prdt_joinway input.btn_prdt_joinway_clicked{
     color: #ffffff;
     background-color: #1f4dff;
 }
 
+
+.btn_prdt_info span{
+	display: none;
+}
 
 .no-list{
 	display: block;
@@ -557,4 +574,5 @@
 
 .no-list i{
 	color: #999;
+}
 }
