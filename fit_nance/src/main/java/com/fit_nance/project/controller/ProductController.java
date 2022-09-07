@@ -27,6 +27,12 @@ public class ProductController {
 		return "product/prd_recom_process";
 	}
 	
+	// 상품 추천 프로세스
+	@RequestMapping("/prd_recom_result")
+	public String viewPrdRecomResult() {
+		return "product/prd_recom_result";
+	}
+	
 	// 상품 전체
 	@RequestMapping("/prd_all")
 	public String viewPrdAll(Model model) {
