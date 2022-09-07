@@ -57,13 +57,13 @@ public class CCController {
 	public String faq(Model model) {
 		ArrayList<FAQVO> FAQList = pService.selectFAQ();
 		model.addAttribute("FAQList", FAQList);
-		return "product2/faq";
+		return "cc/faq";
 	}
 	
 	@RequestMapping("/faq_search")
 	public String faq_search(@RequestParam(value="oldVal") String a,Model model) {
 		ArrayList<FAQVO> FAQList = pService.selectFAQ_search(a);
 		model.addAttribute("FAQList", FAQList);
-		return "product2/faq_search";
+		return "cc/faq_search";
 	}
 }
