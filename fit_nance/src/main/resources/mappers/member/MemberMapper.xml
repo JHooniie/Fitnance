@@ -74,7 +74,7 @@
 	</delete>
 	
 	<insert id="insertdummy" parameterType="com.fit_nance.project.model.DummyVO">
-		INSERT INTO test(user_id, item_id, rating)
-		VALUES (#{user_id}, #{item_id},#{rating})
+		INSERT INTO test(user_id, item_id, rating, timestamp)
+		VALUES (#{user_id}, #{item_id}, #{rating}, #{timestamp})
 	</insert>
 </mapper>

@@ -1,11 +1,21 @@
 package com.fit_nance.project.model;
 
+import java.sql.Timestamp;
+
 public class DummyVO {
 
 	
 	private String user_id;
 	private String item_id;
 	private int rating;
+	private long timestamp;
+	
+	public long getTimestamp() {
+		return timestamp;
+	}
+	public void setTimestamp(long timestamp) {
+		this.timestamp = timestamp;
+	}
 	public String getUser_id() {
 		return user_id;
 	}

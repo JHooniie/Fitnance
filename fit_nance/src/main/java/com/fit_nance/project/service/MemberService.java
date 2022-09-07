@@ -113,7 +113,7 @@ public class MemberService implements IMemberService {
 				long offset = Timestamp.valueOf("2021-01-01 00:00:00").getTime();
 				long end = Timestamp.valueOf("2022-01-01 00:00:00").getTime();
 				long diff = end - offset + 1;
-				Timestamp rand = new Timestamp(offset + (long)(Math.random() * diff));
+				long rand = offset + (long)(Math.random() * diff);
 				
 				System.out.println(rand);
 				
@@ -121,7 +121,7 @@ public class MemberService implements IMemberService {
 				vo.setUser_id(user_id);
 				vo.setItem_id(item_id);
 				vo.setRating(rating);
-				
+				vo.setTimestamp(rand);
 				dao.insertdummy(vo);
 			}
 			
