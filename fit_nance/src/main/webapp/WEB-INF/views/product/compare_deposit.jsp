@@ -10,10 +10,6 @@
 		<c:import url="/WEB-INF/views/layout/head.jsp" />
 		<!-- css -->
 		<link rel="stylesheet" href="<c:url value='/css/deposit_compare.css'/>"/>
-		<!-- js -->
-		<!-- 삭제해야함 -->
-		
-		<meta charset="UTF-8">
 	</head>
 	<body>
 		<!-- top.jsp -->

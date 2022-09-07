@@ -21,11 +21,11 @@
                 <div class="box-profile">
                     <div class="box-profileImg">
                         <div class="box-profileImg-img-center">
-                            <img src="<c:url value='image/lg_fitnance_initial_mypage.png'/>">
+                            <img src="<c:url value='/images/lg_fitnance_initial_mypage.png'/>">
                         </div>
                     </div>
                     <div class="box-profile-content">
-                        <span class="span-profile-name">${principal.name}<br>
+                        <span class="span-profile-name">${principal.name}<br></span>
                         <span class="span-profile-Email">${principal.username}</span><br>
                         <a href="<c:url value='/logout'/>">로그아웃</a>
                         <button onclick="location.href='<c:url value='/user/passwordCheckForm'/>'"><span>프로필 수정하기</span></button>

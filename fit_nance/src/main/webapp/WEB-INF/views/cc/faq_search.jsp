@@ -9,8 +9,6 @@
 		<c:import url="/WEB-INF/views/layout/head.jsp" />
 		<!-- css -->
 		<link rel="stylesheet" href="<c:url value='/css/faq.css'/>"/>
-		<meta charset="UTF-8">
-		<title>Insert title here</title>
 	</head>
 	<body>
 	<div class="title">자주 묻는 질문(${fn:length(FAQList) })</div>

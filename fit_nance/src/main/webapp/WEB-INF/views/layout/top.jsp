@@ -10,7 +10,7 @@
 <header>
     <div class="box-nav wrap">
         <!-- logo -->
-        <a href="<c:url value='/'/>"><img src="<c:url value='/image/lg_fitnance.png'/>" alt="fit:nacnce"></a>
+        <a href="<c:url value='/'/>"><img src="<c:url value='/images/lg_fitnance.png'/>" alt="fit:nacnce"></a>
         <!-- menu-top -->
         <nav class="box-menu-default">
             <div class="box-menu-top">

@@ -40,7 +40,7 @@
                 <ul>
                     <li>
                         <img
-                            src="<c:url value='/image/lg_fitnance_b_white.png'/>"
+                            src="<c:url value='/images/lg_fitnance_b_white.png'/>"
                             class="middle2-image"
                             alt="fit:nacnce"
                         />

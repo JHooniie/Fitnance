@@ -25,7 +25,7 @@
 	                    </h1>
 	                </div>
 	                <div class="div_scroll">
-	                    <img src="/image/angle-down-solid.png">
+	                    <img src="/images/angle-down-solid.png">
 	                </div>
 	                <div class="div_index_img1">
 	                    <div class="img_index_main">
