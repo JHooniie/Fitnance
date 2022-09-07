@@ -72,4 +72,9 @@
   	<delete id="withdrawal_member" parameterType="com.fit_nance.project.model.MemberVO">
 		DELETE FROM member WHERE memId=#{memId}
 	</delete>
+	
+	<insert id="insertdummy" parameterType="com.fit_nance.project.model.DummyVO">
+		INSERT INTO test(user_id, item_id, rating)
+		VALUES (#{user_id}, #{item_id},#{rating})
+	</insert>
 </mapper>

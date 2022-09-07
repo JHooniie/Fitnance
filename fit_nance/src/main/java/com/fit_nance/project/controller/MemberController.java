@@ -1,5 +1,6 @@
 package com.fit_nance.project.controller;
 
+import java.sql.Timestamp;
 import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.fit_nance.project.config.auth.PrincipalDetails;
 import com.fit_nance.project.model.BankVO;
+import com.fit_nance.project.model.DummyVO;
 import com.fit_nance.project.model.MemberVO;
 import com.fit_nance.project.service.MemberService;
 
@@ -25,9 +27,11 @@ public class MemberController {
 	@Autowired
 	MemberService memService;
 	
+	
 	@Autowired 
     private PasswordEncoder encoder;
 	
+
 	
 	@RequestMapping("/loginForm")
 	public String loginForm() {
@@ -170,17 +174,27 @@ public class MemberController {
 	
 	@ResponseBody
 	@RequestMapping("/test/login")
-	public String testLogin(
-			Authentication authentication,
-			@AuthenticationPrincipal UserDetails userDetails,
-			MemberVO vo) {
+	public String testLogin(Authentication authentication, @AuthenticationPrincipal UserDetails userDetails,MemberVO vo) {
 		PrincipalDetails principalDetails = (PrincipalDetails)authentication.getPrincipal();
 
-		principalDetails.setVo(null);
+		principalDetails.setVo(vo);
 		System.out.println("authentication : " + principalDetails.getProvider());
 		System.out.println("authentication : " + principalDetails.getMemBirth());
 		System.out.println("authentication : " + principalDetails.getAttributes());
 		System.out.println("UserDetails : " + userDetails);
 		return "세션 정보 확인";
 	}
+
+	
+	//회원가입
+		@RequestMapping("/dummy")
+		public void dummySignup(DummyVO vo) {
+			
+			
+			
+			memService.dummy(vo);
+			
+			
+		}
+
 }
