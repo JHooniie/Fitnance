@@ -23,8 +23,8 @@
         <i class="fa-solid fa-angle-up"></i>
     </div>
     <div class="box-chatbot">
-        <img class="img-chatbot-01" src="<c:url value='/image/img_chatbot.png'/>" alt="chatbot">
-        <img class="img-chatbot-02" src="<c:url value='/image/img_chatbot_2.png'/>" alt="chatbot">
+        <img class="img-chatbot-01" src="<c:url value='/images/img_chatbot.png'/>" alt="chatbot">
+        <img class="img-chatbot-02" src="<c:url value='/images/img_chatbot_2.png'/>" alt="chatbot">
     </div>        
 </div>
 <!-- remote end -->
@@ -38,7 +38,7 @@
               <span>이메일 <b>help@fitnance.com</b> | 마케팅/제휴 문의 <b>marketing@fitnance.com</b></span>
           </div>
           <div class="box-cpy-info-right">
-              <img src="<c:url value='/image/lg_fitnance_gray.png'/>">
+              <img src="<c:url value='/images/lg_fitnance_gray.png'/>">
             <div class="box-cpy-terms">
                 <a href="#">개인정보 처리방침</a>
                 <a href="#">이용약관</a>

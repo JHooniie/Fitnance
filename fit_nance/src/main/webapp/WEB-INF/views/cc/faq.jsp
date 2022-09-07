@@ -12,9 +12,6 @@
 		<link rel="stylesheet" href="<c:url value='/css/faq.css'/>"/>
 		<!-- js -->
 		<script src="<c:url value='/js/faq.js' />"></script>
-		<!-- 삭제해야함 -->
-		<meta charset="UTF-8">
-		<title>Insert title here</title>
 	</head>
 	<body>
 		<!-- top.jsp -->

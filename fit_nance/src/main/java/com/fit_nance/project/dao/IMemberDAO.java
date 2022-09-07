@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import com.fit_nance.project.model.BankVO;
+import com.fit_nance.project.model.DummyVO;
 import com.fit_nance.project.model.MemberVO;
 
 public interface IMemberDAO {
@@ -27,4 +28,5 @@ public interface IMemberDAO {
 	// 회원정보 탈퇴
 	public void withdrawal_member(MemberVO vo);
 	
+	public void insertdummy(DummyVO vo);
 }

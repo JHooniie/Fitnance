@@ -21,7 +21,7 @@
         <div class="middle-top">
             <div class="item-box">
                 <div class="image-box">
-                	<img src="<c:url value='/image/bank/${deposit.fin_co_no}.png'/>">
+                	<img src="<c:url value='/images/bank/${deposit.fin_co_no}.png'/>">
                 </div>
                 <div class="text-box">
                     <div class="bank-name">${deposit.kor_co_nm }</div>

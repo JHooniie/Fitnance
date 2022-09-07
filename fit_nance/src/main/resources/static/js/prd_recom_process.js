@@ -72,8 +72,7 @@ $(document).ready(function(){
 
     // process 4 완료 클릭 시
     $('.btn-prd-recom-04').click(function(){
-        $('.box-prd-recom-04').css('display','none');
-        $('.box-prd-recom-05').css('display','block');
+        location.href = '/prd_recom_result';
     });
     
     // process 5 확인 클릭 시

@@ -24,8 +24,8 @@
 	            <div class="panel_info_prdt">
 	                <div class="div_prdt_info">
 	                    <div class="div_ic_co">
-	                        <!-- 각 은행 로고 image -->
-	                        <img src="<c:url value='/image/bank/${creditloan.fin_co_no}.png'/>">
+	                        <!-- 각 은행 로고 images -->
+	                        <img src="<c:url value='/images/bank/${creditloan.fin_co_no}.png'/>">
 	                    </div>
 	                    <div class="div_prdt_base">
 	                        <div class="top_prdt_info">

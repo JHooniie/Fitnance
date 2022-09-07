@@ -9,8 +9,7 @@
 		<!-- head -->
 		<c:import url="/WEB-INF/views/layout/head.jsp" />
 		<!-- css -->
-		<link rel="stylesheet" href="<c:url value='/css/saving_detail
-		.css'/>"/>
+		<link rel="stylesheet" href="<c:url value='/css/saving_detail.css'/>"/>
 		<!-- js -->
 		<script src="<c:url value='/js/detail_installment.js' />"></script>
 	</head>
@@ -21,7 +20,7 @@
         <div class="middle-top">
             <div class="item-box">
                 <div class="image-box">
-                	<img src="<c:url value='/image/bank/${installment.fin_co_no}.png'/>">
+                	<img src="<c:url value='/images/bank/${installment.fin_co_no}.png'/>">
                 </div>
                 <div class="text-box">
                     <div class="bank-name">${installment.kor_co_nm }</div>

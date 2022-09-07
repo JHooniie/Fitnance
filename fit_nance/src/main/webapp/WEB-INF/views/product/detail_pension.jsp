@@ -19,7 +19,7 @@
         <div class="middle-top">
             <div class="item-box">
                 <div class="image-box">
-                	<img src="<c:url value='/image/bank/${pension.fin_co_no}.png'/>">
+                	<img src="<c:url value='/images/bank/${pension.fin_co_no}.png'/>">
                 </div>
                 <div class="text-box">
                     <div class="bank-name">${pension.kor_co_nm }</div>
