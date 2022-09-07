@@ -101,14 +101,14 @@
 	        </div>
 	        <!-- process 4 end -->
 	        <!-- process 5 -->
-	        <div class="box-prd-recom box-prd-recom-05">
+	        <!-- <div class="box-prd-recom box-prd-recom-05">
 	            <img src="<c:url value='/images/img_prd_recom_pc_8.png'/>" alt="">
 	            <div class="title-prd-recom title-prd-recom-05">
 	                <h3>가입한 이메일로 보내드렸어요!</h3>
 	                <span>이메일로 전송된 리포트에서 딱 맞는 예/적금을 확인해보세요</span>
 	            </div>
 	            <button class="btn-prd-recom btn-prd-recom-05" type="button">확인</button>
-	        </div>
+	        </div> -->
 	        <!-- process 5 end -->
 	    </section>
 	    <c:import url="/WEB-INF/views/layout/footer.jsp" />
