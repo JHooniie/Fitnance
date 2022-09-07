@@ -8,16 +8,15 @@ import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.event.EventListener;
 
-import com.fit_nance.project.service.EmailSenderService;
 
 @SpringBootApplication
 @ComponentScan(basePackages = {"com.fit_nance.project"})
 @MapperScan(basePackages = {"com.fit_nance.project"})
 public class FitNanceApplication {
 
-	@Autowired
-	private EmailSenderService service;
-	
+//	@Autowired
+//	private EmailSenderService service;
+//	
 	public static void main(String[] args) {
 		SpringApplication.run(FitNanceApplication.class, args);
 	}
