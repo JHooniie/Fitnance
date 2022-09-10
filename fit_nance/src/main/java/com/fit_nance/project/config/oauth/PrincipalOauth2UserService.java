@@ -34,7 +34,7 @@ public class PrincipalOauth2UserService extends DefaultOAuth2UserService {
 		System.out.println("userRequest: "+userRequest.getClientRegistration());
 		System.out.println("userRequest: "+userRequest.getAccessToken().getTokenValue());
 		OAuth2User oAuth2User = super.loadUser(userRequest); // google의 회원 프로필 조회
-		
+		System.out.println(super.loadUser(userRequest));
 		//회원가입을 강제 진행
 		OAuth2UserInfo oAuth2UserInfo = null;
 		String provider = userRequest.getClientRegistration().getRegistrationId();
