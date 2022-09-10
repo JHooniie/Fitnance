@@ -56,7 +56,7 @@
 
 ### Information Architecture
 
-![image-20220910235403382](/Users/bina/Library/Application Support/typora-user-images/image-20220910235403382.png)
+![image](https://user-images.githubusercontent.com/36186920/189489217-793ec270-4b07-42ea-8773-ac527609b520.png)
 
 ### Database
 
