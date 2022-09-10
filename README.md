@@ -58,12 +58,10 @@
 
 ![image](https://user-images.githubusercontent.com/36186920/189489217-793ec270-4b07-42ea-8773-ac527609b520.png)
 
-### Database
+<!-- ### Database -->
 
-![image-20220910235646742](/Users/bina/Library/Application Support/typora-user-images/image-20220910235646742.png)
-
-
+<!-- ![image-20220910235646742](/Users/bina/Library/Application Support/typora-user-images/image-20220910235646742.png) -->
 
 ### WBS
 
-![스크린샷 2022-09-10 오후 11.57.14](/Users/bina/Library/Application Support/typora-user-images/스크린샷 2022-09-10 오후 11.57.14.png)
+![image](https://user-images.githubusercontent.com/36186920/189489291-c1be971e-7b2d-4a87-8e47-450cd232c578.png)
