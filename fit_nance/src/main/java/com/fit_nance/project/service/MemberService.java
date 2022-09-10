@@ -1,17 +1,18 @@
 package com.fit_nance.project.service;
 
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.HashMap;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.context.annotation.Primary;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 //import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.fit_nance.project.dao.IMemberDAO;
 import com.fit_nance.project.model.BankVO;
+import com.fit_nance.project.model.DummyVO;
 import com.fit_nance.project.model.MemberVO;
 
 @Service
@@ -91,4 +92,40 @@ public class MemberService implements IMemberService {
 		public MemberVO myInfo(String memId) {
 			return dao.myInfo(memId);
 		}
+		
+		
+	public void dummy(DummyVO vo) {
+		
+
+			
+			String user_id;
+			String item_id;
+			int rating;
+			
+			for(int i =0; i< 100 ; i++) {
+				
+				user_id = String.valueOf(i);
+				
+				item_id = String.valueOf((int)(Math.random()*62));
+				
+				rating = (int)((Math.random()*5)+1);
+				
+				long offset = Timestamp.valueOf("2021-01-01 00:00:00").getTime();
+				long end = Timestamp.valueOf("2022-01-01 00:00:00").getTime();
+				long diff = end - offset + 1;
+				long rand = offset + (long)(Math.random() * diff);
+				
+				System.out.println(rand);
+				
+				
+				vo.setUser_id(user_id);
+				vo.setItem_id(item_id);
+				vo.setRating(rating);
+				vo.setTimestamp(rand);
+				dao.insertdummy(vo);
+			}
+			
+			
+				
+	}
 }

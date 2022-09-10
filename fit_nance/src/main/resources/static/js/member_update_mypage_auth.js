@@ -76,7 +76,7 @@
 
         $.ajax({
             type:"post",
-            url:"/passwordCheck",
+            url:"/user/pre_update_mypage",
             data:{"memId" : $('#user_id').val(),
             		"memPwd":$('#user_pw').val()},
             dataType:"text",
