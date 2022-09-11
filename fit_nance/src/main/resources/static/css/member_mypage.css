@@ -55,7 +55,7 @@ button{
 }
 
 .span-profile-name{
-    display: inline-block;
+    display: block;
     font-family:Pretendard;
     font-size: 32px;
     font-weight: 500;
@@ -64,8 +64,10 @@ button{
 }
 
 .span-profile-Email{
+	display: inline-block;
     font-family:Pretendard;
     font-size: 18px;
+    margin-right: 20px;
     color: #222;
 }
 

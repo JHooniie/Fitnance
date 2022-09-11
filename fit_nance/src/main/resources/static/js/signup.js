@@ -5,8 +5,7 @@ $(document).ready(function(){
     var regEmail = /^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/;
     var getCheck = RegExp(/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/);
     var regBirth = RegExp(/^[0-9]{8}$/);
-    //임시 인증번호
-    var token_no = "qwqwqw";
+
 
 
     //타이머 설정
@@ -26,10 +25,23 @@ $(document).ready(function(){
 
     $('#input-user_id').change(function(){
         if(regEmail.test($('#input-user_id').val())){
-            $('#input-user_id').removeClass('process-error');
-            $('#input-user_id').addClass('process-pass');
-            $('#text-Email-check-error').css('display','none');
-            $('#text-Email-check-pass').css('display','flex');
+            
+            var memId = $('#input-user_id').val();
+            
+            $.ajax({
+                type:"post",
+                url:"id_check",
+                data:{"memId":memId},
+                dataType:"text",
+                success:function(result){
+                    // 성공 시 수행되는 함수 
+                    // 반환되는 값을  result로 받음
+                    if(result == "pass"){
+                        
+                        $('#input-user_id').removeClass('process-error');
+                        $('#input-user_id').addClass('process-pass');
+                        $('#text-Email-check-error').css('display','none');
+                        $('#text-Email-check-pass').css('display','flex');
             
             
             //인증번호 받기
@@ -37,7 +49,25 @@ $(document).ready(function(){
                 event.preventDefault();
                 $('#input-token_no').prop('disabled',false);
                 $('#input-user_id').prop('readOnly', true);
-                alert("인증번호를 전송하였습니다. 이메일을 확인해주세요.");
+                
+                var memId = $('#input-user_id').val();
+                
+                $.ajax({
+                    type:"post",
+                    url:"Email",
+                    data:{"memId":memId},
+                    dataType:"text",
+                    success:function(result){
+                        alert("인증번호를 전송하였습니다. 이메일을 확인해주세요.");
+                        $('#hidden-token_no').val(result);
+                    },
+                    error:function(){
+                        alert("전송 실패");
+                    }		
+                }); 	// ajax 끝
+                
+                
+
                 var display = $(".time span");
                 // 유효시간 설정
                 var leftSec = 180;
@@ -87,9 +117,11 @@ $(document).ready(function(){
                     $('#input-token_no').addClass('process-focus');
                 });
                 
+                //let token_no = $('#hidden-token_no').val();
+
 
                 $('#input-token_no').change(function(){
-                    if(token_no === $('#input-token_no').val()){
+                    if($('#hidden-token_no').val() === $('#input-token_no').val()){
                         $('#text-token-check-error').css('display','none');
                         $('#input-token_no').removeClass('process-error');
                         $('#input-token_no').addClass('process-focus')
@@ -102,11 +134,32 @@ $(document).ready(function(){
                             $('.box-signup-password').css('display','block');
                         });
                     }
-                    else if(token_no !== $('#input-token_no').val()){
+                    else if($('#hidden-token_no').val() !== $('#input-token_no').val()){
                         $('#text-token-check-error').css('display','flex');
                         $('#input-token_no').addClass('process-error');
                     }
                 });
+                    }
+                        
+                    else{
+                        $('#input-user_id').removeClass('process-pass');
+                        $('#input-user_id').addClass('process-error');
+                        $('#text-Email-check-pass').css('display','none');
+                        $('#text-Email-check-error').css('display','flex');
+                        $('#text-Email-check-error span').html('');
+                        $('#text-Email-check-error span').html('이미 가입된 Email입니다.');
+                    }
+                        
+                        
+                    
+                },
+                error:function(){
+                    // 오류있을 경우 수행되는 함수
+                    alert("전송 실패");
+                }
+            }); 	// ajax 끝
+
+            
             
         }
         else if(!regEmail.test($('#input-user_id').val())){
@@ -372,14 +425,15 @@ $(document).ready(function(){
     
     
 
-    // $('.figure-bank').click(function(event){
-    //     $('.span-bank-btn').html($(this).closest('.bank-name').val());
-    //     $('.span-bank-btn').css('color','#222')
-    //     $('#modal-signup').css('display','none');
-    //     $('body').css('overflow','scroll');
+    $('.figure-bank').click(function(){
+        $('.span-bank-btn').html($(this).children('.bank-name').val());
+        $('#input-user-bank').val($(this).children('.bank-code').val());
+        $('.span-bank-btn').css('color','#222');
+        $('#modal-signup').css('display','none');
+        $('body').css('overflow','scroll');
 
-    //     console.log($(this).closest('.bank-code').val());
+        console.log($('#input-user-bank').val());
 
-    // });
+    });
 
 });

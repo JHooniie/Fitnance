@@ -1,6 +1,5 @@
 package com.fit_nance.project.controller;
 
-import java.sql.Timestamp;
 import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,6 +47,15 @@ public class MemberController {
 		return "member/signup";
 	}
 	
+	//인증 이메일 전송
+	@RequestMapping("/email")
+	public String email(Model model) {
+		ArrayList<BankVO> bankList = memService.listAllBank();
+		model.addAttribute("bankList", bankList);
+		
+		return "member/signup";
+	}
+	
 	//회원가입
 	@RequestMapping("/signup")
 	public String signup(MemberVO vo) {
@@ -55,6 +63,25 @@ public class MemberController {
 		
 		return "redirect:/loginForm";
 	}
+	
+	//회원가입 - 아이디 체크
+	@ResponseBody
+	@RequestMapping("/id_check")
+	public String id_check(@RequestParam("memId") String memId) {
+		
+		String result = "";
+		int idCheck = memService.id_check(memId);
+		System.out.println(idCheck);
+		if(idCheck == 1) {
+			result = "stop";
+		}else {
+			result = "pass";
+		}
+		
+		return result;
+	}
+	
+
 	
 	@RequestMapping("/mypage")
 	public String mypageForm() {
@@ -95,8 +122,15 @@ public class MemberController {
 			
 			String memId = princ.getUsername();
 			
+			ArrayList<BankVO> bankList = memService.listAllBank();
+			
 			MemberVO mem = memService.detailViewMemInfo(memId);
+			
+			
+			
+			
 			model.addAttribute("mem", mem);
+			model.addAttribute("bankList", bankList);
 			
 			return "/member/update_mypage";
 		}
