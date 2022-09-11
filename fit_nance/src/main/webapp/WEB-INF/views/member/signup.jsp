@@ -28,7 +28,8 @@
                             <span class="span-process-error">사용 중인 이메일 입니다.</span>
                         </div>
                         <div class="box-token_no">
-                            <input disabled type="text" id="input-token_no" class="input-token_no" placeholder="인증번호를 입력해주세요">
+                            <input disabled type="text" id="input-token_no" name="certified" class="input-token_no" placeholder="인증번호를 입력해주세요">
+                            <input type="hidden" id="hidden-token_no" value="">
                             <div class="time"><span></span></div>
                         </div>
                         <div id="text-token-check-error" class="text-process-state">
@@ -106,7 +107,7 @@
                             <div class="box-bank-select">
                                 <label for="btn-user_bank"><span class="span-bank-more-information">주거래 은행 계좌정보 입력</span></label><br>
                                 <button id="btn-user_bank" id="btn-user_bank" type="button"><span class="span-bank-btn">은행 선택</span></button>
-                                <input type="hidden" id="input-user-bank" name="memBank">
+                                <input type="hidden" id="input-user-bank" name="memBank" value="0">
                                 <button id="btn-more-information-finish" type="submit"><span class="btn-span">정보 입력 완료</span></button>
                             </div>
                     </div>
@@ -122,15 +123,16 @@
                 </div>
                 <div class="modal-bank-content">
                    <c:forEach items="${bankList }" var="bank">
-                    <figure class="figure-bank">
-                        <div class="figure-bank-img">
-                        <img src="<c:url value='/images/bank/${bank.fin_co_no }.png'/>">
-                        </div>
-                        <input class="bank-name" type="hidden" value="${bank.kor_co_nm }">
-                        <input class="bank-code" type="hidden" value="${bank.memBank }">
-                    <figcaption class="caption-bank">${bank.kor_co_nm }</figcaption>
-                    </figure>
- 
+ 					<c:if test="${bank.memBank ne '0'}">
+					   		<figure class="figure-bank">
+		                        <div class="figure-bank-img">
+		                        <img src="<c:url value='/images/bank/${bank.fin_co_no }.png'/>">
+		                        </div>
+		                        <input class="bank-name" type="hidden" value="${bank.kor_co_nm }">
+		                        <input class="bank-code" type="hidden" value="${bank.memBank }">
+		                   		<figcaption class="caption-bank">${bank.kor_co_nm }</figcaption>
+		                    </figure>
+                	 </c:if>   
                  </c:forEach>
                 </div>
             </div>
@@ -141,16 +143,4 @@
 	     </form>
 	</body>
 	<script src="../js/signup.js"></script>
-	<script>
-    $('.figure-bank').click(function(){
-        $('.span-bank-btn').html($(this).children('.bank-name').val());
-        $('#input-user-bank').val($(this).children('.bank-code').val());
-        $('.span-bank-btn').css('color','#222');
-        $('#modal-signup').css('display','none');
-        $('body').css('overflow','scroll');
-
-        console.log($('#input-user-bank').val());
-
-    });
-	</script>
 </html>

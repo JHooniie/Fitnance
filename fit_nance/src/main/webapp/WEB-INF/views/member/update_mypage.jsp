@@ -7,6 +7,7 @@
 </sec:authorize>
 <c:set var="provider" value="${principal.provider}" />
 <c:set var="memId" value="${principal.username}" />
+<c:set var="memBank" value="${principal.memBank}" />
 <!DOCTYPE html>
 <html>
 	<head>
@@ -30,19 +31,20 @@
                     <div class="box-update-profile-content">
                         <form id="form-update-profile" action="<c:url value='/user/update_memInfo'/>">
                         <div class="box-update-profile-basic">
-                            <label for="input-update-profile-Email"><span class="span-update span-update-profile-Email">이메일</span></label><br>
+                            <label for="input-update-profile-Email"><span class="span-update span-update-profile-Email">이메일</span></label>
                             <input type="text" id="input-update-profile-Email" name="memId" value="${principal.username}" readonly>
                             <c:if test="${provider eq null}"> 
-	                            <span class="span-update span-update-profile-Email">비밀번호</span><br>
+	                            <span class="span-update span-update-profile-Email">비밀번호</span>
 	                            <div class="a-update-profile-password"><a href="<c:url value='/update-password'/>">비밀번호 변경하기</a></div>
 	                        </c:if>
-                            <label for="input-update-profile-name"><span class="span-update span-update-profile-name">이름</span></label><br>
+                            <label for="input-update-profile-name"><span class="span-update span-update-profile-name">이름</span>
                             <c:if test="${provider ne null}"> 
                             <input type="text" id="input-update-profile-name" name="memName" value="${principal.name}" readonly>
                             </c:if>
                             <c:if test="${provider eq null}"> 
                             <input type="text" id="input-update-profile-name" name="memName" value="${principal.name}">
                             </c:if>
+                            </label>
                             <label for="input-update-profile-birth"><span class="span-update span-update-profile-birth">생년월일</span></label><br>
                             <div class="div-update-profile-birth">
                                 <input type="text" id="input-update-profile-birth-year" name="input-update-profile-birth-year" placeholder="1990">
@@ -62,10 +64,20 @@
                                 <h3>아래의 정보를 더 입력하시면<br>
                                 더 <span>핏</span>:하게 추천해 드릴게요!</h3>
                             </div>
+                            
+                            
+                            
+                            
                             <label for="btn-user_bank"><span class="span-bank-more-information">주거래 은행 계좌정보 입력</span></label><br>
-                                <button id="btn-user_bank" id="btn-user_bank"><span class="span-bank-btn">은행 선택</span></button>
+                                <button id="btn-user_bank" id="btn-user_bank">
+                                    <c:forEach items="${bankList }" var="bank">
+                                        <c:if test="${memBank eq bank.memBank}">
+                                            <span class="span-bank-btn">${bank.kor_co_nm}</span>
+                                        </c:if>   
+                                    </c:forEach>
+                                </button>
                                 <input id="input-user_bank" type="hidden" name="memBank">
-                                    <input type="checkbox" name="memEmailRecd" id="checkbox-checkAgree">
+                                    <input type="checkbox" name="memEmailRecd" id="checkbox-checkAgree" value="">
                                     <label class="label-information-checkAgree">광고/마케팅 수신동의</label>
                                 <p>수신동의하시면 추천 상품을 이메일로 먼저 알려드릴게요!</p>
                             </div>
@@ -82,19 +94,17 @@
                     <div class="modal-bank-close"><i class="fa-solid fa-x"></i></div>
                 </div>
                 <div class="modal-bank-content">
-                    <c:forEach begin="0" end="30" step="1" varStatus="status">
-                    <figure class="figure-bank">
-                        <div class="figure-bank-img"></div>
-                        <input type="hidden" value="대구은행">
-                    <figcaption class="caption-bank">대구</figcaption>
-                    </figure>
-                    <figure class="figure-bank">
-                        <div class="figure-bank-img"></div>
-                    <figcaption class="caption-bank">
-                        <input type="hidden" value="광주은행">
-                        광주
-                    </figcaption>
-                    </figure>
+                    <c:forEach items="${bankList }" var="bank">
+ 					<c:if test="${bank.memBank ne '0'}">
+					   		<figure class="figure-bank">
+		                        <div class="figure-bank-img">
+		                        <img src="<c:url value='/images/bank/${bank.fin_co_no }.png'/>">
+		                        </div>
+		                        <input class="bank-name" type="hidden" value="${bank.kor_co_nm }">
+		                        <input class="bank-code" type="hidden" value="${bank.memBank }">
+		                   		<figcaption class="caption-bank">${bank.kor_co_nm }</figcaption>
+		                    </figure>
+                	</c:if>   
                     </c:forEach>
                 </div>
             </div>

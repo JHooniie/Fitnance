@@ -25,10 +25,15 @@
                         </div>
                     </div>
                     <div class="box-profile-content">
-                        <span class="span-profile-name">${principal.name}<br></span>
-                        <span class="span-profile-Email">${principal.username}</span><br>
+                        <span class="span-profile-name">${principal.name}</span>
+                        <span class="span-profile-Email">${principal.username}</span>
                         <a href="<c:url value='/logout'/>">로그아웃</a>
-                        <button onclick="location.href='<c:url value='/user/passwordCheckForm'/>'"><span>프로필 수정하기</span></button>
+                        <c:if test="${provider ne null}"> 
+                        	<button onclick="location.href='<c:url value='/user/update_mypage'/>'"><span>프로필 수정하기</span></button>
+                        </c:if>
+                        <c:if test="${provider eq null}"> 
+                        	<button onclick="location.href='<c:url value='/user/passwordCheckForm'/>'"><span>프로필 수정하기</span></button>
+                        </c:if>
                     </div>
                 </div>
             </div>

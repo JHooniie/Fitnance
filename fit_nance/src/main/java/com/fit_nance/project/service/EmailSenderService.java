@@ -32,7 +32,21 @@ public class EmailSenderService {
 	@Autowired
 	private ResourceLoader resourceLoader;
 
+	private String certified = email_key();
 	
+	
+	public String getCertified() {
+		return certified;
+	}
+
+
+	public String email_key() {
+		String num = String.format("%02d",(int)(Math.random()*100));
+		
+		String keys = "aa"+num+"bb";
+		
+		return keys;
+	}
 	
 	
 	
@@ -42,7 +56,6 @@ public class EmailSenderService {
 						String body) {
 		//String mail_template;
 		MimeMessage message = mailSender.createMimeMessage();
-		
 		
 		
 		try {
@@ -59,7 +72,7 @@ public class EmailSenderService {
 		}
 		
 	}
-		
+
 		
 		@Async
 		public void sendPreMail(String toEmail,
@@ -81,9 +94,7 @@ public class EmailSenderService {
 	
 	
 		public String htmlReader() throws Exception {
-			
-			String Keys = "abc123";
-			
+						
 			String filePath = "classpath:static/html/email.html";
 			InputStream inputStream = resourceLoader.getResource(filePath).getInputStream();
 		    String template = "";
@@ -95,12 +106,14 @@ public class EmailSenderService {
 		        		template +=str;
 		        }
 		        in.close();
-		        template = template.replace("인증번호", Keys);
+		        template = template.replace("인증확인용번호", certified);
 		        System.out.println("template : " + template);
 		    } catch (IOException e) {
 		    }
 
 			return template;
 		}
+		
+
 
 }
