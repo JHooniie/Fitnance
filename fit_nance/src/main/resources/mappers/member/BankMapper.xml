@@ -14,7 +14,7 @@
 	<select id="listAllBank" resultMap="bankResult">
 		SELECT * 
 		FROM bank
-		ORDER BY memBank
+		ORDER BY memBank*1 asc
 	</select>
   
 

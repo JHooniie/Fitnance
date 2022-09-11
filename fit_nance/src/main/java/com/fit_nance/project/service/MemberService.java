@@ -37,7 +37,10 @@ public class MemberService implements IMemberService {
 		dao.insertMember(vo);
 	}
 
-	
+	@Override
+	public int id_check(String memId) {
+		return dao.id_check(memId);
+	}
 
 	//회원정보 수정
 	@Override
@@ -59,10 +62,16 @@ public class MemberService implements IMemberService {
 		dao.withdrawal_member(vo);
 	}
 
-	//?? 다시 확인
+	//은행정보 불러오기
 	@Override
 	public ArrayList<BankVO> listAllBank() {
 		return dao.listAllBank();
+	}
+	
+	//은행번호 은행이름 치환
+	@Override
+	public String bankName(String memBank) {
+		return dao.bankName(memBank);
 	}
 
 	//?? 다시 확인
@@ -128,4 +137,5 @@ public class MemberService implements IMemberService {
 			
 				
 	}
+
 }

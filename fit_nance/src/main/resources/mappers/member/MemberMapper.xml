@@ -44,6 +44,14 @@
 		VALUES (#{memRole}, #{memId}, #{memPwd}, #{memName}, #{memBirth}, #{memGender}, #{memBank}, #{memEmailRecd}, #{certified})
 	</insert>
 	
+	<!-- 회원가입 아이디 체크 -->
+	<select id="id_check" parameterType="string" resultType="int">
+	  	SELECT COUNT(memId) 
+	  	FROM member 
+	  	WHERE memId = #{memId}
+	  	ORDER BY memId
+ 	 </select>
+	
 	<!-- OAUTH회원가입 -->
 	<insert id="insertOAuthMember" parameterType="com.fit_nance.project.model.MemberVO">
 		INSERT member(memRole, memId, memPwd, memName,memBirth,memGender, memBank, memEmailRecd, provider, providerId)
@@ -60,7 +68,9 @@
 	<!-- 공지사항 상세 보기 -->
 	<select id="detailViewMemInfo" parameterType="hashmap" resultType="com.fit_nance.project.model.MemberVO">
 		SELECT * 
-		FROM member 
+		FROM member M
+		INNER JOIN bank B
+		ON M.memBank = B.memBank
 		WHERE memId=#{memId} AND memPwd=#{memPwd}
 	</select>
 	
