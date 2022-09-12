@@ -81,8 +81,14 @@
 	                                    </c:forEach></div>
                                 </div>
                             </div>
-                            <div class="plus-icon plus-icon1"><i class="fa-solid fa-folder-plus"></i></div>
-                            <div class="plus-icon plus-icon2"><i class="fa-solid fa-heart"></i></div>
+                            <div class="plus-icon plus-icon1" id="${list.oIndex}"><i class="fa-solid fa-folder-plus"></i></div>
+		                            <c:if test="${empty sessionScope.sid}">
+										<div class="plus-icon plus-icon2 no-login" id="${list.oIndex}"><i class="fa-solid fa-heart"></i></div>
+									</c:if>
+
+									<c:if test="${not empty sessionScope.sid}">
+										<div class="plus-icon plus-icon2 yes-login" id="${list.oIndex}"><i class="fa-solid fa-heart"></i></div>
+					          		</c:if>
                         </div>
                    
                         <div class="item-box2">

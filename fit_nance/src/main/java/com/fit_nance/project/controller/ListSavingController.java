@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.fit_nance.project.model.DepositFilterVO;
 import com.fit_nance.project.model.DepositListVO;
@@ -22,6 +23,10 @@ public class ListSavingController {
 	
 	@Autowired
 	ListSavingService listService;
+	
+	ArrayList<InstallListVO> install_compare =new ArrayList<InstallListVO>();
+	ArrayList<DepositListVO> dp_compare =new ArrayList<DepositListVO>();
+	ArrayList<PensionListVO> ps_compare =new ArrayList<PensionListVO>();
 	
 	// 적금
 	// 적금 전체 리스트 조회
@@ -96,10 +101,70 @@ public class ListSavingController {
 		return "product/result_installment";
 	}
 	
+	@RequestMapping("/callInstallCompare")
+	public String callCompare(@RequestParam(value="compare") ArrayList<String> compare){
+		install_compare =new ArrayList<InstallListVO>();
+		for(int i =1; i<compare.size();i++) {
+			install_compare.add(listService.selectInstallDetail(Integer.parseInt(compare.get(i))));
+			System.out.println(install_compare.get(i-1));
+		}
+		
+		return "product/compare_installment";
+		
+	}
 	// 적금 비교함 가기
 	@RequestMapping("/compareInstall")
-	public String viewCompareInstall() {
+	public String viewCompareInstall(
+			Model model) {
+		//System.out.println(install_compare.size());
+		//for(int i =0; i<install_compare.size();i++) System.out.println(install_compare.get(i).getoIndex());
+		model.addAttribute("installList", install_compare);
+		
 		return "product/compare_installment";
+	}
+	
+	@RequestMapping("/callDepositCompare")
+	public String calldpCompare(@RequestParam(value="compare") ArrayList<String> compare){
+		dp_compare =new ArrayList<DepositListVO>();
+		for(int i =1; i<compare.size();i++) {
+			dp_compare.add(listService.selectDepositDetail(Integer.parseInt(compare.get(i))));
+			System.out.println(dp_compare.get(i-1));
+		}
+		
+		return "product/compare_deposit";
+		
+	}
+	// 적금 비교함 가기
+	@RequestMapping("/compareDeposit")
+	public String viewCompareDepsosit(
+			Model model) {
+		//System.out.println(install_compare.size());
+		//for(int i =0; i<install_compare.size();i++) System.out.println(install_compare.get(i).getoIndex());
+		model.addAttribute("dpList", dp_compare);
+		
+		return "product/compare_deposit";
+	}
+	
+	@RequestMapping("/callPensionCompare")
+	public String callpsCompare(@RequestParam(value="compare") ArrayList<String> compare){
+		ps_compare =new ArrayList<PensionListVO>();
+		for(int i =1; i<compare.size();i++) {
+			ps_compare.add(listService.selectPensionDetail(Integer.parseInt(compare.get(i))));
+			System.out.println(ps_compare.get(i-1));
+		}
+		
+		return "product/compare_pension";
+		
+	}
+	// 적금 비교함 가기
+	@RequestMapping("/comparePension")
+	public String viewComparePension(
+			Model model) {
+		//System.out.println(install_compare.size());
+		//for(int i =0; i<install_compare.size();i++) System.out.println(install_compare.get(i).getoIndex());
+		model.addAttribute("psList", ps_compare);
+		
+		return "product/compare_pension";
 	}
 	
 	
@@ -167,11 +232,6 @@ public class ListSavingController {
 		return "product/result_deposit";
 	}
 	
-	// 예금 비교함 가기
-	@RequestMapping("/compareDeposit")
-	public String viewCompareDeposit() {
-		return "product/compare_deposit";
-	}
 	
 	
 	// 연금
@@ -239,9 +299,4 @@ public class ListSavingController {
 		return "product/result_pension";
 	}
 	
-	// 연금 비교함 가기
-	@RequestMapping("/comparePension")
-	public String viewComparePension() {
-		return "product/compare_pension";
-	}
 }
