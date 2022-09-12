@@ -1,3 +1,6 @@
+.middle{
+}
+
 .back {
     background-color: #edf4ff;
     width: 100%;
@@ -17,7 +20,6 @@
     font-weight: 700;
     margin-bottom: 20px;
 }
-
 .m{
     display: flex;
     justify-content: space-between;
@@ -26,9 +28,8 @@
 .middle-image{
     display: flex;
     margin-top: -300px;
-    height: 385px;
+    height: 383px;
 }
-
 .product-compare-box{
     border:1px solid #1F4DFF;
     width: 200px;
@@ -38,17 +39,18 @@
     padding : 15px;
     color:#1F4DFF;
     font-weight: 500;
+    cursor: pointer;
 }
+
 .product-compare-box a{
 	color:#1F4DFF;
     font-weight: 500;
 }
-Ã£â€žÂ´
 
 .select-box{
     width: 200px;
+    
 }
-
 
 .select-box .select-title{
     margin-top:35px;
@@ -68,7 +70,7 @@
     cursor: pointer;
 }
 
-.select-box .select-option:nth-child(3){
+.select-box .select-option:nth-child(2n-1){ 
     margin-right: 0;
 }
 
@@ -105,16 +107,6 @@
     margin-right:0;
 }
 
-.select-box .select-option-clicked{
-    background-color:#1F4DFF;
-    color: #FFFFFF;
-}
-
-.select-box .select-option-clicked:hover{
-    background-color:#1F4DFF;
-    color: #FFFFFF;
-}
-
 .select-box .filter-reset{
     margin-top: 30px;
     border:2px solid #f2f2f2;
@@ -123,7 +115,7 @@
     border-radius: 5px;
     text-align: center;
     padding: 15px;
-    color: #222222;
+    color:#222222;
     font-weight: 500;
     cursor: pointer;
 }
@@ -151,6 +143,7 @@
 
 .result-box{
     margin-left: 100px;
+    /* margin-top:-500px; */
     width : 990px;
 }
 
@@ -255,26 +248,63 @@
     width:52px;
     height:52px;
     border-radius: 5px;
-    border: 1px solid #DDDDDD;
+    
     text-align: center;
     line-height: 52px;
     cursor: pointer;
     margin-left:16px;
 }
 
+.plus-icon1,
+.plus-icon2{
+	border:1px solid #f2f2f2;
+}
+
+.plus-icon1:hover{
+    border:1px solid #1F4DFF;
+   
+}
+
+.plus-icon1:hover i{
+    color:#1F4DFF;
+}
+
+.plus-icon1 i{
+    color: #aeaeaea0;
+    font-size: 20px;
+    
+}
+.plus-icon:hover{
+    border:1px solid #1F4DFF;
+   
+}
+
+.plus-icon:hover i{
+    color:#1F4DFF;
+}
+
 .plus-icon i{
-    color: #CCCCCC;
+    color: #aeaeaea0;
     font-size: 20px;
     
 }
 
-.plus-icon:hover{
-    border: 1px solid #1F4DFF;
+.plus-icon2:hover{
+    border:1px solid #1F4DFF;
+   
 }
 
-.plus-icon:hover i{
-    color: #1F4DFF;
+.plus-icon2:hover i{
+    color:#1F4DFF;
 }
+
+.plus-icon2 i{
+    color: #aeaeaea0;
+    font-size: 20px;
+    
+}
+
+
 
 .item-box2{
     display: flex;
@@ -289,6 +319,7 @@
 
 .percent-box{
     display: flex;
+    
 }
 
 .percent1{
@@ -328,8 +359,8 @@
     border-radius: 5px;
     text-align: center;
     padding: 15px;
-    color:black;
-    font-weight: 500;
+    color: #222222;
+    font-weight: 400;
 }
 
 .view-detail:hover{
@@ -337,7 +368,7 @@
 }
 
 .view-detail:hover a{
-    color: #1F4DFF;
+    color:#1F4DFF;
 }
 
 .page-list{
@@ -368,12 +399,15 @@
     margin-top: 80px;
     text-align: center;
     cursor: pointer;
+    
 }
+
 
 .page-list .page-num1,.page-num2,.page-num3{
     color: #aeaeaea0;
     font-size: 14px;
-    display: inline-block;
+    display:
+    inline-block;
     margin-left: 5px;
     height: 28px;
     width: 28px;
@@ -385,19 +419,29 @@
     background-color: #1F4DFF;
     border-radius: 5px;
     color:#FFFFFF;
+    
 }
 
+.select-option.select-option-clicked{
+    color: #ffffff;
+    background-color: #1f4dff;
+}
 
-.plus-icon-clicked{
-    display: inline-block;
-    width:52px;
-    height:52px;
-    border-radius: 5px;
+.select-option-save-trm.select-option-clicked{
+    color: #ffffff;
+    background-color: #1f4dff;
+}
+
+.select-option.select-option-clicked:hover{
+    color: #ffffff;
+}
+
+.select-option-save-trm.select-option-clicked:hover{
+    color: #ffffff;
+}
+
+.plus-icon.plus-icon-clicked{
     border:1px solid #1F4DFF;
-    text-align: center;
-    line-height: 52px;
-    cursor: pointer;
-    margin-left:16px;
     background-color: #1F4DFF;
 }
 
@@ -408,6 +452,7 @@
 
 .plus-icon-clicked:hover i {
     color:#FFFFFF;
+    font-size: 20px;
 }
 
 .no-list{
