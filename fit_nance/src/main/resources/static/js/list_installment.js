@@ -11,6 +11,27 @@
     var join_way=["join_way"];
     var save_trm=["save_trm"];
     
+    {
+    	$('.search').click(function(){
+    		var search= document.getElementById('tourName').value;
+    		console.log(search);
+	    	$.ajax({
+	            url: "searchInstall",
+	            type: "post",
+	            traditional: true,
+	            data:{
+	            	search
+	        	},
+	            success:function(result){
+	            	$('.result-box').html(result);
+	            },
+	            error:function(request,status,error){
+	                alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+	            }
+	        });
+    		
+    	})
+    }
     // 우측 아이콘 클릭 시
     {
     	{//비교함

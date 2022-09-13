@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.fit_nance.project.dao.IListSavingDAO">
+	<resultMap id="favorite" type="com.fit_nance.project.model.FavoriteVO">
+		<result property="kind" column="kind"/>
+		<result property="fin_prdt_cd" column="fin_prdt_cd"/>
+		<result property="memId" column="memId"/>
+	</resultMap>
+</mapper>

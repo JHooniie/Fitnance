@@ -8,7 +8,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.fit_nance.project.model.DepositFilterVO;
 import com.fit_nance.project.model.DepositListVO;
@@ -17,6 +16,7 @@ import com.fit_nance.project.model.InstallListVO;
 import com.fit_nance.project.model.PensionFilterVO;
 import com.fit_nance.project.model.PensionListVO;
 import com.fit_nance.project.service.ListSavingService;
+import com.fit_nance.project.service.ProductService;
 
 @Controller
 public class ListSavingController {
@@ -299,4 +299,33 @@ public class ListSavingController {
 		return "product/result_pension";
 	}
 	
+	@RequestMapping("/searchInstall")
+	public String searchInstall(@RequestParam(value="search") String search, Model model) {
+		ArrayList<InstallListVO> installList= listService.selectInstallSearch(search);
+		
+		model.addAttribute("installList", installList);
+		
+		
+		return "product/result_installment";
+	}
+	
+	@RequestMapping("/searchDeposit")
+	public String searchDeposit(@RequestParam(value="search") String search, Model model) {
+		ArrayList<DepositListVO> dpList= listService.selectDepositSearch(search);
+		
+		model.addAttribute("dpList", dpList);
+		
+		
+		return "product/result_deposit";
+	}
+	
+	@RequestMapping("/searchPension")
+	public String searchPension(@RequestParam(value="search") String search, Model model) {
+		ArrayList<PensionListVO> psList= listService.selectPensionSearch(search);
+		
+		model.addAttribute("psList", psList);
+		
+		
+		return "product/result_pension";
+	}
 }

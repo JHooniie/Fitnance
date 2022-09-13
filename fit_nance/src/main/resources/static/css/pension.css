@@ -169,6 +169,19 @@
 
 .search-box{
     border-bottom: 1px solid #AAAAAA;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.search i{
+	padding-top:10px;
+	cursor: pointer;
+}
+
+
+.search-box{
+    border-bottom: 1px solid #AAAAAA;
 }
 
 
