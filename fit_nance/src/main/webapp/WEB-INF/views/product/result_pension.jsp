@@ -19,7 +19,7 @@
 		<c:otherwise>
 			<div class="search-line">
 	             <div class="box">검색 결과 ${fn:length(psList) }개</div>
-	             <div class="search-box"><input type="text" id="tourName" name="tourName" placeholder="키워드 검색"><i class="fa-solid fa-magnifying-glass"></i></div>
+	             <div class="search-box"><input type="text" id="tourName" name="tourName" placeholder="키워드 검색"><div class="search"><i class="fa-solid fa-magnifying-glass"></i></div></div>
 	         </div>
 	         <div class="item-list">
 	         <c:forEach items="${psList }" var="list">
@@ -37,8 +37,14 @@
 	                              </c:forEach></div>
 	                         </div>
 	                     </div>
-	                     <div class="plus-icon plus-icon1"><i class="fa-solid fa-folder-plus"></i></div>
-	                     <div class="plus-icon plus-icon2"><i class="fa-solid fa-heart"></i></div>
+	                     <div class="plus-icon plus-icon1" id="${list.oIndex}"><i class="fa-solid fa-folder-plus"></i></div>
+		                            <c:if test="${empty sessionScope.sid}">
+										<div class="plus-icon plus-icon2 no-login" id="${list.oIndex}"><i class="fa-solid fa-heart"></i></div>
+									</c:if>
+
+									<c:if test="${not empty sessionScope.sid}">
+										<div class="plus-icon plus-icon2 yes-login" id="${list.oIndex}"><i class="fa-solid fa-heart"></i></div>
+					          		</c:if>
 	                 </div>
 	            
 	                 <div class="item-box2">

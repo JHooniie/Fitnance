@@ -131,6 +131,17 @@
 		ORDER BY intr_rate2 DESC
 	</select>
 	
+	<select id="selectInstallSearch" resultMap="resultInstallList">
+		SELECT O.oIndex, B.pIndex, O.fin_co_no, B.kor_co_nm, B.fin_prdt_nm, B.join_way, O.intr_rate, O.intr_rate2
+		FROM installment_option O
+			INNER JOIN installment_base B ON B.pIndex = O.pIndex
+		<if test="search !=''"> 
+			AND B.fin_prdt_nm LIKE CONCAT('%',#{search},'%')
+		</if>
+		WHERE O.oIndex IN (SELECT MAX(oIndex) from installment_option GROUP BY pIndex)
+		ORDER BY intr_rate2 DESC
+	</select>
+	
 	<!-- 예금 -->
 	<!-- 전체 예금 상품 조회 -->
 	<select id="selectDepositList" resultMap="resultDepositList">
@@ -175,6 +186,17 @@
 		ORDER BY intr_rate DESC
 	</select>
 	
+	<select id="selectDepositSearch" resultMap="resultDepositList">
+		SELECT O.oIndex, B.pIndex, O.fin_co_no, B.kor_co_nm, B.fin_prdt_nm, B.join_way, O.intr_rate, O.save_trm
+		FROM deposit_option O
+			INNER JOIN deposit_base B ON B.pIndex = O.pIndex
+		<if test="search !=''"> 
+			AND B.fin_prdt_nm LIKE CONCAT('%',#{search},'%')
+		</if>
+		WHERE O.oIndex IN (SELECT MIN(oIndex) from deposit_option GROUP BY pIndex)
+		ORDER BY intr_rate DESC
+	</select>
+	
 	<!-- 연금 -->
 	<!-- 전체 연금 상품 조회 -->
 	<select id="selectPensionList" resultMap="resultPensionList">
@@ -213,6 +235,16 @@
 		<foreach collection="pnsn_strt_age_nm" item="pnsn_strt_age_nm" open="(" close=")" separator=",">
 			#{pnsn_strt_age_nm}
 		</foreach>
+		</if>
+		WHERE O.oIndex IN (SELECT MIN(oIndex) from pension_option GROUP BY pIndex)
+	</select>
+	
+	<select id="selectPensionSearch" resultMap="resultPensionList">
+		SELECT O.oIndex, B.pIndex, O.fin_co_no, B.kor_co_nm, B.fin_prdt_nm, B.join_way, B.avg_prft_rate
+		FROM pension_option O
+			INNER JOIN pension_base B ON B.pIndex = O.pIndex
+		<if test="search !=''"> 
+			AND B.fin_prdt_nm LIKE CONCAT('%',#{search},'%')
 		</if>
 		WHERE O.oIndex IN (SELECT MIN(oIndex) from pension_option GROUP BY pIndex)
 	</select>

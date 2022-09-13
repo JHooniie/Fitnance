@@ -13,6 +13,7 @@ import com.fit_nance.project.model.DepositFilterVO;
 import com.fit_nance.project.model.DepositListVO;
 import com.fit_nance.project.model.DepositVO;
 import com.fit_nance.project.model.FAQVO;
+import com.fit_nance.project.model.FavoriteVO;
 import com.fit_nance.project.model.InstallListVO;
 import com.fit_nance.project.model.InstallOptionVO;
 import com.fit_nance.project.model.InstallVO;
@@ -141,6 +142,36 @@ public class ProductService implements IProductService {
 	public ArrayList<FAQVO> selectFAQ_search(String a) {
 		// TODO Auto-generated method stub
 		return dao.selectFAQ_search(a);
+	}
+
+	@Override
+	public ArrayList<InstallListVO> selectInstallSearch(String search) {
+		// TODO Auto-generated method stub
+		return dao.selectInstallSearch(search);
+	}
+
+	@Override
+	public ArrayList<DepositListVO> selectDepositSearch(String search) {
+		// TODO Auto-generated method stub
+		return dao.selectDepositSearch(search);
+	}
+
+	@Override
+	public ArrayList<PensionListVO> selectPensionSearch(String search) {
+		// TODO Auto-generated method stub
+		return dao.selectPensionSearch(search);
+	}
+
+	@Override
+	public void insertFavorite(FavoriteVO fv) {
+		// TODO Auto-generated method stub
+		dao.insertFavorite(fv);
+	}
+
+	@Override
+	public void deleteFavorite(FavoriteVO fv) {
+		// TODO Auto-generated method stub
+		dao.deleteFavorite(fv);
 	}
 
 }
