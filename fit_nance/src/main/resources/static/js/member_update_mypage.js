@@ -10,6 +10,34 @@
         $('.span-bank-btn').css('color','#222');
     }
     
+    $('#form-update-profile').on('submit',function(){
+        
+        let memId = $('#input-update-profile-Email').val();
+        let memName = $('#input-update-profile-name').val();
+        let memBirth = $('#input-update-birth').val();
+        let memBank = $('#input-user_bank').val();
+       
+        $.ajax({
+            url: "./update_memInfo",
+            type: "post",
+            traditional: true,
+            data:{"memId":memId,
+                  "memName":memName,
+                  "memBirth":memBirth,
+                  "memBank":memBank },
+            dataType:"text",
+            success:function(result){
+                if(result="success"){
+                    alert("수정 성공")
+                }
+            },
+            error:function(request,status,error){
+                alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+            }
+        });
+        
+    })
+
 
      //창 켜기
     $('#btn-user_bank').click(function(event){

@@ -59,7 +59,7 @@
 	</insert>
 	
 	<!-- 개인정보 수정 -->
-	<update id="updateMemInfo" parameterType="com.fit_nance.project.model.MemberVO">
+	<update id="updateMemInfo" parameterType="hashmap">
 		UPDATE member M, bank B
 		SET M.memName=#{memName}, M.memBirth=#{memBirth}, M.memBank=#{memBank}, M.memEmailRecd=#{memEmailRecd}
 		WHERE M.memId=#{memId}
@@ -84,7 +84,11 @@
 	</delete>
 	
 	<insert id="insertdummy" parameterType="com.fit_nance.project.model.DummyVO">
-		INSERT INTO test(user_id, item_id, rating, timestamp)
-		VALUES (#{user_id}, #{item_id}, #{rating}, #{timestamp})
+		INSERT INTO test(user_id, ages, gender, timestamp)
+		VALUES (#{user_id}, #{ages}, #{gender}, #{timestamp})
+	</insert>
+	<insert id="insertdummy2" parameterType="com.fit_nance.project.model.DummyVO">
+		INSERT INTO test2 (user_id, item_id, timestamp, rating )
+		VALUES (#{user_id}, #{item_id},#{timestamp}, #{rating} )
 	</insert>
 </mapper>

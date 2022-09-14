@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <sec:authorize access="isAuthenticated()">
     <sec:authentication property="principal" var="principal" />
@@ -8,6 +9,8 @@
 <c:set var="provider" value="${principal.provider}" />
 <c:set var="memId" value="${principal.username}" />
 <c:set var="memBank" value="${principal.memBank}" />
+<c:set var="memBirth" value="${principal.memBirth} }"/>
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -29,7 +32,7 @@
                         </div>
                     </div>
                     <div class="box-update-profile-content">
-                        <form id="form-update-profile" action="<c:url value='/user/update_memInfo'/>">
+                        <form id="form-update-profile">
                         <div class="box-update-profile-basic">
                             <label for="input-update-profile-Email"><span class="span-update span-update-profile-Email">이메일</span></label>
                             <input type="text" id="input-update-profile-Email" name="memId" value="${principal.username}" readonly>
@@ -47,15 +50,12 @@
                             </label>
                             <label for="input-update-profile-birth"><span class="span-update span-update-profile-birth">생년월일</span></label><br>
                             <div class="div-update-profile-birth">
-                                <input type="text" id="input-update-profile-birth-year" name="input-update-profile-birth-year" placeholder="1990">
+                            	<input type="hidden" id="input-update-birth" name="memBirth" value="${memBirth }">
+                                <input type="text" id="input-update-profile-birth-year" name="input-update-profile-birth-year" value="${fn:substring(memBirth,0,4)}" placeholder="1990">
                                 <div class="update-birth-year">년</div>
-                                <select id="select-update-profile-birth-month" name="select-update-profile-birth-month">
-                                    <option value="01">1</option>
-                                </select>
+                                <input type="text" id="select-update-profile-birth-month" name="select-update-profile-birth-month" value="${fn:substring(memBirth,4,6)}" placeholder="1">
                                 <div class="update-birth-month">월</div>
-                                <select id="select-update-profile-birth-day" name="select-update-profile-birth-day">
-                                    <option value="01">1</option>
-                                </select>
+                                <input id="select-update-profile-birth-day" name="select-update-profile-birth-day" value="${fn:substring(memBirth,6,8)}" placeholder="1">
                                 <div class="update-birth-day">일</div>
                             </div><br>
                         </div>
@@ -76,8 +76,8 @@
                                         </c:if>   
                                     </c:forEach>
                                 </button>
-                                <input id="input-user_bank" type="hidden" name="memBank" >
-                                    <input type="checkbox" name="memEmailRecd" id="checkbox-checkAgree" value="">
+                                <input id="input-user_bank" type="hidden" name="memBank" value="${memBank}">
+                                    <input type="checkbox" name="memEmailRecd" id="checkbox-checkAgree" >
                                     <label class="label-information-checkAgree">광고/마케팅 수신동의</label>
                                 <p>수신동의하시면 추천 상품을 이메일로 먼저 알려드릴게요!</p>
                             </div>

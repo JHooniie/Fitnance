@@ -2,6 +2,9 @@ package com.fit_nance.project.controller;
 
 import java.util.ArrayList;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -126,9 +129,9 @@ public class MemberController {
 			
 			MemberVO mem = memService.detailViewMemInfo(memId);
 			
-			
-			
-			
+			 
+			System.out.println("세션값1 :" + princ);
+			System.out.println("생년월일 : "+ princ.getMemBirth());
 			model.addAttribute("mem", mem);
 			model.addAttribute("bankList", bankList);
 			
@@ -137,12 +140,16 @@ public class MemberController {
 
 	
 	// 회원정보 수정
+	@ResponseBody
 	@RequestMapping("/user/update_memInfo")
 	public String updateMemInfo(Authentication auth, MemberVO vo) {
 		PrincipalDetails princ = (PrincipalDetails)auth.getPrincipal();
 		
-		
+		System.out.println(vo.getMemBirth());
 		memService.updateMemInfo(vo);
+		
+		princ.setVo(vo);
+		System.out.println("세션값2 :" + princ);
 		
 		princ.getName();
 		princ.getMemBirth();
@@ -221,14 +228,17 @@ public class MemberController {
 
 	
 	//회원가입
-		@RequestMapping("/dummy")
-		public void dummySignup(DummyVO vo) {
-			
-			
-			
-			memService.dummy(vo);
-			
-			
-		}
+	@RequestMapping("/dummy")
+	public void dummySignup(DummyVO vo) {
+		
+		memService.dummy(vo);
 
+	}
+
+	@RequestMapping("/dummy2")
+	public void dummySignup2(DummyVO vo) {
+		
+		memService.dummy2(vo);
+
+	}
 }
