@@ -11,15 +11,18 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.fit_nance.project.model.DepositFilterVO;
 import com.fit_nance.project.model.DepositListVO;
+import com.fit_nance.project.model.FavoriteVO;
 import com.fit_nance.project.model.InstallListFilterVO;
 import com.fit_nance.project.model.InstallListVO;
 import com.fit_nance.project.model.PensionFilterVO;
 import com.fit_nance.project.model.PensionListVO;
+import com.fit_nance.project.service.FavoriteService;
 import com.fit_nance.project.service.ListSavingService;
-import com.fit_nance.project.service.ProductService;
 
 @Controller
 public class ListSavingController {
+	@Autowired
+	FavoriteService fService;
 	
 	@Autowired
 	ListSavingService listService;
@@ -327,5 +330,83 @@ public class ListSavingController {
 		
 		
 		return "product/result_pension";
+	}
+	
+	@RequestMapping("/insertInstallFavorite")
+	public String insertInstallFavorite(@RequestParam(value="favorite") String favorite) {
+		FavoriteVO vo =new FavoriteVO();
+		
+		vo.setKind("적금");
+		vo.setMemId("");
+		vo.setoIndex(favorite);
+		
+		fService.insertInstallFavorite(vo);
+		
+		return "product/list_installment";
+	}
+	
+	@RequestMapping("/deleteInstallFavorite")
+	public String deleteInstallFavorite(@RequestParam(value="favorite") String favorite) {
+		FavoriteVO vo =new FavoriteVO();
+		
+		vo.setKind("적금");
+		vo.setMemId("");
+		vo.setoIndex(favorite);
+		
+		fService.deleteInstallFavorite(vo);
+		
+		return "product/list_installment";
+	}
+	
+	@RequestMapping("/insertDepositFavorite")
+	public String insertDepositFavorite(@RequestParam(value="favorite") String favorite) {
+		FavoriteVO vo =new FavoriteVO();
+		
+		vo.setKind("예금");
+		vo.setMemId("");
+		vo.setoIndex(favorite);
+		
+		fService.insertInstallFavorite(vo);
+		
+		return "product/list_deposit";
+	}
+	
+	@RequestMapping("/deleteDepositFavorite")
+	public String deleteDepositFavorite(@RequestParam(value="favorite") String favorite) {
+		FavoriteVO vo =new FavoriteVO();
+		
+		vo.setKind("예금");
+		vo.setMemId("");
+		vo.setoIndex(favorite);
+		
+		fService.deleteInstallFavorite(vo);
+		
+		return "product/list_deposit";
+	}
+	
+	@RequestMapping("/insertPensionFavorite")
+	public String insertPensionFavorite(@RequestParam(value="favorite") String favorite) {
+		FavoriteVO vo =new FavoriteVO();
+		
+		vo.setKind("연금");
+		vo.setMemId("");
+		vo.setoIndex(favorite);
+		
+		fService.insertInstallFavorite(vo);
+		
+		return "product/list_pension";
+	}
+	
+	@RequestMapping("/deletePensionFavorite")
+	public String deletePensionFavorite(@RequestParam(value="favorite") String favorite) {
+		FavoriteVO vo =new FavoriteVO();
+		
+		vo.setKind("연금");
+		vo.setMemId("");
+		vo.setoIndex(favorite);
+		
+		fService.deleteInstallFavorite(vo);
+		
+		return "product/list_pension";
 	}
 }

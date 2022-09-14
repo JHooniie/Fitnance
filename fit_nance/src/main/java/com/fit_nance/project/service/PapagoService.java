@@ -1,7 +1,6 @@
 package com.fit_nance.project.service;
 
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
@@ -10,17 +9,21 @@ import java.net.URL;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
 import org.springframework.stereotype.Service;
+
+import com.fit_nance.project.model.APIKey;
 
 @Service
 public class PapagoService {
 
 	
-	public void translate() throws IOException {
+	public String translate(String path) throws IOException {
 //		String result = "";
 		
-		String clientId = "ggb1itises";//애플리케이션 클라이언트 아이디값";
-        String clientSecret = "umb3gaHGLV98MNDV1Zq653Iq8S3g9E1twqjPKbdG";//애플리케이션 클라이언트 시크릿값";
+		APIKey key = new APIKey();
+		String clientId = key.getPapagoId();
+        String clientSecret = key.getPapagoKey();
         
 		String apiURL = "https://naveropenapi.apigw.ntruss.com/web-trans/v1/translate";
         URL url = new URL(apiURL);
@@ -31,7 +34,7 @@ public class PapagoService {
 		httpConn.setRequestProperty("X-NCP-APIGW-API-KEY-ID", clientId);
 		httpConn.setRequestProperty("X-NCP-APIGW-API-KEY", clientSecret);
 		// post request
-        String postParams = "source=ko&target=en&html=" + parser();
+        String postParams = "source=ko&target=en&html=" + parser(path);
 		httpConn.setDoOutput(true);
 		OutputStreamWriter writer = new OutputStreamWriter(httpConn.getOutputStream());
 		writer.write(postParams);
@@ -52,16 +55,17 @@ public class PapagoService {
             response.append(inputLine);
         }
         br.close();
-        System.out.println(response.toString());
+        //System.out.println(response.toString());
         
-//        result = response.toString();
+        return response.toString();
         
 	}
 	
-	public Document parser() throws IOException {
+	public Element parser(String path) throws IOException {
 		
-		Document doc = Jsoup.connect("http://localhost:8080/").get();
+		Document doc = Jsoup.connect("http://localhost:8080" + path).get();
+		Element body = doc.body();
 		
-		return doc;
+		return body;
 	}
 }

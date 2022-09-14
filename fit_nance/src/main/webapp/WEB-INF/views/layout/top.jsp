@@ -20,8 +20,11 @@
                     <li class="li-cus-service">고객센터</li>
                     <li class="li-lang">
                         <span class="span-lang-kor span-lang-active">KOR</span>
-                        |
+                        <span class="span-lang-divider">|</span>
                         <span class="span-lang-eng span-lang-inactive">ENG</span>
+                       	<form>
+                       		<input type="hidden" value="" id="pathInput" name="pathInput">
+                       	</form>
                     </li>
                     <li>
                     	<sec:authorize access="isAnonymous()">

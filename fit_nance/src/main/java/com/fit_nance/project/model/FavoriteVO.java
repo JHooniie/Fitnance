@@ -2,7 +2,7 @@ package com.fit_nance.project.model;
 
 public class FavoriteVO {
 	String kind;
-	String fin_prdt_cd;
+	String oIndex;
 	String memId;
 	public String getKind() {
 		return kind;
@@ -10,11 +10,11 @@ public class FavoriteVO {
 	public void setKind(String kind) {
 		this.kind = kind;
 	}
-	public String getFin_prdt_cd() {
-		return fin_prdt_cd;
+	public String getoIndex() {
+		return oIndex;
 	}
-	public void setFin_prdt_cd(String fin_prdt_cd) {
-		this.fin_prdt_cd = fin_prdt_cd;
+	public void setoIndex(String oIndex) {
+		this.oIndex = oIndex;
 	}
 	public String getMemId() {
 		return memId;

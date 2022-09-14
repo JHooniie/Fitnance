@@ -4,12 +4,14 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <!DOCTYPE html>
 <html>
+	<head>
+		<script src="<c:url value='/js/result_installment.js' />"></script>
+	</head>
 	<body>
 	<c:choose>
 		<c:when test="${empty installList}">
 			<div class="search-line">
                 <div class="box">검색 결과 ${fn:length(installList) }개</div>
-                <div class="search-box"><input type="text" id="tourName" name="tourName" placeholder="키워드 검색"><i class="fa-solid fa-magnifying-glass"></i></div>
             </div>
 			<div>
 				<span class="no-list"><i class="fa-solid fa-circle-exclamation"></i><br>찾는 상품이 없습니다</span>
@@ -18,7 +20,6 @@
 		<c:otherwise>
 			<div class="search-line">
                 <div class="box">검색 결과 ${fn:length(installList) }개</div>
-                <div class="search-box"><input type="text" id="tourName" name="tourName" placeholder="키워드 검색"><div class="search"><i class="fa-solid fa-magnifying-glass"></i></div></div>
             </div>
             <div class="item-list">
             	<c:forEach items="${installList }" var="list">	           			

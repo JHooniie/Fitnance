@@ -175,10 +175,16 @@
 }
 
 .search-box{
+	float:right;
+	width:300px;
     border-bottom: 1px solid #AAAAAA;
     display:flex;
     flex-direction: row;
     justify-content: space-between;
+}
+
+.a{
+	display:block;
 }
 
 .search i{
