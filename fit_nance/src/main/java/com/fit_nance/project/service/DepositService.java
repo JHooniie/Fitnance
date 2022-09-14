@@ -10,6 +10,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.stereotype.Service;
 
+import com.fit_nance.project.model.APIKey;
 import com.fit_nance.project.model.DepoOptionVO;
 import com.fit_nance.project.model.DepositVO;
 
@@ -19,9 +20,9 @@ public class DepositService {
 	public ArrayList<DepositVO> deposit() {
 		
 		ArrayList<DepositVO> depoList = new ArrayList<DepositVO>();
-		ArrayList<DepoOptionVO> depoOptionList = new ArrayList<DepoOptionVO>();
-		String key= "bedd120336310b8a230653bd987c0c31";
 		
+		APIKey apiKey = new APIKey();
+		String key = apiKey.getSavingKey();
 		
 		String urlDep="http://finlife.fss.or.kr/finlifeapi/depositProductsSearch.json?auth="
 				+key
@@ -39,10 +40,7 @@ public class DepositService {
              resultDep.append(returnLine);
          }
          //System.out.println(resultDep.toString());
-         System.out.println(resultDep.toString());
-         depoList = jsonToVOList(resultDep.toString());
-         System.out.println(depoList.get(1).getPIndex());
-         System.out.println(depoList.get(1).getEtc_note());
+		depoList = jsonToVOList(resultDep.toString());
 		}
 		catch(Exception e) {
 			System.out.println(e);
@@ -70,10 +68,10 @@ public class DepositService {
 				vo.setJoin_way(String.valueOf(depoObj.get("join_way")));
 				vo.setMtrt_int(String.valueOf(depoObj.get("mtrt_int")));
 				vo.setSpcl_cnd(String.valueOf(depoObj.get("spcl_cnd")));
-				vo.setJoin_deny(Integer.parseInt(String.valueOf(depoObj.get("join_deny"))));
+				vo.setJoin_deny(Integer.parseInt(String.valueOf(depoObj.optString("join_deny","0"))));
 				vo.setJoin_member(String.valueOf(depoObj.get("join_member")));
 				vo.setEtc_note(String.valueOf(depoObj.get("etc_note")));
-				vo.setMax_limit(String.valueOf(depoObj.get("max_limit")));
+				vo.setMax_limit(Integer.parseInt(String.valueOf(depoObj.optString("max_limit","0"))));
 				
 				
 				//System.out.println(vo.getEtc_note());

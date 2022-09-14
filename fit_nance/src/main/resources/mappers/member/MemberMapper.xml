@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.fit_nance.project.dao.IMemberDAO">
+	<resultMap id="memResult" type="com.fit_nance.project.model.MemberVO" >
+		<result property="memRole" column="memRole"/>
+		<result property="memId" column="memId"/>
+		<result property="memPwd" column="memPwd"/>
+		<result property="memName" column="memName"/>
+		<result property="memBirth" column="memBirth"/>
+		<result property="memGender" column="memGender"/>
+		<result property="memBank" column="memBank"/>
+		<result property="memEmailRecd" column="memEmailRecd"/>
+		<result property="provider" column="provider"/>
+		<result property="providerId" column="providerId"/>
+		<result property="certified" column="certified"/>
+	</resultMap>
+	
+	<!-- 회원정보 조회 -->
+	<select id="myInfo" parameterType="string" resultType="com.fit_nance.project.model.MemberVO">
+	  	SELECT * 
+	  	FROM member 
+	  	ORDER BY memId
+  </select>
+  
+	<!-- 기존 사용자 검색 -->
+	<select id="findByUserId" parameterType="string" resultType="com.fit_nance.project.model.MemberVO">
+		SELECT *
+		FROM member
+		WHERE memId = #{memId}
+	</select>
+	
+	<select id="findByUserId_OAuth" parameterType="string" resultType="com.fit_nance.project.model.MemberVO">
+		SELECT *
+		FROM member
+		WHERE memId = #{memId}
+	</select>
+	
+	<!-- 회원가입 -->
+	<insert id="insertMember" parameterType="com.fit_nance.project.model.MemberVO">
+		INSERT member(memRole, memId, memPwd, memName, memBirth, memGender, memBank, memEmailRecd, certified)
+		VALUES (#{memRole}, #{memId}, #{memPwd}, #{memName}, #{memBirth}, #{memGender}, #{memBank}, #{memEmailRecd}, #{certified})
+	</insert>
+	
+	<!-- 회원가입 아이디 체크 -->
+	<select id="id_check" parameterType="string" resultType="int">
+	  	SELECT COUNT(memId) 
+	  	FROM member 
+	  	WHERE memId = #{memId}
+	  	ORDER BY memId
+ 	 </select>
+	
+	<!-- OAUTH회원가입 -->
+	<insert id="insertOAuthMember" parameterType="com.fit_nance.project.model.MemberVO">
+		INSERT member(memRole, memId, memPwd, memName,memBirth,memGender, memBank, memEmailRecd, provider, providerId)
+		VALUES ( #{memRole}, #{memId}, #{memPwd}, #{memName}, #{memBirth}, #{memGender}, #{memBank}, #{memEmailRecd}, #{provider}, #{providerId})
+	</insert>
+	
+	<!-- 개인정보 수정 -->
+	<update id="updateMemInfo" parameterType="com.fit_nance.project.model.MemberVO">
+		UPDATE member
+		SET memName=#{memName}, memBirth=#{memBirth}, memBank=#{memBank}, memEmailRecd=#{memEmailRecd}
+		WHERE memId=#{memId}
+	</update>
+	
+	<!-- 공지사항 상세 보기 -->
+	<select id="detailViewMemInfo" parameterType="hashmap" resultType="com.fit_nance.project.model.MemberVO">
+		SELECT * 
+		FROM member M
+		INNER JOIN bank B
+		ON M.memBank = B.memBank
+		WHERE memId=#{memId} AND memPwd=#{memPwd}
+	</select>
+	
+	<select id="passwordCheck" parameterType="string" resultType="com.fit_nance.project.model.MemberVO">
+		SELECT * 
+		FROM member 
+		WHERE memId=#{memId}
+  	</select>
+  	<delete id="withdrawal_member" parameterType="com.fit_nance.project.model.MemberVO">
+		DELETE FROM member WHERE memId=#{memId}
+	</delete>
+	
+	<insert id="insertdummy" parameterType="com.fit_nance.project.model.DummyVO">
+		INSERT INTO test(user_id, item_id, rating, timestamp)
+		VALUES (#{user_id}, #{item_id}, #{rating}, #{timestamp})
+	</insert>
+</mapper>

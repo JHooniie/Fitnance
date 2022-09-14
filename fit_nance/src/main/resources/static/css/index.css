@@ -1,0 +1,152 @@
+*{
+    /* border: 1px solid red; */
+}
+
+h1{
+    font-size: 70px;
+    font-weight: bold;
+    text-align: center;
+}
+
+h2{
+    font-size: 56px;
+    font-weight: bold;
+}
+
+h3{
+    font-size: 20px;
+}
+
+.background_index{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.index_title_main{
+    margin: 290px 0px 200px 0px;
+}
+
+.div_scroll{
+    text-align: center;
+    margin: 0px 0px 50px 0px;
+}
+
+.div_scroll i{
+    color: #AAAAAA;
+    font-size: 38px;
+}
+
+.index_main .div_index_img1{
+    display: flex;
+    justify-content: center;
+    margin: 0px 0px 200px 0px;
+}
+
+.index_main .div_index_img1 .img_index_main{
+    width: 1140px;
+    height: 760px;
+    border-radius: 40px;
+    background-color: #eeeeee;
+    overflow: hidden;
+}
+
+.index_main .div_index_img1 .img_index_main video{
+    height: 100%;
+    margin-left: -100px;
+}
+
+.index_sub1,
+.index_sub2{
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    margin: 0px 0px 200px 0px;
+}
+
+.index_sub1{
+    justify-content: left;
+}
+
+.index_sub2{
+    justify-content: right;
+}
+
+.index_sub1 .div_index_img2{
+    margin: 0px 0px 0px 320px;
+    overflow: hidden;
+}
+
+.index_sub1 .div_index_img2 video{
+    height: 100%;
+    margin-left: -60%;
+}
+
+.index_sub1 .div_index_img2,
+.index_sub2 .div_index_img2{
+    width: 530px;
+    height: 530px;
+    border-radius: 40px;
+    background-color: #eeeeee;
+    box-shadow: 8px 8px 30px 0px rgba(170, 170, 170, 0.2);
+}
+
+.index_sub1 .div_index_img2{
+    margin: 0px 130px 0px 0px;
+}
+
+.index_sub1 .index_title_sub{
+    margin: 0px 115px 0px 0px;
+}
+
+.index_sub1 .index_title_sub .title_sub_maintitle,
+.index_sub2 .index_title_sub .title_sub_maintitle{
+    margin-bottom: 25px;
+}
+
+.index_sub1 .index_title_sub .title_sub_maintitle h2,
+.index_sub2 .index_title_sub .title_sub_maintitle h2{
+    font-size: 50px;
+    font-weight: 700;
+}
+
+.index_sub1 .index_title_sub .title_sub_subtitle span,
+.index_sub2 .index_title_sub .title_sub_subtitle span{
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 30px;
+}
+   
+.index_sub2 .div_index_img2{
+    margin: 0px 0px 0px 130px;
+    overflow: hidden;
+}
+
+.index_sub2 .div_index_img2 video{
+    height: 100%;
+    margin-left: -31%;
+}
+
+.index_sub2 .index_title_sub{
+    margin: 0px 0px 0px 115px;
+}
+
+.index_sub3{
+    margin: 100px 0px 0 0px;
+}
+
+.index_sub3 .index_title_sub .title_sub_maintitle{
+    text-align: center;
+    margin: 0px 0px 90px 0px;
+}
+
+.index_sub3 .index_title_sub .title_sub_maintitle h2{
+    font-size: 50px;
+    font-weight: 600;
+}
+
+.div_index_img3{
+    width: 840px;
+    height: 570px;
+    background-color: #eeeeee;
+}

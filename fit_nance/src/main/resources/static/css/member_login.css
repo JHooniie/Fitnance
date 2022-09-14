@@ -1,0 +1,208 @@
+/* login sector */
+input:focus{
+    outline:none;
+}
+
+#login_sector{
+    display:flex;
+    width:100%;
+    margin-top: 90px;
+}
+
+.login_page{
+    flex-wrap:wrap;
+    display:flex;
+    justify-content: center;
+    width:100%;
+    height: 100%;
+    text-align: center;
+    margin-top: 153px;
+    padding: 0 290px;
+}
+
+.login_container{
+    width:700px;
+    margin:0 auto;
+    padding:40px;
+    border: solid 1px #ddd;
+}
+
+
+.login_box{
+    width:100%;
+    margin:60px 0;
+}
+
+button{
+    width:100%;
+    height: 60px;
+    margin-top:15px;
+    padding: 20px 0 19px;
+    border-radius:5px;
+    cursor: pointer;
+}
+
+.btn-span{
+    font-size: 18px;
+    font-weight: 600;
+    color: #fff;
+}
+
+
+
+.login_box h3{
+    width:100%;
+    font-weight: 500;
+    font-size:36px;
+}
+
+.login_box h3 span{
+    color:#1f4dff;
+    font-weight: 500;
+    font-size:36px;
+}
+
+.login_box p{
+    color:#222;
+    font-size: 16px;
+    font-weight:200;
+    margin: 10px 0 50px 0;
+}
+
+.form_input{
+    position: relative;
+    width:440px;
+    margin:0 90px;
+}
+
+.input-user_id{
+    width:100%;
+    height:60px;
+    font-size:16px;
+    padding: 0 0 0 20px;
+    border-radius:5px;
+    border:solid 1px #ddd;
+    background-color:#fff;
+
+}
+
+ #login_form .processPass{
+    border : solid 1px #1f4dff;
+} 
+
+#login_form .processStop{
+    border : solid 1px #de3838;
+}
+
+.login_process_state{
+    font-size: 14px;
+    text-align: left;
+    margin:10px 0 10px 10px;
+    display:none;
+}
+
+ .processPassText{
+    display:none;
+} 
+
+.processStopText{
+    color:#de3838;
+    display:block;
+}
+
+.pw_box{
+    position:relative;
+    margin-top: 15px;
+}
+
+.input-user_pw{
+    position:relative;
+    width:100%;
+    height:60px;
+    font-size:16px;
+    padding: 0 0 0 20px;
+    border-radius:5px;
+    border:solid 1px #ddd;
+    background-color:#fff;
+
+}
+
+
+.form_input i{
+    position: absolute;
+    color:#cccccc;
+    right:6%;
+    top:35%;
+    opacity:0.7;
+    cursor: pointer;
+}
+
+.form_input i:hover{
+    opacity:1;
+}
+
+.check_divider{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+#rem_Email_checkBox{
+    position:relative;
+    top:3.5px;
+    width:20px;
+    height:20px;
+    margin:10px 10px 0 5px;
+    border:solid 1px #ddd;
+    background-color:#fff;
+}
+.check_divider label{
+    font-size:14px;
+    text-align: left;
+    margin:0 0 0 0;
+}
+
+.check_divider a{
+    font-size: 14px;
+    margin-top: 12px;
+    text-decoration:underline;
+    color:#666666;
+}
+
+
+
+#main_login{
+    border:none;
+    background-color: #1F4DFF;
+    margin-bottom: 30px;
+}
+
+.email_login{
+    width:440px;
+    padding: 0;
+    border-top: solid 1px #ddd;
+    margin: 0 90px;
+}
+
+#naver_login{
+    border:none;
+    background-color: #03c75a
+}
+
+#naver_login img{
+    width:16px;
+    height: 16px;
+    margin-right: 8px;
+}
+
+#email_start{
+    background-color: #fff;
+    border:solid 1px #222;
+}
+
+#email_start span{
+    color: #222222;
+}
+
+
