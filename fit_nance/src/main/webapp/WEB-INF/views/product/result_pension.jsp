@@ -5,6 +5,9 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <!DOCTYPE html>
 <html>
+	<head>
+		<script src="<c:url value='/js/result_pension.js' />"></script>
+	</head>
 	<body>
 		<c:choose>
 		<c:when test="${empty psList}">
