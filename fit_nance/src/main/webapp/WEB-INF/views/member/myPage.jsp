@@ -25,7 +25,7 @@
                         </div>
                     </div>
                     <div class="box-profile-content">
-                        <span class="span-profile-name">${principal.name}</span>
+                        <span class="span-profile-name">${principal.name} </span>
                         <span class="span-profile-Email">${principal.username}</span>
                         <a href="<c:url value='/logout'/>">로그아웃</a>
                         <c:if test="${provider ne null}"> 

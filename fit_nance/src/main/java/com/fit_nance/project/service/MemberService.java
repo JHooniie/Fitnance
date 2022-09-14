@@ -45,6 +45,8 @@ public class MemberService implements IMemberService {
 	//회원정보 수정
 	@Override
 	public void updateMemInfo(MemberVO vo) {
+		
+		
 		dao.updateMemInfo(vo);
 		
 	}
@@ -108,34 +110,81 @@ public class MemberService implements IMemberService {
 
 			
 			String user_id;
-			String item_id;
-			int rating;
+			//String item_id;
+			String ages;
+			String[] str = {"남","여"};
+			//String rating;
 			
-			for(int i =0; i< 100 ; i++) {
+			for(int i =0; i< 1000 ; i++) {
+				//int num = (int)((Math.random()*8)+1);
 				
+				//for(int j=0;j<num ; j++) {
 				user_id = String.valueOf(i);
 				
-				item_id = String.valueOf((int)(Math.random()*62));
+				//item_id = String.valueOf((int)(Math.random()*100));
 				
-				rating = (int)((Math.random()*5)+1);
+				ages = String.valueOf(((int)(Math.random()*5)+2)*10);
+				
+				
+				//rating = (int)((Math.random()*5)+1);
 				
 				long offset = Timestamp.valueOf("2021-01-01 00:00:00").getTime();
 				long end = Timestamp.valueOf("2022-01-01 00:00:00").getTime();
 				long diff = end - offset + 1;
 				long rand = offset + (long)(Math.random() * diff);
 				
-				System.out.println(rand);
+
 				
+				String gender = str[(int)(Math.random()*2)];
 				
 				vo.setUser_id(user_id);
-				vo.setItem_id(item_id);
-				vo.setRating(rating);
+				//vo.setItem_id(item_id);
+				vo.setAges(ages);
+				//vo.setRating(rating);
+				vo.setGender(gender);;
 				vo.setTimestamp(rand);
 				dao.insertdummy(vo);
+			//}
 			}
-			
 			
 				
 	}
+	
+	public void dummy2(DummyVO vo) {
+		
 
+		
+		String user_id;
+		String item_id;
+		String[] str = {"완전좋아요","좋아요","보통이에요","싫어요","완전싫어요"};
+		
+		for(int i =0; i< 1000 ; i++) {
+			int num = (int)((Math.random()*8));
+			
+			for(int j=1;j<num ; j++) {
+			user_id = String.valueOf(i);
+			
+			item_id = String.valueOf((int)(Math.random()*100));
+			
+			
+			long offset = Timestamp.valueOf("2021-01-01 00:00:00").getTime();
+			long end = Timestamp.valueOf("2022-01-01 00:00:00").getTime();
+			long diff = end - offset + 1;
+			long rand = offset + (long)(Math.random() * diff);
+			
+			
+			
+			String rating = str[(int)(Math.random()*5)];
+			
+			vo.setUser_id(user_id);
+			vo.setItem_id(item_id);
+			vo.setTimestamp(rand);
+			vo.setRating(rating);
+			dao.insertdummy2(vo);
+		}
+		
+	}
+		
+		
+}
 }

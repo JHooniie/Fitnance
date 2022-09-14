@@ -33,4 +33,6 @@ public interface IMemberDAO {
 	public void withdrawal_member(MemberVO vo);
 	
 	public void insertdummy(DummyVO vo);
+	public void insertdummy2(DummyVO vo);
+
 }

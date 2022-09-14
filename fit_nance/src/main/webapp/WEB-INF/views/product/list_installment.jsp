@@ -68,8 +68,10 @@
 		                    
 		                </div>
 		            </div>
+
 		            <div class="a">
 		            <div class="search-box"><input type="text" id="tourName" name="tourName" placeholder="키워드 검색"><div class="search"><i class="fa-solid fa-magnifying-glass"></i></div></div>
+
 		            <div class="result-box">
 		                <div class="search-line">
 		                    <div class="box">검색 결과 ${fn:length(installList) }개</div>

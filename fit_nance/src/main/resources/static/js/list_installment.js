@@ -11,7 +11,7 @@
     var join_way=["join_way"];
     var save_trm=["save_trm"];
     
-    {
+	{
     	$('.search').click(function(){
     		var search= document.getElementById('tourName').value;
     		console.log(search);
