@@ -10,6 +10,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.stereotype.Service;
 
+import com.fit_nance.project.model.APIKey;
 import com.fit_nance.project.model.DepoOptionVO;
 
 @Service
@@ -17,13 +18,14 @@ public class DepoOptionService {
 	StringBuffer resultDep = new StringBuffer();
 	public ArrayList<DepoOptionVO> deposit() {
 		ArrayList<DepoOptionVO> depoOptionList = new ArrayList<DepoOptionVO>();
-		String key= "bedd120336310b8a230653bd987c0c31";
 		
+		APIKey apiKey = new APIKey();
+		String key = apiKey.getSavingKey();
 		
 		String urlDep="http://finlife.fss.or.kr/finlifeapi/depositProductsSearch.json?auth="
-				+key
-				+"&topFinGrpNo="+"020000"
-				+"&pageNo="+"1";
+					  +key
+					  +"&topFinGrpNo="+"020000"
+					  +"&pageNo="+"1";
 		try {
 		 URL url = new URL(urlDep);
          HttpURLConnection urlConnection = (HttpURLConnection)url.openConnection();
@@ -38,8 +40,8 @@ public class DepoOptionService {
          //System.out.println(resultDep.toString());
         
          depoOptionList = jsonToVOList(resultDep.toString());
-         System.out.println(depoOptionList.get(1).getoIndex());
-         System.out.println(depoOptionList.get(1).getIntr_rate_type_nm());
+         //System.out.println(depoOptionList.get(1).getoIndex());
+         //System.out.println(depoOptionList.get(1).getIntr_rate_type_nm());
 		}
 		catch(Exception e) {
 			System.out.println(e);
@@ -63,7 +65,7 @@ public class DepoOptionService {
 				vo.setFin_prdt_cd(String.valueOf(depoObj.get("fin_prdt_cd")));
 				vo.setIntr_rate_type(String.valueOf(depoObj.get("intr_rate_type")));
 				vo.setIntr_rate_type_nm(String.valueOf(depoObj.get("intr_rate_type_nm")));
-				vo.setSave_trm(String.valueOf(depoObj.get("save_trm")));
+				vo.setSave_trm(Integer.parseInt(String.valueOf(depoObj.optString("save_trm","0"))));
 				vo.setIntr_rate(Double.parseDouble(String.valueOf(depoObj.optString("intr_rate","0.0"))));
 				vo.setIntr_rate2(Double.parseDouble(String.valueOf(depoObj.optString("intr_rate2","0.0"))));
 		

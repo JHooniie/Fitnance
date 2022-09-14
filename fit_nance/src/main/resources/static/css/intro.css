@@ -1,0 +1,110 @@
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+
+* {
+font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+}
+
+
+
+/*intro*/
+.middle{
+    width:100%;
+}
+
+.middle1{
+    height:500px;
+    
+}
+
+.middle1 >ul{
+    text-align: center;
+}
+
+.middle1>ul>li{
+    font-size:20px;
+    line-height: 1.5;
+}
+
+.middle1 > ul >li:first-child{
+    font-size:56px;
+    margin-top: 90px;margin-bottom:40px;
+    padding-top:120px;
+    font-weight: bold;
+    line-height: 1.3;
+}
+
+.middle2{
+    height: 650px;
+    background-color: #1F4DFF;
+    text-align: center;
+}
+
+.middle2 >ul{
+    text-align: center;
+}
+
+.middle2 > ul > li{
+    color:#FFFFFF;
+    
+}
+
+.middle2-image{
+    height: 100px;
+}
+
+.middle2 > ul >li:first-child{
+    margin-bottom:78px;
+    padding-top:120px;
+}
+
+.middle2 > ul >li:nth-child(2){
+    font-size:65px;
+    font-weight: bold;
+    margin-bottom:40px;
+}
+
+.middle2 > ul > li:nth-child(3),
+.middle2 > ul > li:nth-child(4),
+.middle2 > ul >li:nth-child(5){
+    color:#FFFFFF;
+    font-size:22px;
+    font-weight: 200;
+    line-height: 1.5;
+}
+
+.middle3{
+    height: 1083px;
+    display: flex;
+    flex-direction: column;
+}
+
+.middle3-title{
+    padding-top:268px;
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 49px;
+}
+
+.middle3-box{
+    margin-top:18px;
+    width:1280px;
+    height: 500px;
+    background-color: #f2f2f2;
+    border-radius: 15px;
+}
+
+.middle3-sub01, .middle3-sub02{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 26px;
+    font-size:18px;
+}
+
+.middle3 > .middle3-sub> .middle3-sub01 > .sub1{
+    width:104px;
+    font-weight: bold;
+}
+.middle3 > .middle3-sub> .middle3-sub02 > .sub2{
+    width:104px;
+    font-weight: bold;
+}

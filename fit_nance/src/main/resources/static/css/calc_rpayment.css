@@ -1,0 +1,202 @@
+*{
+    /* border: 1px solid red; */
+    color: #222222;
+}
+
+h1{
+    font-size: 38px;
+    font-weight: bold;
+    margin: 0px 0px 10px 0px;
+}
+
+h2{
+    font-size: 17px;
+    font-weight: normal;
+}
+
+h4{
+    font-size: 26px;
+    font-weight: bold;
+    margin-bottom: 40px;
+}
+
+h5{
+    font-size: 18px;
+    font-weight: normal;
+    line-height: 1.67;
+    letter-spacing: -0.54px;
+}
+
+h5 span{
+    font-weight: 600;
+    /* color: red; */
+}
+
+h5 .result{
+    color: #1f4dff;
+}
+.div_calc_title h1{
+    font-size: 38px;
+    line-height: 46px;
+}
+
+.div_calc_title p{
+    font-size: 17px;
+    line-height: 30px;
+}
+
+.div_calc{
+    display: flex;
+    flex-direction: column;
+    margin-top: 220px;
+}
+
+.div_calc .div_calc_content{
+    display: flex;
+    margin: 80px 0px 0px 0px;
+}
+
+.div_calc .div_calc_content .panel_calc_input{
+    width: 440px;
+    margin-right: 110px;
+}
+
+.panel_calc_input p{
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.panel_calc_input .div_rpay_type select{
+    width: 438px;
+    height: 60px;
+    font-size: 20px;
+    font-weight: 600;
+    text-align: right;
+    border: 0px;
+    outline-style: none;
+    padding: 0px 20px 0px 0px;
+    cursor: pointer;
+}
+
+.panel_calc_input .div_btn_input{
+    display: flex;
+    justify-content: space-between;
+}
+
+.panel_calc_input input{
+    width: 400px;
+    height: 60px;
+    font-size: 20px;
+    font-weight: 600;
+    text-align: right;
+    border: 0px;
+    outline-style: none;
+}
+
+.panel_calc_input input::placeholder{
+    color: #aaaaaa;
+}
+
+
+.div_rpay_type,
+.div_lend_loan,
+.div_dly_rate,
+.div_rpay_period,
+.div_grace_period{
+    margin-bottom: 50px;
+}
+
+.div_rpay_type .div_select_rpay_type,
+.div_lend_loan .div_input_lend_loan,
+.div_dly_rate .div_input_dly_rate,
+.div_rpay_period .div_input_rpay_period,
+.div_grace_period .div_input_grace_period{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #aaaaaa;
+}
+
+.div_lend_loan .div_input_lend_loan,
+.div_dly_rate .div_input_dly_rate,
+.div_rpay_period .div_input_rpay_period,
+.div_grace_period .div_input_grace_period{
+    margin-bottom: 15px;
+}
+
+.panel_calc_input .button{
+    width:80px;
+    height: 42px;
+    font-size: 14px;
+    font-weight: 500;
+    text-align: center;
+    color: #666666;
+    border-radius: 5px;
+    border: 1px solid #dddddd;
+    background-color: #ffffff;
+    cursor: pointer;
+}
+
+.panel_calc_input .btn_calc{
+    width: 440px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    background-color: #1f4dff;
+    border-radius: 5px;
+    border: 0px;
+    cursor: pointer;
+}
+
+.panel_calc_input .btn_calc span{
+    color: #ffffff;
+}
+
+.panel_calc_result .div_result_content{
+    margin-top: 80px;
+}
+
+/* .panel_calc_result .div_result_title .calc_rpay, */
+.panel_calc_result .div_result_title .calc_rpay_result1,
+.panel_calc_result .div_result_title .calc_rpay_result2{
+	color: #1f4dff;
+}
+
+.div_result_content table{
+    font-size: 20px;
+    border-bottom: 1px solid #dddddd;
+}
+.div_result_content table th{
+    width: 192px;
+    height: 60px;
+    font-weight: 600;
+    border-bottom: 1px solid #dddddd;
+}
+
+.div_result_content table td{
+    height: 50px;
+    text-align: right;
+}
+
+.div_result_content .index{
+    width: 84px;
+    text-align: center;
+}
+
+.div_result_content .total_result_content{
+    width:660px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    font-size: 24px;
+    font-weight: 600;
+    text-align: right;
+}
+
+.div_result_content .total_result_content span{
+    margin-left: 30px;
+}
