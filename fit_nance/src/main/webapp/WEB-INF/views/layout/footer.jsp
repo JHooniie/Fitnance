@@ -47,5 +47,8 @@
         </div>
     </div>
 </footer>
+<script src="<c:url value='/js/common.js'/>"></script>
+<script src="<c:url value='/js/papago.js'/>"></script>
+<script src="<c:url value='/js/chatbot.js'/>"></script>
 <!-- footer -->
 </html>
