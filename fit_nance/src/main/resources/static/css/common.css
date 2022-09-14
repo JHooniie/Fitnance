@@ -17,6 +17,10 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
     border: none;
 }
 
+font{
+	color:unset;
+}
+
 /* common */
 .wrap{
     width: 1320px;
@@ -114,6 +118,10 @@ header.header-active{
     margin-left: 10px;
 }
 
+.box-nav .box-menu-default .box-menu-top ul li .span-lang-divider{
+    color: #CCCCCC;
+}
+
 .box-nav .box-menu-default .box-menu-top ul li .span-lang-inactive{
     color: #CCCCCC;
 }
@@ -151,7 +159,8 @@ header.header-active{
 .box-menu-03-bottom ul,
 .box-menu-04-bottom ul{
     display: inline-block;
-    width: 200px;
+    width: 180px;
+	margin-right:20px;
 }
 
 .box-menu-02-bottom ul li,
