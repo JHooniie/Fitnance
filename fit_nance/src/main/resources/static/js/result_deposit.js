@@ -29,12 +29,38 @@
     		$('.yes-login').click(function(){
     			$(this).toggleClass('plus-icon-clicked');
     			if($(this).hasClass('plus-icon-clicked')){
-    				favorite.push($(this).prop("id"));
-    				console.log(favorite);
+    				favorite=($(this).prop("id"));
+    				$.ajax({
+			            url: "insertDepositFavorite",
+			            type: "post",
+			            traditional: true,
+			            data:{
+			            	"favorite":favorite
+			        	},
+			            success:function(result){
+			            	//console.log("success");
+			            },
+			            error:function(request,status,error){
+			                alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+			            }
+		        	});
     			}else{
-    				var index = compare.indexOf($(this).prop("id"));
-                	favorite.splice(index, 1);
+                	favorite=($(this).prop("id"));
                 	console.log(favorite);
+                	$.ajax({
+			            url: "deleteDepositFavorite",
+			            type: "post",
+			            traditional: true,
+			            data:{
+			            	"favorite":favorite
+			        	},
+			            success:function(result){
+			            	//console.log("success");
+			            },
+			            error:function(request,status,error){
+			                alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+			            }
+		        	});
     			}
     		})
     		
