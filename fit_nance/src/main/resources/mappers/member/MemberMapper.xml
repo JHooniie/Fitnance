@@ -60,12 +60,12 @@
 	
 	<!-- 개인정보 수정 -->
 	<update id="updateMemInfo" parameterType="com.fit_nance.project.model.MemberVO">
-		UPDATE member
-		SET memName=#{memName}, memBirth=#{memBirth}, memBank=#{memBank}, memEmailRecd=#{memEmailRecd}
-		WHERE memId=#{memId}
+		UPDATE member M, bank B
+		SET M.memName=#{memName}, M.memBirth=#{memBirth}, M.memBank=#{memBank}, M.memEmailRecd=#{memEmailRecd}
+		WHERE M.memId=#{memId}
 	</update>
 	
-	<!-- 공지사항 상세 보기 -->
+	<!-- 상세 보기 -->
 	<select id="detailViewMemInfo" parameterType="hashmap" resultType="com.fit_nance.project.model.MemberVO">
 		SELECT * 
 		FROM member M

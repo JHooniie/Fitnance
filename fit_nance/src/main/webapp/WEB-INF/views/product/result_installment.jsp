@@ -79,4 +79,6 @@
 		</c:otherwise>
 	</c:choose>
 	</body>
+    <!-- js -->
+	<script src="<c:url value='/js/list_installment.js' />"></script>
 </html>

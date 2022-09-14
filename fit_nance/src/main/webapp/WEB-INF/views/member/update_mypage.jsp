@@ -76,7 +76,7 @@
                                         </c:if>   
                                     </c:forEach>
                                 </button>
-                                <input id="input-user_bank" type="hidden" name="memBank">
+                                <input id="input-user_bank" type="hidden" name="memBank" >
                                     <input type="checkbox" name="memEmailRecd" id="checkbox-checkAgree" value="">
                                     <label class="label-information-checkAgree">광고/마케팅 수신동의</label>
                                 <p>수신동의하시면 추천 상품을 이메일로 먼저 알려드릴게요!</p>

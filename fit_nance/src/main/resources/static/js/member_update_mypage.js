@@ -25,23 +25,13 @@
 
     $('.figure-bank').click(function(){
         $('.span-bank-btn').html($(this).children('.bank-name').val());
-        $('#input-user-bank').val($(this).children('.bank-code').val());
+        $('#input-user_bank').val($(this).children('.bank-code').val());
         $('.span-bank-btn').css('color','#222');
         $('#modal-signup').css('display','none');
         $('body').css('overflow','scroll');
 
         console.log($('#input-user-bank').val());
 
-    });
-    
-
-    $('.figure-bank').click(function(event){
-        $('.span-bank-btn').html($(this).find('input').val());
-        $('#input-user_bank').attr("value",$(this).find('input').val());
-        $('.span-bank-btn').css('color','#222')
-        $('#modal-signup').css('display','none');
-        
-        
     });
     
     $('#a-delete-profile-check').click(function(){

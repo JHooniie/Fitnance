@@ -68,6 +68,7 @@
 		                    
 		                </div>
 		            </div>
+					
 		            <div class="result-box">
 		                <div class="search-line">
 		                    <div class="box">검색 결과 ${fn:length(installList) }개</div>

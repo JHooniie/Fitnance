@@ -82,7 +82,7 @@ public class MemberController {
 	}
 	
 
-	
+	//마이페이지 폼 이동
 	@RequestMapping("/mypage")
 	public String mypageForm() {
 
