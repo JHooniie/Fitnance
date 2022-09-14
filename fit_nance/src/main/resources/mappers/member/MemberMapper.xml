@@ -61,7 +61,7 @@
 	<!-- 개인정보 수정 -->
 	<update id="updateMemInfo" parameterType="hashmap">
 		UPDATE member M, bank B
-		SET M.memName=#{memName}, M.memBirth=#{memBirth}, M.memBank=#{memBank}, M.memEmailRecd=#{memEmailRecd}
+		SET M.memName=#{memName}, M.memBank=#{memBank}, M.memBirth = #{memBirth},  M.memEmailRecd=#{memEmailRecd}
 		WHERE M.memId=#{memId}
 	</update>
 	

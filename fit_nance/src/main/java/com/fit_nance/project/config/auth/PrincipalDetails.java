@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Map;
 
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.oauth2.core.user.OAuth2User;
@@ -112,18 +114,25 @@ public class PrincipalDetails implements UserDetails, OAuth2User, Serializable {
 		return vo.getMemBank();
 	}
 	
+
+	public String getProviderId() {
+		return vo.getProviderId();
+	}
+
+	public String getMemGender() {
+		return vo.getMemGender();
+	}
+	
+	public String getMemRole() {
+		return vo.getMemRole();
+	}
 	
 	
-//	@Override
-//	public String toString() {
-//		return "{username : " + getUsername()
-//				+ ", password : " + getPassword() + ", accountNonExpired :" + isAccountNonExpired()
-//				+ ", accountNonLocked : " + isAccountNonLocked() + ", credentialsNonExpired : "
-//				+ isCredentialsNonExpired() + ", enabled : " + isEnabled() + ", attributes : " + getAttributes()
-//				+ ", vo : " + getVo() + ", name : " + getName() + ", certified : " + getCertified()
-//				+ ", birth : " + getMemBirth() + ", emailRecd : " + getMemEmailRecd() + ", provider : "
-//				+ getProvider() + "}";
-//	}
+	
+	@Override
+	public String toString() {
+		return ToStringBuilder.reflectionToString(vo);
+	}
 
 	
 	

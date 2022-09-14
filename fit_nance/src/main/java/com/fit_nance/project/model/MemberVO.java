@@ -15,16 +15,7 @@ public class MemberVO {
 	private String providerId;
 	private String certified;
 	
-	private String kor_co_nm;
 	
-	
-
-	public String getKor_co_nm() {
-		return kor_co_nm;
-	}
-	public void setKor_co_nm(String kor_co_nm) {
-		this.kor_co_nm = kor_co_nm;
-	}
 	public String getMemRole() {
 		return memRole;
 	}

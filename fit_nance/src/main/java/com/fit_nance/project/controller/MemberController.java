@@ -88,9 +88,9 @@ public class MemberController {
 	//마이페이지 폼 이동
 	@RequestMapping("/mypage")
 	public String mypageForm() {
-
+	
+			return "member/myPage";
 		
-		return "member/myPage";
 	}
 	
 	// 회원정보 수정 폼 열기 비밀번호 재인증 폼 이동
@@ -130,7 +130,7 @@ public class MemberController {
 			MemberVO mem = memService.detailViewMemInfo(memId);
 			
 			 
-			System.out.println("세션값1 :" + princ);
+			System.out.println("세션값1 :" + princ.toString());
 			System.out.println("생년월일 : "+ princ.getMemBirth());
 			model.addAttribute("mem", mem);
 			model.addAttribute("bankList", bankList);
@@ -151,11 +151,17 @@ public class MemberController {
 		princ.setVo(vo);
 		System.out.println("세션값2 :" + princ);
 		
+				
 		princ.getName();
 		princ.getMemBirth();
 		princ.getMemBank();
 		princ.getMemEmailRecd();
-		
+		princ.getMemGender();
+		princ.getMemRole();
+		princ.getPassword();
+		princ.getProvider();
+		princ.getProviderId();
+
 		// DB에 데이터 저장한 후 공지사항 목록 화면으로 포워딩
 		return "redirect:./update_mypage";
 	}
