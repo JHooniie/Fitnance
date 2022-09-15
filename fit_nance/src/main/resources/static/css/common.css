@@ -259,6 +259,7 @@ pre.a{
 	border-radius: 0 18px 18px;
 	background-color: #f6f6f6;
 	word-break: break-all;
+	white-space: break-spaces;
 }
 
 a.a_btn{
