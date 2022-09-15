@@ -5,6 +5,9 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <!DOCTYPE html>
 <html>
+	<head>
+		<script src="<c:url value='/js/result_mortgage_loan.js' />"></script>
+	</head>
 	<c:choose>
 		<c:when test="${empty hlList}">
 			<form id="form_joinwawy" method="post" action="<c:url value='/list_mortgage_loan'/>">
@@ -76,13 +79,15 @@
                             </div>
                             <div class="div_btn_prdt">
                            		<div class="div_btn_add">
-                                    <div class="btn_add_compare">
-                                    	<i class="fa-solid fa-folder-plus"></i>
-                                    </div>
-                                    <div class="btn_add_favorite">
-                                        <i class="fa-solid fa-heart"></i>
-                                    </div>
-                                </div>
+                           			<div class="btn_add_compare">
+                           				<i class="fa-solid fa-folder-plus"></i>
+                           				<input type="hidden" value="${list.oIndex }">
+                       				</div>
+                       				<div class="btn_add_favorite">
+                       					<i class="fa-solid fa-heart"></i>
+                       					<input type="hidden" value="${list.oIndex }">
+               						</div>
+           						</div>
            						<a class="btn_prdt_info" href="<c:url value='/detailMortgageLoan/${list.oIndex}'/>">자세히 보기</a>
 	                        </div>
 	                    </div>
@@ -106,6 +111,5 @@
              </div>
 		</c:otherwise>
 	</c:choose>
-			
 	</body>
 </html>

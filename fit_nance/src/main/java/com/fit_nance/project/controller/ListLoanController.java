@@ -3,23 +3,28 @@ package com.fit_nance.project.controller;
 import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.fit_nance.project.config.auth.PrincipalDetails;
 import com.fit_nance.project.model.CharterLoanFilterVO;
 import com.fit_nance.project.model.CharterLoanListVO;
+import com.fit_nance.project.model.FavoriteVO;
 import com.fit_nance.project.model.HomeLoanFilterVO;
 import com.fit_nance.project.model.HomeLoanListVO;
 import com.fit_nance.project.model.PersonalLoanFilterVO;
 import com.fit_nance.project.model.PersonalLoanListVO;
 import com.fit_nance.project.service.ListLoanService;
+import com.fit_nance.project.service.LoanService;
 
 @Controller
 public class ListLoanController {
-	
+
 	@Autowired
 	ListLoanService listService;
 	
@@ -95,6 +100,36 @@ public class ListLoanController {
 		model.addAttribute("hlList", hlList);
 		
 		return "product/result_mortgage_loan";
+	}
+	
+	@ResponseBody
+	@RequestMapping("/favorite_HomeLoan")
+	public String favorite_HomeLoan(Authentication auth
+									, @RequestParam(value="prdt_cd") String prdt_cd
+									, @RequestParam(value="kind") String prdt_kind
+									, @RequestParam(value="action") String prdt_action) {
+		PrincipalDetails princ = (PrincipalDetails)auth.getPrincipal();
+		String memId = princ.getUsername();
+		
+		String result = "fail";
+		String fin_prdt_cd = prdt_cd;
+		String kind = prdt_kind;
+		String action = prdt_action;
+		
+		ArrayList<FavoriteVO> list = new ArrayList<FavoriteVO>();
+		list = listService.selectFavList(kind, fin_prdt_cd, memId);
+		if(action.equals("add")) {
+			if(list.size() > 0) {
+				result = "exist";
+			} else {
+				listService.insertFavList(kind, fin_prdt_cd, memId);
+				result = "success";
+			}
+		} else if(action.equals("delete")) {
+			listService.deleteFavList(kind, fin_prdt_cd, memId);
+		}
+		System.out.println("입력 코드 : "+fin_prdt_cd);
+		return result;
 	}
 	
 	// 전세자금
@@ -215,9 +250,60 @@ public class ListLoanController {
 		return "product/result_credit_loan";
 	}
 
-	// 대출상품 비교
+	
 	@RequestMapping("/compareLoan")
-	public String compare_loan() {
+	public String compareLoan(Model model) {
+		model.addAttribute("hcList", hcList);
+//		for(int i=0; i<hcList.size(); i++) {
+//			System.out.println(i);
+//		}
+		return "product/compare_loan";
+	}
+	
+	// 주택담보 상품 비교
+	
+	ArrayList<HomeLoanListVO> hcList = new ArrayList<HomeLoanListVO>();
+	@RequestMapping("/compare_HomeLoan")
+	public String compare_HomeLoan(@RequestParam(value="arr_prdt_compare") ArrayList<String> arr_prdt_index
+									,Model model) {
+		ArrayList<HomeLoanListVO> hlList = listService.listAllHomeLoan();
+		if(hcList.size()>0)
+			hcList.clear();
+		
+		HomeLoanListVO vo;
+		
+		for(int i=0; i<hlList.size(); i++) {
+			vo = hlList.get(i);
+			for(int j=1; j<arr_prdt_index.size(); j++) {
+				if(String.valueOf(vo.getoIndex()).equals(arr_prdt_index.get(j))) {
+					//System.out.println("oIndex : "+vo.getoIndex());
+					hcList.add(vo);
+					
+					//System.out.println(vo);
+					System.out.println(vo.getFin_co_no());
+					System.out.println(vo.getJoin_way());
+					System.out.println(vo.getMrtg_type());
+				}
+			}
+		}
+		
+		
+		
+//		for(int i=0; i<arr_prdt_index.size(); i++) {
+//			System.out.println(arr_prdt_index.get(i));
+//		}
+		return "product/compare_loan";
+	}
+	
+	@RequestMapping("/delete_HomeLoan")
+	public String delete_HomeLoan(@RequestParam(value="prdt_index") String prdt_index) {
+		int index = Integer.parseInt(prdt_index);
+		HomeLoanListVO vo;
+		for(int i=0; i<hcList.size(); i++) {
+			vo = hcList.get(i);
+			if(vo.getoIndex() == index)
+				hcList.remove(i);
+		}
 		return "product/compare_loan";
 	}
 }
