@@ -11,6 +11,7 @@
 		<!-- css -->
 		<link rel="stylesheet" href="<c:url value='/css/list_mortgage_loan.css' />"/>
 		<!-- js -->
+		<script src="<c:url value='/js/result_mortgage_loan.js' />"></script>
 		<script src="<c:url value='/js/list_mortgage_loan.js' />"></script>
 		
 		<meta charset="UTF-8">
@@ -137,9 +138,11 @@
 		                           		<div class="div_btn_add">
 		                           			<div class="btn_add_compare">
 		                           				<i class="fa-solid fa-folder-plus"></i>
+		                           				<input type="hidden" value="${list.oIndex }">
 		                       				</div>
 		                       				<div class="btn_add_favorite">
 		                       					<i class="fa-solid fa-heart"></i>
+		                       					<input type="hidden" value="${list.oIndex }">
 		               						</div>
 		           						</div>
 		           						<a class="btn_prdt_info" href="<c:url value='/detailMortgageLoan/${list.oIndex}'/>">자세히 보기</a>

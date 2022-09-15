@@ -65,10 +65,16 @@
 		<result property="crdt_grad_12" column="crdt_grad_12"/>
 		<result property="crdt_grad_13" column="crdt_grad_13"/>
 	</resultMap>
+	<resultMap id="resultFavList" type="com.fit_nance.project.model.FavoriteVO">
+		<result property="kind" column="kind"/>
+		<result property="fin_prdt_cd" column="fin_prdt_cd"/>
+		<result property="memId" column="memId"/>
+	</resultMap>
 	
 	<!-- 전체 주택 담보 상품 조회 -->
 	<select id="listAllHomeLoan" resultMap="resultHLList">
-		SELECT O.oIndex, B.pIndex, O.fin_co_no, B.kor_co_nm, B.fin_prdt_nm, B.join_way, O.lend_rate_min
+		SELECT <!-- O.oIndex, B.pIndex, O.fin_co_no, B.kor_co_nm, B.fin_prdt_nm, B.join_way, O.lend_rate_min -->
+		O.oIndex, B.pIndex, O.fin_co_no, B.kor_co_nm, B.fin_prdt_cd, B.fin_prdt_nm, B.join_way, B.loan_lmt, O.mrtg_type_nm, O.rpay_type_nm, O.lend_rate_type_nm, B.loan_inci_expn, B.erly_rpay_fee, B.dly_rate, O.lend_rate_min 
 		FROM home_loan_option O INNER JOIN home_loan_base B
 		ON B.pIndex = O.pIndex
 		WHERE O.oIndex IN (SELECT max(oIndex) from home_loan_option GROUP BY pIndex)
@@ -114,7 +120,7 @@
 		WHERE O.oIndex IN (SELECT max(oIndex) from home_loan_option GROUP BY pIndex)
 		ORDER BY O.lend_rate_min
 	</select>
-	
+	<!-- <insert id="insertHomeLoanFavorite" --> 
 	
 	<!-- 전세 자금 전체 리스트 조회 -->
 	<select id="selectCharterLoanList" resultMap="resultCharterLoanList">
@@ -195,4 +201,20 @@
 		WHERE O.oIndex IN (SELECT max(oIndex) from personal_loan_option GROUP BY pIndex)
 		ORDER BY O.pIndex DESC
 	</select>
+	
+	<select id="selectFavList" resultMap="resultFavList">
+		SELECT fin_prdt_cd
+		FROM favorite
+		WHERE fin_prdt_cd=#{fin_prdt_cd} AND memId=#{memId}
+	</select>
+	
+	<insert id="insertFavList" parameterType="com.fit_nance.project.model.FavoriteVO">
+		INSERT favorite(kind, fin_prdt_cd, memId)
+		VALUES(#{kind}, #{fin_prdt_cd}, #{memId})
+	</insert>
+	
+	<delete id="deleteFavList">
+		DELETE FROM favorite
+		WHERE kind=#{kind} AND fin_prdt_cd=#{fin_prdt_cd} AND memId=#{memId}
+	</delete>
 </mapper>

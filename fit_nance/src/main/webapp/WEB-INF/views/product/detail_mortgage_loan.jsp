@@ -86,7 +86,7 @@
 	                    </div>
 	                </div>
 	            </div>
-	            <button class="btn_list_prdt" type="button"><span>목록으로 돌아가기</span></button>
+	            <button class="btn_list_mortgage" type="button"><span>목록으로 돌아가기</span></button>
 	        </div>
 	    </section>
 		

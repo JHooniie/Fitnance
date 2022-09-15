@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import com.fit_nance.project.model.CharterLoanListVO;
+import com.fit_nance.project.model.FavoriteVO;
 import com.fit_nance.project.model.HomeLoanListVO;
 import com.fit_nance.project.model.PersonalLoanListVO;
 
@@ -24,4 +25,11 @@ public interface IListLoanDAO {
 	public ArrayList<PersonalLoanListVO> selectPersonalLoanList();
 	public PersonalLoanListVO selectPersonalLoanDetail(int oIndex);
 	public ArrayList<PersonalLoanListVO> selectPersonalLoanFilter(HashMap<String, Object> map);
+	
+
+	ArrayList<FavoriteVO> selectFavList(String kind, String fin_prdt_cd, String memId);
+	void insertFavList(String kind, String fin_prdt_cd, String memId);
+	void deleteFavList(String kind, String fin_prdt_cd, String memId);
 }
+
+
