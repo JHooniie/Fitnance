@@ -15,13 +15,16 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.stereotype.Service;
 
+import com.fit_nance.project.model.APIKey;
+
 @Service
 public class ChatbotService {
 	
-	public static String main(String voiceMessage) {
-
+	public static String main(String chat) {
+		
+		APIKey key = new APIKey();
 		String apiURL = "https://7j5cwjnxf3.apigw.ntruss.com/custom/v1/7791/3812e5643fe9f2c5203f24aeb7a2416a87a4b7d5d45f4e7615d897c105ceaec5";
-		String secretKey = "ZHdQZW9rZ2R5ZU51anhZUENIYnpYY0R4cGhRdFNnU2U=";
+		String secretKey = key.getChatbotKey();
 		
         String chatbotMessage = "";
 
@@ -30,7 +33,7 @@ public class ChatbotService {
 
             URL url = new URL(apiURL);
 
-            String message = getReqMessage(voiceMessage);
+            String message = getReqMessage(chat);
             System.out.println("##" + message);
 
             String encodeBase64String = makeSignature(message, secretKey);
@@ -59,6 +62,7 @@ public class ChatbotService {
                 String decodedString;
                 while ((decodedString = in.readLine()) != null) {
                     chatbotMessage = decodedString;
+                    System.out.println(chatbotMessage);
                     //chatbotMessage = jsonToString(chatbotMessage);
                 }
                 //chatbotMessage = decodedString;
@@ -70,8 +74,9 @@ public class ChatbotService {
         } catch (Exception e) {
             System.out.println(e);
         }
-
-        return jsonToString(chatbotMessage);
+        
+        return chatbotMessage;	// JSON 형태 그대로 반환
+        //return jsonToString(chatbotMessage);
     }
 
     public static String makeSignature(String message, String secretKey) {
