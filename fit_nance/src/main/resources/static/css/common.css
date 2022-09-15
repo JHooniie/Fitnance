@@ -197,9 +197,11 @@ header.header-active{
 }
 
 #boxChatbot #resultBox{
+	display: flex;
 	height: 500px;
 	padding: 20px;
 	overflow-y: scroll;
+	flex-direction: column;
 }
 
 #boxChatbot #resultBox::-webkit-scrollbar {
@@ -247,6 +249,7 @@ span.a_title{
 	color: #222;
 	clear: both;
 	margin-bottom: 5px;
+	margin-top: 10px;
 }
 
 pre.a{
@@ -259,31 +262,35 @@ pre.a{
 	border-radius: 0 18px 18px;
 	background-color: #f6f6f6;
 	word-break: break-all;
+	white-space: break-spaces;
 }
 
 a.a_btn{
 	display: inline-block;
-	width: 250px;
-	margin-bottom: 7px;
+	width: 300px;
+	margin-bottom: 10px;
 	padding: 15px 20px;
 	border: 1px solid #1e4dfe;
 	border-radius: 10px;
 	color: #1E4DFE;
 	text-align: center;
+	cursor: pointer;
 }
 
 div.div_a{
-	display:
-	inline-block;
 	width: 300px;
 	margin-top: 7px;
+	margin-bottom: 5px;
 	border: 1px solid #EEEEEE;
 	border-radius: 10px;
-	overflow: hidden;
+	display: flex;
+	flex-direction: column;
 }
 
 img.a_img{
-	width: 300px;
+	width: 298px;
+	height: 200px;
+	border-radius: 10px 10px 0 0;
 	border-bottom: 1px solid #EEEEEE;
 }
 
@@ -323,6 +330,7 @@ span.q{
 	margin-bottom: 15px;
 	word-break: break-all;
 	color: #FFFFFF;
+	align-self: flex-end;
 }
 
 .box-remote{
