@@ -20,7 +20,6 @@ import com.fit_nance.project.model.HomeLoanListVO;
 import com.fit_nance.project.model.PersonalLoanFilterVO;
 import com.fit_nance.project.model.PersonalLoanListVO;
 import com.fit_nance.project.service.ListLoanService;
-import com.fit_nance.project.service.LoanService;
 
 @Controller
 public class ListLoanController {
@@ -257,15 +256,24 @@ public class ListLoanController {
 //		for(int i=0; i<hcList.size(); i++) {
 //			System.out.println(i);
 //		}
-		return "product/compare_loan";
+		return "product/compare_Homeloan";
 	}
 	
-	// 주택담보 상품 비교
 	
+	
+	////////////////
+	// 대출 상품 비교 //
+	////////////////
 	ArrayList<HomeLoanListVO> hcList = new ArrayList<HomeLoanListVO>();
+	ArrayList<CharterLoanListVO> ccList = new ArrayList<CharterLoanListVO>();
+	ArrayList<PersonalLoanListVO> pcList = new ArrayList<PersonalLoanListVO>();
+	
+	// 주택담보 비교
 	@RequestMapping("/compare_HomeLoan")
-	public String compare_HomeLoan(@RequestParam(value="arr_prdt_compare") ArrayList<String> arr_prdt_index
+	public String compare_HomeLoan(@RequestParam(value="comp") ArrayList<String> comparr
 									,Model model) {
+		
+		System.out.println("comp : " + comparr);
 		ArrayList<HomeLoanListVO> hlList = listService.listAllHomeLoan();
 		if(hcList.size()>0)
 			hcList.clear();
@@ -274,29 +282,22 @@ public class ListLoanController {
 		
 		for(int i=0; i<hlList.size(); i++) {
 			vo = hlList.get(i);
-			for(int j=1; j<arr_prdt_index.size(); j++) {
-				if(String.valueOf(vo.getoIndex()).equals(arr_prdt_index.get(j))) {
-					//System.out.println("oIndex : "+vo.getoIndex());
+			for(int j=1; j<comparr.size(); j++) {
+				if(String.valueOf(vo.getoIndex()).equals(comparr.get(j))) {
 					hcList.add(vo);
-					
-					//System.out.println(vo);
-					System.out.println(vo.getFin_co_no());
+					System.out.println(vo.getFin_prdt_nm());
 					System.out.println(vo.getJoin_way());
-					System.out.println(vo.getMrtg_type());
+					System.out.println(vo.getoIndex());
 				}
 			}
 		}
-		
-		
-		
-//		for(int i=0; i<arr_prdt_index.size(); i++) {
-//			System.out.println(arr_prdt_index.get(i));
-//		}
-		return "product/compare_loan";
+		return "product/compare_Homeloan";
 	}
 	
+	@ResponseBody
 	@RequestMapping("/delete_HomeLoan")
 	public String delete_HomeLoan(@RequestParam(value="prdt_index") String prdt_index) {
+		String result = "not_empty";
 		int index = Integer.parseInt(prdt_index);
 		HomeLoanListVO vo;
 		for(int i=0; i<hcList.size(); i++) {
@@ -304,6 +305,104 @@ public class ListLoanController {
 			if(vo.getoIndex() == index)
 				hcList.remove(i);
 		}
-		return "product/compare_loan";
+		
+		if(hcList.size() > 0) {
+			result = "not_empty";
+		} else {
+			result = "empty";
+		}
+		return result;
+	}
+	
+	// 전세자금 비교
+	@RequestMapping("/compare_CharterLoan")
+	public String compare_CharterLoan(@RequestParam(value="comp") ArrayList<String> comparr
+									,Model model) {
+		
+		System.out.println("comp : " + comparr);
+		ArrayList<CharterLoanListVO> hlList = listService.selectCharterLoanList();
+		if(hcList.size()>0)
+			hcList.clear();
+		
+		CharterLoanListVO vo;
+		
+		for(int i=0; i<hlList.size(); i++) {
+			vo = hlList.get(i);
+			for(int j=1; j<comparr.size(); j++) {
+				if(String.valueOf(vo.getoIndex()).equals(comparr.get(j))) {
+					ccList.add(vo);
+					System.out.println(vo.getFin_prdt_nm());
+					System.out.println(vo.getJoin_way());
+					System.out.println(vo.getoIndex());
+				}
+			}
+		}
+		return "product/compare_charterloan";
+	}
+	
+	@ResponseBody
+	@RequestMapping("/delete_CharterLoan")
+	public String delete_CharterLoan(@RequestParam(value="prdt_index") String prdt_index) {
+		String result = "not_empty";
+		int index = Integer.parseInt(prdt_index);
+		HomeLoanListVO vo;
+		for(int i=0; i<hcList.size(); i++) {
+			vo = hcList.get(i);
+			if(vo.getoIndex() == index)
+				hcList.remove(i);
+		}
+		
+		if(hcList.size() > 0) {
+			result = "not_empty";
+		} else {
+			result = "empty";
+		}
+		return result;
+	}
+	
+	// 개인신용 비교
+	@RequestMapping("/compare_PersonalLoan")
+	public String compare_PersonalLoan(@RequestParam(value="comp") ArrayList<String> comparr
+									,Model model) {
+		
+		System.out.println("comp : " + comparr);
+		ArrayList<PersonalLoanListVO> hlList = listService.selectPersonalLoanList();
+		if(hcList.size()>0)
+			hcList.clear();
+		
+		PersonalLoanListVO vo;
+		
+		for(int i=0; i<hlList.size(); i++) {
+			vo = hlList.get(i);
+			for(int j=1; j<comparr.size(); j++) {
+				if(String.valueOf(vo.getoIndex()).equals(comparr.get(j))) {
+					pcList.add(vo);
+					System.out.println(vo.getFin_prdt_nm());
+					System.out.println(vo.getJoin_way());
+					System.out.println(vo.getoIndex());
+				}
+			}
+		}
+		return "product/compare_creditloan";
+	}
+	
+	@ResponseBody
+	@RequestMapping("/delete_PersonalLoan")
+	public String delete_PersonalLoan(@RequestParam(value="prdt_index") String prdt_index) {
+		String result = "not_empty";
+		int index = Integer.parseInt(prdt_index);
+		HomeLoanListVO vo;
+		for(int i=0; i<hcList.size(); i++) {
+			vo = hcList.get(i);
+			if(vo.getoIndex() == index)
+				hcList.remove(i);
+		}
+		
+		if(hcList.size() > 0) {
+			result = "not_empty";
+		} else {
+			result = "empty";
+		}
+		return result;
 	}
 }

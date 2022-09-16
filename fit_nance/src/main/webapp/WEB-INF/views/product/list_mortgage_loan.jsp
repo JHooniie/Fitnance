@@ -11,7 +11,6 @@
 		<!-- css -->
 		<link rel="stylesheet" href="<c:url value='/css/list_mortgage_loan.css' />"/>
 		<!-- js -->
-		<script src="<c:url value='/js/result_mortgage_loan.js' />"></script>
 		<script src="<c:url value='/js/list_mortgage_loan.js' />"></script>
 		
 		<meta charset="UTF-8">
@@ -80,6 +79,11 @@
 	                        <i class="fa-solid fa-rotate-right"></i>
 	                        <span>필터 초기화</span>
 	                    </button>
+	                </div>
+	                <div>
+	                	<input class="com1" type="hidden">
+	                	<input class="com2" type="hidden">
+	                	<input class="com3" type="hidden">
 	                </div>
 	            </div>
 	            <div id="result_list_prdt" class="panel_list_prdt">

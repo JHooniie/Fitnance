@@ -88,6 +88,15 @@ table,tr,td{
     cursor: pointer;
 }
 
+.btn_delete_prdt{
+	color: #666666;
+}
+
+.fin_prdt_nm{
+	font-size: 22px;
+	font-weight: bold;
+}
+
 .panel_list_prdt .div_list_prdt .prdt_co_nm{
     width: 330px;
     height: 90px;
