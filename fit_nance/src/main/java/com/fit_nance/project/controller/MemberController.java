@@ -44,6 +44,11 @@ public class MemberController {
 
 		return "member/login";
 	}
+	
+	@RequestMapping("/login")
+	public void login() {
+
+	}
 
 	@RequestMapping("/api/rotate_captcha")
 	public String rotate_captcha(Model model) {
