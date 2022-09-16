@@ -40,7 +40,7 @@
             <c:forEach items="${installList }" var="list">
         <div class="table2">
         <table>
-        	<tr><td id="delete">삭제하기</td></tr>
+        	<tr><td id="delete"><a href="<c:url value='/compare_install_delete/${list.oIndex }'/>">삭제하기</a></td></tr>
         	<th id="name">${list.fin_prdt_nm }</th>
         	<tr><td>${list.kor_co_nm }</td></tr>
         	<tr><td>${list.join_member }</td></tr>

@@ -50,6 +50,45 @@ public class ListSavingController {
 		return "product/detail_installment"; 
 	}
 	
+	//적금 비교함 삭제
+	@RequestMapping("/compare_install_delete/{oIndex}")
+	public String compare_install_delete(@PathVariable int oIndex, Model model) {
+		for(int i =0; i<install_compare.size();i++) {
+			if(install_compare.get(i).getoIndex()==oIndex) {
+				install_compare.remove(i);
+			}
+			
+		}
+		model.addAttribute("installList", install_compare);
+		return "product/compare_installment2";
+	}
+	
+	//예금 비교함 삭제
+		@RequestMapping("/compare_deposit_delete/{oIndex}")
+		public String compare_deposit_delete(@PathVariable int oIndex, Model model) {
+			for(int i =0; i<dp_compare.size();i++) {
+				if(dp_compare.get(i).getoIndex()==oIndex) {
+					dp_compare.remove(i);
+				}
+				
+			}
+			model.addAttribute("dpList", dp_compare);
+			return "product/compare_deposit2";
+		}
+		
+		//연금 비교함 삭제
+		@RequestMapping("/compare_pension_delete/{oIndex}")
+		public String compare_pension_delete(@PathVariable int oIndex, Model model) {
+			for(int i =0; i<ps_compare.size();i++) {
+				if(ps_compare.get(i).getoIndex()==oIndex) {
+					ps_compare.remove(i);
+				}
+				
+			}
+			model.addAttribute("psList", ps_compare);
+			return "product/compare_pension2";
+		}	
+	
 	// 적금 필터링
 	@RequestMapping("/filterInstall")
 	public String filterInstall(@RequestParam(value="rsrv_type_nm") ArrayList<String> rsrv_type_nm2,
