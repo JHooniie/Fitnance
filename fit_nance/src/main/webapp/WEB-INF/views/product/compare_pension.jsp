@@ -67,7 +67,7 @@
         </c:forEach>
         </div>
         </div>
-        <div class="go-to-list"><a href="<c:url value='pension'/>">목록으로 돌아가기</a></div>
+        <div class="go-to-list"><a href="<c:url value='listPension'/>">목록으로 돌아가기</a></div>
     </div>
 		
 				<!-- bottom.jsp -->
