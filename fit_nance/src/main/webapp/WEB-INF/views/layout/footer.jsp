@@ -5,8 +5,6 @@
 <sec:authorize access="isAuthenticated()">
     <sec:authentication property="principal" var="principal" />
 </sec:authorize>
-<c:set var="username" value="${principal.username}" />
-<input type="hidden" value="${principal.username}">
 
 <!-- chatbot -->
 <div id="boxChatbot">

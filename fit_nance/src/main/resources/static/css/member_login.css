@@ -177,58 +177,62 @@ button{
     color:#666666;
 }
 
+.box-captcha-wrap{
+    
+}
+
 .box-captcha{
     position: relative;
+    display:flex;
     width:100%;
-    height: 100px;
+    padding:0;
+    border-radius:5px;
+    overflow: hidden;
     margin:15px 0 10px;
+   
+}
+
+.box-captcha-img{
+	display:inline-block;
+    height: 120px;
+    padding:0;
+}
+
+.box-captcha-img img{
+	display:block;
+    height:120px;
+    
+}
+
+#rotate-captcha{
+    display: block;
+    width:100%;
+    height:60px;
+    margin:0;
+    padding: 0 0 0 20px;
+    border:solid 1px #ddd;
+    border-radius:0;
+    background-color:#fff;
+    font-size:12px;
+    color:#222;
     text-align: left;
 }
-
-.box-captcha img{
-    width: 100%;
-    height:60px;
-    margin: 5px 0;
-    border-radius: 5px;;
-}
-
 .box-captcha #captcha_value{
-    width:85%;
-    height:30px;
-    left:0;
-
+    display: block;
+    width:100%;
+    height:60px;
     padding: 0 0 0 20px;
-    border-radius:5px;
     border:solid 1px #ddd;
     background-color:#fff;
     font-size:12px;
     color:#222;
+    text-align: left;
 }
 
 .input-user_pw-re::placeholder{
     color: #aaa;
 }
 
-.box-captcha i{
-    position: absolute;
-    bottom:0;
-    margin:3px 0;
-    font-size: 20px;
-    color:#222;
-    opacity:0.7;
-    cursor: pointer;
-
-}
-
-.box-captcha #rotate-captcha{
-    right: 8%;
-
-}
-
-.box-captcha #check-captcha{
-    right:1%;
-    
-}
 
 #main_login{
     border:none;

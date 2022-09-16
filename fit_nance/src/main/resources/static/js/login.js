@@ -1,9 +1,11 @@
-   $(document).ready(function(){
+$(document).ready(function(){
 
     //로그인 유효성 검사
     var regEmail = /^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/;
     var getCheck = RegExp(/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/);
 
+
+    captchaAjax();
 
     $('#login_form').on('submit', function(event){
         if($('#user_id').val() == ""){
@@ -27,6 +29,9 @@
             return false;
         }
         else if(regEmail.test($('#user_id').val()) && getCheck.test($('#user_pw').val())){
+            
+            check_captchaAjax();
+
             return true;
         }
     })
@@ -103,4 +108,44 @@
     });
 });
 
-    });
+
+
+    function captchaAjax(){
+
+        $.ajax({
+            type:"post",
+            url:"/api/rotate_captcha",
+            async: false,
+            success:function(result){
+                $('.box-captcha-wrap').css('display','block');
+                $('.box-captcha').html(result);
+            },
+            error:function(){
+                alert("전송 실패");
+            }		
+        }); 	// ajax 끝
+    };
+
+    function check_captchaAjax(){
+        let captcha_value = $('#captcha_value').val();
+
+        $.ajax({
+            type:"post",
+            url:"captcha",
+            data:{"captcha_value":captcha_value},
+            async: false,
+            success:function(result){
+                console.log(result);
+               if(result){
+                alert("인증되었습니다!");
+               }else{
+                alert("CAPTCHA 인증번호가 틀렸습니다. 다시 확인해주세요.")
+               }
+            },
+            error:function(){
+                alert("전송 실패");
+            }		
+        }); 	// ajax 끝
+    };
+
+});
