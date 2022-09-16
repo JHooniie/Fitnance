@@ -10,7 +10,6 @@
 	var arr_rpay_type=["rpay_type"];
 	var arr_lend_type=["lend_type"];
 	
-	//var arr_HomeLoan_favorite=["HomeLoan_favorite"];
 	var arr_prdt_compare=["prdt_compare"];
 	var prdt_cd = null;
 	var kind = null;
@@ -252,7 +251,6 @@
 		}
 	});
 	
-	
 	// 상품 비교 ajax 함수
     function compareAjax(){
     	$.ajax({
@@ -263,7 +261,7 @@
         			"comp" : comp
         	},
         	success: function(result){
-        		location.href='/compareLoan';
+        		location.href='/view_compare_homeLoan';
         		console.log("전송 완료");
             },
             error:function(request,status,error){
@@ -274,11 +272,9 @@
     
     function favoriteAjax(){
     	$.ajax({
-    		url: "favorite_HomeLoan",
+    		url: "favorite_Loan",
     		type: "post",
-    		//traditional: true,
     		data:{
-    				//arr_HomaLoan_favorite: arr_HomaLoan_favorite 
     				prdt_cd: prdt_cd,
     				kind: kind,
     				action: "add"
@@ -300,7 +296,7 @@
     
     function favoriteDelete(){
     	$.ajax({
-    		url: "favorite_HomeLoan",
+    		url: "favorite_Loan",
     		type: "post",
     		data:{
     				prdt_cd: prdt_cd,

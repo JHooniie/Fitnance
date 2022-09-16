@@ -1,32 +1,47 @@
  /**
- * list_credit_loan.js
+ * list_mortgage_loan.js
  */
  
-$(document).ready(function(){
+ $(document).ready(function(){
 	$('.input_prdt_cd').val("");
 	
 	var arr_prdt_compare=["prdt_compare"];
 	var prdt_cd = null;
 	var kind = null;
 	var action = null;
-	
+
     // 각 상품 우측 버튼 클릭 시
     {
         // 비교하기
         $('.btn_add_compare, .btn_add_compare_clicked').click(function(){
-            $(this).toggleClass('btn_add_compare btn_add_compare_clicked');
              var prdt_index = $(this).find('input').val();
+             var index = null;
             if(arr_prdt_compare.length < 4){
-            	if($(this).hasClass('btn_add_compare_clicked')){
+            	if($(this).hasClass('btn_add_compare')){
 	            	arr_prdt_compare.push(prdt_index);
+            		$(this).toggleClass('btn_add_compare btn_add_compare_clicked');
 	            }else{
-	            	var index = arr_prdt_compare.indexOf(prdt_index);
+	            	index = arr_prdt_compare.indexOf(prdt_index);
 	            	arr_prdt_compare.splice(index, 1);
+	            	$(this).toggleClass('btn_add_compare btn_add_compare_clicked');
 	            }
+	            addCompare();
             } else {
-            	alert("상품비교는 최대 3개까지 가능합니다");
-            	return false;
+	            for(var i=0; i<arr_prdt_compare.length; i++){
+	             	if(arr_prdt_compare[i] === prdt_index){
+	             		index = arr_prdt_compare.indexOf(prdt_index);	
+	             	}
+	             }
+	             if(index === null){
+	             	alert("상품비교는 최대 3개까지 가능합니다");
+	             	return false;
+	             } else {
+	             	arr_prdt_compare.splice(index, 1);
+	             	$(this).toggleClass('btn_add_compare btn_add_compare_clicked');
+	             }
+		         addCompare();
             }
+            console.log(index);
             console.log(arr_prdt_compare);
         })
         // 즐겨찾기
@@ -48,15 +63,41 @@ $(document).ready(function(){
 	$('.btn_prdt_info').click(function(){
 		$('.input_prdt_cd').val($(this).find('.prdt_cd').text());
 		var input_prdt_cd = $('.input_prdt_cd').val();
-	})
+	});
+	
+	// 상품 비교하기 클릭 시
+	$('.btn_prdt_compare').click(function(){
+		if(comp[1] === null){
+			alert("비교할 상품을 선택해주세요");
+		} else {
+			compareAjax();
+		}
+	});
+	
+	// 상품 비교 ajax 함수
+    function compareAjax(){
+    	$.ajax({
+        	url: "compare_PersonalLoan",
+        	type: "post",
+        	traditional: true,
+        	data: {
+        			"comp" : comp
+        	},
+        	success: function(result){
+        		location.href='/view_compare_personalLoan';
+        		console.log("전송 완료");
+            },
+            error:function(request,status,error){
+                console.log("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+            }
+        });
+    }
     
     function favoriteAjax(){
     	$.ajax({
-    		url: "favorite_HomeLoan",
+    		url: "favorite_Loan",
     		type: "post",
-    		//traditional: true,
     		data:{
-    				//arr_HomaLoan_favorite: arr_HomaLoan_favorite 
     				prdt_cd: prdt_cd,
     				kind: kind,
     				action: "add"
@@ -78,7 +119,7 @@ $(document).ready(function(){
     
     function favoriteDelete(){
     	$.ajax({
-    		url: "favorite_HomeLoan",
+    		url: "favorite_Loan",
     		type: "post",
     		data:{
     				prdt_cd: prdt_cd,
@@ -93,9 +134,27 @@ $(document).ready(function(){
             }
         });
     }
+    
+   	var comp = ['comp'];
+    
+    function addCompare(){
+    	$('.com1').val(arr_prdt_compare[1]);
+    	$('.com2').val(arr_prdt_compare[2]);
+    	$('.com3').val(arr_prdt_compare[3]);
+    	comp = ['comp'];
+    	if($('.com1').val().length>0){
+    		comp.push($('.com1').val());
+    	}
+    	if($('.com2').val().length>0){
+    		comp.push($('.com2').val());
+    	}
+    	if($('.com3').val().length>0){
+    		comp.push($('.com3').val());
+    	}
+    	console.log(comp);
+    }
+    
 });  
    
-
- 
 
  

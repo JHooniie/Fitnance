@@ -8,9 +8,9 @@
 		<!-- head -->
 		<c:import url="/WEB-INF/views/layout/head.jsp" />
 		<!-- css -->
-		<link rel="stylesheet" href="<c:url value='/css/compare_Homeloan.css' />"/>
+		<link rel="stylesheet" href="<c:url value='/css/compare_loan.css' />"/>
 		<!-- js -->
-		<script src="<c:url value='/js/compare_Homeloan.js' />"></script>
+		<script src="<c:url value='/js/compare_credit_loan.js' />"></script>
 	</head>
 	<body>
 		<!-- top.jsp -->
@@ -20,7 +20,7 @@
 	        <div class="div_background">
 	            <div class="div_background_top">
 	                <span class="background_title_main">
-	                    주택 담보 대출 상품 비교함
+	                    개인 신용 대출 상품 비교함
 	                </span>
 	            </div>
 	            <div class="div_background_bottom"></div>
@@ -36,25 +36,19 @@
 	                    		<td class="title">가입 은행</td>
 	                    	</tr>
 	                    	<tr>
-	                    		<td class="title">대출 금리유형</td>
-	                    	</tr>
-	                    	<tr>
-	                    		<td class="title">대출 한도</td>
+	                    		<td class="title">대출 종류</td>
 	                    	</tr>
 	                    	<tr>
 	                    		<td class="title">가입 방법</td>
 	                    	</tr>
 	                    	<tr>
-	                    		<td class="title">이자율</td>
-	                    	</tr>
-	                    	<tr>
-	                    		<td class="title inci_expn">대출 부대비용</td>
+	                    		<td class="title">평균 금리</td>
 	                    	</tr>
 	                    </table>
-	                    <c:forEach items="${hcList }" var="list">
+	                    <c:forEach items="${pcList }" var="list">
 	                    	<table>
 	                    		<tr class="delete_prdt">
-	                    			<td><span class="btn_delete_prdt">삭제하기</span><span style="display:none;">${list.oIndex }</span></td>
+	                    			<td class="btn_delete_prdt"><span>삭제하기</span><span style="display:none;" class="prdt_index">${list.oIndex }</span></td>
 	                    		</tr>
 		                    	<tr>
 		                    		<td class="content"><span class="fin_prdt_nm">${list.fin_prdt_nm }</span></td>
@@ -63,19 +57,13 @@
 	                    			<td class="content">${list.kor_co_nm }</td>
 	                    		</tr>
 		                    	<tr>
-		                    		<td class="content">${list.rpay_type_nm }</td>
-		                    	</tr>
-		                    	<tr>
-		                    		<td class="content">${list.loan_lmt }</td>
+		                    		<td class="content">${list.crdt_prdt_type_nm }</td>
 		                    	</tr>
 		                    	<tr>
 		                    		<td class="content">${list.join_way }</td>
 		                    	</tr>
 		                    	<tr>
-		                    		<td class="content">${list.lend_rate_min }%</td>
-		                    	</tr>
-		                    	<tr>
-		                    		<td class="content inci_expn">${list.loan_inci_expn }</td>
+		                    		<td class="content">${list.crdt_grad_avg }%</td>
 		                    	</tr>
 		                    </table>
 	                    </c:forEach>
