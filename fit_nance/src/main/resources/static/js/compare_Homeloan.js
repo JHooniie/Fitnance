@@ -3,7 +3,7 @@
  */
 $(document).ready(function(){
 	var prdt_index;
- 	// 상품 비교하기 클릭 시
+ 	// 상품 삭제하기 클릭 시
 	$('.delete_prdt').click(function(){
 		prdt_index = $(this).find('span').text();
 		var result = confirm('해당 상품을 삭제하시겠습니까?');
@@ -28,8 +28,14 @@ $(document).ready(function(){
         			prdt_index: prdt_index
         	},
         	success: function(result){
-        		location.href='/compareLoan';
-        		console.log("전송 완료");
+        		if(result == "not_empty"){
+	        		location.href='/compareLoan';
+	        		console.log("전송 완료");
+        		} else {
+        			alert("상품이 없습니다");
+        			location.href='/listMortgageLoan';
+        		}
+        		
             },
             error:function(request,status,error){
                 console.log("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);

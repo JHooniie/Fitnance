@@ -54,10 +54,10 @@
 	                    <c:forEach items="${hcList }" var="list">
 	                    	<table>
 	                    		<tr class="delete_prdt">
-	                    			<td><span class="btn_delete_prdt">삭제하기</span><span style="display:none;">${list.oIndex }</span></td>
+	                    			<td>삭제하기<span style="display:none;">${list.oIndex }</span></td>
 	                    		</tr>
 		                    	<tr>
-		                    		<td class="content"><span class="fin_prdt_nm">${list.fin_prdt_nm }</span></td>
+		                    		<td class="content">${list.fin_prdt_nm }</td>
 		                    	</tr>
 	                    		<tr>
 	                    			<td class="content">${list.kor_co_nm }</td>

@@ -13,7 +13,7 @@ public class PersonalLoanListVO {
 	private int oIndex;
 	private String crdt_lend_rate_type;
 	private String crdt_lend_rate_type_nm;
-    private double crdt_grad_1;
+    private double crdt_grad_1; 
 	private double crdt_grad_4;
 	private double crdt_grad_5;
 	private double crdt_grad_6;
