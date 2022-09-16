@@ -4,36 +4,33 @@
 $(document).ready(function(){
 	var prdt_index;
  	// 상품 삭제하기 클릭 시
-	$('.delete_prdt').click(function(){
-		prdt_index = $(this).find('span').text();
+	$('.btn_delete_prdt').click(function(){
+		prdt_index = $(this).find('.prdt_index').text();
 		var result = confirm('해당 상품을 삭제하시겠습니까?');
 		if(result)
 			deleteAjax();
-		
-		//var input_prdt_cd = $('.input_prdt_cd').val();
-		
 	});
 	
 	// 목록으로 돌아가기 버튼 클릭 시
 	$('.btn_list_prdt').click(function(){
-		location.href='/listMortgageLoan';
+		location.href='/listCreditLoan';
 	});
 	
 	// 상품 삭제 ajax 함수
     function deleteAjax(){
     	$.ajax({
-        	url: "delete_HomeLoan",
+        	url: "delete_PersonalLoan",
         	type: "post",
         	data: {
         			prdt_index: prdt_index
         	},
         	success: function(result){
         		if(result == "not_empty"){
-	        		location.href='/compareLoan';
+	        		location.href='/view_compare_personalLoan';
 	        		console.log("전송 완료");
         		} else {
         			alert("상품이 없습니다");
-        			location.href='/listMortgageLoan';
+        			location.href='/listCreditLoan';
         		}
         		
             },
