@@ -41,15 +41,15 @@
                         <div class="box-update-profile-basic">
                             <label for="input-update-profile-Email"><span class="span-update span-update-profile-Email">이메일</span></label>
                             <input type="text" id="input-update-profile-Email" name="memId" value="${principal.username}" readonly>
-                            <c:if test="${provider eq null}"> 
+                            <c:if test="${provider ne 'naver'}"> 
 	                            <span class="span-update span-update-profile-Email">비밀번호</span>
 	                            <div class="a-update-profile-password"><a href="<c:url value='/update-password'/>">비밀번호 변경하기</a></div>
 	                        </c:if>
                             <label for="input-update-profile-name"><span class="span-update span-update-profile-name">이름</span>
-                            <c:if test="${provider ne null}"> 
+                            <c:if test="${provider eq 'naver'}"> 
                             <input type="text" id="input-update-profile-name" name="memName" value="${principal.name}" readonly>
                             </c:if>
-                            <c:if test="${provider eq null}"> 
+                            <c:if test="${provider ne 'naver'}"> 
                             <input type="text" id="input-update-profile-name" name="memName" value="${principal.name}">
                             </c:if>
                             </label>
