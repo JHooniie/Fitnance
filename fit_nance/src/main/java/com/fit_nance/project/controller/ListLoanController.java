@@ -101,36 +101,6 @@ public class ListLoanController {
 		return "product/result_mortgage_loan";
 	}
 	
-	@ResponseBody
-	@RequestMapping("/favorite_HomeLoan")
-	public String favorite_HomeLoan(Authentication auth
-									, @RequestParam(value="prdt_cd") String prdt_cd
-									, @RequestParam(value="kind") String prdt_kind
-									, @RequestParam(value="action") String prdt_action) {
-		PrincipalDetails princ = (PrincipalDetails)auth.getPrincipal();
-		String memId = princ.getUsername();
-		
-		String result = "fail";
-		String fin_prdt_cd = prdt_cd;
-		String kind = prdt_kind;
-		String action = prdt_action;
-		
-		ArrayList<FavoriteVO> list = new ArrayList<FavoriteVO>();
-		list = listService.selectFavList(kind, fin_prdt_cd, memId);
-		if(action.equals("add")) {
-			if(list.size() > 0) {
-				result = "exist";
-			} else {
-				listService.insertFavList(kind, fin_prdt_cd, memId);
-				result = "success";
-			}
-		} else if(action.equals("delete")) {
-			listService.deleteFavList(kind, fin_prdt_cd, memId);
-		}
-		System.out.println("입력 코드 : "+fin_prdt_cd);
-		return result;
-	}
-	
 	// 전세자금
 	// 전체 리스트 조회
 	@RequestMapping("/listCharterLoan")
@@ -250,25 +220,21 @@ public class ListLoanController {
 	}
 
 	
-	@RequestMapping("/compareLoan")
-	public String compareLoan(Model model) {
-		model.addAttribute("hcList", hcList);
-//		for(int i=0; i<hcList.size(); i++) {
-//			System.out.println(i);
-//		}
-		return "product/compare_Homeloan";
-	}
-	
-	
-	
 	////////////////
 	// 대출 상품 비교 //
 	////////////////
 	ArrayList<HomeLoanListVO> hcList = new ArrayList<HomeLoanListVO>();
 	ArrayList<CharterLoanListVO> ccList = new ArrayList<CharterLoanListVO>();
 	ArrayList<PersonalLoanListVO> pcList = new ArrayList<PersonalLoanListVO>();
-	
+
 	// 주택담보 비교
+	@RequestMapping("/view_compare_homeLoan")
+	public String view_compare_homeLoan(Model model) {
+		model.addAttribute("hcList", hcList);
+		
+		return "product/compare_home_loan";
+	}
+	
 	@RequestMapping("/compare_HomeLoan")
 	public String compare_HomeLoan(@RequestParam(value="comp") ArrayList<String> comparr
 									,Model model) {
@@ -291,7 +257,7 @@ public class ListLoanController {
 				}
 			}
 		}
-		return "product/compare_Homeloan";
+		return "product/compare_home_loan";
 	}
 	
 	@ResponseBody
@@ -315,19 +281,26 @@ public class ListLoanController {
 	}
 	
 	// 전세자금 비교
+	@RequestMapping("/view_compare_chartereLoan")
+	public String view_compare_charterLoan(Model model) {
+		model.addAttribute("ccList", ccList);
+		
+		return "product/compare_charter_loan";
+	}
+	
 	@RequestMapping("/compare_CharterLoan")
 	public String compare_CharterLoan(@RequestParam(value="comp") ArrayList<String> comparr
 									,Model model) {
 		
 		System.out.println("comp : " + comparr);
-		ArrayList<CharterLoanListVO> hlList = listService.selectCharterLoanList();
-		if(hcList.size()>0)
-			hcList.clear();
+		ArrayList<CharterLoanListVO> clList = listService.selectCharterLoanList();
+		if(ccList.size()>0)
+			ccList.clear();
 		
 		CharterLoanListVO vo;
 		
-		for(int i=0; i<hlList.size(); i++) {
-			vo = hlList.get(i);
+		for(int i=0; i<clList.size(); i++) {
+			vo = clList.get(i);
 			for(int j=1; j<comparr.size(); j++) {
 				if(String.valueOf(vo.getoIndex()).equals(comparr.get(j))) {
 					ccList.add(vo);
@@ -337,7 +310,7 @@ public class ListLoanController {
 				}
 			}
 		}
-		return "product/compare_charterloan";
+		return "product/compare_charter_loan";
 	}
 	
 	@ResponseBody
@@ -345,14 +318,14 @@ public class ListLoanController {
 	public String delete_CharterLoan(@RequestParam(value="prdt_index") String prdt_index) {
 		String result = "not_empty";
 		int index = Integer.parseInt(prdt_index);
-		HomeLoanListVO vo;
-		for(int i=0; i<hcList.size(); i++) {
-			vo = hcList.get(i);
+		CharterLoanListVO vo;
+		for(int i=0; i<ccList.size(); i++) {
+			vo = ccList.get(i);
 			if(vo.getoIndex() == index)
-				hcList.remove(i);
+				ccList.remove(i);
 		}
 		
-		if(hcList.size() > 0) {
+		if(ccList.size() > 0) {
 			result = "not_empty";
 		} else {
 			result = "empty";
@@ -361,19 +334,26 @@ public class ListLoanController {
 	}
 	
 	// 개인신용 비교
+	@RequestMapping("/view_compare_personalLoan")
+	public String view_compare_personalLoan(Model model) {
+		model.addAttribute("pcList", pcList);
+		
+		return "product/compare_credit_loan";
+	}
+	
 	@RequestMapping("/compare_PersonalLoan")
 	public String compare_PersonalLoan(@RequestParam(value="comp") ArrayList<String> comparr
 									,Model model) {
 		
 		System.out.println("comp : " + comparr);
-		ArrayList<PersonalLoanListVO> hlList = listService.selectPersonalLoanList();
-		if(hcList.size()>0)
-			hcList.clear();
+		ArrayList<PersonalLoanListVO> plList = listService.selectPersonalLoanList();
+		if(pcList.size()>0)
+			pcList.clear();
 		
 		PersonalLoanListVO vo;
 		
-		for(int i=0; i<hlList.size(); i++) {
-			vo = hlList.get(i);
+		for(int i=0; i<plList.size(); i++) {
+			vo = plList.get(i);
 			for(int j=1; j<comparr.size(); j++) {
 				if(String.valueOf(vo.getoIndex()).equals(comparr.get(j))) {
 					pcList.add(vo);
@@ -383,7 +363,7 @@ public class ListLoanController {
 				}
 			}
 		}
-		return "product/compare_creditloan";
+		return "product/compare_credit_loan";
 	}
 	
 	@ResponseBody
@@ -391,18 +371,49 @@ public class ListLoanController {
 	public String delete_PersonalLoan(@RequestParam(value="prdt_index") String prdt_index) {
 		String result = "not_empty";
 		int index = Integer.parseInt(prdt_index);
-		HomeLoanListVO vo;
-		for(int i=0; i<hcList.size(); i++) {
-			vo = hcList.get(i);
+		PersonalLoanListVO vo;
+		for(int i=0; i<pcList.size(); i++) {
+			vo = pcList.get(i);
 			if(vo.getoIndex() == index)
-				hcList.remove(i);
+				pcList.remove(i);
 		}
 		
-		if(hcList.size() > 0) {
+		if(pcList.size() > 0) {
 			result = "not_empty";
 		} else {
 			result = "empty";
 		}
+		return result;
+	}
+	
+
+	@ResponseBody
+	@RequestMapping("/favorite_Loan")
+	public String favorite_Loan(Authentication auth
+									, @RequestParam(value="prdt_cd") String prdt_cd
+									, @RequestParam(value="kind") String prdt_kind
+									, @RequestParam(value="action") String prdt_action) {
+		PrincipalDetails princ = (PrincipalDetails)auth.getPrincipal();
+		String memId = princ.getUsername();
+		
+		String result = "fail";
+		String fin_prdt_cd = prdt_cd;
+		String kind = prdt_kind;
+		String action = prdt_action;
+		
+		ArrayList<FavoriteVO> list = new ArrayList<FavoriteVO>();
+		list = listService.selectFavList(kind, fin_prdt_cd, memId);
+		if(action.equals("add")) {
+			if(list.size() > 0) {
+				result = "exist";
+			} else {
+				listService.insertFavList(kind, fin_prdt_cd, memId);
+				result = "success";
+			}
+		} else if(action.equals("delete")) {
+			listService.deleteFavList(kind, fin_prdt_cd, memId);
+		}
+		System.out.println("입력 코드 : "+fin_prdt_cd);
 		return result;
 	}
 }

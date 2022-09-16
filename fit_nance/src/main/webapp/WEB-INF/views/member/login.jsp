@@ -30,11 +30,8 @@
                                 <label class="rem_Email_Box"><input type="checkbox" name="rem_Email" id="rem_Email_checkBox" value="rem_Email">이메일 기억하기</label>
                                 <a href="#" class="find_password text-end">비밀번호 찾기</a>
                             </div>
-                            <div class="box-captcha">
-                            <img src="<c:url value='/images/captcha/${captcha_img}'/>">
-                            <input type="text" id="captcha_value" name="captcha_value" placeholder="CAPTCHA 인증을 해주세요">
-                           	<i id="rotate-captcha" class="fa-solid fa-rotate-right"></i>
-                            <i id="check-captcha" class="fa-solid fa-check button-captcha"></i>
+                            <div class="box-captcha box-captcha-wrap">
+                            	
                             </div>
                             <button id="main_login" type="submit"><span class="btn-span">로그인</span></button>
                         </form>

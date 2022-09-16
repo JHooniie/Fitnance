@@ -88,7 +88,7 @@ table,tr,td{
     cursor: pointer;
 }
 
-.btn_delete_prdt{
+.btn_delete_prdt span{
 	color: #666666;
 }
 

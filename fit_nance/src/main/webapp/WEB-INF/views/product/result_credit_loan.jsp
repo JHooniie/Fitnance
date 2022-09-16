@@ -5,6 +5,12 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <!DOCTYPE html>
 <html>
+	<head> 
+		<!-- js -->
+		<script src="<c:url value='/js/result_credit_loan.js' />"></script>
+		
+		<meta charset="UTF-8">
+	</head>
 	<body>
 		<c:choose>
 		<c:when test="${empty clList}">
@@ -80,14 +86,16 @@
 	                     </div>
 	                     <div class="div_btn_prdt">
 	                         <div class="div_btn_add">
-                                    <div class="btn_add_compare">
-                                    	<i class="fa-solid fa-folder-plus"></i>
-                                    </div>
-                                    <div class="btn_add_favorite">
-                                        <i class="fa-solid fa-heart"></i>
-                                    </div>
-                                </div>
-	                         <a class="btn_prdt_info" href="<c:url value='/detailCreditLoan/${list.oIndex}'/>">자세히 보기</a>
+                       			<div class="btn_add_compare">
+                       				<i class="fa-solid fa-folder-plus"></i>
+                       				<input type="hidden" value="${list.oIndex }">
+                   				</div>
+                   				<div class="btn_add_favorite">
+                   					<i class="fa-solid fa-heart"></i>
+                   					<input type="hidden" value="${list.oIndex }">
+           						</div>
+	           				</div>
+	                        <a class="btn_prdt_info" href="<c:url value='/detailCreditLoan/${list.oIndex}'/>">자세히 보기</a>
 	                     </div>
 	                 </div>
 	                 <!-- 검색 결과 상품 - 끝 -->

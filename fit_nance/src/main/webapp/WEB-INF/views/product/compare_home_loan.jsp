@@ -8,9 +8,9 @@
 		<!-- head -->
 		<c:import url="/WEB-INF/views/layout/head.jsp" />
 		<!-- css -->
-		<link rel="stylesheet" href="<c:url value='/css/compare_Homeloan.css' />"/>
+		<link rel="stylesheet" href="<c:url value='/css/compare_loan.css' />"/>
 		<!-- js -->
-		<script src="<c:url value='/js/compare_Homeloan.js' />"></script>
+		<script src="<c:url value='/js/compare_home_loan.js' />"></script>
 	</head>
 	<body>
 		<!-- top.jsp -->
@@ -54,10 +54,10 @@
 	                    <c:forEach items="${hcList }" var="list">
 	                    	<table>
 	                    		<tr class="delete_prdt">
-	                    			<td>삭제하기<span style="display:none;">${list.oIndex }</span></td>
+	                    			<td class="btn_delete_prdt"><span>삭제하기</span><span class="prdt_index" style="display:none;">${list.oIndex }</span></td>
 	                    		</tr>
 		                    	<tr>
-		                    		<td class="content">${list.fin_prdt_nm }</td>
+		                    		<td class="content"><span class="fin_prdt_nm">${list.fin_prdt_nm }</span></td>
 		                    	</tr>
 	                    		<tr>
 	                    			<td class="content">${list.kor_co_nm }</td>
