@@ -395,6 +395,16 @@ $(document).ready(function(){
         }
     });
 
+    $('#btn-user_bank').click(function(){
+
+        if($("input[name='memGender']:checked").val() !== null){
+            $('#btn-more-information-finish').prop('disabled',false);
+
+        }else{
+            $('#btn-more-information-finish').prop('disabled',true);
+        }
+    });
+
 
     //은행 선택 color 지정
     $('#select-user_bank').css('color','#aaa');
