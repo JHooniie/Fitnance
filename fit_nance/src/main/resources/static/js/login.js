@@ -133,18 +133,33 @@ $(document).ready(function(){
             type:"post",
             url:"captcha",
             data:{"captcha_value":captcha_value},
-            async: false,
             success:function(result){
                 console.log(result);
                if(result){
                 alert("인증되었습니다!");
+                loginAjax();
+                
                }else{
                 alert("CAPTCHA 인증번호가 틀렸습니다. 다시 확인해주세요.")
                }
             },
             error:function(){
-                alert("전송 실패");
+                alert("captcha 전송 실패");
+                location.href="redirect:/loginForm";
             }		
+        }); 	// ajax 끝
+    };
+
+    function loginAjax(){
+        let memId = $('#user_id').val();
+        let memPwd = $('#user_pw').val()
+
+        $.ajax({
+            type:"post",
+            url:"login",
+            data:{"memId":memId,
+                  "memPwd":memPwd }
+            
         }); 	// ajax 끝
     };
 
