@@ -35,7 +35,7 @@ public class MailController {
 	}
 	
 	@ResponseBody
-	@RequestMapping("/Email")
+	@RequestMapping("/api/sendEmail")
 	public String sendEmail(@RequestParam("memId") String memId, HttpServletRequest rq, HttpServletResponse rs, Model model) throws Exception{
 		rq.setCharacterEncoding("utf-8");
 		rs.setContentType("text/html;charset=utf-8");
