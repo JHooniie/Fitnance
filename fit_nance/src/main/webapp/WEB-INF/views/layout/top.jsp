@@ -33,7 +33,7 @@
 	                        </a>
                         </sec:authorize>
                         <sec:authorize access="hasAnyRole('ROLE_USER')">
-	                        <a class="btn-login" href="<c:url value='/mypage'/>">
+	                        <a class="btn-login" href="<c:url value='user/mypage'/>">
 	                        	<i class="fa-solid fa-user"></i>
 	                        </a>
                         </sec:authorize>

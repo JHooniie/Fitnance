@@ -31,7 +31,15 @@
                                 <a href="#" class="find_password text-end">비밀번호 찾기</a>
                             </div>
                             <div class="box-captcha box-captcha-wrap">
-                            	
+                            	<div class="box-captcha">
+									<div class="box-captcha-img">
+										<img src="<c:url value='/images/captcha/${captcha_img}'/>">
+									</div>
+									<div>
+										<button id="rotate-captcha" type="button"><i class="fa-solid fa-rotate-right"></i><span> 새로고침</span></button>
+										<input type="text" id="captcha_value" name="captcha_value" placeholder="CAPTCHA 인증을 해주세요">
+									</div>
+								</div>
                             </div>
                             <button id="main_login" type="submit"><span class="btn-span">로그인</span></button>
                         </form>

@@ -45,11 +45,7 @@ public class MemberController {
 		return "member/login";
 	}
 	
-	@RequestMapping("/login")
-	public void login() {
-
-	}
-
+	
 	@RequestMapping("/api/rotate_captcha")
 	public String rotate_captcha(Model model) {
 
@@ -114,7 +110,7 @@ public class MemberController {
 	}
 
 	// 마이페이지 폼 이동
-	@RequestMapping("/mypage")
+	@RequestMapping("user/mypage")
 	public String mypageForm() {
 
 		return "member/myPage";
@@ -239,15 +235,14 @@ public class MemberController {
 
 	@ResponseBody
 	@RequestMapping("/test/login")
-	public String testLogin(Authentication authentication, @AuthenticationPrincipal UserDetails userDetails,
-			MemberVO vo) {
-		PrincipalDetails principalDetails = (PrincipalDetails) authentication.getPrincipal();
+	public String testLogin(Authentication authentication, @AuthenticationPrincipal MemberVO vo) {
+		//PrincipalDetails principalDetails = (PrincipalDetails) authentication.getPrincipal();
 
-		principalDetails.setVo(vo);
-		System.out.println("authentication : " + principalDetails.getProvider());
-		System.out.println("authentication : " + principalDetails.getMemBirth());
-		System.out.println("authentication : " + principalDetails.getAttributes());
-		System.out.println("UserDetails : " + userDetails);
+//		principalDetails.setVo(vo);
+//		System.out.println("authentication : " + principalDetails.getProvider());
+//		System.out.println("authentication : " + principalDetails.getMemBirth());
+//		System.out.println("authentication : " + principalDetails.getAttributes());
+		System.out.println("UserDetails : " + vo.getMemId());
 		return "세션 정보 확인";
 	}
 

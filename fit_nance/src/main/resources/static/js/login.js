@@ -5,7 +5,7 @@ $(document).ready(function(){
     var getCheck = RegExp(/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/);
 
 
-    captchaAjax();
+
 
     $('#login_form').on('submit', function(event){
         if($('#user_id').val() == ""){
@@ -29,10 +29,13 @@ $(document).ready(function(){
             return false;
         }
         else if(regEmail.test($('#user_id').val()) && getCheck.test($('#user_pw').val())){
-            
-            check_captchaAjax();
 
-            return true;
+            if($('#captcha_value') == ''){
+                alert("인증번호를 입력해주세요")
+                return false;
+            }
+
+            
         }
     })
 
@@ -110,21 +113,21 @@ $(document).ready(function(){
 
 
 
-    function captchaAjax(){
+    // function captchaAjax(){
 
-        $.ajax({
-            type:"post",
-            url:"/api/rotate_captcha",
-            async: false,
-            success:function(result){
-                $('.box-captcha-wrap').css('display','block');
-                $('.box-captcha').html(result);
-            },
-            error:function(){
-                alert("전송 실패");
-            }		
-        }); 	// ajax 끝
-    };
+    //     $.ajax({
+    //         type:"post",
+    //         url:"/api/rotate_captcha",
+    //         async: false,
+    //         success:function(result){
+    //             $('.box-captcha-wrap').css('display','block');
+    //             $('.box-captcha').html(result);
+    //         },
+    //         error:function(){
+    //             alert("전송 실패");
+    //         }		
+    //     }); 	// ajax 끝
+    // };
 
     function check_captchaAjax(){
         let captcha_value = $('#captcha_value').val();
@@ -133,22 +136,36 @@ $(document).ready(function(){
             type:"post",
             url:"captcha",
             data:{"captcha_value":captcha_value},
+            async: false,
             success:function(result){
                 console.log(result);
                if(result){
                 alert("인증되었습니다!");
-                loginAjax();
+                
                 
                }else{
-                alert("CAPTCHA 인증번호가 틀렸습니다. 다시 확인해주세요.")
+                return result;
+                error = true;
+                console.log("실패ajax");
+                location.href="redirect:/loginForm";
                }
             },
             error:function(){
                 alert("captcha 전송 실패");
-                location.href="redirect:/loginForm";
-            }		
+                
+            }	
         }); 	// ajax 끝
+        return value.responseText; 
+        console.log("실패");
     };
+
+    // if(error){
+    //     return false;
+    //     console.log("실패");
+    //     alert("CAPTCHA 인증번호가 틀렸습니다. 다시 확인해주세요.")
+    // }else{
+    //     loginAjax();
+    // }
 
     function loginAjax(){
         let memId = $('#user_id').val();
