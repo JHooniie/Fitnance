@@ -49,9 +49,9 @@
 	                                            </td>
 	                                        </tr>
 	                                    </table>
-	                                    <input type="hidden" name="FAQIndex" value="${a.qIndex}">
+	                                    <input type="hidden" name="qIndex" value="${a.qIndex}">
 	                                    <div class="box-btn">
-	                                        <button type="reset" class="btn btn-outline-secondary">취소하기</button>
+	                                        <button class="btn btn-outline-secondary" onclick="location.href ='/admin/qna'">취소하기</button>
 	                                        <button type="submit" class="btn btn-primary">수정하기</button>
 	                                    </div>
 	                                </form>
