@@ -84,8 +84,8 @@
 	</delete>
 	
 	<insert id="insertdummy" parameterType="com.fit_nance.project.model.DummyVO">
-		INSERT INTO test(user_id, ages, gender, timestamp)
-		VALUES (#{user_id}, #{ages}, #{gender}, #{timestamp})
+		INSERT INTO test(user_id, ages, gender, item_id)
+		VALUES (#{user_id}, #{ages}, #{gender}, #{item_id})
 	</insert>
 	<insert id="insertdummy2" parameterType="com.fit_nance.project.model.DummyVO">
 		INSERT INTO test2 (user_id, item_id, timestamp, rating )
