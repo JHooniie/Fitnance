@@ -51,6 +51,13 @@ public class MemberService implements IMemberService {
 		
 	}
 
+	//마이페이지 즐겨찾기 불러오기
+	@Override
+	public MemberVO detailMemInfo(String memId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
 	//회원 정보 불러오기
 	@Override
 	public MemberVO detailViewMemInfo(String memId) {
@@ -188,4 +195,6 @@ public class MemberService implements IMemberService {
 		
 		
 }
+
+	
 }

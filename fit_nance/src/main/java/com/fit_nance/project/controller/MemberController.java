@@ -1,20 +1,14 @@
 package com.fit_nance.project.controller;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
-
-import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -49,27 +43,6 @@ public class MemberController {
 		
 		return "member/login";
 	}
-	
-	@ResponseBody
-	@RequestMapping("/api/rotate_captcha")
-	public String rotate_captcha() {
-
-		String captcha_key = captcha.getCaptcha_key();
-
-		String captcha_img = captcha.captchaImage(captcha_key);
-		//model.addAttribute("captcha_img", captcha_img);
-
-		return captcha_img;
-	}
-
-	@ResponseBody
-	@RequestMapping("/captcha")
-	public Boolean captcha2(@RequestParam("captcha_value") String captcha_value) {
-		Boolean result = captcha.captchaResult(captcha_value);
-		System.out.println(result);
-		
-		return result;
-	}
 
 	// 회원가입 폼 이동
 	@RequestMapping("/signupForm")
@@ -80,14 +53,14 @@ public class MemberController {
 		return "member/signup";
 	}
 
-	// 인증 이메일 전송
-	@RequestMapping("/email")
-	public String email(Model model) {
-		ArrayList<BankVO> bankList = memService.listAllBank();
-		model.addAttribute("bankList", bankList);
-
-		return "member/signup";
-	}
+//	// 인증 이메일 전송
+//	@RequestMapping("/email")
+//	public String email(Model model) {
+//		ArrayList<BankVO> bankList = memService.listAllBank();
+//		model.addAttribute("bankList", bankList);
+//
+//		return "member/signup";
+//	}
 
 	// 회원가입
 	@RequestMapping("/signup")
@@ -115,9 +88,11 @@ public class MemberController {
 	}
 
 	// 마이페이지 폼 이동
-	@RequestMapping("user/mypage")
-	public String mypageForm() {
+	@RequestMapping("user/mypage/{profileId}/")
+	public String mypageForm(@PathVariable("profileId") String memId) {
 
+		MemberVO mem = memService.detailViewMemInfo(memId);
+		
 		return "member/myPage";
 
 	}

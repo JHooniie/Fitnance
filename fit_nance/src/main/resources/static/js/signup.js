@@ -54,7 +54,7 @@ $(document).ready(function(){
                 
                 $.ajax({
                     type:"post",
-                    url:"Email",
+                    url:"/api/sendEmail",
                     data:{"memId":memId},
                     dataType:"text",
                     success:function(result){

@@ -89,6 +89,7 @@
                     success:function(result){
                         if(result="success"){
                             //$('#input-update-birth').val($('#input-update-profile-birth-year').val()+$('#input-update-profile-birth-month').val()+$('#input-update-profile-birth-day').val());
+                            
                             alert("수정 성공")
                             location.href='redirect:./update_mypage'
                             location.reload();
