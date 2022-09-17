@@ -93,6 +93,16 @@ public class CaptchaService {
             int responseCode = con.getResponseCode();
             BufferedReader br;
             if(responseCode==200) { // 정상 호출
+            	String path = "C:/springWorkspace/fitnance_images/captcha";
+        		File deleteFolder = new File(path);
+        		System.out.println(path);
+        		if(deleteFolder.exists()){
+        			File[] deleteFolderList = deleteFolder.listFiles();
+        			
+        			for (int j = 0; j < deleteFolderList.length; j++) {
+        				deleteFolderList[j].delete(); 
+        			}
+        		}
                 InputStream is = con.getInputStream();
                 int read = 0;
                 byte[] bytes = new byte[1024];

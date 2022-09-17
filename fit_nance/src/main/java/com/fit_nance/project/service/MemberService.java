@@ -110,18 +110,18 @@ public class MemberService implements IMemberService {
 
 			
 			String user_id;
-			//String item_id;
+			String item_id;
 			String ages;
 			String[] str = {"남","여"};
 			//String rating;
 			
-			for(int i =0; i< 1000 ; i++) {
+			for(int i =0; i< 100 ; i++) {
 				//int num = (int)((Math.random()*8)+1);
 				
 				//for(int j=0;j<num ; j++) {
 				user_id = String.valueOf(i);
 				
-				//item_id = String.valueOf((int)(Math.random()*100));
+				item_id = String.valueOf((int)(Math.random()*64));
 				
 				ages = String.valueOf(((int)(Math.random()*5)+2)*10);
 				
@@ -138,11 +138,12 @@ public class MemberService implements IMemberService {
 				String gender = str[(int)(Math.random()*2)];
 				
 				vo.setUser_id(user_id);
-				//vo.setItem_id(item_id);
+				
 				vo.setAges(ages);
 				//vo.setRating(rating);
 				vo.setGender(gender);;
-				vo.setTimestamp(rand);
+				//vo.setTimestamp(rand);
+				vo.setItem_id(item_id);
 				dao.insertdummy(vo);
 			//}
 			}
