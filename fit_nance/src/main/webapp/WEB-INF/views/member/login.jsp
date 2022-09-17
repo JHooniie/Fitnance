@@ -37,11 +37,11 @@
 									</div>
 									<div>
 										<button id="rotate-captcha" type="button"><i class="fa-solid fa-rotate-right"></i><span> 새로고침</span></button>
-										<input type="text" id="captcha_value" name="captcha_value" placeholder="CAPTCHA 인증을 해주세요">
+										<input type="text" id="input-captcha_value" name="captcha_value" placeholder="CAPTCHA 인증을 해주세요">
 									</div>
 								</div>
                             </div>
-                            <button id="main_login" type="button"><span class="btn-span">로그인</span></button>
+                            <button id="main_login" type="submit"><span class="btn-span">로그인</span></button>
                        
                     </div>
                     <div class="email_login">
