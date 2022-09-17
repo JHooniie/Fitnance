@@ -3,11 +3,11 @@ $(document).ready(function(){
     //로그인 유효성 검사
     var regEmail = /^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/;
     var getCheck = RegExp(/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/);
+    var regcaptcha = RegExp(/^([0-9a-zA-Z])$/);
 
 
 
-
-    $('#login_form').on('submit', function(event){
+    $('#main_login').on('click', function(event){
         if($('#user_id').val() == ""){
             alert("이메일을 작성해주세요")
             return false;
@@ -29,10 +29,13 @@ $(document).ready(function(){
             return false;
         }
         else if(regEmail.test($('#user_id').val()) && getCheck.test($('#user_pw').val())){
-
-            if($('#captcha_value') == ''){
+            console.log("캡챠1");
+            if($('#input-captcha_value').val() != ''){
+                console.log("캡챠2");
                 alert("인증번호를 입력해주세요")
                 return false;
+            }else if(regcaptcha.test($('#input-captcha_value').val())){
+                check_captchaAjax();
             }
 
             

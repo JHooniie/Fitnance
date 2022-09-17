@@ -41,14 +41,15 @@
 									</div>
 								</div>
                             </div>
-                            <button id="main_login" type="submit"><span class="btn-span">로그인</span></button>
-                        </form>
+                            <button id="main_login" type="button"><span class="btn-span">로그인</span></button>
+                       
                     </div>
                     <div class="email_login">
-                        <button id="naver_login" onclick="location.href='<c:url value='/oauth2/authorization/naver'/>'"><span class="btn-span"><img src="<c:url value='/images/lg_naver.png'/>">네이버로 로그인</span></button>
-                        <button id="email_start" onclick="location.href='<c:url value='/signupForm'/>'"><span class="btn-span">이메일로 시작하기</span></button>
+                        <button id="naver_login" type="button" onclick="location.href='<c:url value='/oauth2/authorization/naver'/>'"><span class="btn-span"><img src="<c:url value='/images/lg_naver.png'/>">네이버로 로그인</span></button>
+                        <button id="email_start" type="button" onclick="location.href='<c:url value='/signupForm'/>'"><span class="btn-span">이메일로 시작하기</span></button>
                     </div>
                 </div>
+                 </form>
             </div>
         </div>
     </section>
