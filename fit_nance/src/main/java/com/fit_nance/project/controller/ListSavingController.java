@@ -11,17 +11,25 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.fit_nance.project.model.DepositFilterVO;
 import com.fit_nance.project.model.DepositListVO;
+import com.fit_nance.project.model.FavoriteVO;
 import com.fit_nance.project.model.InstallListFilterVO;
 import com.fit_nance.project.model.InstallListVO;
 import com.fit_nance.project.model.PensionFilterVO;
 import com.fit_nance.project.model.PensionListVO;
+import com.fit_nance.project.service.FavoriteService;
 import com.fit_nance.project.service.ListSavingService;
 
 @Controller
 public class ListSavingController {
+	@Autowired
+	FavoriteService fService;
 	
 	@Autowired
 	ListSavingService listService;
+	
+	ArrayList<InstallListVO> install_compare =new ArrayList<InstallListVO>();
+	ArrayList<DepositListVO> dp_compare =new ArrayList<DepositListVO>();
+	ArrayList<PensionListVO> ps_compare =new ArrayList<PensionListVO>();
 	
 	// 적금
 	// 적금 전체 리스트 조회
@@ -41,6 +49,45 @@ public class ListSavingController {
 		
 		return "product/detail_installment"; 
 	}
+	
+	//적금 비교함 삭제
+	@RequestMapping("/compare_install_delete/{oIndex}")
+	public String compare_install_delete(@PathVariable int oIndex, Model model) {
+		for(int i =0; i<install_compare.size();i++) {
+			if(install_compare.get(i).getoIndex()==oIndex) {
+				install_compare.remove(i);
+			}
+			
+		}
+		model.addAttribute("installList", install_compare);
+		return "product/compare_installment2";
+	}
+	
+	//예금 비교함 삭제
+		@RequestMapping("/compare_deposit_delete/{oIndex}")
+		public String compare_deposit_delete(@PathVariable int oIndex, Model model) {
+			for(int i =0; i<dp_compare.size();i++) {
+				if(dp_compare.get(i).getoIndex()==oIndex) {
+					dp_compare.remove(i);
+				}
+				
+			}
+			model.addAttribute("dpList", dp_compare);
+			return "product/compare_deposit2";
+		}
+		
+		//연금 비교함 삭제
+		@RequestMapping("/compare_pension_delete/{oIndex}")
+		public String compare_pension_delete(@PathVariable int oIndex, Model model) {
+			for(int i =0; i<ps_compare.size();i++) {
+				if(ps_compare.get(i).getoIndex()==oIndex) {
+					ps_compare.remove(i);
+				}
+				
+			}
+			model.addAttribute("psList", ps_compare);
+			return "product/compare_pension2";
+		}	
 	
 	// 적금 필터링
 	@RequestMapping("/filterInstall")
@@ -96,10 +143,70 @@ public class ListSavingController {
 		return "product/result_installment";
 	}
 	
+	@RequestMapping("/callInstallCompare")
+	public String callCompare(@RequestParam(value="compare") ArrayList<String> compare){
+		install_compare =new ArrayList<InstallListVO>();
+		for(int i =1; i<compare.size();i++) {
+			install_compare.add(listService.selectInstallDetail(Integer.parseInt(compare.get(i))));
+			System.out.println(install_compare.get(i-1));
+		}
+		
+		return "product/compare_installment";
+		
+	}
 	// 적금 비교함 가기
 	@RequestMapping("/compareInstall")
-	public String viewCompareInstall() {
+	public String viewCompareInstall(
+			Model model) {
+		//System.out.println(install_compare.size());
+		//for(int i =0; i<install_compare.size();i++) System.out.println(install_compare.get(i).getoIndex());
+		model.addAttribute("installList", install_compare);
+		
 		return "product/compare_installment";
+	}
+	
+	@RequestMapping("/callDepositCompare")
+	public String calldpCompare(@RequestParam(value="compare") ArrayList<String> compare){
+		dp_compare =new ArrayList<DepositListVO>();
+		for(int i =1; i<compare.size();i++) {
+			dp_compare.add(listService.selectDepositDetail(Integer.parseInt(compare.get(i))));
+			System.out.println(dp_compare.get(i-1));
+		}
+		
+		return "product/compare_deposit";
+		
+	}
+	// 적금 비교함 가기
+	@RequestMapping("/compareDeposit")
+	public String viewCompareDepsosit(
+			Model model) {
+		//System.out.println(install_compare.size());
+		//for(int i =0; i<install_compare.size();i++) System.out.println(install_compare.get(i).getoIndex());
+		model.addAttribute("dpList", dp_compare);
+		
+		return "product/compare_deposit";
+	}
+	
+	@RequestMapping("/callPensionCompare")
+	public String callpsCompare(@RequestParam(value="compare") ArrayList<String> compare){
+		ps_compare =new ArrayList<PensionListVO>();
+		for(int i =1; i<compare.size();i++) {
+			ps_compare.add(listService.selectPensionDetail(Integer.parseInt(compare.get(i))));
+			System.out.println(ps_compare.get(i-1));
+		}
+		
+		return "product/compare_pension";
+		
+	}
+	// 적금 비교함 가기
+	@RequestMapping("/comparePension")
+	public String viewComparePension(
+			Model model) {
+		//System.out.println(install_compare.size());
+		//for(int i =0; i<install_compare.size();i++) System.out.println(install_compare.get(i).getoIndex());
+		model.addAttribute("psList", ps_compare);
+		
+		return "product/compare_pension";
 	}
 	
 	
@@ -167,11 +274,6 @@ public class ListSavingController {
 		return "product/result_deposit";
 	}
 	
-	// 예금 비교함 가기
-	@RequestMapping("/compareDeposit")
-	public String viewCompareDeposit() {
-		return "product/compare_deposit";
-	}
 	
 	
 	// 연금
@@ -239,9 +341,111 @@ public class ListSavingController {
 		return "product/result_pension";
 	}
 	
-	// 연금 비교함 가기
-	@RequestMapping("/comparePension")
-	public String viewComparePension() {
-		return "product/compare_pension";
+	@RequestMapping("/searchInstall")
+	public String searchInstall(@RequestParam(value="search") String search, Model model) {
+		ArrayList<InstallListVO> installList= listService.selectInstallSearch(search);
+		
+		model.addAttribute("installList", installList);
+		
+		
+		return "product/result_installment";
+	}
+	
+	@RequestMapping("/searchDeposit")
+	public String searchDeposit(@RequestParam(value="search") String search, Model model) {
+		ArrayList<DepositListVO> dpList= listService.selectDepositSearch(search);
+		
+		model.addAttribute("dpList", dpList);
+		
+		
+		return "product/result_deposit";
+	}
+	
+	@RequestMapping("/searchPension")
+	public String searchPension(@RequestParam(value="search") String search, Model model) {
+		ArrayList<PensionListVO> psList= listService.selectPensionSearch(search);
+		
+		model.addAttribute("psList", psList);
+		
+		
+		return "product/result_pension";
+	}
+	
+	@RequestMapping("/insertInstallFavorite")
+	public String insertInstallFavorite(@RequestParam(value="favorite") String favorite) {
+		FavoriteVO vo =new FavoriteVO();
+		
+		vo.setKind("적금");
+		vo.setMemId("");
+		vo.setoIndex(favorite);
+		
+		fService.insertInstallFavorite(vo);
+		
+		return "product/list_installment";
+	}
+	
+	@RequestMapping("/deleteInstallFavorite")
+	public String deleteInstallFavorite(@RequestParam(value="favorite") String favorite) {
+		FavoriteVO vo =new FavoriteVO();
+		
+		vo.setKind("적금");
+		vo.setMemId("");
+		vo.setoIndex(favorite);
+		
+		fService.deleteInstallFavorite(vo);
+		
+		return "product/list_installment";
+	}
+	
+	@RequestMapping("/insertDepositFavorite")
+	public String insertDepositFavorite(@RequestParam(value="favorite") String favorite) {
+		FavoriteVO vo =new FavoriteVO();
+		
+		vo.setKind("예금");
+		vo.setMemId("");
+		vo.setoIndex(favorite);
+		
+		fService.insertInstallFavorite(vo);
+		
+		return "product/list_deposit";
+	}
+	
+	@RequestMapping("/deleteDepositFavorite")
+	public String deleteDepositFavorite(@RequestParam(value="favorite") String favorite) {
+		FavoriteVO vo =new FavoriteVO();
+		
+		vo.setKind("예금");
+		vo.setMemId("");
+		vo.setoIndex(favorite);
+		
+		fService.deleteInstallFavorite(vo);
+		
+		return "product/list_deposit";
+	}
+	
+	@RequestMapping("/insertPensionFavorite")
+	public String insertPensionFavorite(@RequestParam(value="favorite") String favorite) {
+		FavoriteVO vo =new FavoriteVO();
+		
+		vo.setKind("연금");
+		vo.setMemId("");
+		vo.setoIndex(favorite);
+		
+		fService.insertInstallFavorite(vo);
+		
+		return "product/list_pension";
+	}
+	
+	@RequestMapping("/deletePensionFavorite")
+	public String deletePensionFavorite(@RequestParam(value="favorite") String favorite) {
+		FavoriteVO vo =new FavoriteVO();
+		
+		vo.setKind("연금");
+		vo.setMemId("");
+		vo.setoIndex(favorite);
+		
+		fService.deleteInstallFavorite(vo);
+		
+		return "product/list_pension";
 	}
 }

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.fit_nance.project.dao.IQNADAO">
+	<resultMap id="QNAResult" type="com.fit_nance.project.model.QNAVO">
+		<result property="qIndex" column="qIndex"/>
+		<result property="qTitle" column="qTitle"/>
+		<result property="qContent" column="qContent"/>
+		<result property="qDate" column="qDate"/>
+		<result property="memId" column="memId"/>
+		<result property="aIndex" column="aIndex"/>
+		<result property="aTitle" column="aTitle"/>
+		<result property="aContent" column="aContent"/>
+		<result property="aDate" column="aDate"/>
+	</resultMap>
+
+	<!-- 문의 등록 -->
+	<insert id="insertQNA" parameterType="com.fit_nance.project.model.QNAVO">
+		INSERT question(qTitle, qContent, memId)
+		VALUES(#{qTitle}, #{qContent}, #{memId})
+	</insert>
+	<!-- 멤버 문의 리스트 조회 -->
+	<select id="listMemQNA" parameterType="string" resultType="com.fit_nance.project.model.QNAVO">
+		SELECT * 
+		FROM question
+		WHERE memId=#{memId}
+		ORDER BY qIndex DESC
+	</select>
+	<!-- 문의 리스트 해당 index 조회 -->
+	<select id="questionMemQNA" resultMap="QNAResult">
+		SELECT * 
+		FROM question
+		WHERE qIndex=#{qIndex}
+	</select>
+  	<!-- 문의 상세 조회 -->
+  	<select id="answerMemQNA" resultMap="QNAResult">
+		SELECT *
+		FROM answer
+		WHERE memId=#{memId} AND qIndex=#{qIndex}
+	</select>
+
+
+	<!-- 문의사항 전체 리스트 -->
+	<select id="listAllQNA" resultMap="QNAResult">
+		SELECT * FROM question ORDER BY qIndex DESC
+	</select>
+	<select id="selectQuestion" resultMap="QNAResult">
+		SELECT * FROM question
+		WHERE qIndex = #{qIndex}
+	</select>
+	<select id="selectAnswer" resultMap="QNAResult">
+		SELECT * FROM answer
+		WHERE qIndex = #{qIndex}
+	</select>
+	<select id="detailViewQNA" resultMap="QNAResult">
+		SELECT Q.qIndex, Q.qTitle, Q.qContent, Q.qDate, Q.memId, A.aIndex, A.aTitle, A.aContent, A.aDate
+		FROM question Q INNER JOIN answer A
+		ON Q.qIndex = #{qIndex}
+	</select>
+	<insert id="insertAnswer" parameterType="com.fit_nance.project.model.QNAVO">
+		INSERT INTO answer (qIndex, aTitle, aContent)
+		VALUES(#{qIndex}, #{aTitle}, #{aContent})
+	</insert>
+	<update id="updateAnswer" parameterType="com.fit_nance.project.model.QNAVO">
+		UPDATE answer
+		SET aTitle=#{aTitle}, aContent=#{aContent}
+		WHERE qIndex=#{qIndex}
+	</update> 
+	
+	<delete id="deleteQuestion" parameterType="int">
+		DELETE FROM question
+		WHERE qIndex=#{qIndex}
+	</delete>
+	<delete id="deleteAnswer" parameterType="int">
+		DELETE FROM answer
+		WHERE qIndex=#{qIndex}
+	</delete>
+	 <!-- 공지사항 등록  -->
+	<!--<insert id="insertNotice" parameterType="com.fit_nance.project.model.NoticeVO">
+		INSERT INTO notice (noticeTitle, noticeContent)
+		VALUES(#{noticeTitle}, #{noticeContent})
+	</insert>
+	
+	공지사항 수정
+	<update id="updateNotice" parameterType="com.fit_nance.project.model.NoticeVO">
+		UPDATE notice
+		SET noticeTitle=#{noticeTitle}, noticeContent=#{noticeContent}
+		WHERE noticeIndex=#{noticeIndex}
+	</update>
+	
+	장바구니에서 삭제
+	<delete id="deleteNotice" parameterType="int">
+		DELETE FROM notice WHERE noticeIndex=#{noticeIndex}
+	</delete>
+	
+	공지사항 상세 보기
+	<select id="detailViewNotice" parameterType="int" resultType="com.fit_nance.project.model.NoticeVO">
+		SELECT * FROM notice WHERE noticeIndex=#{noticeIndex}
+	</select> -->
+</mapper>

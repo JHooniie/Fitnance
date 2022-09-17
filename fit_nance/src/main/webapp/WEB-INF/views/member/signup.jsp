@@ -9,10 +9,11 @@
 		<link rel="stylesheet" href="<c:url value='/css/member_signup.css'/>">
 	</head>
 	<body>
-	<form id="form-signup" method="post" action="/signup">
+	
 	<c:import url="/WEB-INF/views/layout/top.jsp" />
 	<section id="signup_section">
         <div class="signup_page wrap">
+        	<form id="form-signup" method="post" action="<c:url value='/signup'/>">
             <div class="signup_container">
                 
                 <div class="box-signup-Email">
@@ -108,11 +109,11 @@
                                 <label for="btn-user_bank"><span class="span-bank-more-information">주거래 은행 계좌정보 입력</span></label><br>
                                 <button id="btn-user_bank" id="btn-user_bank" type="button"><span class="span-bank-btn">은행 선택</span></button>
                                 <input type="hidden" id="input-user-bank" name="memBank" value="0">
-                                <button id="btn-more-information-finish" type="submit"><span class="btn-span">정보 입력 완료</span></button>
+                                <button disabled id="btn-more-information-finish" type="submit"><span class="btn-span">정보 입력 완료</span></button>
                             </div>
                     </div>
                 </div>
-           
+                 </form>
             </div>
         </div>
         <div id="modal-signup" class="modal-overlay">
@@ -140,7 +141,7 @@
     </section>
     <!-- login end -->
 	    <c:import url="/WEB-INF/views/layout/footer.jsp" />
-	     </form>
+	    
 	</body>
 	<script src="../js/signup.js"></script>
 </html>

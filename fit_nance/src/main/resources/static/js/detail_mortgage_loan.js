@@ -4,15 +4,15 @@
  
  $(document).ready(function(){
 	$('.btn_list_mortgage').click(function(){
-		location.href='/list_mortgage_loan';
+		location.href='/listMortgageLoan';
 	});
 	
 	$('.btn_list_house').click(function(){
-		location.href='/list_house_loan';
+		location.href='/listCharterLoan';
 	});
 	
 	$('.btn_list_credit').click(function(){
-		location.href='/list_credit_loan';
+		location.href='/listCreditLoan';
 	});
 });  
    

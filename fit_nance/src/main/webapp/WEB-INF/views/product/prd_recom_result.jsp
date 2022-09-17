@@ -1,6 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<sec:authorize access="isAuthenticated()">
+    <sec:authentication property="principal" var="principal" />
+</sec:authorize>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -13,7 +18,14 @@
 		<c:import url="/WEB-INF/views/layout/top.jsp" />
 		<section class="prd-recom-top">
 			<div class="title-recom-top wrap">
-				<h1>은빈님에게 딱 맞는</h1>
+				<c:choose>
+            		<c:when test="${empty principal.name}">
+            			<h1>핏낸스님에게 딱 맞는</h1>
+            		</c:when>
+            		<c:otherwise>
+            			<h1>${fn:substring(principal.name,1,3)}님에게 딱 맞는</h1>
+            		</c:otherwise>
+            	</c:choose>
 				<h1>핏:낸스 추천 TOP3</h1>
 				<img src="<c:url value='/images/img_prd_recom_pc_9.png'/>">
 			</div>
@@ -91,10 +103,20 @@
 			</div>
 	    </section>
 	    <section class="prd-recom-content">
-	    	<div class="wrap-email-send">
-	    		<span>추천 상품을 이메일로 받고 싶어요!</span>
-	    		<button type="button">이메일로 리포트 전송하기</button>
-	    	</div>
+	    	<c:choose>
+           		<c:when test="${empty principal.name}">
+           			<div class="wrap-email-send">
+			    		<span>로그인하고 추천 상품 받아보기</span>
+			    		<button type="button">로그인하러 가기</button>
+			    	</div>
+           		</c:when>
+           		<c:otherwise>
+           			<div class="wrap-email-send">
+			    		<span>추천 상품을 이메일로 받고 싶어요!</span>
+			    		<button type="button">이메일로 리포트 전송하기</button>
+			    	</div>
+           		</c:otherwise>
+           	</c:choose>
 	    	<div class="wrap-tip">
 	    		<span>잠깐!</span>
 	    		<span>예/적금을 생각하고 있다면 유용한 금융 꿀팁 읽어보는 건 어때요?</span>

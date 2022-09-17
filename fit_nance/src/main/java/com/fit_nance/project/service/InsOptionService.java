@@ -18,15 +18,15 @@ public class InsOptionService {
 	StringBuffer resultDep = new StringBuffer();
 	public ArrayList<InstallOptionVO> install() {
 		ArrayList<InstallOptionVO> insOptionList = new ArrayList<InstallOptionVO>();
-		
 		APIKey apiKey = new APIKey();
 		String key = apiKey.getSavingKey();
 		
-		String urlDep="http://finlife.fss.or.kr/finlifeapi/savingProductsSearch.json?auth="
-				+key
-				+"&topFinGrpNo="+"020000"
-				+"&pageNo="+"1";
+		
 		try {
+		String urlDep="http://finlife.fss.or.kr/finlifeapi/savingProductsSearch.json?auth="
+					+key
+					+"&topFinGrpNo="+"020000"
+					+"&pageNo="+"1";
 		 URL url = new URL(urlDep);
          HttpURLConnection urlConnection = (HttpURLConnection)url.openConnection();
          urlConnection.setRequestMethod("GET");
@@ -37,11 +37,29 @@ public class InsOptionService {
          while((returnLine = bf.readLine()) != null) {
              resultDep.append(returnLine);
          }
+         insOptionList.addAll(jsonToVOList(resultDep.toString(),0));
+         for(int i =1; i<=3;i++) {
+          StringBuffer resultDep2 = new StringBuffer();
+          String urlDep2="http://finlife.fss.or.kr/finlifeapi/savingProductsSearch.json?auth="
+ 					+key
+ 					+"&topFinGrpNo="+"030300"
+ 					+"&pageNo="+i;
+ 		  URL url2 = new URL(urlDep2);
+ 		 HttpURLConnection urlConnection2 = (HttpURLConnection)url2.openConnection();
+          urlConnection2.setRequestMethod("GET");
+
+          BufferedReader bf2 = new BufferedReader(new InputStreamReader(urlConnection2.getInputStream(), "UTF-8"));
+          
+          String returnLine2;
+          while((returnLine2 = bf2.readLine()) != null) {
+              resultDep2.append(returnLine2);
+          }
+          insOptionList.addAll(jsonToVOList(resultDep2.toString(),insOptionList.size()));
+         }
          //System.out.println(resultDep.toString());
-        
-         insOptionList = jsonToVOList(resultDep.toString());
-         //System.out.println(insOptionList.get(1).getoIndex());
-         //System.out.println(insOptionList.get(1).getIntr_rate_type_nm());
+         
+         //System.out.println(installList.get(1).getPIndex());
+         //System.out.println(installList.get(1).getEtc_note());*/
 		}
 		catch(Exception e) {
 			System.out.println(e);
@@ -49,7 +67,7 @@ public class InsOptionService {
 		return insOptionList;
 	}
 
-	public ArrayList<InstallOptionVO> jsonToVOList(String jsonResultStr){
+	public ArrayList<InstallOptionVO> jsonToVOList(String jsonResultStr,int num){
 		ArrayList<InstallOptionVO> insOptionList = new ArrayList<InstallOptionVO>();
 		
 		JSONObject jsonObj =new JSONObject(jsonResultStr);
@@ -57,8 +75,8 @@ public class InsOptionService {
 		JSONArray optionArray = (JSONArray) parse_result.get("optionList");
 		
 		if(optionArray!=null) {
-			for (int i = 0; i < optionArray.length(); i++) {
-				JSONObject depoObj = optionArray.getJSONObject(i);
+			for (int i = num; i < num+optionArray.length(); i++) {
+				JSONObject depoObj = optionArray.getJSONObject(i-num);
 				InstallOptionVO vo = new InstallOptionVO();
 				vo.setoIndex(i);
 				vo.setFin_co_no(String.valueOf(depoObj.get("fin_co_no")));

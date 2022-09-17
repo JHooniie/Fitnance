@@ -54,7 +54,7 @@ $(document).ready(function(){
                 
                 $.ajax({
                     type:"post",
-                    url:"Email",
+                    url:"/api/sendEmail",
                     data:{"memId":memId},
                     dataType:"text",
                     success:function(result){
@@ -392,6 +392,16 @@ $(document).ready(function(){
         else if(!regBirth.test($('#input-user_birth').val())){
         $('#text-birth-check-error').css('display','flex');
         $('#input-user_birth').addClass('process-error');
+        }
+    });
+
+    $('#btn-user_bank').click(function(){
+
+        if($("input[name='memGender']:checked").val() !== null){
+            $('#btn-more-information-finish').prop('disabled',false);
+
+        }else{
+            $('#btn-more-information-finish').prop('disabled',true);
         }
     });
 

@@ -5,8 +5,6 @@
 <sec:authorize access="isAuthenticated()">
     <sec:authentication property="principal" var="principal" />
 </sec:authorize>
-<c:set var="username" value="${principal.username}" />
-<input type="hidden" value="${principal.username}">
 
 <!-- chatbot -->
 <div id="boxChatbot">
@@ -47,5 +45,8 @@
         </div>
     </div>
 </footer>
+<script src="<c:url value='/js/common.js'/>"></script>
+<script src="<c:url value='/js/papago.js'/>"></script>
+<script src="<c:url value='/js/chatbot.js'/>"></script>
 <!-- footer -->
 </html>

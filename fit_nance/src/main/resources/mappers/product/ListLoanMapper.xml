@@ -28,6 +28,7 @@
 	</resultMap>
 	<resultMap id="resultCharterLoanList" type="com.fit_nance.project.model.CharterLoanListVO">
 		<result property="pIndex" column="pIndex"/>
+		<result property="oIndex" column="oIndex"/>
 		<result property="fin_co_no" column="fin_co_no"/>
 		<result property="kor_co_nm" column="kor_co_nm"/>
 		<result property="fin_prdt_cd" column="fin_prdt_cd"/>
@@ -36,10 +37,12 @@
 		<result property="loan_lmt" column="loan_lmt"/>
 		<result property="rpay_type_nm" column="rpay_type_nm"/>
 		<result property="lend_rate_type_nm" column="lend_rate_type_nm"/>
-		<result property="lend_rate_min" column="lend_rate_min"/>
-		<result property="oIndex" column="oIndex"/>
+		<result property="loan_inci_expn" column="loan_inci_expn"/>
+		<result property="erly_rpay_fee" column="erly_rpay_fee"/>
+		<result property="dly_rate" column="dly_rate"/>
 		<result property="rpay_type" column="rpay_type"/>
 		<result property="lend_rate_type" column="lend_rate_type"/>
+		<result property="lend_rate_min" column="lend_rate_min"/>
 		<result property="lend_rate_max" column="lend_rate_max"/>
 		<result property="lend_rate_avg" column="lend_rate_avg"/>
 	</resultMap>
@@ -65,10 +68,16 @@
 		<result property="crdt_grad_12" column="crdt_grad_12"/>
 		<result property="crdt_grad_13" column="crdt_grad_13"/>
 	</resultMap>
+	<resultMap id="resultFavList" type="com.fit_nance.project.model.FavoriteVO">
+		<result property="kind" column="kind"/>
+		<result property="fin_prdt_cd" column="fin_prdt_cd"/>
+		<result property="memId" column="memId"/>
+	</resultMap>
 	
 	<!-- 전체 주택 담보 상품 조회 -->
 	<select id="listAllHomeLoan" resultMap="resultHLList">
-		SELECT O.oIndex, B.pIndex, O.fin_co_no, B.kor_co_nm, B.fin_prdt_nm, B.join_way, O.lend_rate_min
+		SELECT <!-- O.oIndex, B.pIndex, O.fin_co_no, B.kor_co_nm, B.fin_prdt_nm, B.join_way, O.lend_rate_min -->
+		O.oIndex, B.pIndex, O.fin_co_no, B.kor_co_nm, B.fin_prdt_cd, B.fin_prdt_nm, B.join_way, B.loan_lmt, O.mrtg_type_nm, O.rpay_type_nm, O.lend_rate_type_nm, B.loan_inci_expn, B.erly_rpay_fee, B.dly_rate, O.lend_rate_min 
 		FROM home_loan_option O INNER JOIN home_loan_base B
 		ON B.pIndex = O.pIndex
 		WHERE O.oIndex IN (SELECT max(oIndex) from home_loan_option GROUP BY pIndex)
@@ -114,11 +123,12 @@
 		WHERE O.oIndex IN (SELECT max(oIndex) from home_loan_option GROUP BY pIndex)
 		ORDER BY O.lend_rate_min
 	</select>
-	
+	<!-- <insert id="insertHomeLoanFavorite" --> 
 	
 	<!-- 전세 자금 전체 리스트 조회 -->
 	<select id="selectCharterLoanList" resultMap="resultCharterLoanList">
-		SELECT O.oIndex, B.pIndex, O.fin_co_no, B.kor_co_nm, B.fin_prdt_nm, B.join_way, O.lend_rate_min
+		SELECT <!-- O.oIndex, B.pIndex, O.fin_co_no, B.kor_co_nm, B.fin_prdt_nm, B.join_way, O.lend_rate_min -->
+		O.oIndex, B.pIndex, O.fin_co_no, B.kor_co_nm, B.fin_prdt_cd, B.fin_prdt_nm, B.join_way, B.loan_lmt, O.rpay_type_nm, O.lend_rate_type_nm, B.loan_inci_expn, B.erly_rpay_fee, B.dly_rate, O.lend_rate_min
 		FROM charter_loan_option O
 			INNER JOIN charter_loan_base B ON B.pIndex = O.pIndex
 		WHERE O.oIndex IN (SELECT max(oIndex) from charter_loan_option GROUP BY pIndex)
@@ -161,7 +171,8 @@
 	
 	<!-- 신용대출 -->
 	<select id="selectPersonalLoanList" resultMap="resultCreditLoanList">
-		SELECT O.oIndex, B.pIndex, O.fin_co_no, B.kor_co_nm, B.fin_prdt_nm, B.join_way, O.crdt_grad_avg
+		SELECT <!-- O.oIndex, B.pIndex, O.fin_co_no, B.kor_co_nm, B.fin_prdt_nm, B.join_way, O.crdt_grad_avg -->
+		O.oIndex, B.pIndex, O.fin_co_no, B.kor_co_nm, B.fin_prdt_cd, B.fin_prdt_nm, B.join_way, B.crdt_prdt_type, B.crdt_prdt_type_nm, O.crdt_grad_avg, O.crdt_lend_rate_type, O.crdt_lend_rate_type_nm
 		FROM personal_loan_option O
 			INNER JOIN personal_loan_base B ON B.pIndex = O.pIndex
 		WHERE O.oIndex IN (SELECT max(oIndex) from personal_loan_option GROUP BY pIndex)
@@ -195,4 +206,20 @@
 		WHERE O.oIndex IN (SELECT max(oIndex) from personal_loan_option GROUP BY pIndex)
 		ORDER BY O.pIndex DESC
 	</select>
+	
+	<select id="selectFavList" resultMap="resultFavList">
+		SELECT fin_prdt_cd
+		FROM favorite
+		WHERE fin_prdt_cd=#{fin_prdt_cd} AND memId=#{memId}
+	</select>
+	
+	<insert id="insertFavList" parameterType="com.fit_nance.project.model.FavoriteVO">
+		INSERT favorite(kind, fin_prdt_cd, memId)
+		VALUES(#{kind}, #{fin_prdt_cd}, #{memId})
+	</insert>
+	
+	<delete id="deleteFavList">
+		DELETE FROM favorite
+		WHERE kind=#{kind} AND fin_prdt_cd=#{fin_prdt_cd} AND memId=#{memId}
+	</delete>
 </mapper>

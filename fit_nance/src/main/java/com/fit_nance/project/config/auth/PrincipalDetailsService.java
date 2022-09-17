@@ -24,7 +24,7 @@ public class PrincipalDetailsService implements UserDetailsService {
 		
 		MemberVO vo = dao.findByUserId(memId);
 
-		System.out.println(vo.getMemPwd() );
+		//System.out.println(vo.getMemPwd() );
 			if(vo.getMemId() == null)
 				throw new UsernameNotFoundException("해당 사용자를 찾을 수 없습니다. :" + memId);
 			

@@ -93,7 +93,7 @@ public class LoanDBController {
 	@RequestMapping("/insertPersonalLoanBaseList")
 	public String insertPersonalLoanBaseList() throws Exception{
 		ArrayList<PersonalLoanBaseVO> base = new ArrayList<PersonalLoanBaseVO>();
-		
+		 
 		base = personalloanbaseService.personalloanBase();
 		
 		for(int i=0; i<base.size(); i++) {

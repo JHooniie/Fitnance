@@ -1,15 +1,32 @@
 package com.fit_nance.project.model;
 
-import java.sql.Timestamp;
 
 public class DummyVO {
 
 	
 	private String user_id;
 	private String item_id;
-	private int rating;
+	private String gender;
 	private long timestamp;
 	
+	private String ages;
+
+	private String rating;
+	
+	
+	
+	public String getGender() {
+		return gender;
+	}
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+	public String getAges() {
+		return ages;
+	}
+	public void setAges(String ages) {
+		this.ages = ages;
+	}
 	public long getTimestamp() {
 		return timestamp;
 	}
@@ -28,11 +45,11 @@ public class DummyVO {
 	public void setItem_id(String item_id) {
 		this.item_id = item_id;
 	}
-	public int getRating() {
+	public String getRating() {
 		return rating;
 	}
-	public void setRating(int rating) {
-		this.rating = rating;
+	public void setRating(String rating2) {
+		this.rating = rating2;
 	}
 	
 	

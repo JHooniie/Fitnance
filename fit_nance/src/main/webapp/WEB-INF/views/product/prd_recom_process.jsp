@@ -1,8 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
-<c:set var="memId" value="${principal.username}" />
+<sec:authorize access="isAuthenticated()">
+    <sec:authentication property="principal" var="principal" />
+</sec:authorize>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -17,11 +20,22 @@
 	        <!-- process 1 -->
 	        <div class="box-prd-recom box-prd-recom-01">
 	            <div class="title-prd-recom">
-	                <h3>
-	                    ${principal.name}님!<br>
-	                    더 <span>핏</span>:하게<br>
-	                    추천해 드릴게요!
-	                </h3>
+	            	<c:choose>
+	            		<c:when test="${empty principal.name}">
+	            			<h3>
+			                    핏낸스님!<br>
+			                    더 <span>핏</span>:하게<br>
+			                    추천해 드릴게요!
+			                </h3>
+	            		</c:when>
+	            		<c:otherwise>
+	            			<h3>
+			                    ${principal.name}님!<br>
+			                    더 <span>핏</span>:하게<br>
+			                    추천해 드릴게요!
+			                </h3>
+	            		</c:otherwise>
+	            	</c:choose>
 	                <img src="<c:url value='/images/img_prd_recom_pc_1.png'/>" alt="">
 	            </div>
 	            <button class="btn-prd-recom btn-prd-recom-01" type="button">네! 좋아요!</button>
@@ -31,9 +45,18 @@
 	        <div class="box-prd-recom box-prd-recom-02">
 	            <div class="bar-progress bar-progress-01"></div>
 	            <div class="title-prd-recom title-prd-recom-02">
-	                <h3>
-	                    현재 은빈님은 <b>목돈을 모으고 있나요?</b>
-	                </h3>
+	            	<c:choose>
+	            		<c:when test="${empty principal.name}">
+	            			<h3>
+			                    현재 핏낸스님은 <b>목돈을 모으고 있나요?</b>
+			                </h3>
+	            		</c:when>
+	            		<c:otherwise>
+	            			<h3>
+			                    현재 ${fn:substring(principal.name,1,3)}님은 <b>목돈을 모으고 있나요?</b>
+			                </h3>
+	            		</c:otherwise>
+	            	</c:choose>
 	            </div>
 	            <!-- 성별이 여자인 경우 -->
 	            <div class="box-pc-01 box-pc-01-fm">

@@ -30,15 +30,30 @@
                                 <label class="rem_Email_Box"><input type="checkbox" name="rem_Email" id="rem_Email_checkBox" value="rem_Email">이메일 기억하기</label>
                                 <a href="#" class="find_password text-end">비밀번호 찾기</a>
                             </div>
-                            
+                            <div class="box-captcha box-captcha-wrap">
+                            	<div class="box-captcha">
+									<div class="box-captcha-img">
+										<img src="<c:url value='/images/captcha/${captcha_img}'/>">
+									</div>
+									<div>
+										<button id="rotate-captcha" type="button"><i class="fa-solid fa-rotate-right"></i><span> 새로고침</span></button>
+										<div class="box-captcha-input">
+											<input type="text" id="input-captcha_value" name="captcha_value" placeholder="CAPTCHA 인증을 해주세요">
+											<i id="check-captcha" class="fa-solid fa-check"></i>
+										</div>
+									</div>
+								</div>
+                            </div>
+                            <button id="disabled_login" type="button"><span class="btn-span">로그인</span></button>
                             <button id="main_login" type="submit"><span class="btn-span">로그인</span></button>
-                        </form>
+                       
                     </div>
                     <div class="email_login">
-                        <button id="naver_login" onclick="location.href='<c:url value='/oauth2/authorization/naver'/>'"><span class="btn-span"><img src="<c:url value='/images/lg_naver.png'/>">네이버로 로그인</span></button>
-                        <button id="email_start" onclick="location.href='<c:url value='/signupForm'/>'"><span class="btn-span">이메일로 시작하기</span></button>
+                        <button id="naver_login" type="button" onclick="location.href='<c:url value='/oauth2/authorization/naver'/>'"><span class="btn-span"><img src="<c:url value='/images/lg_naver.png'/>">네이버로 로그인</span></button>
+                        <button id="email_start" type="button" onclick="location.href='<c:url value='/signupForm'/>'"><span class="btn-span">이메일로 시작하기</span></button>
                     </div>
                 </div>
+                 </form>
             </div>
         </div>
     </section>

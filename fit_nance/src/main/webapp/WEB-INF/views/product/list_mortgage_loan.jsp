@@ -80,6 +80,11 @@
 	                        <span>필터 초기화</span>
 	                    </button>
 	                </div>
+	                <div>
+	                	<input class="com1">
+	                	<input class="com2">
+	                	<input class="com3">
+	                </div>
 	            </div>
 	            <div id="result_list_prdt" class="panel_list_prdt">
 					<form id="form_joinwawy" method="post" action="<c:url value='/list_mortgage_loan'/>">
@@ -137,9 +142,11 @@
 		                           		<div class="div_btn_add">
 		                           			<div class="btn_add_compare">
 		                           				<i class="fa-solid fa-folder-plus"></i>
+		                           				<input type="hidden" value="${list.oIndex }">
 		                       				</div>
 		                       				<div class="btn_add_favorite">
 		                       					<i class="fa-solid fa-heart"></i>
+		                       					<input type="hidden" value="${list.oIndex }">
 		               						</div>
 		           						</div>
 		           						<a class="btn_prdt_info" href="<c:url value='/detailMortgageLoan/${list.oIndex}'/>">자세히 보기</a>

@@ -13,5 +13,3 @@
 <script src="https://kit.fontawesome.com/fa5522895a.js"></script>
 <!-- custom -->
 <link rel="stylesheet" href="<c:url value='/css/common.css'/>">
-<script src="<c:url value='/js/common.js'/>"></script>
-<script src="<c:url value='/js/chatbot.js'/>"></script>

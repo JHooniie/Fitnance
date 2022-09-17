@@ -7,6 +7,7 @@ import com.fit_nance.project.model.DepoOptionVO;
 import com.fit_nance.project.model.DepositListVO;
 import com.fit_nance.project.model.DepositVO;
 import com.fit_nance.project.model.FAQVO;
+import com.fit_nance.project.model.FavoriteVO;
 import com.fit_nance.project.model.InstallListVO;
 import com.fit_nance.project.model.InstallOptionVO;
 import com.fit_nance.project.model.InstallVO;
@@ -35,4 +36,11 @@ public interface IProductDAO {
 	
 	public ArrayList<FAQVO> selectFAQ();
 	public ArrayList<FAQVO> selectFAQ_search(String a);
+	
+	public ArrayList<InstallListVO> selectInstallSearch(String search);
+	public ArrayList<DepositListVO> selectDepositSearch(String search);
+	public ArrayList<PensionListVO> selectPensionSearch(String search);
+	
+	public void insertFavorite(FavoriteVO fv);
+	public void deleteFavorite(FavoriteVO fv);
 }

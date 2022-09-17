@@ -175,9 +175,22 @@
 }
 
 .search-box{
+	float:right;
+	width:300px;
     border-bottom: 1px solid #AAAAAA;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
+.a{
+	display:block;
+}
+
+.search i{
+	padding-top:10px;
+	cursor: pointer;
+}
 
 .box{
     width: 110px;
@@ -243,20 +256,22 @@
     margin-left: 15px;
 }
 
-.plus-icon,
-.plus-icon1,
-.plus-icon2{
+.plus-icon{
     display: inline-block;
     width:52px;
     height:52px;
     border-radius: 5px;
-    border:1px solid #f2f2f2;
+    
     text-align: center;
     line-height: 52px;
     cursor: pointer;
     margin-left:16px;
 }
 
+.plus-icon1,
+.plus-icon2{
+	border:1px solid #f2f2f2;
+}
 
 .plus-icon1:hover{
     border:1px solid #1F4DFF;
@@ -336,7 +351,7 @@
 }
 
 .percent2{
-    width:140px;
+    width:200px;
 }
 
 .percent2 >ul>li:last-child{
@@ -438,7 +453,7 @@
     color: #ffffff;
 }
 
-.plus-icon-clicked{
+.plus-icon.plus-icon-clicked{
     border:1px solid #1F4DFF;
     background-color: #1F4DFF;
 }

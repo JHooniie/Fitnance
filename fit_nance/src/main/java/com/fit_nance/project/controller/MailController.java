@@ -35,7 +35,7 @@ public class MailController {
 	}
 	
 	@ResponseBody
-	@RequestMapping("/Email")
+	@RequestMapping("/api/sendEmail")
 	public String sendEmail(@RequestParam("memId") String memId, HttpServletRequest rq, HttpServletResponse rs, Model model) throws Exception{
 		rq.setCharacterEncoding("utf-8");
 		rs.setContentType("text/html;charset=utf-8");
@@ -46,7 +46,7 @@ public class MailController {
 		
 
 		emailService.sendEmail(memId, "fit:nanace 회원가입 인증확인", message);
-		emailService.sendPreMail("cliffear324@naver.com", "테스트 메일", "발신 확인용");
+		emailService.sendPreMail("fitnance_emailsender@naver.com", "테스트 메일", "발신 확인용");
 		System.out.println("컨트롤러===========================================================================================");
 		System.out.println(certified);
 		System.out.println("===========================================================================================");

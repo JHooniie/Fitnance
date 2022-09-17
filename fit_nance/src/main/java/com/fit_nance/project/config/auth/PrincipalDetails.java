@@ -1,20 +1,23 @@
 package com.fit_nance.project.config.auth;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Map;
 
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.oauth2.core.user.OAuth2User;
 
 import com.fit_nance.project.model.MemberVO;
 
-public class PrincipalDetails implements UserDetails, OAuth2User {
+public class PrincipalDetails implements UserDetails, OAuth2User, Serializable {
 
 	private MemberVO vo;
 	private Map<String, Object> attributes;
-	
+	private static final long serialVersionUID = 6529685098267757690L;
 	
 	//일반 로그인
 	public PrincipalDetails(MemberVO vo) {
@@ -111,17 +114,24 @@ public class PrincipalDetails implements UserDetails, OAuth2User {
 		return vo.getMemBank();
 	}
 	
+
+	public String getProviderId() {
+		return vo.getProviderId();
+	}
+
+	public String getMemGender() {
+		return vo.getMemGender();
+	}
+	
+	public String getMemRole() {
+		return vo.getMemRole();
+	}
+	
 	
 	
 	@Override
 	public String toString() {
-		return "{username : " + getUsername()
-				+ ", password : " + getPassword() + ", accountNonExpired :" + isAccountNonExpired()
-				+ ", accountNonLocked : " + isAccountNonLocked() + ", credentialsNonExpired : "
-				+ isCredentialsNonExpired() + ", enabled : " + isEnabled() + ", attributes : " + getAttributes()
-				+ ", vo : " + getVo() + ", name : " + getName() + ", certified : " + getCertified()
-				+ ", birth : " + getMemBirth() + ", emailRecd : " + getMemEmailRecd() + ", provider : "
-				+ getProvider() + "}";
+		return ToStringBuilder.reflectionToString(vo);
 	}
 
 	

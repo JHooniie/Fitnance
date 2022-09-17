@@ -22,7 +22,7 @@
 				<div class="div_background_wrap wrap">
 		            <div class="div_background_title">
 		                <span class="background_title_main">
-		                    신용<br>
+		                    개인 신용<br>
 	                    	대출
 		                </span>
 		                <span class="background_title_sub">
@@ -62,6 +62,11 @@
 	                        <i class="fa-solid fa-rotate-right"></i>
 	                        <span>필터 초기화</span>
 	                    </div>
+	                </div>
+	                <div>
+	                	<input class="com1" type="hidden">
+	                	<input class="com2" type="hidden">
+	                	<input class="com3" type="hidden">
 	                </div>
 	            </div>
 	            <div id="result_list_prdt" class="panel_list_prdt">
@@ -123,13 +128,15 @@
 	                            </div>
 	                            <div class="div_btn_prdt">
 	                                <div class="div_btn_add">
-	                                    <div class="btn_add_compare">
-	                                        <i class="fa-solid fa-folder-plus"></i>
-	                                    </div>
-	                                    <div class="btn_add_favorite">
-	                                        <i class="fa-solid fa-heart"></i>
-	                                    </div>
-	                                </div>
+	                           			<div class="btn_add_compare">
+	                           				<i class="fa-solid fa-folder-plus"></i>
+	                           				<input type="hidden" value="${list.oIndex }">
+	                       				</div>
+	                       				<div class="btn_add_favorite">
+	                       					<i class="fa-solid fa-heart"></i>
+	                       					<input type="hidden" value="${list.oIndex }">
+	               						</div>
+	           						</div>
 	                                <a class="btn_prdt_info" href="<c:url value='/detailCreditLoan/${list.oIndex}'/>">자세히 보기</a>
 	                            </div>
 	                        </div>

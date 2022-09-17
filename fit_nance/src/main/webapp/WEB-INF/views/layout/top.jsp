@@ -2,7 +2,6 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
-<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <sec:authorize access="isAuthenticated()">
     <sec:authentication property="principal" var="principal" />
 </sec:authorize>
@@ -21,8 +20,11 @@
                     <li class="li-cus-service">고객센터</li>
                     <li class="li-lang">
                         <span class="span-lang-kor span-lang-active">KOR</span>
-                        |
+                        <span class="span-lang-divider">|</span>
                         <span class="span-lang-eng span-lang-inactive">ENG</span>
+                       	<form>
+                       		<input type="hidden" value="" id="pathInput" name="pathInput">
+                       	</form>
                     </li>
                     <li>
                     	<sec:authorize access="isAnonymous()">
@@ -31,8 +33,9 @@
 	                        </a>
                         </sec:authorize>
                         <sec:authorize access="hasAnyRole('ROLE_USER')">
-	                        <a class="btn-login" href="<c:url value='/mypage'/>">
+	                        <a class="btn-login" href="<c:url value='user/mypage/{profileId}/'/>">
 	                        	<i class="fa-solid fa-user"></i>
+	                        	<input type="hidden" name="profileId" value="${principal.username }">
 	                        </a>
                         </sec:authorize>
                        <sec:authorize access="hasAnyRole('ROLE_ADMIN')">

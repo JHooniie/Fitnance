@@ -3,40 +3,39 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
-<mapper namespace="com.fit_nance.project.dao.INoticeDAO">
-	<resultMap id="noticeResult" type="com.fit_nance.project.model.NoticeVO">
-		<result property="noticeIndex" column="noticeIndex"/>
-		<result property="noticeTitle" column="noticeTitle"/>
-		<result property="noticeContent" column="noticeContent"/>
-		<result property="noticeDate" column="noticeDate"/>
+<mapper namespace="com.fit_nance.project.dao.IFAQDAO">
+	<resultMap id="faqResult" type="com.fit_nance.project.model.FAQVO">
+		<result property="FAQIndex" column="FAQIndex"/>
+		<result property="FAQTitle" column="FAQTitle"/>
+		<result property="FAQContent" column="FAQContent"/>
 		<result property="adminId" column="adminId"/>
 	</resultMap>
 
-	<!-- 공지사항 리스트 -->
-	<select id="listAllNotice" resultMap="noticeResult">
-		SELECT * FROM notice ORDER BY noticeIndex DESC
+	<!-- faq 리스트 -->
+	<select id="listAllFAQ" resultMap="faqResult">
+		SELECT * FROM FAQ ORDER BY FAQIndex DESC
 	</select>
 	
-	<!-- 공지사항 등록  -->
-	<insert id="insertNotice" parameterType="com.fit_nance.project.model.NoticeVO">
-		INSERT INTO notice (noticeTitle, noticeContent)
-		VALUES(#{noticeTitle}, #{noticeContent})
+	<!-- faq 등록  -->
+	<insert id="insertFAQ" parameterType="com.fit_nance.project.model.FAQVO">
+		INSERT INTO FAQ (FAQTitle, FAQContent)
+		VALUES(#{FAQTitle}, #{FAQContent})
 	</insert>
 	
-	<!-- 공지사항 수정 -->
-	<update id="updateNotice" parameterType="com.fit_nance.project.model.NoticeVO">
-		UPDATE notice
-		SET noticeTitle=#{noticeTitle}, noticeContent=#{noticeContent}
-		WHERE noticeIndex=#{noticeIndex}
+	<!-- faq 수정 -->
+	<update id="updateFAQ" parameterType="com.fit_nance.project.model.FAQVO">
+		UPDATE FAQ
+		SET FAQTitle=#{FAQTitle}, FAQContent=#{FAQContent}
+		WHERE FAQIndex=#{FAQIndex}
 	</update>
 	
-	<!-- 장바구니에서 삭제 -->
-	<delete id="deleteNotice" parameterType="int">
-		DELETE FROM notice WHERE noticeIndex=#{noticeIndex}
+	<!-- faq 삭제 -->
+	<delete id="deleteFAQ" parameterType="int">
+		DELETE FROM FAQ WHERE FAQIndex=#{FAQIndex}
 	</delete>
 	
-	<!-- 공지사항 상세 보기 -->
-	<select id="detailViewNotice" parameterType="int" resultType="com.fit_nance.project.model.NoticeVO">
-		SELECT * FROM notice WHERE noticeIndex=#{noticeIndex}
+	<!-- faq 상세 보기 -->
+	<select id="detailViewFAQ" parameterType="int" resultType="com.fit_nance.project.model.FAQVO">
+		SELECT * FROM FAQ WHERE FAQIndex=#{FAQIndex}
 	</select>
 </mapper>

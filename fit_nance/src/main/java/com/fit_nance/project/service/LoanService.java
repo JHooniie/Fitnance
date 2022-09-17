@@ -1,5 +1,7 @@
 package com.fit_nance.project.service;
 
+import java.util.ArrayList;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -7,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.fit_nance.project.dao.ILoanDAO;
 import com.fit_nance.project.model.CharterLoanBaseVO;
 import com.fit_nance.project.model.CharterLoanOptVO;
+import com.fit_nance.project.model.FavoriteVO;
 import com.fit_nance.project.model.HomeLoanBaseVO;
 import com.fit_nance.project.model.HomeLoanOptVO;
 import com.fit_nance.project.model.PersonalLoanBaseVO;

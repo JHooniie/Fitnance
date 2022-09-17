@@ -50,7 +50,7 @@
 
     <!-- 자주 묻는 질문 -->
     <div id="navFAQ" class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
+        <a class="nav-link collapsed" href="<c:url value='/admin/faq'/>" data-toggle="collapse" data-target="#collapsePages"
             aria-expanded="true" aria-controls="collapsePages">
             <i class="fa-solid fa-circle-question"></i>
             <span>FAQ</span>
@@ -59,7 +59,7 @@
 
     <!-- 문의사항 -->
     <div id="navQnA" class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
+        <a class="nav-link collapsed" href="<c:url value='/admin/qna'/>" data-toggle="collapse" data-target="#collapsePages"
             aria-expanded="true" aria-controls="collapsePages">
             <i class="fa-solid fa-comments"></i>
             <span>문의사항</span>

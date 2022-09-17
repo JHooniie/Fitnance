@@ -168,6 +168,24 @@
 }
 
 .search-box{
+	float:right;
+	width:300px;
+    border-bottom: 1px solid #AAAAAA;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.a{
+	display:block;
+}
+.search i{
+	padding-top:10px;
+	cursor: pointer;
+}
+
+
+.search-box{
     border-bottom: 1px solid #AAAAAA;
 }
 
@@ -250,25 +268,60 @@
     width:52px;
     height:52px;
     border-radius: 5px;
-    border: 1px solid #DDDDDD;
+    
     text-align: center;
     line-height: 52px;
     cursor: pointer;
     margin-left:16px;
 }
 
+.plus-icon1,
+.plus-icon2{
+	border:1px solid #f2f2f2;
+}
+
+.plus-icon1:hover{
+    border:1px solid #1F4DFF;
+   
+}
+
+.plus-icon1:hover i{
+    color:#1F4DFF;
+}
+
+.plus-icon1 i{
+    color: #aeaeaea0;
+    font-size: 20px;
+    
+}
+.plus-icon:hover{
+    border:1px solid #1F4DFF;
+   
+}
+
+.plus-icon:hover i{
+    color:#1F4DFF;
+}
+
 .plus-icon i{
-    color: #CCCCCC;
+    color: #aeaeaea0;
     font-size: 20px;
     
 }
 
-.plus-icon:hover{
-    border: 1px solid #1F4DFF;
+.plus-icon2:hover{
+    border:1px solid #1F4DFF;
+   
 }
 
-.plus-icon:hover i{
-    color: #1F4DFF;
+.plus-icon2:hover i{
+    color:#1F4DFF;
+}
+
+.plus-icon2 i{
+    color: #aeaeaea0;
+    font-size: 20px;
+    
 }
 
 .item-box2{
@@ -395,16 +448,8 @@
     background-color: #1f4dff;
 }
 
-.plus-icon-clicked{
-    display: inline-block;
-    width:52px;
-    height:52px;
-    border-radius: 5px;
+.plus-icon.plus-icon-clicked{
     border:1px solid #1F4DFF;
-    text-align: center;
-    line-height: 52px;
-    cursor: pointer;
-    margin-left:16px;
     background-color: #1F4DFF;
 }
 
@@ -417,7 +462,6 @@
     color:#FFFFFF;
     font-size: 20px;
 }
-
 .no-list{
 	display: block;
 	width: 990px;

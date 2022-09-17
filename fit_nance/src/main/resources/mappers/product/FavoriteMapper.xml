@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.fit_nance.project.dao.IFavoriteDAO">
+	<resultMap id="favorite" type="com.fit_nance.project.model.FavoriteVO">
+		<result property="kind" column="kind"/>
+		<result property="oIndex" column="oIndex"/>
+		<result property="memId" column="memId"/>
+	</resultMap>
+	
+	<insert id="insertInstallFavorite" parameterType="com.fit_nance.project.model.FavoriteVO">
+		INSERT INTO favorite (kind, oIndex, memId)
+		VALUES(#{kind}, #{oIndex}, #{memId})
+		
+	</insert>
+	
+	<delete id="deleteInstallFavorite" parameterType="com.fit_nance.project.model.FavoriteVO">
+		DELETE FROM favorite WHERE kind=#{kind} and oIndex=#{oIndex} and memId=#{memId}
+	</delete>
+	
+	<insert id="insertDepositFavorite" parameterType="com.fit_nance.project.model.FavoriteVO">
+		INSERT INTO favorite (kind, oIndex, memId)
+		VALUES(#{kind}, #{oIndex}, #{memId})
+		
+	</insert>
+	
+	<delete id="deleteDepositFavorite" parameterType="com.fit_nance.project.model.FavoriteVO">
+		DELETE FROM favorite WHERE kind=#{kind} and oIndex=#{oIndex} and memId=#{memId}
+	</delete>
+	
+	<insert id="insertPensionFavorite" parameterType="com.fit_nance.project.model.FavoriteVO">
+		INSERT INTO favorite (kind, oIndex, memId)
+		VALUES(#{kind}, #{oIndex}, #{memId})
+		
+	</insert>
+	
+	<delete id="deletePensionFavorite" parameterType="com.fit_nance.project.model.FavoriteVO">
+		DELETE FROM favorite WHERE kind=#{kind} and oIndex=#{oIndex} and memId=#{memId}
+	</delete>
+</mapper>

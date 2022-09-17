@@ -6,10 +6,6 @@
 <!DOCTYPE html>
 <html>
 	<head> 
-		<!-- head -->
-		<c:import url="/WEB-INF/views/layout/head.jsp" />
-		<!-- css -->
-		<link rel="stylesheet" href="<c:url value='/css/list_house_loan.css' />"/>
 		<!-- js -->
 		<script src="<c:url value='/js/result_house_loan.js' />"></script>
 		
@@ -93,14 +89,16 @@
                             </div>
                             <div class="div_btn_prdt">
                                 <div class="div_btn_add">
-                                    <div class="btn_add_compare">
-                                    	<i class="fa-solid fa-folder-plus"></i>
-                                    </div>
-                                    <div class="btn_add_favorite">
-                                        <i class="fa-solid fa-heart"></i>
-                                    </div>
-                                </div>
-                                   <a class="btn_prdt_info" href="<c:url value='/detailCharterLoan/${list.oIndex}'/>">자세히 보기</a>
+                           			<div class="btn_add_compare">
+                           				<i class="fa-solid fa-folder-plus"></i>
+                           				<input type="hidden" value="${list.oIndex }">
+                       				</div>
+                       				<div class="btn_add_favorite">
+                       					<i class="fa-solid fa-heart"></i>
+                       					<input type="hidden" value="${list.oIndex }">
+               						</div>
+		           				</div>
+                                <a class="btn_prdt_info" href="<c:url value='/detailCharterLoan/${list.oIndex}'/>">자세히 보기</a>
                             </div>
                         </div>
                         </c:forEach>
