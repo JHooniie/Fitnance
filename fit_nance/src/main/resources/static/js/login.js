@@ -3,11 +3,11 @@ $(document).ready(function(){
     //로그인 유효성 검사
     var regEmail = /^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/;
     var getCheck = RegExp(/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/);
-    var regcaptcha = RegExp(/^([0-9a-zA-Z])$/);
+    var regcaptcha = RegExp(/^([0-9a-zA-Z]{1,8})$/);
 
 
 
-    $('#main_login').on('click', function(event){
+    $('#main_login').on('submit', function(event){
         if($('#user_id').val() == ""){
             alert("이메일을 작성해주세요")
             return false;
@@ -29,16 +29,18 @@ $(document).ready(function(){
             return false;
         }
         else if(regEmail.test($('#user_id').val()) && getCheck.test($('#user_pw').val())){
-            console.log("캡챠1");
-            if($('#input-captcha_value').val() != ''){
-                console.log("캡챠2");
-                alert("인증번호를 입력해주세요")
-                return false;
-            }else if(regcaptcha.test($('#input-captcha_value').val())){
-                check_captchaAjax();
-            }
+            // console.log("캡챠1");
+            // if(regcaptcha.test($('#input-captcha_value').val())){
+            //     console.log(regcaptcha.test($('#input-captcha_value').val()));
+            //     check_captchaAjax();
+            // }
+            // else if(!$('#input-captcha_value').val()){
+            //     console.log($('#input-captcha_value').val());
 
-            
+            //     alert("인증번호를 입력해주세요1")
+            //     return false;
+            // }
+            return true;
         }
     })
 
@@ -153,8 +155,9 @@ $(document).ready(function(){
                 location.href="redirect:/loginForm";
                }
             },
-            error:function(){
-                alert("captcha 전송 실패");
+            error:function(request,status,error){
+                alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+                console.log("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
                 
             }	
         }); 	// ajax 끝

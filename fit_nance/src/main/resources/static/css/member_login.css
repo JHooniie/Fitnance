@@ -217,7 +217,7 @@ button{
     color:#222;
     text-align: left;
 }
-.box-captcha #captcha_value{
+.box-captcha #input-captcha_value{
     display: block;
     width:100%;
     height:60px;
