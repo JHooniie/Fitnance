@@ -164,7 +164,7 @@ $(document).ready(function(){
 
         $.ajax({
             type:"post",
-            url:"captcha",
+            url:"/api/check_captcha",
             data:{"captcha_value":captcha_value},
             async: false,
             success:function(result){

@@ -32,6 +32,38 @@ public class QNAService implements IQNAService {
 		return dao.answerMemQNA(memId, qIndex);
 	}
 	
-
-
+	// admin
+	@Override
+	public ArrayList<QNAVO> listAllQNA() {
+		return dao.listAllQNA();
+	}
+	@Override
+	public QNAVO selectQuestion(int qIndex) {
+		return dao.selectQuestion(qIndex);
+	}
+	@Override
+	public QNAVO selectAnswer(int qIndex) {
+		return dao.selectAnswer(qIndex);
+	}
+	@Override
+	public QNAVO detailViewQNA(int qIndex) {
+		return dao.detailViewQNA(qIndex);
+	}
+	@Override
+	public void insertAnswer(int qIndex, String aTitle, String aContent) {
+		dao.insertAnswer(qIndex, aTitle, aContent);
+	}
+	@Override
+	public void updateAnswer(int qIndex, String aTitle, String aContent) {
+		dao.updateAnswer(qIndex, aTitle, aContent);
+	}
+	@Override
+	public void deleteQuestion(int qIndex) {
+		dao.deleteQuestion(qIndex);
+	}
+	@Override
+	public void deleteAnswer(int qIndex) {
+		dao.deleteAnswer(qIndex);
+	}
+	
 }

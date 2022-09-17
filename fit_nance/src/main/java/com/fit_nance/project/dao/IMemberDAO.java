@@ -25,6 +25,8 @@ public interface IMemberDAO {
 	public void updateMemInfo(MemberVO vo);
 	// 회원정보 상세 보기
 	public MemberVO detailViewMemInfo(String memId);
+	// 마이페이지 즐겨찾기 보기
+	public MemberVO detailMemInfo(String memId);
 	// 회원가입 시 은행 정보 가져오기
 	public ArrayList<BankVO> listAllBank();
 	//마이페이지 은행 이름 불러오기
