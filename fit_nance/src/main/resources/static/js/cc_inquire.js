@@ -4,7 +4,7 @@
  
  $(document).ready(function(){
 
-    $('.div_login_notice').hide();
+    //$('.div_login_notice').hide();
     $('.nav_register_inquire span').css('color', '#222222');
     $('.nav_register_inquire').css('border-bottom', '1px solid #222222');
 
