@@ -51,6 +51,7 @@ public class CCController {
 	// 서비스 이용 문의
 	@RequestMapping("/cc_inquire")
 	public String service_inquire(Authentication auth, Model model) {
+		if(auth != null) {
 		PrincipalDetails princ = (PrincipalDetails)auth.getPrincipal();
 		
 		String memId = princ.getUsername();
@@ -58,6 +59,7 @@ public class CCController {
 		
 		model.addAttribute("memId", memId);
 		//model.addAttribute("qnaList", qnaList);
+		}
 		return "cc/inquire"; 
 	}
 

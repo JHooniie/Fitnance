@@ -1,6 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<sec:authorize access="isAuthenticated()">
+    <sec:authentication property="principal" var="principal" />
+</sec:authorize>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -25,6 +29,7 @@
 	                    <div class="nav_register_inquire"><span>문의하기</span></div>
 	                    <div class="nav_list_inquire" onClick="location.href='/inquire_list'"><span>조회하기</span></div>
 	                </div>
+	                 <sec:authorize access="isAnonymous()">
 	                <div class="div_login_notice">
 	                    <div class="title_login_notice">
 	                        <p>고객님의 금융관련 상담 및 문의사항에 대한</p>
@@ -34,13 +39,15 @@
 	                        <i class="fa-solid fa-power-off"></i>
 	                    </div>
 	                    <div class="link_login_notice">
-	                        <a href="<c:url value='/login'/>">로그인<i class="fa-solid fa-chevron-right"></i></a>
+	                        <a href="<c:url value='/loginForm'/>">로그인<i class="fa-solid fa-chevron-right"></i></a>
 	                    </div>
 	                    <div class="text_login_notice">
 	                        <p>로그인 시 개인정보 입력 절차 없이 이용할 수 있으며</p>
 	                        <p>과거 상담 내역도 확인할 수 있습니다.</p>
 	                    </div>
 	                </div>
+	                </sec:authorize>
+	                <sec:authorize access="hasAnyRole('ROLE_USER')">
 	                <div class="tab_service_content">
 	                    <div class="tab_register_inquire">
 	                        <div class="div_register_email">
@@ -70,6 +77,7 @@
 	                        </div>
 	                    </div>
 	                </div>
+	                </sec:authorize>
 	            </div>
 	        </div> 
 	    </section>
