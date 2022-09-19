@@ -12,7 +12,8 @@ import org.springframework.context.annotation.PropertySources;
 @ComponentScan(basePackages = {"com.fit_nance.project"})
 @MapperScan(basePackages = {"com.fit_nance.project"})
 @PropertySources({@PropertySource(value="file:c:/springWorkspace/Fitnance/fit_nance/src/main/resources/application.properties",ignoreResourceNotFound=true),
-				  @PropertySource(value="file:/usr/local/project/properties/configure.properties",ignoreResourceNotFound=true)})
+	                @PropertySource(value="file:/usr/local/project/properties/application.properties",ignoreResourceNotFound=true)})
+
 public class FitNanceApplication {
 
 //	@Autowired
