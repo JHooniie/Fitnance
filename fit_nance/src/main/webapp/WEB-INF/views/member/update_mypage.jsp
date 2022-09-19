@@ -6,16 +6,11 @@
 <sec:authorize access="isAuthenticated()">
     <sec:authentication property="principal" var="principal" />
 </sec:authorize>
-<c:set var="provider" value="${principal.provider}" />
-<c:set var="memId" value="${principal.username}" />
+
 <c:set var="memBank" value="${principal.memBank}" />
 <c:set var="memBirth" value="${principal.memBirth} }"/>
-<c:set var="memRole" value="${principal.memRole}" />
-<c:set var="memPwd" value="${principal.password}" />
-<c:set var="memGender" value="${principal.memGender}" />
-<c:set var="memEmailRecd" value="${principal.memEmailRecd}" />
-<c:set var="providerId" value="${principal.providerId}" />
-<c:set var="certified" value="${principal.certified}" />
+<c:set var="memImg" value="${principal.memImg }"/>
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -30,14 +25,9 @@
         <div class="update_myPage wrap">
             <div class="update_mypage_myProfile">
                 <div class="box-update-profile">
-                    <div class="box-update-profileImg">
-                        <div class="box-profileImg-overlay"></div>
-                        <div class="box-update-profileImg-img-center">
-                            <img src="<c:url value='images/lg_fitnance_initial_mypage.png'/>">
-                        </div>
-                    </div>
+                    <c:import url="/WEB-INF/views/member/update_mypage_profile.jsp" />
                     <div class="box-update-profile-content">
-                        <form id="form-update-profile">
+                        <form id="form-update-profile" name="form_update_profile">
                         <div class="box-update-profile-basic">
                             <label for="input-update-profile-Email"><span class="span-update span-update-profile-Email">이메일</span></label>
                             <input type="text" id="input-update-profile-Email" name="memId" value="${principal.username}" readonly>
@@ -70,13 +60,14 @@
                                 더 <span>핏</span>:하게 추천해 드릴게요!</h3>
                             </div>
                             <!-- 추가정보 -->
-                            <input type="hidden" id="input-update-role" name="memRole" value="${memRole}">
-                            <input type="hidden" id="input-update-pwd" name="memPwd" value="${memPwd}">
-                            <input type="hidden" id="input-update-gender" name="memGender" value="${memGender}">
-                            <input type="hidden" id="input-update-emailRecd" name="memEmailRecd" value="${memEmailRecd}">
-                            <input type="hidden" id="input-update-provider" name="provider" value="${provider}">
-                            <input type="hidden" id="input-update-providerId" name="providerId" value="${providerId}">
-                            <input type="hidden" id="input-update-certifed" name="certified" value="${certified}">
+                            <input type="hidden" id="input-update-role" name="memRole" value="${principal.getMemRole()}">
+                            <input type="hidden" id="input-update-pwd" name="memPwd" value="${principal.getPassword()}">
+                            <input type="hidden" id="input-update-gender" name="memGender" value="${principal.getMemGender()}">
+                            <input type="hidden" id="input-update-emailRecd" name="memEmailRecd" value="${principal.getMemEmailRecd()}">
+                            <input type="hidden" id="input-update-provider" name="provider" value="${principal.getProvider()}">
+                            <input type="hidden" id="input-update-providerId" name="providerId" value="${principal.getProviderId()}">
+                            <input type="hidden" id="input-update-certifed" name="certified" value="${principal.getCertified()}">
+                            <input type="hidden" id="input-update-memImg" name="memImg" value="${savedFileName}">
 
                             <label for="btn-user_bank"><span class="span-bank-more-information">주거래 은행 계좌정보 입력</span></label><br>
                                 <button id="btn-user_bank" id="btn-user_bank">
@@ -87,7 +78,7 @@
                                     </c:forEach>
                                 </button>
                                 <input id="input-user_bank" type="hidden" name="memBank" value="${memBank}">
-                                    <input type="checkbox" name="memEmailRecd" id="checkbox-checkAgree" <c:if test="${memEmailRecd ne null}">  checked </c:if> >
+                                    <input type="checkbox" name="memEmailRecd" id="checkbox-checkAgree" <c:if test="${principal.getMemEmailRecd() ne null}">  checked </c:if> >
                                     <label class="label-information-checkAgree">광고/마케팅 수신동의</label>
                                 <p>수신동의하시면 추천 상품을 이메일로 먼저 알려드릴게요!</p>
                             </div>

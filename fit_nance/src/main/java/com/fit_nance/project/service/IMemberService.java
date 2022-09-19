@@ -18,6 +18,9 @@ public interface IMemberService {
 	// 회원정보 수정
 	public void updateMemInfo(MemberVO vo);
 	
+	// 회원정보 수정:프로필 사진
+	public void updateMemImg(HashMap<String, Object> map);
+	
 	// 회원정보 상세 보기
 	public MemberVO detailViewMemInfo(String memId);
 	

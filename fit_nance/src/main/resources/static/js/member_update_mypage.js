@@ -17,7 +17,28 @@
     //     $('#checkbox-checkAgree').prop('checked');
     // }
 
-    $('#input-update-profile-name').change(function(){
+    $('#input-upload-profileImg').on('change', function(){
+        $('#submit-upload-profileImg').css("display","block");
+        //document.form_update_profileImg.submit();
+    });
+
+    $('#submit-upload-profileImg').on('submit', function(){
+        $.ajax({
+            url: "/profileImg_Upload",
+            type: "post",
+            success:function(result){
+                document.location.href='/user/update_mypage';
+            },
+            error:function(request,status,error){
+                alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+            }
+        });
+        
+        
+    });
+
+
+	$('#input-update-profile-name').change(function(){
         if(!regName.test($('#input-update-profile-name').val())){
             alert("유효하지 않은 이름입니다. 다시 입력해주세요");
             $('#input-update-profile-name').val()=="";
@@ -59,6 +80,7 @@
         let memRole = $('#input-update-role').val();
         let memPwd = $('#input-update-pwd').val();
         let memGender = $('#input-update-gender').val();
+        let memImg = $('#input-update-memImg').val();
         let memEmailRecd = $('#checkbox-checkAgree').val();
         let providerId = $('#input-update-provider').val();
         let certified = $('#input-update-providerId').val();
@@ -69,7 +91,6 @@
             return false;
 
             }else{
-
                 $.ajax({
                     url: "./update_memInfo",
                     type: "post",
@@ -84,15 +105,16 @@
                         "memEmailRecd":memEmailRecd,
                         "providerId":providerId,
                         "certified":certified,
-                        "provider":provider},
+                        "provider":provider,
+                        "memImg":memImg},
                     dataType:"text",
                     success:function(result){
                         if(result="success"){
                             //$('#input-update-birth').val($('#input-update-profile-birth-year').val()+$('#input-update-profile-birth-month').val()+$('#input-update-profile-birth-day').val());
                             
                             alert("수정 성공")
-                            location.href='redirect:./update_mypage'
-                            location.reload();
+                            location.href='redirect:./update_mypage';
+                            document.location.reload();
                         }
                     },
                     error:function(request,status,error){
