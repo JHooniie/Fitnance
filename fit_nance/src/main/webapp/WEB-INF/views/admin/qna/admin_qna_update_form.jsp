@@ -51,7 +51,7 @@
 	                                    </table>
 	                                    <input type="hidden" name="qIndex" value="${a.qIndex}">
 	                                    <div class="box-btn">
-	                                        <button class="btn btn-outline-secondary" onclick="location.href ='/admin/qna'">취소하기</button>
+	                                        <button type="button" class="btn btn-outline-secondary" onclick="location.href ='/admin/qna'">취소하기</button>
 	                                        <button type="submit" class="btn btn-primary">수정하기</button>
 	                                    </div>
 	                                </form>
