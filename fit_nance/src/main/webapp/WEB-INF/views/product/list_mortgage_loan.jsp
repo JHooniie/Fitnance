@@ -81,9 +81,10 @@
 	                    </button>
 	                </div>
 	                <div>
-	                	<input class="com1">
-	                	<input class="com2">
-	                	<input class="com3">
+	                	<input class="com1" type="hidden">
+	                	<input class="com2" type="hidden">
+	                	<input class="com3" type="hidden">
+        				<!-- <input class="current_page"> -->
 	                </div>
 	            </div>
 	            <div id="result_list_prdt" class="panel_list_prdt">
@@ -101,7 +102,7 @@
 		            <div class="div_list_prdt">
 		            	<div class="prdt_result_search prdt">
 		            	<!-- 검색 결과 상품 - 시작 -->
-		            		<c:forEach items="${hlList}" var="list" varStatus="status">
+		            		<c:forEach items="${pList}" var="list" varStatus="status">
 		            			<div class="div_prdt">
 		            				<div class="div_prdt_info">
 		            					<div class="div_ic_co">
@@ -160,10 +161,9 @@
 	                            <i class="fa-solid fa-chevron-left"></i>
 	                        </div>
 	                        <div class="div_page_num">
-	                            <div class="page_num_clicked">1</div>
-	                            <div class="page_num">2</div>
-	                            <div class="page_num">3</div>
-	                            <div class="page_num">4</div>
+	                        	<c:forEach items="${total_page }" var="p">
+	                            <div class="page_num" onclick="location.href='/listMortgageLoan_page=${p}'">${p }</div>
+	                            </c:forEach>
 	                        </div>
 	                        <div class="div_page_next">
 	                            <i class="fa-solid fa-chevron-right"></i>

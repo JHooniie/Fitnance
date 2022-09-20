@@ -3,6 +3,7 @@ package com.fit_nance.project.model;
 public class DepositListVO {
 	private int kind;
 	int pIndex;
+	int kind;
 	String fin_co_no;
 	String fin_prdt_cd;
 	String kor_co_nm;

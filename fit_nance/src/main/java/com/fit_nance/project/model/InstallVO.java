@@ -1,7 +1,6 @@
 package com.fit_nance.project.model;
 
 public class InstallVO {
-	private int kind;
 	int pIndex;
 	String fin_co_no;
 	String fin_prdt_cd;
@@ -14,13 +13,8 @@ public class InstallVO {
 	String join_member;
 	String etc_note;
 	int max_limit;
-	
-	public int getKind() {
-		return kind;
-	}
-	public void setKind(int kind) {
-		this.kind = kind;
-	}
+
+
 	public int getPIndex() {
 		return pIndex;
 	}

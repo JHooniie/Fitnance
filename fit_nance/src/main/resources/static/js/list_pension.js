@@ -4,7 +4,7 @@
  
  $(document).ready(function(){
  	var compare=["compare"];
- 	var favorite=["favorite"];
+ 	var favorite=0;
  
  	var pnsn_recp_trm_nm=["pnsn_recp_trm_nm"];
     var mon_paym_atm_nm=["mon_paym_atm_nm"];

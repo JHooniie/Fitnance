@@ -3,6 +3,7 @@ package com.fit_nance.project.model;
 public class DepoOptionVO {
 	private int kind;
 	private int oIndex;
+	int kind;
 	private String fin_co_no;
 	private String fin_prdt_cd;
 	private String intr_rate_type;
@@ -11,7 +12,7 @@ public class DepoOptionVO {
 	private double intr_rate;
 	private double intr_rate2;
 	
-	
+
 	public int getKind() {
 		return kind;
 	}

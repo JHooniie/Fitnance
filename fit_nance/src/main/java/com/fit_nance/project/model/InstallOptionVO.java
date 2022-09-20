@@ -12,8 +12,7 @@ public class InstallOptionVO {
 	private int save_trm;
 	private double intr_rate;
 	private double intr_rate2;
-	
-	
+
 	public int getKind() {
 		return kind;
 	}

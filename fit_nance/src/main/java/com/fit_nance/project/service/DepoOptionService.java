@@ -39,9 +39,28 @@ public class DepoOptionService {
          }
          //System.out.println(resultDep.toString());
         
-         depoOptionList = jsonToVOList(resultDep.toString());
+         depoOptionList.addAll(jsonToVOList(resultDep.toString(),0));
          //System.out.println(depoOptionList.get(1).getoIndex());
          //System.out.println(depoOptionList.get(1).getIntr_rate_type_nm());
+         for(int i =1; i<=3;i++) {
+             StringBuffer resultDep2 = new StringBuffer();
+             String urlDep2="http://finlife.fss.or.kr/finlifeapi/depositProductsSearch.json?auth="
+    					+key
+    					+"&topFinGrpNo="+"030300"
+    					+"&pageNo="+i;
+    		  URL url2 = new URL(urlDep2);
+    		 HttpURLConnection urlConnection2 = (HttpURLConnection)url2.openConnection();
+             urlConnection2.setRequestMethod("GET");
+
+             BufferedReader bf2 = new BufferedReader(new InputStreamReader(urlConnection2.getInputStream(), "UTF-8"));
+             
+             String returnLine2;
+             while((returnLine2 = bf2.readLine()) != null) {
+                 resultDep2.append(returnLine2);
+             }
+             depoOptionList.addAll(jsonToVOList(resultDep2.toString(),depoOptionList.size()));
+            }
+		
 		}
 		catch(Exception e) {
 			System.out.println(e);
@@ -49,7 +68,7 @@ public class DepoOptionService {
 		return depoOptionList;
 	}
 
-	public ArrayList<DepoOptionVO> jsonToVOList(String jsonResultStr){
+	public ArrayList<DepoOptionVO> jsonToVOList(String jsonResultStr,int num){
 		ArrayList<DepoOptionVO> depoOptionList = new ArrayList<DepoOptionVO>();
 		
 		JSONObject jsonObj =new JSONObject(jsonResultStr);
@@ -57,8 +76,8 @@ public class DepoOptionService {
 		JSONArray optionArray = (JSONArray) parse_result.get("optionList");
 		
 		if(optionArray!=null) {
-			for (int i = 0; i < optionArray.length(); i++) {
-				JSONObject depoObj = optionArray.getJSONObject(i);
+			for (int i = num; i < num+optionArray.length(); i++) {
+				JSONObject depoObj = optionArray.getJSONObject(i-num);
 				DepoOptionVO vo = new DepoOptionVO();
 				vo.setKind(2);
 				vo.setoIndex(i);
