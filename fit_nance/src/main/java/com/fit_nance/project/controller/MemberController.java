@@ -229,18 +229,20 @@ public class MemberController {
 		@RequestMapping("/user/pre_update_password")
 		public String update_password(@RequestParam HashMap<String, Object> map) {
 			
-			System.out.println("비밀번호 : "+map.get("memPwd"));
-			System.out.println("재비밀번호 : "+map.get("memPwd_chk"));
-			if(map.get("memPwd") == map.get("memPwd_chk")) {
+			String memPwd =(String)map.get("memPwd");
+			String memPwd_chk =(String)map.get("memPwd_chk");
+			System.out.println(memPwd);
+			System.out.println(memPwd_chk);
+			if(!memPwd.equals(memPwd_chk)) {
+				
+				return "redirect:./update-passwordForm";
+				
+			}else {
 				System.out.println("비밀번호 통과 : "+map.get("memPwd"));
 				memService.updateMemPwd(map);
-				
-				return "index";
-			}else {
-				return "redirect:./update-passwordForm";
 			}
 			
-			
+			return "redirect:/logout";
 
 				
 			
