@@ -1,20 +1,20 @@
 package com.fit_nance.project.model;
 
 public class FavoriteVO {
-	String kind;
-	String oIndex;
+	int kind;
+	String fin_prdt_cd;
 	String memId;
-	public String getKind() {
+	public int getKind() {
 		return kind;
 	}
-	public void setKind(String kind) {
+	public void setKind(int kind) {
 		this.kind = kind;
 	}
-	public String getoIndex() {
-		return oIndex;
+	public String getFin_prdt_cd() {
+		return fin_prdt_cd;
 	}
-	public void setoIndex(String oIndex) {
-		this.oIndex = oIndex;
+	public void setFin_prdt_cd(String fin_prdt_cd) {
+		this.fin_prdt_cd = fin_prdt_cd;
 	}
 	public String getMemId() {
 		return memId;

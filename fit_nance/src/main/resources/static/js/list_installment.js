@@ -4,7 +4,8 @@
  
  $(document).ready(function(){
  	var compare=["compare"];
- 	var favorite=0;
+ 	var favorite="";
+ 	var user="";
  	
  	var rsrv_type_nm=["rsrv_type_nm"];
     var join_member=["join_member"];
@@ -220,6 +221,7 @@
     			$(this).toggleClass('plus-icon-clicked');
     			if($(this).hasClass('plus-icon-clicked')){
     				favorite=($(this).prop("id"));
+    				console.log(favorite);
     				$.ajax({
 			            url: "insertInstallFavorite",
 			            type: "post",
