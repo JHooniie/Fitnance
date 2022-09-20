@@ -44,12 +44,12 @@
                     <div class="box-favoriteList-tab">
                         <ul>
                             <li class="li-menuTab-01"><span>전체 (${count})</span></li>
-                            <li><span>적금 (${fn:length(favList) })</span></li>
-                            <li><span>예금 (${fn:length(favList) })</span></li>
-                            <li><span>연금 (${fn:length(favList) })</span></li>
-                            <li><span>주택담보대출 (${fn:length(favList) })</span></li>
-                            <li><span>전세자금대출 (${fn:length(favList) })</span></li>
-                            <li><span>신용대출 (${fn:length(favList) })</span></li>
+                            <li><span>적금 (${fn:length(instList) })</span></li>
+                            <li><span>예금 (${fn:length(depList) })</span></li>
+                            <li><span>연금 (${fn:length(penList) })</span></li>
+                            <li><span>주택담보대출 (${fn:length(morList) })</span></li>
+                            <li><span>전세자금대출 (${fn:length(charList) })</span></li>
+                            <li><span>신용대출 (${fn:length(crdList) })</span></li>
                         </ul>
                     </div>
                    

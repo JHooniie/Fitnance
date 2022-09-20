@@ -9,15 +9,22 @@ public class FavoriteVO {
 	//공통값
 	private String fin_prdt_nm;
 	private String kor_co_nm;
-	private String joinway;
+	private String join_way;
 	//개별
 	private int save_trm;//기간(예금)
 	private double lend_rate_min;//최저금리(전세대출)(주택대출)
 	private double crdt_grad_avg;//평균금리(신용대출)
 	private double intr_rate;//1년기준 이율(예금)(적금)
 	private double intr_rate2;//최대(적금)
+	private double avg_prft_rate;
 
 	
+	public double getAvg_prft_rate() {
+		return avg_prft_rate;
+	}
+	public void setAvg_prft_rate(double avg_prft_rate) {
+		this.avg_prft_rate = avg_prft_rate;
+	}
 	public String getFin_prdt_nm() {
 		return fin_prdt_nm;
 	}
@@ -30,11 +37,11 @@ public class FavoriteVO {
 	public void setKor_co_nm(String kor_co_nm) {
 		this.kor_co_nm = kor_co_nm;
 	}
-	public String getJoinway() {
-		return joinway;
+	public String getJoin_way() {
+		return join_way;
 	}
-	public void setJoinway(String joinway) {
-		this.joinway = joinway;
+	public void setJoin_way(String join_way) {
+		this.join_way = join_way;
 	}
 	public int getSave_trm() {
 		return save_trm;
