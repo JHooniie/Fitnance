@@ -2,6 +2,10 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<sec:authorize access="isAuthenticated()">
+    <sec:authentication property="principal" var="principal" />
+</sec:authorize>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -94,12 +98,12 @@
 		                                </div>
 		                            </div>
 		                            <div class="plus-icon plus-icon1" id="${list.oIndex}"><i class="fa-solid fa-folder-plus"></i></div>
-		                            <c:if test="${empty sessionScope.sid}">
-										<div class="plus-icon plus-icon2 no-login" id="${list.oIndex}"><i class="fa-solid fa-heart"></i></div>
+		                            <c:if test="${empty principal.username}">
+										<div class="plus-icon plus-icon2 no-login" id="${list.fin_prdt_cd}"><i class="fa-solid fa-heart"></i></div>
 									</c:if>
 
-									<c:if test="${not empty sessionScope.sid}">
-										<div class="plus-icon plus-icon2 yes-login" id="${list.oIndex}"><i class="fa-solid fa-heart"></i></div>
+									<c:if test="${not empty principal.username}">
+										<div class="plus-icon plus-icon2 yes-login" id="${list.fin_prdt_cd}"><i class="fa-solid fa-heart"></i></div>
 					          		</c:if>
 		                        </div>
 		                   

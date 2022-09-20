@@ -2,6 +2,7 @@ package com.fit_nance.project.controller;
 
 import java.util.ArrayList;
 
+import org.springframework.security.core.Authentication;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.fit_nance.project.config.auth.PrincipalDetails;
 import com.fit_nance.project.model.DepositFilterVO;
 import com.fit_nance.project.model.DepositListVO;
 import com.fit_nance.project.model.FavoriteVO;
@@ -372,12 +374,13 @@ public class ListSavingController {
 	}
 	
 	@RequestMapping("/insertInstallFavorite")
-	public String insertInstallFavorite(@RequestParam(value="favorite") String favorite) {
+	public String insertInstallFavorite(Authentication auth,@RequestParam(value="favorite") String favorite) {
 		FavoriteVO vo =new FavoriteVO();
-		
-		vo.setKind("적금");
-		vo.setMemId("");
-		vo.setoIndex(favorite);
+		PrincipalDetails princ=(PrincipalDetails)auth.getPrincipal();
+		String memId = princ.getUsername();
+		vo.setKind(2);
+		vo.setMemId(memId);
+		vo.setFin_prdt_cd(favorite);
 		
 		fService.insertInstallFavorite(vo);
 		
@@ -385,12 +388,13 @@ public class ListSavingController {
 	}
 	
 	@RequestMapping("/deleteInstallFavorite")
-	public String deleteInstallFavorite(@RequestParam(value="favorite") String favorite) {
+	public String deleteInstallFavorite(Authentication auth,@RequestParam(value="favorite") String favorite) {
 		FavoriteVO vo =new FavoriteVO();
-		
-		vo.setKind("적금");
-		vo.setMemId("");
-		vo.setoIndex(favorite);
+		PrincipalDetails princ=(PrincipalDetails)auth.getPrincipal();
+		String memId = princ.getUsername();
+		vo.setKind(2);
+		vo.setMemId(memId);
+		vo.setFin_prdt_cd(favorite);
 		
 		fService.deleteInstallFavorite(vo);
 		
@@ -398,12 +402,13 @@ public class ListSavingController {
 	}
 	
 	@RequestMapping("/insertDepositFavorite")
-	public String insertDepositFavorite(@RequestParam(value="favorite") String favorite) {
+	public String insertDepositFavorite(Authentication auth,@RequestParam(value="favorite") String favorite) {
 		FavoriteVO vo =new FavoriteVO();
-		
-		vo.setKind("예금");
-		vo.setMemId("");
-		vo.setoIndex(favorite);
+		PrincipalDetails princ=(PrincipalDetails)auth.getPrincipal();
+		String memId = princ.getUsername();
+		vo.setKind(1);
+		vo.setMemId(memId);
+		vo.setFin_prdt_cd(favorite);
 		
 		fService.insertInstallFavorite(vo);
 		
@@ -411,12 +416,13 @@ public class ListSavingController {
 	}
 	
 	@RequestMapping("/deleteDepositFavorite")
-	public String deleteDepositFavorite(@RequestParam(value="favorite") String favorite) {
+	public String deleteDepositFavorite(Authentication auth,@RequestParam(value="favorite") String favorite) {
 		FavoriteVO vo =new FavoriteVO();
-		
-		vo.setKind("예금");
-		vo.setMemId("");
-		vo.setoIndex(favorite);
+		PrincipalDetails princ=(PrincipalDetails)auth.getPrincipal();
+		String memId = princ.getUsername();
+		vo.setKind(1);
+		vo.setMemId(memId);
+		vo.setFin_prdt_cd(favorite);
 		
 		fService.deleteInstallFavorite(vo);
 		
@@ -424,12 +430,13 @@ public class ListSavingController {
 	}
 	
 	@RequestMapping("/insertPensionFavorite")
-	public String insertPensionFavorite(@RequestParam(value="favorite") String favorite) {
+	public String insertPensionFavorite(Authentication auth,@RequestParam(value="favorite") String favorite) {
 		FavoriteVO vo =new FavoriteVO();
-		
-		vo.setKind("연금");
-		vo.setMemId("");
-		vo.setoIndex(favorite);
+		PrincipalDetails princ=(PrincipalDetails)auth.getPrincipal();
+		String memId = princ.getUsername();
+		vo.setKind(3);
+		vo.setMemId(memId);
+		vo.setFin_prdt_cd(favorite);
 		
 		fService.insertInstallFavorite(vo);
 		
@@ -437,12 +444,13 @@ public class ListSavingController {
 	}
 	
 	@RequestMapping("/deletePensionFavorite")
-	public String deletePensionFavorite(@RequestParam(value="favorite") String favorite) {
+	public String deletePensionFavorite(Authentication auth,@RequestParam(value="favorite") String favorite) {
 		FavoriteVO vo =new FavoriteVO();
-		
-		vo.setKind("연금");
-		vo.setMemId("");
-		vo.setoIndex(favorite);
+		PrincipalDetails princ=(PrincipalDetails)auth.getPrincipal();
+		String memId = princ.getUsername();
+		vo.setKind(3);
+		vo.setMemId(memId);
+		vo.setFin_prdt_cd(favorite);
 		
 		fService.deleteInstallFavorite(vo);
 		
