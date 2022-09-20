@@ -9,7 +9,7 @@ $(document).ready(function(){
  	
  	// KOR 클릭 시
  	$('.span-lang-kor').click(function(){
- 		$(location).attr("href", "http://localhost:8080" + path);
+ 		$(location).attr("href", path);
  	});
  	
  	// ENG 클릭 시
