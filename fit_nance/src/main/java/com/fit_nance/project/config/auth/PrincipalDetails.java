@@ -127,6 +127,9 @@ public class PrincipalDetails implements UserDetails, OAuth2User, Serializable {
 		return vo.getMemRole();
 	}
 	
+	public String getMemImg() {
+		return vo.getMemImg();
+	}
 	
 	
 	@Override

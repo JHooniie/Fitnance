@@ -50,6 +50,14 @@ public class MemberService implements IMemberService {
 		dao.updateMemInfo(vo);
 		
 	}
+	
+	//회원정보 수정:프로필
+	@Override
+	public void updateMemImg(HashMap<String, Object> map) {
+		
+		dao.updateMemImg(map);
+	}
+
 
 	//마이페이지 즐겨찾기 불러오기
 	@Override
@@ -196,5 +204,6 @@ public class MemberService implements IMemberService {
 		
 }
 
+	
 	
 }

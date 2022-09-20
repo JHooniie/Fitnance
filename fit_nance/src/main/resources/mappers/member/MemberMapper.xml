@@ -58,11 +58,18 @@
 		VALUES ( #{memRole}, #{memId}, #{memPwd}, #{memName}, #{memBirth}, #{memGender}, #{memBank}, #{memEmailRecd}, #{provider}, #{providerId})
 	</insert>
 	
-	<!-- 개인정보 수정 -->
+	<!-- 개인정보 수정 --><!-- 이미지 따로 뺴기 -->
 	<update id="updateMemInfo" parameterType="hashmap">
 		UPDATE member M, bank B
-		SET M.memName=#{memName}, M.memBank=#{memBank}, M.memBirth = #{memBirth},  M.memEmailRecd=#{memEmailRecd}
+		SET M.memName=#{memName}, M.memBank=#{memBank}, M.memBirth = #{memBirth},  M.memEmailRecd=#{memEmailRecd},  M.memImg=#{memImg}
 		WHERE M.memId=#{memId}
+	</update>
+	
+	<!-- 개인정보 프로필 이미지 수정 -->
+	<update id="updateMemImg" parameterType="hashmap">
+		UPDATE member
+		SET memImg=#{memImg}
+		WHERE memId=#{memId}
 	</update>
 	
 	<!-- 상세 보기 -->

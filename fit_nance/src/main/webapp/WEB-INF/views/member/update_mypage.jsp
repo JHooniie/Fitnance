@@ -6,16 +6,12 @@
 <sec:authorize access="isAuthenticated()">
     <sec:authentication property="principal" var="principal" />
 </sec:authorize>
-<c:set var="provider" value="${principal.provider}" />
-<c:set var="memId" value="${principal.username}" />
+
 <c:set var="memBank" value="${principal.memBank}" />
 <c:set var="memBirth" value="${principal.memBirth} }"/>
-<c:set var="memRole" value="${principal.memRole}" />
-<c:set var="memPwd" value="${principal.password}" />
-<c:set var="memGender" value="${principal.memGender}" />
-<c:set var="memEmailRecd" value="${principal.memEmailRecd}" />
-<c:set var="providerId" value="${principal.providerId}" />
-<c:set var="certified" value="${principal.certified}" />
+<c:set var="memImg" value="${principal.memImg }"/>
+<c:set var="memEmailRecd" value="${principal.getMemEmailRecd() }"/>
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -29,15 +25,22 @@
         <div class="mypage_banner"></div>
         <div class="update_myPage wrap">
             <div class="update_mypage_myProfile">
+            <form id="form-upload-profileImg" name="form_update_profileImg" method="post" action="<c:url value='/user/update_memInfo'/>" enctype="multipart/form-data">
                 <div class="box-update-profile">
                     <div class="box-update-profileImg">
-                        <div class="box-profileImg-overlay"></div>
-                        <div class="box-update-profileImg-img-center">
-                            <img src="<c:url value='images/lg_fitnance_initial_mypage.png'/>">
-                        </div>
-                    </div>
+		               <div class="box-profileImg-overlay"></div>
+		               <input type="file" id="input-upload-profileImg" name="input-upload-profileImg">
+		               <label id="label-upload-profileImg" for="input-upload-profileImg"></label>
+		               <div class="box-update-profileImg-img-center">
+		               	<c:if test="${memImg eq null || memImg eq ''}">
+		               	<img id="img-profileImg" src="<c:url value='/images/upload/profile_image.png'/>">
+		               	</c:if>
+		               	<c:if test="${memImg ne null || memImg ne ''}">
+		               	<img id="img-profileImg" src="<c:url value='/images/upload/${memImg}'/>">
+		               	</c:if>
+		               </div>
+			       </div>
                     <div class="box-update-profile-content">
-                        <form id="form-update-profile">
                         <div class="box-update-profile-basic">
                             <label for="input-update-profile-Email"><span class="span-update span-update-profile-Email">이메일</span></label>
                             <input type="text" id="input-update-profile-Email" name="memId" value="${principal.username}" readonly>
@@ -56,11 +59,11 @@
                             <label for="input-update-profile-birth"><span class="span-update span-update-profile-birth">생년월일</span></label><br>
                             <div class="div-update-profile-birth">
                             	<input type="hidden" id="input-update-birth" name="memBirth" value="${fn:substring(memBirth,0,9)}">
-                                <input type="text" id="input-update-profile-birth-year" name="input-update-profile-birth-year" value="${fn:substring(memBirth,0,4)}" placeholder="1990">
+                                <input type="text" id="input-update-profile-birth-year" name="birth_year" value="${fn:substring(memBirth,0,4)}" placeholder="1990">
                                 <div class="update-birth-year">년</div>
-                                <input type="text" id="select-update-profile-birth-month" name="input-update-profile-birth-month" value="${fn:substring(memBirth,4,6)}" placeholder="1">
+                                <input type="text" id="select-update-profile-birth-month" name="birth_month" value="${fn:substring(memBirth,4,6)}" placeholder="1">
                                 <div class="update-birth-month">월</div>
-                                <input type="text" id="select-update-profile-birth-day" name="input-update-profile-birth-day" value="${fn:substring(memBirth,6,8)}" placeholder="1">
+                                <input type="text" id="select-update-profile-birth-day" name="birth_day" value="${fn:substring(memBirth,6,8)}" placeholder="1">
                                 <div class="update-birth-day">일</div>
                             </div>
                         </div>
@@ -70,13 +73,13 @@
                                 더 <span>핏</span>:하게 추천해 드릴게요!</h3>
                             </div>
                             <!-- 추가정보 -->
-                            <input type="hidden" id="input-update-role" name="memRole" value="${memRole}">
-                            <input type="hidden" id="input-update-pwd" name="memPwd" value="${memPwd}">
-                            <input type="hidden" id="input-update-gender" name="memGender" value="${memGender}">
-                            <input type="hidden" id="input-update-emailRecd" name="memEmailRecd" value="${memEmailRecd}">
-                            <input type="hidden" id="input-update-provider" name="provider" value="${provider}">
-                            <input type="hidden" id="input-update-providerId" name="providerId" value="${providerId}">
-                            <input type="hidden" id="input-update-certifed" name="certified" value="${certified}">
+                            <input type="hidden" id="input-update-role" name="memRole" value="${principal.getMemRole()}">
+                            <input type="hidden" id="input-update-pwd" name="memPwd" value="${principal.getPassword()}">
+                            <input type="hidden" id="input-update-gender" name="memGender" value="${principal.getMemGender()}">
+                            <input type="hidden" id="input-update-provider" name="provider" value="${principal.getProvider()}">
+                            <input type="hidden" id="input-update-providerId" name="providerId" value="${principal.getProviderId()}">
+                            <input type="hidden" id="input-update-certifed" name="certified" value="${principal.getCertified()}">
+                            <input type="hidden" id="input-update-memImg" name="memImg" value="${principal.getMemImg()}">
 
                             <label for="btn-user_bank"><span class="span-bank-more-information">주거래 은행 계좌정보 입력</span></label><br>
                                 <button id="btn-user_bank" id="btn-user_bank">
@@ -87,8 +90,9 @@
                                     </c:forEach>
                                 </button>
                                 <input id="input-user_bank" type="hidden" name="memBank" value="${memBank}">
-                                    <input type="checkbox" name="memEmailRecd" id="checkbox-checkAgree" <c:if test="${memEmailRecd ne null}">  checked </c:if> >
-                                    <label class="label-information-checkAgree">광고/마케팅 수신동의</label>
+                                  <input type="checkbox" id="checkbox-checkAgree"<c:if test="${memEmailRecd eq 'Y'}"> checked </c:if>> 
+                                  <label for="checkbox-checkAgree" class="label-information-checkAgree">광고/마케팅 수신동의</label>
+                                  <input type="hidden" id="input-update-emailRecd" name="memEmailRecd" value="${memEmailRecd}">
                                 <p>수신동의하시면 추천 상품을 이메일로 먼저 알려드릴게요!</p>
                             </div>
                             <button id="btn-reset-profile" type="reset">취소하기</button>

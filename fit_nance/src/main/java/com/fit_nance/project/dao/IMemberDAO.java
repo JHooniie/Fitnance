@@ -23,6 +23,8 @@ public interface IMemberDAO {
 	public int id_check(String memId);
 	// 회원정보 수정
 	public void updateMemInfo(MemberVO vo);
+	// 회원정보 수정:프로필이미지
+	public void updateMemImg(HashMap<String, Object> map);
 	// 회원정보 상세 보기
 	public MemberVO detailViewMemInfo(String memId);
 	// 마이페이지 즐겨찾기 보기
