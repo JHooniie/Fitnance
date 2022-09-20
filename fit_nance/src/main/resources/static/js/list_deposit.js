@@ -4,7 +4,7 @@
  
  $(document).ready(function(){
  	var compare=["compare"];
- 	var favorite=["favorite"];
+ 	var favorite=0;
  
     var join_member=["join_member"];
     var join_way=["join_way"];

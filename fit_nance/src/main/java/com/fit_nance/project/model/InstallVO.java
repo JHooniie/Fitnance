@@ -13,6 +13,13 @@ public class InstallVO {
 	String join_member;
 	String etc_note;
 	int max_limit;
+	int kind;
+	public int getKind() {
+		return kind;
+	}
+	public void setKind(int kind) {
+		this.kind = kind;
+	}
 	public int getPIndex() {
 		return pIndex;
 	}

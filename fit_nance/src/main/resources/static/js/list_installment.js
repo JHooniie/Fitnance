@@ -4,16 +4,14 @@
  
  $(document).ready(function(){
  	var compare=["compare"];
- 	var favorite="";
- 	var user="";
+ 	var favorite=0;
  	
  	var rsrv_type_nm=["rsrv_type_nm"];
     var join_member=["join_member"];
     var join_way=["join_way"];
     var save_trm=["save_trm"];
     
-	
-			
+
     // 좌측 필터 버튼 클릭 시
     {
         {// 예치방식

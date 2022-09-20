@@ -33,6 +33,13 @@ public class PensionListVO {
 	public String pnsn_strt_age;
 	public String pnsn_strt_age_nm;
 	public int pnsn_recp_amt;
+	int kind;
+	public int getKind() {
+		return kind;
+	}
+	public void setKind(int kind) {
+		this.kind = kind;
+	}
 	public int getpIndex() {
 		return pIndex;
 	}

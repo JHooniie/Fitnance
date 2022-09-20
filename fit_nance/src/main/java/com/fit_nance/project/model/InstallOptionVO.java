@@ -11,6 +11,13 @@ public class InstallOptionVO {
 	private int save_trm;
 	private double intr_rate;
 	private double intr_rate2;
+	int kind;
+	public int getKind() {
+		return kind;
+	}
+	public void setKind(int kind) {
+		this.kind = kind;
+	}
 	public String getRsrv_type() {
 		return rsrv_type;
 	}

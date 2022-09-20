@@ -136,7 +136,6 @@
     margin-left: 100px;
     /*margin-top:-500px;*/
     width : 990px;
-    margin-right: 320px;
 
 }
 
@@ -179,11 +178,11 @@
 .a{
 	display:block;
 }
+
 .search i{
 	padding-top:10px;
 	cursor: pointer;
 }
-
 
 .search-box{
     border-bottom: 1px solid #AAAAAA;

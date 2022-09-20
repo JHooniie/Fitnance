@@ -4,7 +4,7 @@
  
  $(document).ready(function(){
  	var compare=["compare"];
- 	var favorite=["favorite"];
+ 	var favorite=0;
  // 우측 아이콘 클릭 시
     {
     	{//비교함
