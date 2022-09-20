@@ -70,8 +70,39 @@ public class MemberService implements IMemberService {
 
 	//회원 즐겨찾기 목록
 	@Override
-	public ArrayList<FavoriteVO> favoriteListView(String memId) {
-		return dao.favoriteListView(memId);
+	public int favoriteListCount(String memId) {
+		return dao.favoriteListCount(memId);
+	}
+	
+	// 적금
+	@Override
+	public ArrayList<FavoriteVO> favoriteInstallListView(String memId) {
+		return dao.favoriteInstallListView(memId);
+	}
+	// 예금
+	@Override
+	public ArrayList<FavoriteVO> favoriteDepositListView(String memId) {
+		return dao.favoriteDepositListView(memId);
+	}
+	// 연금
+	@Override
+	public ArrayList<FavoriteVO> favoritePensionListView(String memId) {
+		return dao.favoritePensionListView(memId);
+	}
+	// 주택담보 대출
+	@Override
+	public ArrayList<FavoriteVO> favoriteMortgageListView(String memId) {
+		return dao.favoriteMortgageListView(memId);
+	}
+	// 전세 대출
+	@Override
+	public ArrayList<FavoriteVO> favoriteCharterListView(String memId) {
+		return dao.favoriteCharterListView(memId);
+	}
+	// 신용 대출
+	@Override
+	public ArrayList<FavoriteVO> favoriteListCreditView(String memId) {
+		return dao.favoriteListCreditView(memId);
 	}
 	
 	//회원 정보 불러오기
@@ -211,6 +242,10 @@ public class MemberService implements IMemberService {
 		
 		
 }
+
+	
+
+	
 
 	
 

@@ -7,6 +7,7 @@ public class FavoriteVO {
 	
 	//favorite 테이블 조인 값
 	//공통값
+	private String fin_prdt_nm;
 	private String kor_co_nm;
 	private String joinway;
 	//개별
@@ -17,6 +18,12 @@ public class FavoriteVO {
 	private double intr_rate2;//최대(적금)
 
 	
+	public String getFin_prdt_nm() {
+		return fin_prdt_nm;
+	}
+	public void setFin_prdt_nm(String fin_prdt_nm) {
+		this.fin_prdt_nm = fin_prdt_nm;
+	}
 	public String getKor_co_nm() {
 		return kor_co_nm;
 	}
