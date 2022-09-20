@@ -12,6 +12,7 @@
 		<link rel="stylesheet" href="<c:url value='/css/index.css' />"/>
 		<!-- js -->
 		<script src="<c:url value='/js/index.js' />"></script>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 	</head>
 	<body>
 		<c:import url="/WEB-INF/views/layout/top.jsp" />
@@ -19,15 +20,16 @@
 			<div class="background_index">
 	            <div class="index_main">
 	                <div class="index_title_main">
-	                    <h1>
-	                        모든 금융 상품을<br>
+	                    <h1 class="animate__animated animate__fadeInUp">
+	                        나에게 맞는 금융 상품<br>
 	                        한 눈에 쏙
 	                    </h1>
+	                    <a class="btn_recom animate__animated animate__fadeInUp" href="<c:url value='/prd_recom'/>">상품 추천 받으러 가기</a>
 	                </div>
-	                <div class="div_scroll">
+	                <div class="div_scroll animate__animated animate__slideInDown">
 	                    <i class="fa-solid fa-chevron-down"></i>
 	                </div>
-	                <div class="div_index_img1">
+	                <div class="div_index_img1" >
 	                    <div class="img_index_main">
 	                    	<video autoplay loop id="video1">
 	                    		<source src="<c:url value='/video/video_main_01.mp4' />" type="video/mp4" />

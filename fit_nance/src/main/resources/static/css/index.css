@@ -24,7 +24,8 @@ h3{
 }
 
 .index_title_main{
-    margin: 290px 0px 200px 0px;
+    margin: 280px 0px 130px 0px;
+    text-align: center;
 }
 
 .div_scroll{
@@ -151,4 +152,17 @@ h3{
     width: 840px;
     height: 570px;
     background-color: #eeeeee;
+}
+
+.btn_recom{
+	display: inline-block;
+	width: 300px;
+	height: 70px;
+	margin-top: 50px;
+	border-radius: 5px;
+	background-color: #1F4DFF;
+	color: #FFFFFF;
+	font-size: 20px;
+	font-weight: 300;
+	line-height: 67px;
 }
