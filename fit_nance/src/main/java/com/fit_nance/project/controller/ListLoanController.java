@@ -1,6 +1,8 @@
 package com.fit_nance.project.controller;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -32,11 +34,11 @@ public class ListLoanController {
 	@RequestMapping("/listMortgageLoan")
 	public String viewListMortgage(Model model) {
 		ArrayList<HomeLoanListVO> hlList = listService.listAllHomeLoan();
+
 		model.addAttribute("hlList", hlList);
-		
 		return "product/list_mortgage_loan";
 	}
-	
+
 	// 상세 보기
 	@RequestMapping("/detailMortgageLoan/{oIndex}")
 	public String viewDetailMortgage(@PathVariable int oIndex, Model model) {
@@ -52,8 +54,8 @@ public class ListLoanController {
 								 @RequestParam(value="arr_mrtg_type") ArrayList<String> arr_mrtg_type,
 								 @RequestParam(value="arr_rpay_type") ArrayList<String> arr_rpay_type,
 								 @RequestParam(value="arr_lend_type") ArrayList<String> arr_lend_type,
+								 //@RequestParam(value="search") String search,
 								 Model model) {
-		
 		HomeLoanFilterVO vo = new HomeLoanFilterVO();
 		
 		ArrayList<String> list_join_way = new ArrayList<String>();
@@ -95,9 +97,8 @@ public class ListLoanController {
 		vo.setList_lend_type(list_lend_type);
 		
 		ArrayList<HomeLoanListVO> hlList = listService.selectHomeLoanFilter(vo); 
-				
+
 		model.addAttribute("hlList", hlList);
-		
 		return "product/result_mortgage_loan";
 	}
 	

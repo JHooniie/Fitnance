@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import com.fit_nance.project.model.BankVO;
+import com.fit_nance.project.model.FavoriteVO;
 import com.fit_nance.project.model.MemberVO;
 
 public interface IMemberService {
@@ -18,11 +19,17 @@ public interface IMemberService {
 	// 회원정보 수정
 	public void updateMemInfo(MemberVO vo);
 	
+	// 회원정보 수정:비밀번호
+	public void updateMemPwd(HashMap<String, Object> map);
+	
+	// 회원정보 수정:프로필 사진
+	public void updateMemImg(HashMap<String, Object> map);
+	
 	// 회원정보 상세 보기
 	public MemberVO detailViewMemInfo(String memId);
 	
-	// 마이페이지 즐겨찾기 보기
-	public MemberVO detailMemInfo(String memId);
+	// 회원 즐겨찾기 목록
+	public ArrayList<FavoriteVO> favoriteListView(String memId);
 	
 	// 회원가입 시 은행 정보 가져오기
 	public ArrayList<BankVO> listAllBank();

@@ -14,8 +14,15 @@ public class MemberVO {
 	private String provider;
 	private String providerId;
 	private String certified;
+	private String memImg;
 	
 	
+	public String getMemImg() {
+		return memImg;
+	}
+	public void setMemImg(String memImg) {
+		this.memImg = memImg;
+	}
 	public String getMemRole() {
 		return memRole;
 	}

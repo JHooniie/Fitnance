@@ -21,7 +21,7 @@ public class PensionVO {
 	public double btrm_prft_rate_3;
 	public String etc;
 	public String sale_co;
-	
+
 	public int getPIndex() {
 		return pIndex;
 	}

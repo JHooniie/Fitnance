@@ -24,11 +24,12 @@ public class DepositService {
 		APIKey apiKey = new APIKey();
 		String key = apiKey.getSavingKey();
 		
+		try {
 		String urlDep="http://finlife.fss.or.kr/finlifeapi/depositProductsSearch.json?auth="
 				+key
 				+"&topFinGrpNo="+"020000"
 				+"&pageNo="+"1";
-		try {
+		
 		 URL url = new URL(urlDep);
          HttpURLConnection urlConnection = (HttpURLConnection)url.openConnection();
          urlConnection.setRequestMethod("GET");
@@ -40,14 +41,34 @@ public class DepositService {
              resultDep.append(returnLine);
          }
          //System.out.println(resultDep.toString());
-		depoList = jsonToVOList(resultDep.toString());
+		depoList.addAll(jsonToVOList(resultDep.toString(),0));
+		
+		for(int i =1; i<=3;i++) {
+	          StringBuffer resultDep2 = new StringBuffer();
+	          String urlDep2="http://finlife.fss.or.kr/finlifeapi/depositProductsSearch.json?auth="
+	 					+key
+	 					+"&topFinGrpNo="+"030300"
+	 					+"&pageNo="+i;
+	 		  URL url2 = new URL(urlDep2);
+	 		 HttpURLConnection urlConnection2 = (HttpURLConnection)url2.openConnection();
+	          urlConnection2.setRequestMethod("GET");
+
+	          BufferedReader bf2 = new BufferedReader(new InputStreamReader(urlConnection2.getInputStream(), "UTF-8"));
+	          
+	          String returnLine2;
+	          while((returnLine2 = bf2.readLine()) != null) {
+	              resultDep2.append(returnLine2);
+	          }
+	          System.out.println(depoList.size());
+	          depoList.addAll(jsonToVOList(resultDep2.toString(),depoList.size()));
+	         }
 		}
 		catch(Exception e) {
 			System.out.println(e);
 		}
 		return depoList;
 	}
-	public ArrayList<DepositVO> jsonToVOList(String jsonResultStr){
+	public ArrayList<DepositVO> jsonToVOList(String jsonResultStr, int num){
 		ArrayList<DepositVO> depoList = new ArrayList<DepositVO>();
 		
 		JSONObject jsonObj =new JSONObject(jsonResultStr);
@@ -56,8 +77,8 @@ public class DepositService {
 		
 		if(baseArray!=null) {
 			
-			for (int i = 0; i < baseArray.length(); i++) {
-				JSONObject depoObj = baseArray.getJSONObject(i);
+			for (int i = num; i < num+baseArray.length(); i++) {
+				JSONObject depoObj = baseArray.getJSONObject(i-num);
 				
 				DepositVO vo = new DepositVO();
 				vo.setPIndex(i);

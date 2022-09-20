@@ -1,6 +1,9 @@
 package com.fit_nance.project.controller;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -12,11 +15,13 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.fit_nance.project.config.auth.PrincipalDetails;
 import com.fit_nance.project.model.BankVO;
 import com.fit_nance.project.model.DummyVO;
+import com.fit_nance.project.model.FavoriteVO;
 import com.fit_nance.project.model.MemberVO;
 import com.fit_nance.project.service.CaptchaService;
 import com.fit_nance.project.service.MemberService;
@@ -89,10 +94,14 @@ public class MemberController {
 
 	// 마이페이지 폼 이동
 	@RequestMapping("user/mypage/{profileId}/")
-	public String mypageForm(@PathVariable("profileId") String memId) {
+	public String mypageForm(@PathVariable("profileId") String memId, Model model) {
 
 		MemberVO mem = memService.detailViewMemInfo(memId);
 		
+		//ArrayList<FavoriteVO> favList = memService.favoriteListView(memId);
+
+		//model.addAttribute("favList",favList);
+		model.addAttribute("mem",mem);
 		return "member/myPage";
 
 	}
@@ -124,28 +133,74 @@ public class MemberController {
 	// 회원정보 수정폼
 	@RequestMapping("/user/update_mypage")
 	public String update_mypageForm(Authentication auth, Model model) {
+		//세션 정보 => DB 회원정보
 		PrincipalDetails princ = (PrincipalDetails) auth.getPrincipal();
-
 		String memId = princ.getUsername();
-
 		ArrayList<BankVO> bankList = memService.listAllBank();
 
 		MemberVO mem = memService.detailViewMemInfo(memId);
-
+		
+				
 		System.out.println("세션값1 :" + princ.toString());
 		System.out.println("생년월일 : " + princ.getMemBirth());
 		model.addAttribute("mem", mem);
 		model.addAttribute("bankList", bankList);
-
+		
+		String savedFileName = "profile_image.png";
+		System.out.println("이미지 값 :"+princ.getMemImg());
+		if(princ.getMemImg() != null) {
+			savedFileName = princ.getMemImg();
+		}
+		
+		model.addAttribute("savedFileName", savedFileName);
+		
 		return "/member/update_mypage";
 	}
 
-	// 회원정보 수정
-	@ResponseBody
-	@RequestMapping("/user/update_memInfo")
-	public String updateMemInfo(Authentication auth, MemberVO vo) {
-		PrincipalDetails princ = (PrincipalDetails) auth.getPrincipal();
 
+	// 회원정보 수정
+	@RequestMapping("/user/update_memInfo")
+	public String updateMemInfo(@RequestParam HashMap<String, Object> map, @RequestParam("input-upload-profileImg") MultipartFile file,
+								Authentication auth, MemberVO vo, Model model) throws IOException {
+		PrincipalDetails princ = (PrincipalDetails) auth.getPrincipal();
+		ArrayList<BankVO> bankList = memService.listAllBank();
+		
+		model.addAttribute("bankList", bankList);
+		// 1. 파일 저장 경로 설정 : 실제 서비스되는 위치 (프로젝트 외부에 저장)
+		String uploadPath = "C:///springWorkspace/fitnance_images/upload/";
+				
+		// 2. 원본 파일 이름 설정
+		String originalFileName = file.getOriginalFilename();
+		
+		// 3. 파일 이름이 중복되지 않도록 파일 이름 변경 : 서버에 저장할 이름
+
+
+		String savedFileName = princ.getUsername()+"_"+originalFileName;
+		
+		// 4. 파일 생성
+		File newFile = new File(uploadPath + savedFileName);
+		
+		// 5. 서버로 전송
+		file.transferTo(newFile);
+		
+		memService.updateMemImg(map);
+		
+		
+		
+		String membirth = (String)map.get("birth_year") + (String)map.get("birth_month") + (String)map.get("birth_day");
+		
+		vo.setMemBirth(membirth);
+		
+		String memEmailRecd = (String)map.get("memEmailRecd");
+		
+		
+		if(map.get("memEmailRecd") == "N") {
+			vo.setMemEmailRecd(null);
+		}else {
+			vo.setMemEmailRecd(memEmailRecd);
+		}
+		
+		
 		memService.updateMemInfo(vo);
 		System.out.println("세션값2 :" + princ.toString());
 		princ.setVo(vo);
@@ -155,26 +210,51 @@ public class MemberController {
 		princ.getMemBank();
 		princ.getMemEmailRecd();
 		princ.getMemGender();
+		princ.getMemImg();
 		princ.getMemRole();
 		princ.getPassword();
 		princ.getProvider();
 		princ.getProviderId();
+		
 
-		return "success";
+		return "/member/update_mypage";
 	}
 
-	@RequestMapping("/update-password")
+	@RequestMapping("/user/update-passwordForm")
 	public String update_passwordForm() {
 		return "member/update_mypage_password";
 	}
+	
+	// 회원정보 수정 폼 열기 비밀번호 재인증
+		@RequestMapping("/user/pre_update_password")
+		public String update_password(@RequestParam HashMap<String, Object> map) {
+			
+			String memPwd =(String)map.get("memPwd");
+			String memPwd_chk =(String)map.get("memPwd_chk");
+			System.out.println(memPwd);
+			System.out.println(memPwd_chk);
+			if(!memPwd.equals(memPwd_chk)) {
+				
+				return "redirect:./update-passwordForm";
+				
+			}else {
+				System.out.println("비밀번호 통과 : "+map.get("memPwd"));
+				memService.updateMemPwd(map);
+			}
+			
+			return "redirect:/logout";
 
-	// 회원정보 수정 폼 열기 비밀번호 재인증 폼 이동
+				
+			
+		}
+	
+	// 회원탈퇴 폼 열기 비밀번호 재인증 폼 이동
 	@RequestMapping("/user/withdrawal_passwordCheckForm")
 	public String withdrawal_passwordCheckForm() {
 		return "member/withhdrawal_check_member";
 	}
 
-	// 회원정보 수정 폼 열기 비밀번호 재인증
+	// 회원 탈퇴 폼 열기 비밀번호 재인증
 	@RequestMapping("/user/pre_withdrawal_check")
 	public String pre_withdrawal_check(Authentication auth, @RequestParam("memPwd") String pwd,
 			RedirectAttributes rtt) {

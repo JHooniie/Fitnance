@@ -10,8 +10,8 @@
 	</insert>
 	
 	<insert id="insertDepoOption" parameterType="com.fit_nance.project.model.DepoOptionVO">
-		INSERT INTO deposit_option (oIndex,fin_co_no,fin_prdt_cd,intr_rate_type,intr_rate_type_nm,save_trm,intr_rate,intr_rate2)
-		VALUES(#{oIndex}, #{fin_co_no}, #{fin_prdt_cd}, #{intr_rate_type}, #{intr_rate_type_nm}, #{save_trm}, #{intr_rate}, #{intr_rate2})
+		INSERT INTO deposit_option (kind, oIndex,fin_co_no,fin_prdt_cd,intr_rate_type,intr_rate_type_nm,save_trm,intr_rate,intr_rate2)
+		VALUES(#{kind}, #{oIndex}, #{fin_co_no}, #{fin_prdt_cd}, #{intr_rate_type}, #{intr_rate_type_nm}, #{save_trm}, #{intr_rate}, #{intr_rate2})
 	</insert>
 	
 	<insert id="insertInstall" parameterType="com.fit_nance.project.model.InstallVO">
@@ -20,8 +20,8 @@
 	</insert>
 	
 	<insert id="insertInsOption" parameterType="com.fit_nance.project.model.InstallOptionVO">
-		INSERT INTO installment_option (oIndex,fin_co_no,fin_prdt_cd,intr_rate_type,intr_rate_type_nm,rsrv_type,rsrv_type_nm,save_trm,intr_rate,intr_rate2)
-		VALUES(#{oIndex}, #{fin_co_no}, #{fin_prdt_cd}, #{intr_rate_type}, #{intr_rate_type_nm}, #{rsrv_type}, #{rsrv_type_nm},#{save_trm}, #{intr_rate}, #{intr_rate2})
+		INSERT INTO installment_option (kind, oIndex,fin_co_no,fin_prdt_cd,intr_rate_type,intr_rate_type_nm,rsrv_type,rsrv_type_nm,save_trm,intr_rate,intr_rate2)
+		VALUES(#{kind}, #{oIndex}, #{fin_co_no}, #{fin_prdt_cd}, #{intr_rate_type}, #{intr_rate_type_nm}, #{rsrv_type}, #{rsrv_type_nm},#{save_trm}, #{intr_rate}, #{intr_rate2})
 	</insert>
 	
 	<insert id="insertPension" parameterType="com.fit_nance.project.model.PensionVO">
@@ -30,7 +30,7 @@
 	</insert>
 	
 	<insert id="insertPsOption" parameterType="com.fit_nance.project.model.PsOptionVO">
-		INSERT INTO pension_option (oIndex,fin_co_no,fin_prdt_cd,pnsn_recp_trm,pnsn_recp_trm_nm,pnsn_entr_age,pnsn_entr_age_nm,mon_paym_atm,mon_paym_atm_nm,paym_prd,paym_prd_nm,pnsn_strt_age,pnsn_strt_age_nm,pnsn_recp_amt)
-		VALUES(#{oIndex}, #{fin_co_no}, #{fin_prdt_cd}, #{pnsn_recp_trm}, #{pnsn_recp_trm_nm}, #{pnsn_entr_age}, #{pnsn_entr_age_nm},#{mon_paym_atm}, #{mon_paym_atm_nm}, #{paym_prd}, #{paym_prd_nm}, #{pnsn_strt_age}, #{pnsn_strt_age_nm}, #{pnsn_recp_amt})
+		INSERT INTO pension_option (kind, oIndex,fin_co_no,fin_prdt_cd,pnsn_recp_trm,pnsn_recp_trm_nm,pnsn_entr_age,pnsn_entr_age_nm,mon_paym_atm,mon_paym_atm_nm,paym_prd,paym_prd_nm,pnsn_strt_age,pnsn_strt_age_nm,pnsn_recp_amt)
+		VALUES(#{kind}, #{oIndex}, #{fin_co_no}, #{fin_prdt_cd}, #{pnsn_recp_trm}, #{pnsn_recp_trm_nm}, #{pnsn_entr_age}, #{pnsn_entr_age_nm},#{mon_paym_atm}, #{mon_paym_atm_nm}, #{paym_prd}, #{paym_prd_nm}, #{pnsn_strt_age}, #{pnsn_strt_age_nm}, #{pnsn_recp_amt})
 	</insert>
 </mapper>

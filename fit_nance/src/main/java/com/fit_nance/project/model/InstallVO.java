@@ -13,6 +13,8 @@ public class InstallVO {
 	String join_member;
 	String etc_note;
 	int max_limit;
+
+
 	public int getPIndex() {
 		return pIndex;
 	}

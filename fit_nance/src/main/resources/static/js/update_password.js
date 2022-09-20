@@ -2,7 +2,7 @@
    $(document).ready(function(){
 
     //로그인 유효성 검사
-    var getCheck = RegExp(/^[a-zA-Z0-9]{8,15}$/);
+    var getCheck = RegExp(/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/);
 
 
     // 비밀번호 유효성 검사

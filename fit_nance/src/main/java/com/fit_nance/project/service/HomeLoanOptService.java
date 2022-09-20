@@ -57,7 +57,7 @@ public class HomeLoanOptService {
 		for(int i=0; i<option.length(); i++) {
 			HomeLoanOptVO vo = new HomeLoanOptVO();
 			JSONObject tempObj = (JSONObject) option.get(i);
-			
+			vo.setKind(4);
 			vo.setoIndex(i);
 			vo.setFin_co_no((String) tempObj.get("fin_co_no"));
 			vo.setFin_prdt_cd((String) tempObj.get("fin_prdt_cd"));

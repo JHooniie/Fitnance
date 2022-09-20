@@ -154,6 +154,53 @@
     	console.log(comp);
     }
     
+    
+    // 페이징 처리
+    {
+	    var page = "1";
+	    var page_selected = 1;
+	    var max_page = $('.div_page_num>div').length;
+	    $('.prdt_result_search').hide();
+		$('.prdt'+page).show();
+		$('.page_num'+page).css('background-color', '#1f4dff');
+		$('.page_num'+page).css('color', '#ffffff');
+		
+		// 페이지 버튼 클릭 시
+	    $('.btn_page').click(function(){
+	    	page = $(this).text();
+		    paging(page);
+		    $(this).css('background-color', '#1f4dff');
+		    $(this).css('color', '#ffffff');
+	    })
+	    
+	    // 이전 페이지 버튼 클릭 시
+	    $('.div_page_prev').click(function(){
+	    	page_selected = Number(page);
+	    	if(page_selected > 1){
+		    	page = page_selected - 1;
+			    paging(page);
+			}
+	    })
+	    
+	    // 다음 페이지 버튼 클릭 시
+	    $('.div_page_next').click(function(){
+		    page_selected = Number(page);
+	    	if(page_selected < max_page){
+		    	page = page_selected + 1;
+			    paging(page);
+			}
+	    })
+	    
+	    // 페이지 이동 함수
+	    function paging(page){
+	    	$('.prdt_result_search').hide();
+		    $('.prdt'+page).show();
+		    $('.div_page_num>div').css('background-color', '#ffffff');
+		    $('.div_page_num>div').css('color', '#aaaaaa');
+		    $('.page_num'+page).css('background-color', '#1f4dff');
+		    $('.page_num'+page).css('color', '#ffffff');
+	    }
+    }
 });  
    
 

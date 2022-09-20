@@ -8,6 +8,7 @@
 	<head>
 		<script src="<c:url value='/js/result_mortgage_loan.js' />"></script>
 	</head>
+	<c:set var="total_pages" value="${fn:length(hlList)/10+1 }"/>
 	<c:choose>
 		<c:when test="${empty hlList}">
 			<form id="form_joinwawy" method="post" action="<c:url value='/list_mortgage_loan'/>">
@@ -38,9 +39,12 @@
                 </div>
             </form>
             <div class="div_list_prdt">
-            	<div class="prdt_result_search prdt">
+            
+            <c:forEach var="pages" begin="1" end="${total_pages+1 }">
+            <%-- ${pages } --%>
+            	<div class="prdt_result_search prdt${pages }">
             	<!-- 검색 결과 상품 - 시작 -->
-            		<c:forEach items="${hlList}" var="list" varStatus="status">
+            		<c:forEach items="${hlList}" var="list" varStatus="status" begin="${(pages-1)*10 }" end="${pages*10-1 }">
             			<div class="div_prdt">
             				<div class="div_prdt_info">
             					<div class="div_ic_co">
@@ -94,15 +98,16 @@
                     </c:forEach>
                     <!-- 검색 결과 상품 - 끝 -->
                  </div>
+            </c:forEach>
+           
                  <div class="page_prdt_list">
                      <div class="div_page_prev">
                          <i class="fa-solid fa-chevron-left"></i>
                      </div>
                      <div class="div_page_num">
-                         <div class="page_num_clicked">1</div>
-                         <div class="page_num">2</div>
-                         <div class="page_num">3</div>
-                         <div class="page_num">4</div>
+                         <c:forEach var="pageNum" begin="1" end="${total_pages }">
+                         	<div class="btn_page page_num${pageNum }">${pageNum }</div>
+                         </c:forEach>
                      </div>
                      <div class="div_page_next">
                          <i class="fa-solid fa-chevron-right"></i>

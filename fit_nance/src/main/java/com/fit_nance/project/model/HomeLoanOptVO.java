@@ -1,6 +1,7 @@
 package com.fit_nance.project.model;
 
 public class HomeLoanOptVO {
+	private int kind;
 	private int oIndex;
 	private String fin_co_no;
 	private String fin_prdt_cd;
@@ -14,6 +15,13 @@ public class HomeLoanOptVO {
 	private double lend_rate_max;
 	private double lend_rate_avg;
 	
+	
+	public int getKind() {
+		return kind;
+	}
+	public void setKind(int kind) {
+		this.kind = kind;
+	}
 	public int getoIndex() {
 		return oIndex;
 	}

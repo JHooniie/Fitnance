@@ -2,6 +2,7 @@ package com.fit_nance.project.controller;
 
 import java.util.ArrayList;
 
+import org.springframework.security.core.Authentication;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.fit_nance.project.config.auth.PrincipalDetails;
 import com.fit_nance.project.model.DepositFilterVO;
 import com.fit_nance.project.model.DepositListVO;
 import com.fit_nance.project.model.FavoriteVO;
@@ -34,7 +36,16 @@ public class ListSavingController {
 	// 적금
 	// 적금 전체 리스트 조회
 	@RequestMapping("/listInstall")
-	public String viewListInstall(Model model) {
+	public String viewListInstall(Authentication auth,Model model) {
+		if(auth!=null) {
+			FavoriteVO vo =new FavoriteVO();
+			PrincipalDetails princ=(PrincipalDetails)auth.getPrincipal();
+			String memId = princ.getUsername();
+			vo.setKind(1);
+			vo.setMemId(memId);
+			ArrayList<FavoriteVO> fList = fService.selectFavorite(vo);
+			model.addAttribute("fList", fList);
+		}
 		ArrayList<InstallListVO> installList = listService.selectInstallList();
 		model.addAttribute("installList", installList);
 		
@@ -91,11 +102,20 @@ public class ListSavingController {
 	
 	// 적금 필터링
 	@RequestMapping("/filterInstall")
-	public String filterInstall(@RequestParam(value="rsrv_type_nm") ArrayList<String> rsrv_type_nm2,
+	public String filterInstall(Authentication auth,@RequestParam(value="rsrv_type_nm") ArrayList<String> rsrv_type_nm2,
 								@RequestParam(value="join_member") ArrayList<String> join_member2,
 								@RequestParam(value="join_way") ArrayList<String> join_way2,
 								@RequestParam(value="save_trm") ArrayList<String> save_trm2,
 								Model model) {
+		if(auth!=null) {
+			FavoriteVO vo =new FavoriteVO();
+			PrincipalDetails princ=(PrincipalDetails)auth.getPrincipal();
+			String memId = princ.getUsername();
+			vo.setKind(1);
+			vo.setMemId(memId);
+			ArrayList<FavoriteVO> fList = fService.selectFavorite(vo);
+			model.addAttribute("fList", fList);
+		}
 		
 		InstallListFilterVO vo = new InstallListFilterVO();
 		
@@ -213,7 +233,16 @@ public class ListSavingController {
 	// 예금
 	// 예금 전체 리스트 조회
 	@RequestMapping("/listDeposit")
-	public String viewListDeposit(Model model) {
+	public String viewListDeposit(Authentication auth,Model model) {
+		if(auth!=null) {
+			FavoriteVO vo =new FavoriteVO();
+			PrincipalDetails princ=(PrincipalDetails)auth.getPrincipal();
+			String memId = princ.getUsername();
+			vo.setKind(2);
+			vo.setMemId(memId);
+			ArrayList<FavoriteVO> fList = fService.selectFavorite(vo);
+			model.addAttribute("fList", fList);
+		}
 		ArrayList<DepositListVO> dpList = listService.selectDepositList();
 		model.addAttribute("dpList", dpList);
 		
@@ -231,10 +260,19 @@ public class ListSavingController {
 	
 	// 예금 필터링
 	@RequestMapping("/filterDeposit")
-	public String filterDeposit(@RequestParam(value="join_member") ArrayList<String> join_member2,
+	public String filterDeposit(Authentication auth,@RequestParam(value="join_member") ArrayList<String> join_member2,
 								@RequestParam(value="join_way") ArrayList<String> join_way2,
 								@RequestParam(value="save_trm") ArrayList<String> save_trm2,
 								Model model) {
+		if(auth!=null) {
+			FavoriteVO vo =new FavoriteVO();
+			PrincipalDetails princ=(PrincipalDetails)auth.getPrincipal();
+			String memId = princ.getUsername();
+			vo.setKind(2);
+			vo.setMemId(memId);
+			ArrayList<FavoriteVO> fList = fService.selectFavorite(vo);
+			model.addAttribute("fList", fList);
+		}
 		
 		DepositFilterVO vo = new DepositFilterVO();
 		
@@ -279,7 +317,16 @@ public class ListSavingController {
 	// 연금
 	// 연금 전체 리스트 조회
 	@RequestMapping("/listPension")
-	public String viewListPension(Model model) {
+	public String viewListPension(Authentication auth,Model model) {
+		if(auth!=null) {
+			FavoriteVO vo =new FavoriteVO();
+			PrincipalDetails princ=(PrincipalDetails)auth.getPrincipal();
+			String memId = princ.getUsername();
+			vo.setKind(3);
+			vo.setMemId(memId);
+			ArrayList<FavoriteVO> fList = fService.selectFavorite(vo);
+			model.addAttribute("fList", fList);
+		}
 		ArrayList<PensionListVO> psList = listService.selectPensionList();
 		model.addAttribute("psList", psList);
 		
@@ -297,10 +344,19 @@ public class ListSavingController {
 	
 	// 연금 필터링
 	@RequestMapping("/filterPension")
-	public String filterPension(@RequestParam(value="pnsn_recp_trm_nm") ArrayList<String> pnsn_recp_trm_nm2,
+	public String filterPension(Authentication auth,@RequestParam(value="pnsn_recp_trm_nm") ArrayList<String> pnsn_recp_trm_nm2,
 								@RequestParam(value="mon_paym_atm_nm") ArrayList<String> mon_paym_atm_nm2,
 								@RequestParam(value="pnsn_strt_age_nm") ArrayList<String> pnsn_strt_age_nm2,
 								Model model) {
+		if(auth!=null) {
+			FavoriteVO vo =new FavoriteVO();
+			PrincipalDetails princ=(PrincipalDetails)auth.getPrincipal();
+			String memId = princ.getUsername();
+			vo.setKind(3);
+			vo.setMemId(memId);
+			ArrayList<FavoriteVO> fList = fService.selectFavorite(vo);
+			model.addAttribute("fList", fList);
+		}
 		
 		PensionFilterVO vo = new PensionFilterVO();
 		
@@ -342,7 +398,17 @@ public class ListSavingController {
 	}
 	
 	@RequestMapping("/searchInstall")
-	public String searchInstall(@RequestParam(value="search") String search, Model model) {
+	public String searchInstall(Authentication auth,@RequestParam(value="search") String search, Model model) {
+		if(auth!=null) {
+			FavoriteVO vo =new FavoriteVO();
+			PrincipalDetails princ=(PrincipalDetails)auth.getPrincipal();
+			String memId = princ.getUsername();
+			vo.setKind(1);
+			vo.setMemId(memId);
+			ArrayList<FavoriteVO> fList = fService.selectFavorite(vo);
+			model.addAttribute("fList", fList);
+		}
+		
 		ArrayList<InstallListVO> installList= listService.selectInstallSearch(search);
 		
 		model.addAttribute("installList", installList);
@@ -352,7 +418,17 @@ public class ListSavingController {
 	}
 	
 	@RequestMapping("/searchDeposit")
-	public String searchDeposit(@RequestParam(value="search") String search, Model model) {
+	public String searchDeposit(Authentication auth,@RequestParam(value="search") String search, Model model) {
+		if(auth!=null) {
+			FavoriteVO vo =new FavoriteVO();
+			PrincipalDetails princ=(PrincipalDetails)auth.getPrincipal();
+			String memId = princ.getUsername();
+			vo.setKind(2);
+			vo.setMemId(memId);
+			ArrayList<FavoriteVO> fList = fService.selectFavorite(vo);
+			model.addAttribute("fList", fList);
+		}
+		
 		ArrayList<DepositListVO> dpList= listService.selectDepositSearch(search);
 		
 		model.addAttribute("dpList", dpList);
@@ -362,7 +438,17 @@ public class ListSavingController {
 	}
 	
 	@RequestMapping("/searchPension")
-	public String searchPension(@RequestParam(value="search") String search, Model model) {
+	public String searchPension(Authentication auth,@RequestParam(value="search") String search, Model model) {
+		if(auth!=null) {
+			FavoriteVO vo =new FavoriteVO();
+			PrincipalDetails princ=(PrincipalDetails)auth.getPrincipal();
+			String memId = princ.getUsername();
+			vo.setKind(3);
+			vo.setMemId(memId);
+			ArrayList<FavoriteVO> fList = fService.selectFavorite(vo);
+			model.addAttribute("fList", fList);
+		}
+		
 		ArrayList<PensionListVO> psList= listService.selectPensionSearch(search);
 		
 		model.addAttribute("psList", psList);
@@ -372,11 +458,12 @@ public class ListSavingController {
 	}
 	
 	@RequestMapping("/insertInstallFavorite")
-	public String insertInstallFavorite(@RequestParam(value="favorite") String favorite) {
+	public String insertInstallFavorite(Authentication auth,@RequestParam(value="favorite") int favorite) {
 		FavoriteVO vo =new FavoriteVO();
-		
-		vo.setKind("적금");
-		vo.setMemId("");
+		PrincipalDetails princ=(PrincipalDetails)auth.getPrincipal();
+		String memId = princ.getUsername();
+		vo.setKind(1);
+		vo.setMemId(memId);
 		vo.setoIndex(favorite);
 		
 		fService.insertInstallFavorite(vo);
@@ -385,11 +472,12 @@ public class ListSavingController {
 	}
 	
 	@RequestMapping("/deleteInstallFavorite")
-	public String deleteInstallFavorite(@RequestParam(value="favorite") String favorite) {
+	public String deleteInstallFavorite(Authentication auth,@RequestParam(value="favorite") int favorite) {
 		FavoriteVO vo =new FavoriteVO();
-		
-		vo.setKind("적금");
-		vo.setMemId("");
+		PrincipalDetails princ=(PrincipalDetails)auth.getPrincipal();
+		String memId = princ.getUsername();
+		vo.setKind(1);
+		vo.setMemId(memId);
 		vo.setoIndex(favorite);
 		
 		fService.deleteInstallFavorite(vo);
@@ -398,11 +486,12 @@ public class ListSavingController {
 	}
 	
 	@RequestMapping("/insertDepositFavorite")
-	public String insertDepositFavorite(@RequestParam(value="favorite") String favorite) {
+	public String insertDepositFavorite(Authentication auth,@RequestParam(value="favorite") int favorite) {
 		FavoriteVO vo =new FavoriteVO();
-		
-		vo.setKind("예금");
-		vo.setMemId("");
+		PrincipalDetails princ=(PrincipalDetails)auth.getPrincipal();
+		String memId = princ.getUsername();
+		vo.setKind(2);
+		vo.setMemId(memId);
 		vo.setoIndex(favorite);
 		
 		fService.insertInstallFavorite(vo);
@@ -411,11 +500,12 @@ public class ListSavingController {
 	}
 	
 	@RequestMapping("/deleteDepositFavorite")
-	public String deleteDepositFavorite(@RequestParam(value="favorite") String favorite) {
+	public String deleteDepositFavorite(Authentication auth,@RequestParam(value="favorite") int favorite) {
 		FavoriteVO vo =new FavoriteVO();
-		
-		vo.setKind("예금");
-		vo.setMemId("");
+		PrincipalDetails princ=(PrincipalDetails)auth.getPrincipal();
+		String memId = princ.getUsername();
+		vo.setKind(2);
+		vo.setMemId(memId);
 		vo.setoIndex(favorite);
 		
 		fService.deleteInstallFavorite(vo);
@@ -424,11 +514,12 @@ public class ListSavingController {
 	}
 	
 	@RequestMapping("/insertPensionFavorite")
-	public String insertPensionFavorite(@RequestParam(value="favorite") String favorite) {
+	public String insertPensionFavorite(Authentication auth,@RequestParam(value="favorite") int favorite) {
 		FavoriteVO vo =new FavoriteVO();
-		
-		vo.setKind("연금");
-		vo.setMemId("");
+		PrincipalDetails princ=(PrincipalDetails)auth.getPrincipal();
+		String memId = princ.getUsername();
+		vo.setKind(3);
+		vo.setMemId(memId);
 		vo.setoIndex(favorite);
 		
 		fService.insertInstallFavorite(vo);
@@ -437,11 +528,12 @@ public class ListSavingController {
 	}
 	
 	@RequestMapping("/deletePensionFavorite")
-	public String deletePensionFavorite(@RequestParam(value="favorite") String favorite) {
+	public String deletePensionFavorite(Authentication auth,@RequestParam(value="favorite") int favorite) {
 		FavoriteVO vo =new FavoriteVO();
-		
-		vo.setKind("연금");
-		vo.setMemId("");
+		PrincipalDetails princ=(PrincipalDetails)auth.getPrincipal();
+		String memId = princ.getUsername();
+		vo.setKind(3);
+		vo.setMemId(memId);
 		vo.setoIndex(favorite);
 		
 		fService.deleteInstallFavorite(vo);

@@ -3,6 +3,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<sec:authorize access="isAuthenticated()">
+    <sec:authentication property="principal" var="principal" />
+</sec:authorize>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -21,9 +25,9 @@
         <div class="m">
             <div class="middle-text">
                 <ul>
-                    <li>예금<br>
-                    관련 문구</li>
-                    <li class="middle-sub-text">정기예금 관련 문구 정기예금 관련 문구</li>
+                    <li>예금,<br>
+                    안전하고 확실한 선택</li>
+                    <li class="middle-sub-text">열심히 모은 종잣돈을 더크게, 안전하게!</li>
                 </ul>
             </div>
             <div class="middle-image">
@@ -67,7 +71,10 @@
                     <div class="box">검색 결과 ${fn:length(dpList) }개</div>
                 </div>
                 <div class="item-list">
-                <c:forEach items="${dpList }" var="list">
+                <c:set var="total_pages" value="${fn:length(dpList)/25+1 }"/>
+                 <c:forEach var="pages" begin="1" end="${total_pages+1 }">
+                 <div class="prdt_result_search prdt${pages }">
+                	<c:forEach items="${dpList }" var="list" varStatus="status" begin="${(pages-1)*25 }" end="${pages*25-1 }">	 
                     <div class="item-box-all">
                         <div class="item-box">
                             <div class="image-box">
@@ -83,15 +90,22 @@
                                 </div>
                             </div>
                             <div class="plus-icon plus-icon1" id="${list.oIndex}"><i class="fa-solid fa-folder-plus"></i></div>
-		                            <c:if test="${empty sessionScope.sid}">
+		                    <c:if test="${empty principal.username}">
 										<div class="plus-icon plus-icon2 no-login" id="${list.oIndex}"><i class="fa-solid fa-heart"></i></div>
 									</c:if>
-
-									<c:if test="${not empty sessionScope.sid}">
+									<c:if test="${not empty principal.username}">
+									<c:set var="a" value="<%=0 %>"/>
+									<c:forEach items="${fList }" var="list2">
+										<c:if test="${list2.oIndex eq list.oIndex }">
+											<c:set var="a" value="<%=1 %>"/>
+											<div class="plus-icon plus-icon2 yes-login plus-icon-clicked" id="${list.oIndex}"><i class="fa-solid fa-heart"></i></div>
+										</c:if>
+										
+									</c:forEach>
+									<c:if test="${a ne 1 }">
 										<div class="plus-icon plus-icon2 yes-login" id="${list.oIndex}"><i class="fa-solid fa-heart"></i></div>
+									</c:if>
 					          		</c:if>
-		             
-		                   
                         </div>
                    
                         <div class="item-box2">
@@ -112,16 +126,22 @@
                             <div class="view-detail"><a href="<c:url value='/detailDeposit/${list.oIndex}'/>">자세히 보기</a></div>
                         </div>
                     </div>
-                    </c:forEach>                    
-                    <div class="page-list">
-                        <div class="page-icon"><i class="fa-solid fa-angle-left"></i></div>
-                        <div class="page-num">
-                            <div class="page-num1">1</div>
-                            <div class="page-num2">2</div>
-                            <div class="page-num3">3</div>
-                        </div>
-                        <div class="page-icon"><i class="fa-solid fa-angle-right"></i></div>
+                    </c:forEach>  
                     </div>
+                    </c:forEach>                  
+                    <div class="page_prdt_list">
+	                     <div class="div_page_prev">
+	                         <i class="fa-solid fa-chevron-left"></i>
+	                     </div>
+	                     <div class="div_page_num">
+	                         <c:forEach var="pageNum" begin="1" end="${total_pages }">
+	                             <div class="btn_page page_num${pageNum }">${pageNum }</div>
+	                         </c:forEach>
+	                     </div>
+	                     <div class="div_page_next">
+	                         <i class="fa-solid fa-chevron-right"></i>
+	                     </div>
+	                 </div>
                 </div>
             </div>
             </div>

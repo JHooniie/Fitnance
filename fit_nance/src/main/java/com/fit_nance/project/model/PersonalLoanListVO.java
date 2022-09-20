@@ -1,6 +1,7 @@
 package com.fit_nance.project.model;
 
 public class PersonalLoanListVO {
+	private int kind;
 	private String pIndex;
 	private String fin_co_no;
 	private String kor_co_nm;
@@ -22,6 +23,13 @@ public class PersonalLoanListVO {
 	private double crdt_grad_12;
 	private double crdt_grad_13;
 	
+	
+	public int getKind() {
+		return kind;
+	}
+	public void setKind(int kind) {
+		this.kind = kind;
+	}
 	public int getoIndex() {
 		return oIndex;
 	}

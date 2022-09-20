@@ -26,11 +26,13 @@ public class PensionService {
 		APIKey apiKey = new APIKey();
 		String key = apiKey.getSavingKey();
 		
+		try {
+		for(int i =1;i<=3;i++) {
 		String urlDep="http://finlife.fss.or.kr/finlifeapi/annuitySavingProductsSearch.json?auth="
 				+key
 				+"&topFinGrpNo="+"060000"
-				+"&pageNo="+"1";
-		try {
+				+"&pageNo="+i;
+		
 		 URL url = new URL(urlDep);
          HttpURLConnection urlConnection = (HttpURLConnection)url.openConnection();
          urlConnection.setRequestMethod("GET");
@@ -41,9 +43,8 @@ public class PensionService {
          while((returnLine = bf.readLine()) != null) {
              resultDep.append(returnLine);
          }
-         //System.out.println(resultDep.toString());
-         System.out.println(resultDep.toString());
-         depoList = jsonToVOList(resultDep.toString());
+         depoList.addAll(jsonToVOList(resultDep.toString(),depoList.size()));
+		}
          //System.out.println(depoList.get(1).getPIndex());
          //System.out.println(depoList.get(1).getEtc_note());
 		}
@@ -52,7 +53,7 @@ public class PensionService {
 		}
 		return depoList;
 	}
-	public ArrayList<PensionVO> jsonToVOList(String jsonResultStr){
+	public ArrayList<PensionVO> jsonToVOList(String jsonResultStr,int num){
 		ArrayList<PensionVO> depoList = new ArrayList<PensionVO>();
 		
 		JSONObject jsonObj =new JSONObject(jsonResultStr);
@@ -61,10 +62,11 @@ public class PensionService {
 		
 		if(baseArray!=null) {
 			
-			for (int i = 0; i < baseArray.length(); i++) {
-				JSONObject depoObj = baseArray.getJSONObject(i);
+			for (int i = num; num+i < baseArray.length(); i++) {
+				JSONObject depoObj = baseArray.getJSONObject(i-num);
 				
 				PensionVO vo = new PensionVO();
+        
 				vo.setPIndex(i);
 				vo.setFin_co_no(String.valueOf(depoObj.get("fin_co_no")));
 				vo.setFin_prdt_cd(String.valueOf(depoObj.get("fin_prdt_cd")));

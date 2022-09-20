@@ -1,5 +1,7 @@
 package com.fit_nance.project.service;
 
+import java.util.ArrayList;
+
 import com.fit_nance.project.model.FavoriteVO;
 
 public interface IFavoriteService {
@@ -11,4 +13,6 @@ public interface IFavoriteService {
 	
 	public void insertPensionFavorite(FavoriteVO vo);
 	public void deletePensionFavorite(FavoriteVO vo);
+	
+	public ArrayList<FavoriteVO> selectFavorite(FavoriteVO vo);
 }
