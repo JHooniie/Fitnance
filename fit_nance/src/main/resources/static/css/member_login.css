@@ -178,18 +178,18 @@ button{
 }
 
 .box-captcha-wrap{
-    
+    margin-top: 20px;
 }
 
 .box-captcha{
     position: relative;
-    display:flex;
+    display:
+    flex;
     width:100%;
     padding:0;
     border-radius:5px;
     overflow: hidden;
     margin:15px 0 10px;
-   
 }
 
 .box-captcha-img{
@@ -204,16 +204,21 @@ button{
     
 }
 
+.wrap-captcha-input{
+	width:100%
+}
+
 #rotate-captcha{
     display: block;
     width:100%;
     height:60px;
     margin:0;
     padding: 0 0 0 20px;
-    border:solid 1px #ddd;
-    border-radius:0;
+    border:
+    solid 1px #ddd;
+    border-radius: 0 5px 0 0;
     background-color:#fff;
-    font-size:12px;
+    font-size: 16px;
     color:#222;
     text-align: left;
 }
@@ -227,20 +232,25 @@ button{
     width:100%;
     height:60px;
     padding: 0 0 0 20px;
-    border:solid 1px #ddd;
-    background-color:#fff;
-    font-size:12px;
+    border:
+    solid 1px #ddd;
+    border-top: 0;
+    border-radius: 0 0 5px 0;background-color:#fff;
+    font-size: 16px;
     color:#222;
     text-align: left;
 }
 
 .fa-check{
-	position:absolute;
-	right:1%;
-	bottom:25px;
+	position:
+	absolute;
+	width: 30px;
+	height: 60px;
+	right: 5%;
+	bottom: 0px;
     color:#222;
-    opacity:0.7;
-    cursor: pointer;
+	cursor: pointer;
+	line-height: 60px;
 }
 
 .input-user_pw-re::placeholder{
