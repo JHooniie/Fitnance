@@ -59,6 +59,7 @@ public class DepositService {
 	          while((returnLine2 = bf2.readLine()) != null) {
 	              resultDep2.append(returnLine2);
 	          }
+	          System.out.println(depoList.size());
 	          depoList.addAll(jsonToVOList(resultDep2.toString(),depoList.size()));
 	         }
 		}
