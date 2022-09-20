@@ -25,9 +25,9 @@
         <div class="m">
             <div class="middle-text">
                 <ul>
-                    <li>예금<br>
-                    관련 문구</li>
-                    <li class="middle-sub-text">정기예금 관련 문구 정기예금 관련 문구</li>
+                    <li>예금,<br>
+                    안전하고 확실한 선택</li>
+                    <li class="middle-sub-text">열심히 모은 종잣돈을 더크게, 안전하게!</li>
                 </ul>
             </div>
             <div class="middle-image">
