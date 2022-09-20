@@ -36,7 +36,25 @@ public interface IMemberDAO {
 	public MemberVO detailViewMemInfo(String memId);
 	
 	// 회원 즐겨찾기 목록
-	public ArrayList<FavoriteVO> favoriteListView(String memId);
+	// 합계
+	public int favoriteListCount(String memId);
+	// 적금
+	public ArrayList<FavoriteVO> favoriteInstallListView(String memId);
+
+	// 예금
+	public ArrayList<FavoriteVO> favoriteDepositListView(String memId);
+	
+	// 연금
+	public ArrayList<FavoriteVO> favoritePensionListView(String memId);
+	
+	// 주택담보 대출
+	public ArrayList<FavoriteVO> favoriteMortgageListView(String memId);
+	
+	// 전세 대출
+	public ArrayList<FavoriteVO> favoriteCharterListView(String memId);
+	
+	// 신용 대출
+	public ArrayList<FavoriteVO> favoriteListCreditView(String memId);
 	
 	// 회원가입 시 은행 정보 가져오기
 	public ArrayList<BankVO> listAllBank();

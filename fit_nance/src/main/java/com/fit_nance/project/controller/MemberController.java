@@ -93,14 +93,28 @@ public class MemberController {
 	}
 
 	// 마이페이지 폼 이동
-	@RequestMapping("user/mypage/{profileId}/")
-	public String mypageForm(@PathVariable("profileId") String memId, Model model) {
-
+	@RequestMapping("/user/mypage")
+	public String mypageForm(Authentication auth, Model model) {
+		PrincipalDetails princ = (PrincipalDetails) auth.getPrincipal();
+		String memId = princ.getUsername();
+		System.out.println(memId);
 		MemberVO mem = memService.detailViewMemInfo(memId);
 		
-		//ArrayList<FavoriteVO> favList = memService.favoriteListView(memId);
-
-		//model.addAttribute("favList",favList);
+		int count = memService.favoriteListCount(memId);
+		ArrayList<FavoriteVO> instList = memService.favoriteInstallListView(memId);
+		ArrayList<FavoriteVO> depList = memService.favoriteDepositListView(memId);
+		ArrayList<FavoriteVO> penList = memService.favoritePensionListView(memId);
+		ArrayList<FavoriteVO> morList = memService.favoriteMortgageListView(memId);
+		ArrayList<FavoriteVO> charList = memService.favoriteCharterListView(memId);
+		ArrayList<FavoriteVO> crdList = memService.favoriteListCreditView(memId);
+		
+		model.addAttribute("count",count);
+		model.addAttribute("instList",instList);
+		model.addAttribute("depList",depList);
+		model.addAttribute("penList",penList);
+		model.addAttribute("morList",morList);
+		model.addAttribute("charList",charList);
+		model.addAttribute("crdList",crdList);
 		model.addAttribute("mem",mem);
 		return "member/myPage";
 

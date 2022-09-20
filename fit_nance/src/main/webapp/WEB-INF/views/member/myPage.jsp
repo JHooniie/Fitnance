@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <sec:authorize access="isAuthenticated()">
     <sec:authentication property="principal" var="principal" />
@@ -42,35 +43,39 @@
                 <div class="box-favoriteList">
                     <div class="box-favoriteList-tab">
                         <ul>
-                            <li class="li-menuTab-01"><span>전체 (6)</span></li>
-                            <li><span>적금 (6)</span></li>
-                            <li><span>예금 (6)</span></li>
-                            <li><span>연금 (6)</span></li>
-                            <li><span>주택담보대출 (6)</span></li>
-                            <li><span>전세자금대출 (6)</span></li>
-                            <li><span>신용대출 (6)</span></li>
+                            <li class="li-menuTab-01"><span>전체 (${count})</span></li>
+                            <li><span>적금 (${fn:length(instList) })</span></li>
+                            <li><span>예금 (${fn:length(depList) })</span></li>
+                            <li><span>연금 (${fn:length(penList) })</span></li>
+                            <li><span>주택담보대출 (${fn:length(morList) })</span></li>
+                            <li><span>전세자금대출 (${fn:length(charList) })</span></li>
+                            <li><span>신용대출 (${fn:length(crdList) })</span></li>
                         </ul>
                     </div>
+                   
                     <div class="box-favoriteList-list">
+                    	 <c:if test="${count eq 0 }">
                         <div class="box-favoriteList-empty">
                             <div class="box-favoriteList-empty-warning">
                                 <i class="fa-solid fa-circle-exclamation"></i>
                                 <span>즐겿찾는 상품이 없습니다</span>
                             </div>
                         </div>
-                        <c:forEach items="${favList }" var="list">
+                        </c:if>
+                        <c:if test="${count ne 0 }">
+                        <c:forEach items="${instList }" var="list">
                         <div class="box-favoriteList-cell">
                             <div class="box-favoriteList-img">
                                 <div class="box-favoriteList-img-center"></div>
                             </div>
                             <div class="box-favoriteList-info">
                                 <div class="box-favoriteCell-title">
-                                        <span class="span-favoriteCell-title-bank">우리은행</span><br>
-                                        <span class="span-favoriteCell-title-name">시니어플러스우리적금(증엽우대형)</span>
+                                        <span class="span-favoriteCell-title-bank">${list.kor_co_nm }</span><br>
+                                        <span class="span-favoriteCell-title-name">${list.fin_prdt_nm }</span>
                                         <ul>
-                                            <li><span>영업점</span></li>
-                                            <li><span>인터넷</span></li>
-                                            <li><span>스마트폰</span></li>
+                                        	<c:forTokens var="joinway" items="${list.join_way}" delims=",">
+                                            <li><span>${joinway }</span></li>
+                                            </c:forTokens>
                                         </ul>
                                         <button><i class="fa-solid fa-heart"></i></button>
                                 </div>
@@ -78,11 +83,11 @@
                                     <ul>
                                         <li>
                                             <span class="span-detailOption-standard">1년기준 (세전)</span>
-                                            <span class="span-detailOption-amount">2.35%</span>
+                                            <span class="span-detailOption-amount">${list.intr_rate }%</span>
                                         </li>
                                         <li>
                                             <span class="span-detailOption-standard">최대 (세전)</span>
-                                            <span class="span-detailOption-amount">2.75%</span>
+                                            <span class="span-detailOption-amount">${list.intr_rate2 }%</span>
                                         </li>
                                     </ul>
                                     <button><span>자세히 보기</span></button>
@@ -90,6 +95,155 @@
                             </div>
                         </div>
                         </c:forEach>
+                        <c:forEach items="${depList }" var="list">
+                        <div class="box-favoriteList-cell">
+                            <div class="box-favoriteList-img">
+                                <div class="box-favoriteList-img-center"></div>
+                            </div>
+                            <div class="box-favoriteList-info">
+                                <div class="box-favoriteCell-title">
+                                        <span class="span-favoriteCell-title-bank">${list.kor_co_nm }</span><br>
+                                        <span class="span-favoriteCell-title-name">${list.fin_prdt_nm }</span>
+                                        <ul>
+                                        	<c:forTokens var="joinway" items="${list.join_way}" delims=",">
+                                            <li><span>${joinway }</span></li>
+                                            </c:forTokens>
+                                        </ul>
+                                        <button><i class="fa-solid fa-heart"></i></button>
+                                </div>
+                                <div class="box-favoriteCell-detail">
+                                    <ul>
+                                        <li>
+                                            <span class="span-detailOption-standard">1년기준 (세전)</span>
+                                            <span class="span-detailOption-amount">${list.intr_rate }%</span>
+                                        </li>
+                                        <li>
+                                            <span class="span-detailOption-standard">최소</span>
+                                            <span class="span-detailOption-amount">${list.save_trm }개월부터</span>
+                                        </li>
+                                    </ul>
+                                    <button><span>자세히 보기</span></button>
+                                </div>
+                            </div>
+                        </div>
+                        </c:forEach>
+                        <c:forEach items="${penList }" var="list">
+                        <div class="box-favoriteList-cell">
+                            <div class="box-favoriteList-img">
+                                <div class="box-favoriteList-img-center"></div>
+                            </div>
+                            <div class="box-favoriteList-info">
+                                <div class="box-favoriteCell-title">
+                                        <span class="span-favoriteCell-title-bank">${list.kor_co_nm }</span><br>
+                                        <span class="span-favoriteCell-title-name">${list.fin_prdt_nm }</span>
+                                        <ul>
+                                        	<c:forTokens var="joinway" items="${list.join_way}" delims=",">
+                                            <li><span>${joinway }</span></li>
+                                            </c:forTokens>
+                                        </ul>
+                                        <button><i class="fa-solid fa-heart"></i></button>
+                                </div>
+                                <div class="box-favoriteCell-detail">
+                                    <ul>
+                                        <li>
+                                            <span class="span-detailOption-standard">연평균 수익률</span>
+                                            <span class="span-detailOption-amount">${list.avg_prft_rate }%</span>
+                                        </li>
+                                    </ul>
+                                    <button><span>자세히 보기</span></button>
+                                </div>
+                            </div>
+                        </div>
+                        </c:forEach>
+                        <c:forEach items="${morList }" var="list">
+                        <div class="box-favoriteList-cell">
+                            <div class="box-favoriteList-img">
+                                <div class="box-favoriteList-img-center"></div>
+                            </div>
+                            <div class="box-favoriteList-info">
+                                <div class="box-favoriteCell-title">
+                                        <span class="span-favoriteCell-title-bank">${list.kor_co_nm }</span><br>
+                                        <span class="span-favoriteCell-title-name">${list.fin_prdt_nm }</span>
+                                        <ul>
+                                        	<c:forTokens var="joinway" items="${list.join_way}" delims=",">
+                                            <li><span>${joinway }</span></li>
+                                            </c:forTokens>
+                                        </ul>
+                                        <button><i class="fa-solid fa-heart"></i></button>
+                                </div>
+                                <div class="box-favoriteCell-detail">
+                                    <ul>
+                                        <li>
+                                            <span class="span-detailOption-standard">최저 금리</span>
+                                            <span class="span-detailOption-amount">${list.lend_rate_min }%</span>
+                                        </li>
+                                        <li>
+                                            <span class="span-detailOption-standard">최대 한도</span>
+                                            <span class="span-detailOption-amount">상품 설명 참조</span>
+                                        </li>
+                                    </ul>
+                                    <button><span>자세히 보기</span></button>
+                                </div>
+                            </div>
+                        </div>
+                        </c:forEach>
+                        <c:forEach items="${charList }" var="list">
+                        <div class="box-favoriteList-cell">
+                            <div class="box-favoriteList-img">
+                                <div class="box-favoriteList-img-center"></div>
+                            </div>
+                            <div class="box-favoriteList-info">
+                                <div class="box-favoriteCell-title">
+                                        <span class="span-favoriteCell-title-bank">${list.kor_co_nm }</span><br>
+                                        <span class="span-favoriteCell-title-name">${list.fin_prdt_nm }</span>
+                                        <ul>
+                                        	<c:forTokens var="joinway" items="${list.join_way}" delims=",">
+                                            <li><span>${joinway }</span></li>
+                                            </c:forTokens>
+                                        </ul>
+                                        <button><i class="fa-solid fa-heart"></i></button>
+                                </div>
+                                <div class="box-favoriteCell-detail">
+                                    <ul>
+                                        <li>
+                                            <span class="span-detailOption-standard">최저 금리</span>
+                                            <span class="span-detailOption-amount">${list.lend_rate_min }%</span>
+                                        </li>
+                                    </ul>
+                                    <button><span>자세히 보기</span></button>
+                                </div>
+                            </div>
+                        </div>
+                        </c:forEach>
+                        <c:forEach items="${crdList }" var="list">
+                        <div class="box-favoriteList-cell">
+                            <div class="box-favoriteList-img">
+                                <div class="box-favoriteList-img-center"></div>
+                            </div>
+                            <div class="box-favoriteList-info">
+                                <div class="box-favoriteCell-title">
+                                        <span class="span-favoriteCell-title-bank">${list.kor_co_nm }</span><br>
+                                        <span class="span-favoriteCell-title-name">${list.fin_prdt_nm }</span>
+                                        <ul>
+                                        	<c:forTokens var="joinway" items="${list.join_way}" delims=",">
+                                            <li><span>${joinway }</span></li>
+                                            </c:forTokens>
+                                        </ul>
+                                        <button><i class="fa-solid fa-heart"></i></button>
+                                </div>
+                                <div class="box-favoriteCell-detail">
+                                    <ul>
+                                        <li>
+                                            <span class="span-detailOption-standard">평균 금리</span>
+                                            <span class="span-detailOption-amount">${list.crdt_grad_avg }%</span>
+                                        </li>
+                                    </ul>
+                                    <button><span>자세히 보기</span></button>
+                                </div>
+                            </div>
+                        </div>
+                        </c:forEach>
+                        </c:if>
                     </div>
                 </div>
             </div>

@@ -89,9 +89,66 @@
 	</select>
 	
 	<!-- 즐겨찾기 목록 보기 -->
-<!-- 	<select id="favoriteListView" parameterType="string" resultType="com.fit_nance.project.model.FavoriteVO">
-		
-	</select> -->
+	<!-- 카운트 -->
+	<select id="favoriteListCount" parameterType="string" resultType="int">
+		SELECT COUNT(*) 
+		FROM favorite F
+        WHERE memId=#{memId}
+	</select>
+	
+	<!-- 적금 -->
+	<select id="favoriteInstallListView" parameterType="string" resultType="com.fit_nance.project.model.FavoriteVO">
+		SELECT * 
+		FROM favorite F
+		INNER JOIN installment_option IO ON F.oIndex = IO.oIndex and F.kind = IO.kind
+        INNER JOIN installment_base I ON IO.pIndex = I.pIndex
+        WHERE memId=#{memId}
+	</select>
+	
+	<!-- 적금 -->
+	<select id="favoriteDepositListView" parameterType="string" resultType="com.fit_nance.project.model.FavoriteVO">
+		SELECT * 
+		FROM favorite F
+		INNER JOIN deposit_option DO ON F.oIndex = DO.oIndex and F.kind = DO.kind
+        INNER JOIN deposit_base D ON DO.pIndex = D.pIndex
+        WHERE memId=#{memId}
+	</select>
+	
+	<!-- 적금 -->
+	<select id="favoritePensionListView" parameterType="string" resultType="com.fit_nance.project.model.FavoriteVO">
+		SELECT * 
+		FROM favorite F
+		INNER JOIN pension_option PO ON F.oIndex = PO.oIndex and F.kind = PO.kind
+        INNER JOIN pension_base P ON PO.pIndex = P.pIndex
+        WHERE memId=#{memId}
+	</select>
+	
+	<!-- 적금 -->
+	<select id="favoriteMortgageListView" parameterType="string" resultType="com.fit_nance.project.model.FavoriteVO">
+		SELECT * 
+		FROM favorite F
+		INNER JOIN home_loan_option HO ON F.oIndex = HO.oIndex and F.kind = HO.kind
+        INNER JOIN home_loan_base H ON HO.pIndex = H.pIndex
+        WHERE memId=#{memId}
+	</select>
+	
+	<!-- 적금 -->
+	<select id="favoriteCharterListView" parameterType="string" resultType="com.fit_nance.project.model.FavoriteVO">
+		SELECT * 
+		FROM favorite F
+		INNER JOIN charter_loan_option CO ON F.oIndex = CO.oIndex and F.kind = CO.kind
+        INNER JOIN charter_loan_base C ON CO.pIndex = C.pIndex
+        WHERE memId=#{memId}
+	</select>
+	
+	<!-- 적금 -->
+	<select id="favoriteListCreditView" parameterType="string" resultType="com.fit_nance.project.model.FavoriteVO">
+		SELECT * 
+		FROM favorite F
+		INNER JOIN personal_loan_option PO ON F.oIndex = PO.oIndex and F.kind = PO.kind
+        INNER JOIN personal_loan_base P ON PO.pIndex = P.pIndex
+        WHERE memId=#{memId}
+	</select>
 	
 	<select id="passwordCheck" parameterType="string" resultType="com.fit_nance.project.model.MemberVO">
 		SELECT * 

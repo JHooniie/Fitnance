@@ -33,9 +33,8 @@
 	                        </a>
                         </sec:authorize>
                         <sec:authorize access="hasAnyRole('ROLE_USER')">
-	                        <a class="btn-login" href="<c:url value='user/mypage/{profileId}/'/>">
+	                        <a class="btn-login" href="<c:url value='/user/mypage'/>">
 	                        	<i class="fa-solid fa-user"></i>
-	                        	<input type="hidden" name="profileId" value="${principal.username }">
 	                        </a>
                         </sec:authorize>
                        <sec:authorize access="hasAnyRole('ROLE_ADMIN')">
