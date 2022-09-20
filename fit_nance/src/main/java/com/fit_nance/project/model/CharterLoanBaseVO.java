@@ -1,6 +1,7 @@
 package com.fit_nance.project.model;
 
 public class CharterLoanBaseVO {
+	private int kind;
 	private int pIndex;
 	private String fin_co_no;
 	private String kor_co_nm;
@@ -12,6 +13,13 @@ public class CharterLoanBaseVO {
 	private String dly_rate;
 	private String loan_lmt;
 	
+	
+	public int getKind() {
+		return kind;
+	}
+	public void setKind(int kind) {
+		this.kind = kind;
+	}
 	public int getpIndex() {
 		return pIndex;
 	}

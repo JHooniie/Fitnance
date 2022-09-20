@@ -65,6 +65,7 @@ public class PensionService {
 				JSONObject depoObj = baseArray.getJSONObject(i);
 				
 				PensionVO vo = new PensionVO();
+				vo.setKind(3);
 				vo.setPIndex(i);
 				vo.setFin_co_no(String.valueOf(depoObj.get("fin_co_no")));
 				vo.setFin_prdt_cd(String.valueOf(depoObj.get("fin_prdt_cd")));

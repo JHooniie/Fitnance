@@ -1,6 +1,7 @@
 package com.fit_nance.project.model;
 
 public class InstallListVO {
+	private int kind;
 	private int pIndex;
 	private String fin_co_no;
 	private String kor_co_nm;
@@ -22,6 +23,12 @@ public class InstallListVO {
 	private double intr_rate;
 	private double intr_rate2;
 	
+	public int getKind() {
+		return kind;
+	}
+	public void setKind(int kind) {
+		this.kind = kind;
+	}
 	public int getpIndex() {
 		return pIndex;
 	}
