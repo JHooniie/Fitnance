@@ -27,9 +27,9 @@
         <div class="m">
             <div class="middle-text">
                 <ul>
-                    <li>연금<br>
-                    관련 문구</li>
-                    <li class="middle-sub-text">연금 관련 문구 연금 관련 문구</li>
+                    <li>연금,<br>
+                    미래를 위한 투자</li>
+                    <li class="middle-sub-text">한번의 투자로 은퇴시점까지 편안하게!</li>
                 </ul>
             </div>
             <div class="middle-image">
