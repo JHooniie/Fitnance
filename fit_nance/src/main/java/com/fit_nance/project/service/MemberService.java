@@ -57,7 +57,7 @@ public class MemberService implements IMemberService {
 		String encodedPwd = bCryptPasswordEncoder.encode((String)map.get("memPwd"));
 		
 		map.put("memPwd", encodedPwd);
-
+		System.out.println("memPwd : " + encodedPwd);
 		dao.updateMemPwd(map);
 	}
 	

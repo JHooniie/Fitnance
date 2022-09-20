@@ -17,7 +17,7 @@
 		<section id="update_password_section">
         <div class="update_password_page wrap">
             <div class="update_password_container">
-                <form id="form-update_password" action="<c:url value='/user/pre_update_password'/>">
+                <form id="form-update_password" action="<c:url value='/user/pre_update_password'/>" method="post">
                 <div class="box-update-password">
                     <h3>비밀번호 변경</h3>
                     <span class="span-update-password-title">영문, 숫자, 특수문자 모두 포함한 8자 이상의 비밀번호를 입력해주세요</span>
