@@ -13,13 +13,22 @@
         $(this).html($(this).html().replace(/&nbsp;/gi,''));
     });
 
-    // if($('#checkbox-checkAgree:checked')){
-    //     $('#checkbox-checkAgree').prop('checked');
-    // }
+    $('#input-upload-profileImg').on('change', function(event){
+        var file = event.target.files[0];
+        var fileName = $('#input-upload-profileImg')[0].files[0].name;
+        let memId = $('#input-update-profile-Email').val() + "_";
 
-    $('#input-upload-profileImg').on('change', function(){
-        $('#submit-upload-profileImg').css("display","block");
-        //document.form_update_profileImg.submit();
+        var reader = new FileReader(); 
+        reader.onload = function(e) {
+    
+            $("#img-profileImg").attr("src", e.target.result);
+        }
+        
+        reader.readAsDataURL(file);
+        console.log(fileName);
+        
+          $('#input-update-memImg').val(memId+fileName);
+          
     });
 
     $('#submit-upload-profileImg').on('submit', function(){
@@ -68,61 +77,17 @@
         $('.span-bank-btn').css('color','#222');
     }
     
+    $('#checkbox-checkAgree').change(function(){
+         
+        var checked = $(this).prop('checked');
 
-
-
-    $('#form-update-profile').on('submit',function(){
-    
-        let memId = $('#input-update-profile-Email').val();
-        let memName = $('#input-update-profile-name').val();
-        let memBirth = $('#input-update-profile-birth-year').val()+$('#select-update-profile-birth-month').val()+$('#select-update-profile-birth-day').val()
-        let memBank = $('#input-user_bank').val();
-        let memRole = $('#input-update-role').val();
-        let memPwd = $('#input-update-pwd').val();
-        let memGender = $('#input-update-gender').val();
-        let memImg = $('#input-update-memImg').val();
-        let memEmailRecd = $('#checkbox-checkAgree').val();
-        let providerId = $('#input-update-provider').val();
-        let certified = $('#input-update-providerId').val();
-        let provider = $('#input-update-certifed').val();
-        if(!regYear.test($('#input-update-profile-birth-year').val()) & !regMonth.test($('#input-update-profile-birth-month').val()) & !regDay.test($('#input-update-profile-birth-day').val())){
-            alert("유효하지 않은 생년월일 입니다. 다시 입력해주세요");
+        if(checked){
+            $('#input-update-emailRecd').val("Y");
             
-            return false;
-
-            }else{
-                $.ajax({
-                    url: "./update_memInfo",
-                    type: "post",
-                    traditional: true,
-                    data:{"memId":memId,
-                        "memName":memName,
-                        "memBirth":memBirth,
-                        "memBank":memBank,
-                        "memRole":memRole,
-                        "memPwd":memPwd,
-                        "memGender":memGender,
-                        "memEmailRecd":memEmailRecd,
-                        "providerId":providerId,
-                        "certified":certified,
-                        "provider":provider,
-                        "memImg":memImg},
-                    dataType:"text",
-                    success:function(result){
-                        if(result="success"){
-                            //$('#input-update-birth').val($('#input-update-profile-birth-year').val()+$('#input-update-profile-birth-month').val()+$('#input-update-profile-birth-day').val());
-                            
-                            alert("수정 성공")
-                            location.href='redirect:./update_mypage';
-                            document.location.reload();
-                        }
-                    },
-                    error:function(request,status,error){
-                        alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
-                    }
-                });
-            }   
-    })
+        }else{
+            $('#input-update-emailRecd').val("N");
+        }
+    });
 
 
      //창 켜기

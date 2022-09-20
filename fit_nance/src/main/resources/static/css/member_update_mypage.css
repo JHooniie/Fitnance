@@ -100,18 +100,6 @@ input[type="file"] {
     opacity: 1;
 }
 
-#submit-upload-profileImg{
-	position: absolute;
-	display:none;
-    width:200px;
-    height:200px;
-    margin:0 auto;
-    left:250px;
-    border-radius: 50%;
-    overflow: hidden;
-    cursor: pointer;
-    opacity: 0.4;
-}
 
 .box-update-profile-content{
     margin-top: 82px;

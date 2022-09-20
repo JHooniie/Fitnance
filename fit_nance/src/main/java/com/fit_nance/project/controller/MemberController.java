@@ -163,23 +163,25 @@ public class MemberController {
 		return "/member/profile";
 	}
 	
-	// 회원정보 수정: 프로필
-	@RequestMapping("/profileImg_Upload")
-	public String updatePfImg(@RequestParam("input-upload-profileImg") MultipartFile file,
-							  Authentication auth, Model model, MemberVO vo) throws IOException {
+
+	// 회원정보 수정
+	@RequestMapping("/user/update_memInfo")
+	public String updateMemInfo(@RequestParam HashMap<String, Object> map, @RequestParam("input-upload-profileImg") MultipartFile file,
+								Authentication auth, MemberVO vo, Model model) throws IOException {
 		PrincipalDetails princ = (PrincipalDetails) auth.getPrincipal();
+		ArrayList<BankVO> bankList = memService.listAllBank();
 		
-		
+		model.addAttribute("bankList", bankList);
 		// 1. 파일 저장 경로 설정 : 실제 서비스되는 위치 (프로젝트 외부에 저장)
 		String uploadPath = "C:///springWorkspace/fitnance_images/upload/";
-		
+				
 		// 2. 원본 파일 이름 설정
 		String originalFileName = file.getOriginalFilename();
 		
 		// 3. 파일 이름이 중복되지 않도록 파일 이름 변경 : 서버에 저장할 이름
-		// UUID 클래스 사용 : 랜덤 생성
-		UUID uuid = UUID.randomUUID();
-		String savedFileName = uuid.toString()+"_"+originalFileName;
+
+
+		String savedFileName = princ.getUsername()+"_"+originalFileName;
 		
 		// 4. 파일 생성
 		File newFile = new File(uploadPath + savedFileName);
@@ -187,23 +189,26 @@ public class MemberController {
 		// 5. 서버로 전송
 		file.transferTo(newFile);
 		
-		// Model 설정 : 뷰 페이지에서 원본 파일 이름 출력
-		model.addAttribute("savedFileName", savedFileName);
-		
-		HashMap<String, Object> map = new HashMap<String, Object>();
-		map.put("memId", princ.getUsername());
-		map.put("memImg", savedFileName);
+		System.out.println((String)map.get("memImg"));
 		memService.updateMemImg(map);
 		
-		return "/member/update_mypage";
-	}
-	
-	// 회원정보 수정
-	@ResponseBody
-	@RequestMapping("/user/update_memInfo")
-	public String updateMemInfo(Authentication auth, MemberVO vo) {
-		PrincipalDetails princ = (PrincipalDetails) auth.getPrincipal();
-
+		
+		
+		String membirth = (String)map.get("birth_year") + (String)map.get("birth_month") + (String)map.get("birth_day");
+		
+		vo.setMemBirth(membirth);
+		
+		String memEmailRecd = (String)map.get("memEmailRecd");
+		System.out.println("받는값: " + (String)map.get("memEmailRecd"));
+		
+		
+		if(map.get("memEmailRecd") == "N") {
+			System.out.println("체크 안했을 때: " + memEmailRecd);
+			vo.setMemEmailRecd(null);
+		}else {
+			System.out.println("체크했을 때: " + memEmailRecd);
+			vo.setMemEmailRecd(memEmailRecd);
+		}
 		
 		
 		memService.updateMemInfo(vo);
@@ -222,7 +227,7 @@ public class MemberController {
 		princ.getProviderId();
 		
 
-		return "success";
+		return "/member/update_mypage";
 	}
 
 	@RequestMapping("/update-password")
