@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 import com.fit_nance.project.dao.IMemberDAO;
 import com.fit_nance.project.model.BankVO;
 import com.fit_nance.project.model.DummyVO;
+import com.fit_nance.project.model.FavoriteVO;
 import com.fit_nance.project.model.MemberVO;
 
 @Service
@@ -45,10 +46,19 @@ public class MemberService implements IMemberService {
 	//회원정보 수정
 	@Override
 	public void updateMemInfo(MemberVO vo) {
-		
-		
+	
 		dao.updateMemInfo(vo);
+	}
+	
+	//회원정보 수정:비밀번호
+	@Override
+	public void updateMemPwd(HashMap<String, Object> map) {
 		
+		String encodedPwd = bCryptPasswordEncoder.encode((String)map.get("memPwd"));
+		
+		map.put("memPwd", encodedPwd);
+
+		dao.updateMemPwd(map);
 	}
 	
 	//회원정보 수정:프로필
@@ -58,12 +68,10 @@ public class MemberService implements IMemberService {
 		dao.updateMemImg(map);
 	}
 
-
-	//마이페이지 즐겨찾기 불러오기
+	//회원 즐겨찾기 목록
 	@Override
-	public MemberVO detailMemInfo(String memId) {
-		// TODO Auto-generated method stub
-		return null;
+	public ArrayList<FavoriteVO> favoriteListView(String memId) {
+		return dao.favoriteListView(memId);
 	}
 	
 	//회원 정보 불러오기
@@ -72,7 +80,7 @@ public class MemberService implements IMemberService {
 
 		return dao.detailViewMemInfo(memId);
 	}
-	
+
 	//회원 탈퇴
 	@Override
 	public void withdrawal_member(MemberVO vo) {
@@ -203,6 +211,12 @@ public class MemberService implements IMemberService {
 		
 		
 }
+
+	
+
+
+
+	
 
 	
 	

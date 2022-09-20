@@ -28,7 +28,7 @@
                             <i class="fa-solid fa-eye-slash"></i>
                         </div>
                         </form>
-                        <button id="btn-password-check" type="submit"><span class="btn-span">비밀번호로 인증하기</span></button>
+                        <button id="btn-password-check" type="submit"><span class="btn-span">회원 탈퇴하기</span></button>
                     </div>
                 </div>
             </div>

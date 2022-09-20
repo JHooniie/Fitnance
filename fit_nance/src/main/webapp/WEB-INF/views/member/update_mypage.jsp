@@ -46,7 +46,7 @@
                             <input type="text" id="input-update-profile-Email" name="memId" value="${principal.username}" readonly>
                             <c:if test="${provider ne 'naver'}"> 
 	                            <span class="span-update span-update-profile-Email">비밀번호</span>
-	                            <div class="a-update-profile-password"><a href="<c:url value='/update-password'/>">비밀번호 변경하기</a></div>
+	                            <div class="a-update-profile-password"><a href="<c:url value='/user/update-passwordForm'/>">비밀번호 변경하기</a></div>
 	                        </c:if>
                             <label for="input-update-profile-name"><span class="span-update span-update-profile-name">이름</span>
                             <c:if test="${provider eq 'naver'}"> 

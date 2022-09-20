@@ -58,7 +58,6 @@ public class CharterLoanBaseService {
 			CharterLoanBaseVO vo = new CharterLoanBaseVO();
 			JSONObject tempObj = (JSONObject) baseList.get(i);
 			
-			vo.setKind(5);
 			vo.setpIndex(i);
 			vo.setFin_co_no((String) tempObj.get("fin_co_no"));
 			vo.setKor_co_nm((String) tempObj.get("kor_co_nm"));

@@ -4,7 +4,6 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -22,6 +21,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.fit_nance.project.config.auth.PrincipalDetails;
 import com.fit_nance.project.model.BankVO;
 import com.fit_nance.project.model.DummyVO;
+import com.fit_nance.project.model.FavoriteVO;
 import com.fit_nance.project.model.MemberVO;
 import com.fit_nance.project.service.CaptchaService;
 import com.fit_nance.project.service.MemberService;
@@ -94,10 +94,14 @@ public class MemberController {
 
 	// 마이페이지 폼 이동
 	@RequestMapping("user/mypage/{profileId}/")
-	public String mypageForm(@PathVariable("profileId") String memId) {
+	public String mypageForm(@PathVariable("profileId") String memId, Model model) {
 
 		MemberVO mem = memService.detailViewMemInfo(memId);
 		
+		//ArrayList<FavoriteVO> favList = memService.favoriteListView(memId);
+
+		//model.addAttribute("favList",favList);
+		model.addAttribute("mem",mem);
 		return "member/myPage";
 
 	}
@@ -153,16 +157,6 @@ public class MemberController {
 		return "/member/update_mypage";
 	}
 
-	@RequestMapping("/user/profile")
-	public String viewFileUploadForm(Model model) {
-		
-		String savedFileName = "profile_image.png";
-		
-		model.addAttribute("savedFileName", savedFileName);
-		
-		return "/member/profile";
-	}
-	
 
 	// 회원정보 수정
 	@RequestMapping("/user/update_memInfo")
@@ -189,7 +183,6 @@ public class MemberController {
 		// 5. 서버로 전송
 		file.transferTo(newFile);
 		
-		System.out.println((String)map.get("memImg"));
 		memService.updateMemImg(map);
 		
 		
@@ -199,14 +192,11 @@ public class MemberController {
 		vo.setMemBirth(membirth);
 		
 		String memEmailRecd = (String)map.get("memEmailRecd");
-		System.out.println("받는값: " + (String)map.get("memEmailRecd"));
 		
 		
 		if(map.get("memEmailRecd") == "N") {
-			System.out.println("체크 안했을 때: " + memEmailRecd);
 			vo.setMemEmailRecd(null);
 		}else {
-			System.out.println("체크했을 때: " + memEmailRecd);
 			vo.setMemEmailRecd(memEmailRecd);
 		}
 		
@@ -230,18 +220,39 @@ public class MemberController {
 		return "/member/update_mypage";
 	}
 
-	@RequestMapping("/update-password")
+	@RequestMapping("/user/update-passwordForm")
 	public String update_passwordForm() {
 		return "member/update_mypage_password";
 	}
+	
+	// 회원정보 수정 폼 열기 비밀번호 재인증
+		@RequestMapping("/user/pre_update_password")
+		public String update_password(@RequestParam HashMap<String, Object> map) {
+			
+			System.out.println("비밀번호 : "+map.get("memPwd"));
+			System.out.println("재비밀번호 : "+map.get("memPwd_chk"));
+			if(map.get("memPwd") == map.get("memPwd_chk")) {
+				System.out.println("비밀번호 통과 : "+map.get("memPwd"));
+				memService.updateMemPwd(map);
+				
+				return "index";
+			}else {
+				return "redirect:./update-passwordForm";
+			}
+			
+			
 
-	// 회원정보 수정 폼 열기 비밀번호 재인증 폼 이동
+				
+			
+		}
+	
+	// 회원탈퇴 폼 열기 비밀번호 재인증 폼 이동
 	@RequestMapping("/user/withdrawal_passwordCheckForm")
 	public String withdrawal_passwordCheckForm() {
 		return "member/withhdrawal_check_member";
 	}
 
-	// 회원정보 수정 폼 열기 비밀번호 재인증
+	// 회원 탈퇴 폼 열기 비밀번호 재인증
 	@RequestMapping("/user/pre_withdrawal_check")
 	public String pre_withdrawal_check(Authentication auth, @RequestParam("memPwd") String pwd,
 			RedirectAttributes rtt) {

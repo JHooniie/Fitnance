@@ -58,11 +58,18 @@
 		VALUES ( #{memRole}, #{memId}, #{memPwd}, #{memName}, #{memBirth}, #{memGender}, #{memBank}, #{memEmailRecd}, #{provider}, #{providerId})
 	</insert>
 	
-	<!-- 개인정보 수정 --><!-- 이미지 따로 뺴기 -->
+	<!-- 개인정보 수정 -->
 	<update id="updateMemInfo" parameterType="hashmap">
 		UPDATE member M, bank B
 		SET M.memName=#{memName}, M.memBank=#{memBank}, M.memBirth = #{memBirth},  M.memEmailRecd=#{memEmailRecd},  M.memImg=#{memImg}
 		WHERE M.memId=#{memId}
+	</update>
+	
+	<!-- 비밀번호 변경 -->
+	<update id="updateMemPwd" parameterType="hashmap">
+		UPDATE member
+		SET memPwd=#{memPwd}
+		WHERE memId=#{memId}
 	</update>
 	
 	<!-- 개인정보 프로필 이미지 수정 -->
@@ -80,6 +87,11 @@
 		ON M.memBank = B.memBank
 		WHERE memId=#{memId} AND memPwd=#{memPwd}
 	</select>
+	
+	<!-- 즐겨찾기 목록 보기 -->
+<!-- 	<select id="favoriteListView" parameterType="string" resultType="com.fit_nance.project.model.FavoriteVO">
+		
+	</select> -->
 	
 	<select id="passwordCheck" parameterType="string" resultType="com.fit_nance.project.model.MemberVO">
 		SELECT * 
