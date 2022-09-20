@@ -84,7 +84,7 @@
 	<!-- 적금 -->
 	<!-- 전체 적금 상품 조회 -->
 	<select id="selectInstallList" resultMap="resultInstallList">
-		SELECT O.oIndex, B.pIndex, O.fin_co_no, B.kor_co_nm, B.fin_prdt_nm, B.join_way, O.intr_rate, O.intr_rate2
+		SELECT O.oIndex, B.pIndex, O.fin_co_no, B.kor_co_nm, B.fin_prdt_nm,B.fin_prdt_cd, B.join_way, O.intr_rate, O.intr_rate2
 		FROM installment_option O
 			INNER JOIN installment_base B ON B.pIndex = O.pIndex
 		WHERE O.oIndex IN (SELECT MAX(oIndex) from installment_option GROUP BY pIndex)
@@ -100,7 +100,7 @@
 	
 	<!-- 적금 필터링 -->
 	<select id="selectInstallFilter" resultMap="resultInstallList">
-		SELECT O.oIndex, B.pIndex, O.fin_co_no, B.kor_co_nm, B.fin_prdt_nm, B.join_way, O.intr_rate, O.intr_rate2
+		SELECT O.oIndex, B.pIndex, O.fin_co_no, B.kor_co_nm, B.fin_prdt_nm,B.fin_prdt_cd, B.join_way, O.intr_rate, O.intr_rate2
 		FROM installment_option O
 			INNER JOIN installment_base B ON B.pIndex = O.pIndex
 		<if test="rsrv_type_nm.size()!=0"> 
@@ -132,7 +132,7 @@
 	</select>
 	
 	<select id="selectInstallSearch" resultMap="resultInstallList">
-		SELECT O.oIndex, B.pIndex, O.fin_co_no, B.kor_co_nm, B.fin_prdt_nm, B.join_way, O.intr_rate, O.intr_rate2
+		SELECT O.oIndex, B.pIndex, O.fin_co_no, B.kor_co_nm, B.fin_prdt_nm,B.fin_prdt_cd, B.join_way, O.intr_rate, O.intr_rate2
 		FROM installment_option O
 			INNER JOIN installment_base B ON B.pIndex = O.pIndex
 		<if test="search !=''"> 
@@ -145,7 +145,7 @@
 	<!-- 예금 -->
 	<!-- 전체 예금 상품 조회 -->
 	<select id="selectDepositList" resultMap="resultDepositList">
-		SELECT O.oIndex, B.pIndex, O.fin_co_no, B.kor_co_nm, B.fin_prdt_nm, B.join_way, O.intr_rate, O.save_trm
+		SELECT O.oIndex, B.pIndex, O.fin_co_no, B.kor_co_nm, B.fin_prdt_nm,B.fin_prdt_cd, B.join_way, O.intr_rate, O.save_trm
 		FROM deposit_option O
 			INNER JOIN deposit_base B ON B.pIndex = O.pIndex
 		WHERE O.oIndex IN (SELECT MIN(oIndex) from deposit_option GROUP BY pIndex)
@@ -161,7 +161,7 @@
 	
 	<!-- 예금 필터링 -->
 	<select id="selectDepositFilter" resultMap="resultDepositList">
-		SELECT O.oIndex, B.pIndex, O.fin_co_no, B.kor_co_nm, B.fin_prdt_nm, B.join_way, O.intr_rate, O.save_trm
+		SELECT O.oIndex, B.pIndex, O.fin_co_no, B.kor_co_nm, B.fin_prdt_nm,B.fin_prdt_cd, B.join_way, O.intr_rate, O.save_trm
 		FROM deposit_option O
 			INNER JOIN deposit_base B ON B.pIndex = O.pIndex
 		<if test="join_member.size()!=0"> 
@@ -187,7 +187,7 @@
 	</select>
 	
 	<select id="selectDepositSearch" resultMap="resultDepositList">
-		SELECT O.oIndex, B.pIndex, O.fin_co_no, B.kor_co_nm, B.fin_prdt_nm, B.join_way, O.intr_rate, O.save_trm
+		SELECT O.oIndex, B.pIndex, O.fin_co_no, B.kor_co_nm, B.fin_prdt_nm,B.fin_prdt_cd, B.join_way, O.intr_rate, O.save_trm
 		FROM deposit_option O
 			INNER JOIN deposit_base B ON B.pIndex = O.pIndex
 		<if test="search !=''"> 
@@ -200,7 +200,7 @@
 	<!-- 연금 -->
 	<!-- 전체 연금 상품 조회 -->
 	<select id="selectPensionList" resultMap="resultPensionList">
-		SELECT O.oIndex, B.pIndex, O.fin_co_no, B.kor_co_nm, B.fin_prdt_nm, B.join_way, B.avg_prft_rate
+		SELECT O.oIndex, B.pIndex, O.fin_co_no, B.kor_co_nm, B.fin_prdt_nm,B.fin_prdt_cd, B.join_way, B.avg_prft_rate
 		FROM pension_option O
 			INNER JOIN pension_base B ON B.pIndex = O.pIndex
 		WHERE O.oIndex IN (SELECT MIN(oIndex) from pension_option GROUP BY pIndex)
@@ -215,7 +215,7 @@
 	
 	<!-- 연금 필터링 -->
 	<select id="selectPensionFilter" resultMap="resultPensionList">
-		SELECT O.oIndex, B.pIndex, O.fin_co_no, B.kor_co_nm, B.fin_prdt_nm, B.join_way, B.avg_prft_rate
+		SELECT O.oIndex, B.pIndex, O.fin_co_no, B.kor_co_nm, B.fin_prdt_nm,B.fin_prdt_cd, B.join_way, B.avg_prft_rate
 		FROM pension_option O
 			INNER JOIN pension_base B ON B.pIndex = O.pIndex
 		<if test="pnsn_recp_trm_nm.size()!=0"> 
@@ -240,7 +240,7 @@
 	</select>
 	
 	<select id="selectPensionSearch" resultMap="resultPensionList">
-		SELECT O.oIndex, B.pIndex, O.fin_co_no, B.kor_co_nm, B.fin_prdt_nm, B.join_way, B.avg_prft_rate
+		SELECT O.oIndex, B.pIndex, O.fin_co_no, B.kor_co_nm, B.fin_prdt_nm,B.fin_prdt_cd, B.join_way, B.avg_prft_rate
 		FROM pension_option O
 			INNER JOIN pension_base B ON B.pIndex = O.pIndex
 		<if test="search !=''"> 

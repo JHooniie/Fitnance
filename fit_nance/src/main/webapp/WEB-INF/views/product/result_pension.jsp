@@ -57,7 +57,7 @@
 	                             </ul>
 	                         </div>
 	                     </div>
-	                     <div class="view-detail"><a href="<c:url value='pension_detail?index=${index }'/>">자세히 보기</a></div>
+	                     <div class="view-detail"><a href="<c:url value='/detailPension/${list.oIndex}'/>">자세히 보기</a></div>
 	                 </div>
 	             </div>
 	             </c:forEach>
