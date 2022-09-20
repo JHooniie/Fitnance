@@ -11,32 +11,32 @@
 	</resultMap>
 	
 	<insert id="insertInstallFavorite" parameterType="com.fit_nance.project.model.FavoriteVO">
-		INSERT INTO favorite (kind, fin_prdt_cd, memId)
-		VALUES(#{kind}, #{fin_prdt_cd}, #{memId})
+		INSERT INTO favorite (kind, oIndex, memId)
+		VALUES(#{kind}, #{oIndex}, #{memId})
 		
 	</insert>
 	
 	<delete id="deleteInstallFavorite" parameterType="com.fit_nance.project.model.FavoriteVO">
-		DELETE FROM favorite WHERE kind=#{kind} and fin_prdt_cd=#{fin_prdt_cd} and memId=#{memId}
+		DELETE FROM favorite WHERE kind=#{kind} and oIndex=#{oIndex} and memId=#{memId}
 	</delete>
 	
 	<insert id="insertDepositFavorite" parameterType="com.fit_nance.project.model.FavoriteVO">
-		INSERT INTO favorite (kind, fin_prdt_cd, memId)
-		VALUES(#{kind}, #{fin_prdt_cd}, #{memId})
+		INSERT INTO favorite (kind, oIndex, memId)
+		VALUES(#{kind}, #{oIndex}, #{memId})
 		
 	</insert>
 	
 	<delete id="deleteDepositFavorite" parameterType="com.fit_nance.project.model.FavoriteVO">
-		DELETE FROM favorite WHERE kind=#{kind} and fin_prdt_cd=#{fin_prdt_cd} and memId=#{memId}
+		DELETE FROM favorite WHERE kind=#{kind} and oIndex=#{oIndex} and memId=#{memId}
 	</delete>
 	
 	<insert id="insertPensionFavorite" parameterType="com.fit_nance.project.model.FavoriteVO">
-		INSERT INTO favorite (kind, fin_prdt_cd, memId)
-		VALUES(#{kind}, #{fin_prdt_cd}, #{memId})
+		INSERT INTO favorite (kind, oIndex, memId)
+		VALUES(#{kind}, #{oIndex}, #{memId})
 		
 	</insert>
 	
 	<delete id="deletePensionFavorite" parameterType="com.fit_nance.project.model.FavoriteVO">
-		DELETE FROM favorite WHERE kind=#{kind} and fin_prdt_cd=#{fin_prdt_cd} and memId=#{memId}
+		DELETE FROM favorite WHERE kind=#{kind} and oIndex=#{oIndex} and memId=#{memId}
 	</delete>
 </mapper>

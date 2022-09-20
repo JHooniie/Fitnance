@@ -378,7 +378,7 @@ public class ListSavingController {
 		FavoriteVO vo =new FavoriteVO();
 		PrincipalDetails princ=(PrincipalDetails)auth.getPrincipal();
 		String memId = princ.getUsername();
-		vo.setKind(2);
+		vo.setKind(1);
 		vo.setMemId(memId);
 		vo.setFin_prdt_cd(favorite);
 		
@@ -392,7 +392,7 @@ public class ListSavingController {
 		FavoriteVO vo =new FavoriteVO();
 		PrincipalDetails princ=(PrincipalDetails)auth.getPrincipal();
 		String memId = princ.getUsername();
-		vo.setKind(2);
+		vo.setKind(1);
 		vo.setMemId(memId);
 		vo.setFin_prdt_cd(favorite);
 		
@@ -406,7 +406,7 @@ public class ListSavingController {
 		FavoriteVO vo =new FavoriteVO();
 		PrincipalDetails princ=(PrincipalDetails)auth.getPrincipal();
 		String memId = princ.getUsername();
-		vo.setKind(1);
+		vo.setKind(2);
 		vo.setMemId(memId);
 		vo.setFin_prdt_cd(favorite);
 		
@@ -420,7 +420,7 @@ public class ListSavingController {
 		FavoriteVO vo =new FavoriteVO();
 		PrincipalDetails princ=(PrincipalDetails)auth.getPrincipal();
 		String memId = princ.getUsername();
-		vo.setKind(1);
+		vo.setKind(2);
 		vo.setMemId(memId);
 		vo.setFin_prdt_cd(favorite);
 		

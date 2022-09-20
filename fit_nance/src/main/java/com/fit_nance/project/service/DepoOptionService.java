@@ -60,6 +60,7 @@ public class DepoOptionService {
 			for (int i = 0; i < optionArray.length(); i++) {
 				JSONObject depoObj = optionArray.getJSONObject(i);
 				DepoOptionVO vo = new DepoOptionVO();
+				vo.setKind(2);
 				vo.setoIndex(i);
 				vo.setFin_co_no(String.valueOf(depoObj.get("fin_co_no")));
 				vo.setFin_prdt_cd(String.valueOf(depoObj.get("fin_prdt_cd")));

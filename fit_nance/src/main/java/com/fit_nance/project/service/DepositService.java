@@ -60,7 +60,6 @@ public class DepositService {
 				JSONObject depoObj = baseArray.getJSONObject(i);
 				
 				DepositVO vo = new DepositVO();
-				vo.setKind(1);
 				vo.setPIndex(i);
 				vo.setFin_co_no(String.valueOf(depoObj.get("fin_co_no")));
 				vo.setFin_prdt_cd(String.valueOf(depoObj.get("fin_prdt_cd")));

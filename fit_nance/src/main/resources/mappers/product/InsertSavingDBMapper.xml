@@ -5,32 +5,32 @@
   
 <mapper namespace="com.fit_nance.project.dao.IProductDAO">
 	<insert id="insertDeposit" parameterType="com.fit_nance.project.model.DepositVO">
-		INSERT INTO deposit_base (kind, pIndex,fin_co_no,kor_co_nm,fin_prdt_cd,fin_prdt_nm,join_way,mtrt_int,spcl_cnd,join_deny,join_member,etc_note,max_limit)
-		VALUES(#{kind}, #{pIndex}, #{fin_co_no}, #{kor_co_nm}, #{fin_prdt_cd}, #{fin_prdt_nm}, #{join_way}, #{mtrt_int}, #{spcl_cnd}, #{join_deny}, #{join_member}, #{etc_note}, #{max_limit})
+		INSERT INTO deposit_base (pIndex,fin_co_no,kor_co_nm,fin_prdt_cd,fin_prdt_nm,join_way,mtrt_int,spcl_cnd,join_deny,join_member,etc_note,max_limit)
+		VALUES(#{pIndex}, #{fin_co_no}, #{kor_co_nm}, #{fin_prdt_cd}, #{fin_prdt_nm}, #{join_way}, #{mtrt_int}, #{spcl_cnd}, #{join_deny}, #{join_member}, #{etc_note}, #{max_limit})
 	</insert>
 	
 	<insert id="insertDepoOption" parameterType="com.fit_nance.project.model.DepoOptionVO">
-		INSERT INTO deposit_option (oIndex,fin_co_no,fin_prdt_cd,intr_rate_type,intr_rate_type_nm,save_trm,intr_rate,intr_rate2)
-		VALUES(#{oIndex}, #{fin_co_no}, #{fin_prdt_cd}, #{intr_rate_type}, #{intr_rate_type_nm}, #{save_trm}, #{intr_rate}, #{intr_rate2})
+		INSERT INTO deposit_option (kind, oIndex,fin_co_no,fin_prdt_cd,intr_rate_type,intr_rate_type_nm,save_trm,intr_rate,intr_rate2)
+		VALUES(#{kind}, #{oIndex}, #{fin_co_no}, #{fin_prdt_cd}, #{intr_rate_type}, #{intr_rate_type_nm}, #{save_trm}, #{intr_rate}, #{intr_rate2})
 	</insert>
 	
 	<insert id="insertInstall" parameterType="com.fit_nance.project.model.InstallVO">
-		INSERT INTO installment_base (kind, pIndex,fin_co_no,kor_co_nm,fin_prdt_cd,fin_prdt_nm,join_way,mtrt_int,spcl_cnd,join_deny,join_member,etc_note,max_limit)
-		VALUES(#{kind}, #{pIndex}, #{fin_co_no}, #{kor_co_nm}, #{fin_prdt_cd}, #{fin_prdt_nm}, #{join_way}, #{mtrt_int}, #{spcl_cnd}, #{join_deny}, #{join_member}, #{etc_note}, #{max_limit})
+		INSERT INTO installment_base (pIndex,fin_co_no,kor_co_nm,fin_prdt_cd,fin_prdt_nm,join_way,mtrt_int,spcl_cnd,join_deny,join_member,etc_note,max_limit)
+		VALUES(#{pIndex}, #{fin_co_no}, #{kor_co_nm}, #{fin_prdt_cd}, #{fin_prdt_nm}, #{join_way}, #{mtrt_int}, #{spcl_cnd}, #{join_deny}, #{join_member}, #{etc_note}, #{max_limit})
 	</insert>
 	
 	<insert id="insertInsOption" parameterType="com.fit_nance.project.model.InstallOptionVO">
-		INSERT INTO installment_option (oIndex,fin_co_no,fin_prdt_cd,intr_rate_type,intr_rate_type_nm,rsrv_type,rsrv_type_nm,save_trm,intr_rate,intr_rate2)
-		VALUES(#{oIndex}, #{fin_co_no}, #{fin_prdt_cd}, #{intr_rate_type}, #{intr_rate_type_nm}, #{rsrv_type}, #{rsrv_type_nm},#{save_trm}, #{intr_rate}, #{intr_rate2})
+		INSERT INTO installment_option (kind, oIndex,fin_co_no,fin_prdt_cd,intr_rate_type,intr_rate_type_nm,rsrv_type,rsrv_type_nm,save_trm,intr_rate,intr_rate2)
+		VALUES(#{kind}, #{oIndex}, #{fin_co_no}, #{fin_prdt_cd}, #{intr_rate_type}, #{intr_rate_type_nm}, #{rsrv_type}, #{rsrv_type_nm},#{save_trm}, #{intr_rate}, #{intr_rate2})
 	</insert>
 	
 	<insert id="insertPension" parameterType="com.fit_nance.project.model.PensionVO">
-		INSERT INTO pension_base (kind, pIndex,fin_co_no,kor_co_nm,fin_prdt_cd,fin_prdt_nm,join_way,pnsn_kind,pnsn_kind_nm,sale_strt_day,mntn_cnt,prdt_type,prdt_type_nm,avg_prft_rate,dcls_rate,guar_rate, btrm_prft_rate_1, btrm_prft_rate_2,btrm_prft_rate_3, etc,sale_co)
-		VALUES(#{kind}, #{pIndex}, #{fin_co_no}, #{kor_co_nm}, #{fin_prdt_cd}, #{fin_prdt_nm}, #{join_way}, #{pnsn_kind}, #{pnsn_kind_nm}, #{sale_strt_day}, #{mntn_cnt}, #{prdt_type}, #{prdt_type_nm}, #{avg_prft_rate}, #{dcls_rate}, #{guar_rate}, #{btrm_prft_rate_1}, #{btrm_prft_rate_2}, #{btrm_prft_rate_3}, #{etc}, #{sale_co})
+		INSERT INTO pension_base (pIndex,fin_co_no,kor_co_nm,fin_prdt_cd,fin_prdt_nm,join_way,pnsn_kind,pnsn_kind_nm,sale_strt_day,mntn_cnt,prdt_type,prdt_type_nm,avg_prft_rate,dcls_rate,guar_rate, btrm_prft_rate_1, btrm_prft_rate_2,btrm_prft_rate_3, etc,sale_co)
+		VALUES(#{pIndex}, #{fin_co_no}, #{kor_co_nm}, #{fin_prdt_cd}, #{fin_prdt_nm}, #{join_way}, #{pnsn_kind}, #{pnsn_kind_nm}, #{sale_strt_day}, #{mntn_cnt}, #{prdt_type}, #{prdt_type_nm}, #{avg_prft_rate}, #{dcls_rate}, #{guar_rate}, #{btrm_prft_rate_1}, #{btrm_prft_rate_2}, #{btrm_prft_rate_3}, #{etc}, #{sale_co})
 	</insert>
 	
 	<insert id="insertPsOption" parameterType="com.fit_nance.project.model.PsOptionVO">
-		INSERT INTO pension_option (oIndex,fin_co_no,fin_prdt_cd,pnsn_recp_trm,pnsn_recp_trm_nm,pnsn_entr_age,pnsn_entr_age_nm,mon_paym_atm,mon_paym_atm_nm,paym_prd,paym_prd_nm,pnsn_strt_age,pnsn_strt_age_nm,pnsn_recp_amt)
-		VALUES(#{oIndex}, #{fin_co_no}, #{fin_prdt_cd}, #{pnsn_recp_trm}, #{pnsn_recp_trm_nm}, #{pnsn_entr_age}, #{pnsn_entr_age_nm},#{mon_paym_atm}, #{mon_paym_atm_nm}, #{paym_prd}, #{paym_prd_nm}, #{pnsn_strt_age}, #{pnsn_strt_age_nm}, #{pnsn_recp_amt})
+		INSERT INTO pension_option (kind, oIndex,fin_co_no,fin_prdt_cd,pnsn_recp_trm,pnsn_recp_trm_nm,pnsn_entr_age,pnsn_entr_age_nm,mon_paym_atm,mon_paym_atm_nm,paym_prd,paym_prd_nm,pnsn_strt_age,pnsn_strt_age_nm,pnsn_recp_amt)
+		VALUES(#{kind}, #{oIndex}, #{fin_co_no}, #{fin_prdt_cd}, #{pnsn_recp_trm}, #{pnsn_recp_trm_nm}, #{pnsn_entr_age}, #{pnsn_entr_age_nm},#{mon_paym_atm}, #{mon_paym_atm_nm}, #{paym_prd}, #{paym_prd_nm}, #{pnsn_strt_age}, #{pnsn_strt_age_nm}, #{pnsn_recp_amt})
 	</insert>
 </mapper>

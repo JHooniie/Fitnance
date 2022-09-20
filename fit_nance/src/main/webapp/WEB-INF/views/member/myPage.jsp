@@ -52,6 +52,13 @@
                         </ul>
                     </div>
                     <div class="box-favoriteList-list">
+                        <div class="box-favoriteList-empty">
+                            <div class="box-favoriteList-empty-warning">
+                                <i class="fa-solid fa-circle-exclamation"></i>
+                                <span>즐겿찾는 상품이 없습니다</span>
+                            </div>
+                        </div>
+                        <c:forEach items="${favList }" var="list">
                         <div class="box-favoriteList-cell">
                             <div class="box-favoriteList-img">
                                 <div class="box-favoriteList-img-center"></div>
@@ -70,11 +77,11 @@
                                 <div class="box-favoriteCell-detail">
                                     <ul>
                                         <li>
-                                            <span class="span-detailOption-standard">1년기준 (세전)</span><br>
+                                            <span class="span-detailOption-standard">1년기준 (세전)</span>
                                             <span class="span-detailOption-amount">2.35%</span>
                                         </li>
                                         <li>
-                                            <span class="span-detailOption-standard">최대 (세전)</span><br>
+                                            <span class="span-detailOption-standard">최대 (세전)</span>
                                             <span class="span-detailOption-amount">2.75%</span>
                                         </li>
                                     </ul>
@@ -82,6 +89,7 @@
                                 </div>
                             </div>
                         </div>
+                        </c:forEach>
                     </div>
                 </div>
             </div>
