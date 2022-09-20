@@ -3,6 +3,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<sec:authorize access="isAuthenticated()">
+    <sec:authentication property="principal" var="principal" />
+</sec:authorize>
 <!DOCTYPE html>
 <html>
 	<head> 
@@ -87,15 +91,35 @@
 	                     </div>
 	                     <div class="div_btn_prdt">
 	                         <div class="div_btn_add">
-                       			<div class="btn_add_compare">
-                       				<i class="fa-solid fa-folder-plus"></i>
-                       				<input type="hidden" value="${list.oIndex }">
-                   				</div>
-                   				<div class="btn_add_favorite">
-                   					<i class="fa-solid fa-heart"></i>
-                   					<input type="hidden" value="${list.oIndex }">
-           						</div>
-	           				</div>
+		                        <div class="btn_add_compare">
+                    				<i class="fa-solid fa-folder-plus"></i>
+                    				<input type="hidden" value="${list.oIndex }">
+               					</div>
+                    			<c:if test="${empty principal.username }">
+                    				<div class="btn_add_favorite not_login_favorite" >
+                    					<i class="fa-solid fa-heart"></i>
+                    					<input type="hidden" value="${list.oIndex }">
+                    				</div>
+                    			</c:if>
+                    			<c:if test="${not empty principal.username }">
+                    				<c:set var="a" value="<%=0 %>"/>
+                    				<c:forEach items="${fList }" var="fList">
+                    					<c:if test="${fList.oIndex eq list.oIndex}" >
+                     					<c:set var="a" value="<%=1 %>"/>
+                     					<div class="btn_add_favorite_clicked login_favorite">
+                     						<i class="fa-solid fa-heart"></i>
+                     						<input type="hidden" value="${list.oIndex }">
+                							</div>
+                    					</c:if>
+                    				</c:forEach>
+                    				<c:if test="${a ne 1}">
+                    					<div class="btn_add_favorite login_favorite">
+                    						<i class="fa-solid fa-heart"></i>
+                    						<input type="hidden" value="${list.oIndex }">
+               							</div>
+                    				</c:if>
+                    			</c:if>
+    						</div>
 	                        <a class="btn_prdt_info" href="<c:url value='/detailCreditLoan/${list.oIndex}'/>">자세히 보기</a>
 	                     </div>
 	                 </div>

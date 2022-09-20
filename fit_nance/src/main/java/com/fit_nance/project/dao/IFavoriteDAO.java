@@ -15,4 +15,5 @@ public interface IFavoriteDAO {
 	public void deletePensionFavorite(FavoriteVO vo);
 	
 	public ArrayList<FavoriteVO> selectFavorite(FavoriteVO vo);
+	public ArrayList<FavoriteVO> searchFavorite(FavoriteVO vo);
 }
