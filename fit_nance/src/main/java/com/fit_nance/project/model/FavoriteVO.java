@@ -10,6 +10,7 @@ public class FavoriteVO {
 	private String fin_prdt_nm;
 	private String kor_co_nm;
 	private String join_way;
+	private String fin_co_no;
 	//개별
 	private int save_trm;//기간(예금)
 	private double lend_rate_min;//최저금리(전세대출)(주택대출)
@@ -19,6 +20,12 @@ public class FavoriteVO {
 	private double avg_prft_rate;
 
 	
+	public String getFin_co_no() {
+		return fin_co_no;
+	}
+	public void setFin_co_no(String fin_co_no) {
+		this.fin_co_no = fin_co_no;
+	}
 	public double getAvg_prft_rate() {
 		return avg_prft_rate;
 	}
