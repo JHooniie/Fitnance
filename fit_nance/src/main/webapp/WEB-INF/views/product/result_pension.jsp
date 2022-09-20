@@ -27,7 +27,10 @@
 	             <div class="box">검색 결과 ${fn:length(psList) }개</div>
 	         </div>
 	         <div class="item-list">
-	         <c:forEach items="${psList }" var="list">
+	         <c:set var="total_pages" value="${fn:length(psList)/10+1 }"/>
+                <c:forEach var="pages" begin="1" end="${total_pages+1 }">
+                <div class="prdt_result_search prdt${pages }">
+               	<c:forEach items="${psList }" var="list" varStatus="status" begin="${(pages-1)*10 }" end="${pages*10-1 }">	  
 	             <div class="item-box-all">
 	                 <div class="item-box">
 	                     <div class="image-box">
@@ -74,16 +77,22 @@
 	                 </div>
 	             </div>
 	             </c:forEach>
-	             
-	             <div class="page-list">
-	                 <div class="page-icon"><i class="fa-solid fa-angle-left"></i></div>
-	                 <div class="page-num">
-	                     <div class="page-num1">1</div>
-	                     <div class="page-num2">2</div>
-	                     <div class="page-num3">3</div>
-	                 </div>
-	                 <div class="page-icon"><i class="fa-solid fa-angle-right"></i></div>
 	             </div>
+	             </c:forEach>
+	             
+	             <div class="page_prdt_list">
+                     <div class="div_page_prev">
+                         <i class="fa-solid fa-chevron-left"></i>
+                     </div>
+                     <div class="div_page_num">
+                         <c:forEach var="pageNum" begin="1" end="${total_pages }">
+                             <div class="btn_page page_num${pageNum }">${pageNum }</div>
+                         </c:forEach>
+                     </div>
+                     <div class="div_page_next">
+                         <i class="fa-solid fa-chevron-right"></i>
+                     </div>
+                 </div>
 	         </div>
 		</c:otherwise>
 	</c:choose>
