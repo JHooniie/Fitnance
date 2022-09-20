@@ -11,9 +11,9 @@ import org.springframework.context.annotation.PropertySources;
 @SpringBootApplication
 @ComponentScan(basePackages = {"com.fit_nance.project"})
 @MapperScan(basePackages = {"com.fit_nance.project"})
-/*@PropertySources({@PropertySource(value="file:c:/springWorkspace/application.properties",ignoreResourceNotFound=true),
+@PropertySources({@PropertySource(value="file:c:/springWorkspace/application.properties",ignoreResourceNotFound=true),
     			@PropertySource(value="file:/usr/local/project/properties/configure.properties",ignoreResourceNotFound=true),
-    			@PropertySource(value="file:/usr/local/project/properties/application-oauth.properties",ignoreResourceNotFound=true)})*/
+    			@PropertySource(value="file:/usr/local/project/properties/application-oauth.properties",ignoreResourceNotFound=true)})
 
 public class FitNanceApplication {
 
