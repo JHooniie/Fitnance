@@ -81,6 +81,7 @@ public class InstallmentService {
 				JSONObject depoObj = baseArray.getJSONObject(i-num);
 				
 				InstallVO vo = new InstallVO();
+				vo.setKind(2);
 				vo.setPIndex(i);
 				vo.setFin_co_no(String.valueOf(depoObj.get("fin_co_no")));
 				vo.setFin_prdt_cd(String.valueOf(depoObj.get("fin_prdt_cd")));

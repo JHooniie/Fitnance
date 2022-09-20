@@ -57,7 +57,7 @@ public class PersonalLoanBaseService {
 		for(int i=0; i<baseList.length(); i++) {
 			PersonalLoanBaseVO vo = new PersonalLoanBaseVO();
 			JSONObject tempObj = (JSONObject) baseList.get(i);
-			
+			vo.setKind(6);
 			vo.setpIndex(i);
 			vo.setFin_co_no((String) tempObj.get("fin_co_no"));
 			vo.setKor_co_nm((String) tempObj.get("kor_co_nm"));

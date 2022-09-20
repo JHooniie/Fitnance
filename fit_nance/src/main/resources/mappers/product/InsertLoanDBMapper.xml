@@ -7,8 +7,8 @@
 	
 	<!-- 주택담보대출 api baseList 데이터 등록 -->
 	<insert id="insertHomeLoanBaseList" parameterType="com.fit_nance.project.model.HomeLoanBaseVO">
-		INSERT INTO home_loan_base (pIndex, fin_co_no, kor_co_nm, fin_prdt_cd, fin_prdt_nm, join_way, loan_inci_expn, erly_rpay_fee, dly_rate, loan_lmt)
-		VALUES (#{pIndex}, #{fin_co_no}, #{kor_co_nm}, #{fin_prdt_cd}, #{fin_prdt_nm}, #{join_way}, #{loan_inci_expn}, #{erly_rpay_fee}, #{dly_rate}, #{loan_lmt})
+		INSERT INTO home_loan_base (kind, pIndex, fin_co_no, kor_co_nm, fin_prdt_cd, fin_prdt_nm, join_way, loan_inci_expn, erly_rpay_fee, dly_rate, loan_lmt)
+		VALUES (#{kind}, #{pIndex}, #{fin_co_no}, #{kor_co_nm}, #{fin_prdt_cd}, #{fin_prdt_nm}, #{join_way}, #{loan_inci_expn}, #{erly_rpay_fee}, #{dly_rate}, #{loan_lmt})
 	</insert>
 	<!-- 주택담보대출 api optionList 데이터 등록 -->
 	<insert id="insertHomeLoanOptList" parameterType="com.fit_nance.project.model.HomeLoanOptVO">
@@ -18,8 +18,8 @@
 	
 	<!-- 전세자금대출 api baseList 등록 -->
 	<insert id="insertCharterLoanBaseList" parameterType="com.fit_nance.project.model.CharterLoanBaseVO">
-		INSERT INTO charter_loan_base (pIndex, fin_co_no, kor_co_nm, fin_prdt_cd, fin_prdt_nm, join_way, loan_inci_expn, erly_rpay_fee, dly_rate, loan_lmt)
-		VALUES (#{pIndex}, #{fin_co_no}, #{kor_co_nm}, #{fin_prdt_cd}, #{fin_prdt_nm}, #{join_way}, #{loan_inci_expn}, #{erly_rpay_fee}, #{dly_rate}, #{loan_lmt})
+		INSERT INTO charter_loan_base (kind, pIndex, fin_co_no, kor_co_nm, fin_prdt_cd, fin_prdt_nm, join_way, loan_inci_expn, erly_rpay_fee, dly_rate, loan_lmt)
+		VALUES (#{kind}, #{pIndex}, #{fin_co_no}, #{kor_co_nm}, #{fin_prdt_cd}, #{fin_prdt_nm}, #{join_way}, #{loan_inci_expn}, #{erly_rpay_fee}, #{dly_rate}, #{loan_lmt})
 	</insert>
 	<!-- 전세자금대출 api optionList 데이터 등록 -->
 	<insert id="insertCharterLoanOptList" parameterType="com.fit_nance.project.model.CharterLoanOptVO">
@@ -29,8 +29,8 @@
 	
 	<!-- 개인신용대출 api baseList 데이터 등록 -->
 	<insert id="insertPersonalLoanBaseList" parameterType="com.fit_nance.project.model.PersonalLoanBaseVO">
-		INSERT INTO personal_loan_base (pIndex, fin_co_no, kor_co_nm, fin_prdt_cd, fin_prdt_nm, join_way, crdt_prdt_type, crdt_prdt_type_nm, cb_name)
-		VALUES (#{pIndex}, #{fin_co_no}, #{kor_co_nm}, #{fin_prdt_cd}, #{fin_prdt_nm}, #{join_way}, #{crdt_prdt_type}, #{crdt_prdt_type_nm}, #{cb_name})
+		INSERT INTO personal_loan_base (kind, pIndex, fin_co_no, kor_co_nm, fin_prdt_cd, fin_prdt_nm, join_way, crdt_prdt_type, crdt_prdt_type_nm, cb_name)
+		VALUES (#{kind}, #{pIndex}, #{fin_co_no}, #{kor_co_nm}, #{fin_prdt_cd}, #{fin_prdt_nm}, #{join_way}, #{crdt_prdt_type}, #{crdt_prdt_type_nm}, #{cb_name})
 	</insert>
 	<!-- 개인신용대출 api optionList 데이터 등록 -->
 	<insert id="insertPersonalLoanOptList" parameterType="com.fit_nance.project.model.PersonalLoanOptVO">
