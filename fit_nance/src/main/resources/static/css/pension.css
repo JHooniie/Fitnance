@@ -474,3 +474,54 @@
 .no-list i{
 	color: #999;
 }
+
+.page_prdt_list{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border: 1px solid red; */
+    margin-top: 60px;
+}
+
+.page_prdt_list .div_page_prev,
+.page_prdt_list .div_page_next{
+    width: 28px;
+    height: 28px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.page_prdt_list .div_page_prev i,
+.page_prdt_list .div_page_next i{
+    font-size: 9px;
+    color: #AAAAAA;
+}
+
+.page_prdt_list .div_page_prev:hover,
+.page_prdt_list .div_page_next:hover{
+    
+}
+
+.page_prdt_list .div_page_num{
+    display: flex;
+}
+
+.page_prdt_list .div_page_num div{
+    width: 28px;
+    height: 28px;
+    font-size: 14px;
+    color: #aaaaaa;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.page_prdt_list .div_page_num div:hover{
+    color: #ffffff;
+    /* border: 1px solid #1f4dff; */
+    background-color: #1f4dff;
+}
