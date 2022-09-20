@@ -1,6 +1,7 @@
 package com.fit_nance.project.model;
 
 public class PensionListVO {
+	private int kind;
 	public int pIndex;
 	public String fin_co_no;
 	public String kor_co_nm;
@@ -33,7 +34,7 @@ public class PensionListVO {
 	public String pnsn_strt_age;
 	public String pnsn_strt_age_nm;
 	public int pnsn_recp_amt;
-	int kind;
+
 	public int getKind() {
 		return kind;
 	}

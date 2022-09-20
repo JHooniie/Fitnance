@@ -15,13 +15,7 @@ public class DepositVO {
 	String etc_note;
 	int max_limit;
 	
-	
-	public int getKind() {
-		return kind;
-	}
-	public void setKind(int kind) {
-		this.kind = kind;
-	}
+
 	public int getPIndex() {
 		return pIndex;
 	}

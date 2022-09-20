@@ -21,13 +21,7 @@ public class PensionVO {
 	public double btrm_prft_rate_3;
 	public String etc;
 	public String sale_co;
-	int kind;
-	public int getKind() {
-		return kind;
-	}
-	public void setKind(int kind) {
-		this.kind = kind;
-	}
+
 	public int getPIndex() {
 		return pIndex;
 	}

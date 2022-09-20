@@ -59,6 +59,7 @@ public class DepositService {
 	          while((returnLine2 = bf2.readLine()) != null) {
 	              resultDep2.append(returnLine2);
 	          }
+	          System.out.println(depoList.size());
 	          depoList.addAll(jsonToVOList(resultDep2.toString(),depoList.size()));
 	         }
 		}
@@ -80,6 +81,7 @@ public class DepositService {
 				JSONObject depoObj = baseArray.getJSONObject(i-num);
 				
 				DepositVO vo = new DepositVO();
+				vo.setKind(1);
 				vo.setPIndex(i);
 				vo.setFin_co_no(String.valueOf(depoObj.get("fin_co_no")));
 				vo.setFin_prdt_cd(String.valueOf(depoObj.get("fin_prdt_cd")));
