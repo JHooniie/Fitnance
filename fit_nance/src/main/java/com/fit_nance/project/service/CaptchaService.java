@@ -1,9 +1,7 @@
 package com.fit_nance.project.service;
 
-import java.awt.image.BufferedImage;
 import java.io.BufferedReader;
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.InputStream;
@@ -13,7 +11,6 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Date;
 
-import javax.imageio.ImageIO;
 
 import org.json.JSONObject;
 import org.springframework.stereotype.Service;
