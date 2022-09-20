@@ -69,6 +69,7 @@
 	                	<input class="com3" type="hidden">
 	                </div>
 	            </div>
+	            <c:set var="total_pages" value="${fn:length(clList)/10+1 }"/>
 	            <div id="result_list_prdt" class="panel_list_prdt">
 	                <div class="div_search_list">
 	                    <div class="div_list_result">
@@ -81,11 +82,13 @@
 	                </div>
 	                
 	                <div class="div_list_prdt">
-	                    <div class="prdt_result_search prdt">
+	                
+	                <c:forEach var="pages" begin="1" end="${total_pages+1 }">
+	                	<div class="prdt_result_search prdt${pages }">
 	                    <form id="form_prdt" method="post" action="<c:url value='/view_credit_detail'/>">
 	                    	<input type="hidden" id="input_prdt_cd" name="input_prdt_cd" class="input_prdt_cd" type="text">
 	                        <!-- 검색 결과 상품 - 시작 -->
-	                        <c:forEach items="${clList }" var="list" varStatus="status">
+	                        <c:forEach items="${clList }" var="list" varStatus="status" begin="${(pages-1)*10 }" end="${pages*10-1 }">
 	                        <div class="div_prdt">
 	                            <div class="div_prdt_info">
 	                                <div class="div_ic_co">
@@ -144,15 +147,16 @@
 	                        </c:forEach>
 	                        </form>
 	                    </div>
+	                </c:forEach>
+	                    
 	                    <div class="page_prdt_list">
 	                        <div class="div_page_prev">
 	                            <i class="fa-solid fa-chevron-left"></i>
 	                        </div>
 	                        <div class="div_page_num">
-	                            <div class="page_num_clicked">1</div>
-	                            <div class="page_num">2</div>
-	                            <div class="page_num">3</div>
-	                            <div class="page_num">4</div>
+	                        	<c:forEach var="pageNum" begin="1" end="${total_pages }">
+	                            	<div class="btn_page page_num${pageNum }">${pageNum }</div>
+	                            </c:forEach>
 	                        </div>
 	                        <div class="div_page_next">
 	                            <i class="fa-solid fa-chevron-right"></i>

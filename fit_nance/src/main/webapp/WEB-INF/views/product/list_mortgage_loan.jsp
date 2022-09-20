@@ -84,9 +84,9 @@
 	                	<input class="com1" type="hidden">
 	                	<input class="com2" type="hidden">
 	                	<input class="com3" type="hidden">
-        				<!-- <input class="current_page"> -->
 	                </div>
 	            </div>
+	            <c:set var="total_pages" value="${fn:length(hlList)/10+1 }"/>
 	            <div id="result_list_prdt" class="panel_list_prdt">
 					<form id="form_joinwawy" method="post" action="<c:url value='/list_mortgage_loan'/>">
 						<div class="div_search_list">
@@ -100,9 +100,10 @@
 		                </div>
 		            </form>
 		            <div class="div_list_prdt">
-		            	<div class="prdt_result_search prdt">
+		            <c:forEach var="pages" begin="1" end="${total_pages+1 }">
+		            	<div class="prdt_result_search prdt${pages }">
 		            	<!-- 검색 결과 상품 - 시작 -->
-		            		<c:forEach items="${pList}" var="list" varStatus="status">
+		            		<c:forEach items="${hlList}" var="list" varStatus="status" begin="${(pages-1)*10 }" end="${pages*10-1 }">
 		            			<div class="div_prdt">
 		            				<div class="div_prdt_info">
 		            					<div class="div_ic_co">
@@ -156,13 +157,14 @@
 		                    </c:forEach>
 		                    <!-- 검색 결과 상품 - 끝 -->
 		                 </div>
+		                 </c:forEach>
 		                 <div class="page_prdt_list">
 	                        <div class="div_page_prev">
 	                            <i class="fa-solid fa-chevron-left"></i>
 	                        </div>
 	                        <div class="div_page_num">
-	                        	<c:forEach items="${total_page }" var="p">
-	                            <div class="page_num" onclick="location.href='/listMortgageLoan_page=${p}'">${p }</div>
+	                        	<c:forEach var="pageNum" begin="1" end="${total_pages }">
+	                            	<div class="btn_page page_num${pageNum }">${pageNum }</div>
 	                            </c:forEach>
 	                        </div>
 	                        <div class="div_page_next">
