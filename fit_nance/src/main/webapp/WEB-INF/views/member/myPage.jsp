@@ -66,7 +66,9 @@
                         <c:forEach items="${instList }" var="list">
                         <div class="box-favoriteList-cell">
                             <div class="box-favoriteList-img">
-                                <div class="box-favoriteList-img-center"></div>
+                                <div class="box-favoriteList-img-center">
+                                	<img src="<c:url value='/images/bank/${list.fin_co_no }.png'/>">
+                                </div>
                             </div>
                             <div class="box-favoriteList-info">
                                 <div class="box-favoriteCell-title">
@@ -96,9 +98,10 @@
                         </div>
                         </c:forEach>
                         <c:forEach items="${depList }" var="list">
-                        <div class="box-favoriteList-cell">
-                            <div class="box-favoriteList-img">
-                                <div class="box-favoriteList-img-center"></div>
+                        <div class="box-favoriteList-img">
+                                <div class="box-favoriteList-img-center">
+                                	<img src="<c:url value='/images/bank/${list.fin_co_no }.png'/>">
+                                </div>
                             </div>
                             <div class="box-favoriteList-info">
                                 <div class="box-favoriteCell-title">
@@ -130,7 +133,9 @@
                         <c:forEach items="${penList }" var="list">
                         <div class="box-favoriteList-cell">
                             <div class="box-favoriteList-img">
-                                <div class="box-favoriteList-img-center"></div>
+                                <div class="box-favoriteList-img-center">
+                                	<img src="<c:url value='/images/bank/${list.fin_co_no }.png'/>">
+                                </div>
                             </div>
                             <div class="box-favoriteList-info">
                                 <div class="box-favoriteCell-title">
@@ -158,7 +163,9 @@
                         <c:forEach items="${morList }" var="list">
                         <div class="box-favoriteList-cell">
                             <div class="box-favoriteList-img">
-                                <div class="box-favoriteList-img-center"></div>
+                                <div class="box-favoriteList-img-center">
+                                	<img src="<c:url value='/images/bank/${list.fin_co_no }.png'/>">
+                                </div>
                             </div>
                             <div class="box-favoriteList-info">
                                 <div class="box-favoriteCell-title">
@@ -190,7 +197,9 @@
                         <c:forEach items="${charList }" var="list">
                         <div class="box-favoriteList-cell">
                             <div class="box-favoriteList-img">
-                                <div class="box-favoriteList-img-center"></div>
+                                <div class="box-favoriteList-img-center">
+                                	<img src="<c:url value='/images/bank/${list.fin_co_no }.png'/>">
+                                </div>
                             </div>
                             <div class="box-favoriteList-info">
                                 <div class="box-favoriteCell-title">
@@ -218,7 +227,9 @@
                         <c:forEach items="${crdList }" var="list">
                         <div class="box-favoriteList-cell">
                             <div class="box-favoriteList-img">
-                                <div class="box-favoriteList-img-center"></div>
+                                <div class="box-favoriteList-img-center">
+                                	<img src="<c:url value='/images/bank/${list.fin_co_no }.png'/>">
+                                </div>
                             </div>
                             <div class="box-favoriteList-info">
                                 <div class="box-favoriteCell-title">
