@@ -1,6 +1,8 @@
 package com.fit_nance.project.controller;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -32,8 +34,53 @@ public class ListLoanController {
 	@RequestMapping("/listMortgageLoan")
 	public String viewListMortgage(Model model) {
 		ArrayList<HomeLoanListVO> hlList = listService.listAllHomeLoan();
-		model.addAttribute("hlList", hlList);
 		
+//		int total_page = hlList.size() / 10;
+//		System.out.println("주택담보 상품 개수 : " + hlList.size());
+//		System.out.println("주택담보 리스트 페이지 수 : " + total_page + 1);
+//		
+
+			//System.out.println("페이지" + sp + "/" + ep);
+//			HomeLoanListVO vo = null;
+//			ArrayList<HomeLoanListVO> pList = new ArrayList<HomeLoanListVO>(); 
+//			for(int i=sp; i<ep; i++) {
+//				vo = hlList.get(i);
+//				pList.add(vo);
+//			}
+		//System.out.println("현재 페이지" + current_page);
+			model.addAttribute("hlList", hlList);
+			//model.addAttribute("pList", pList);
+		return "product/list_mortgage_loan";
+	}
+	
+	@RequestMapping("/listMortgageLoan_page={page}")
+	public String pageListMortgage(Model model, @PathVariable int page) {
+		ArrayList<HomeLoanListVO> hlList = listService.listAllHomeLoan();	
+		
+		
+		ArrayList<Integer> total_page = new ArrayList<Integer>();
+		for(int i=0; i<hlList.size()/10+1; i++) {
+			total_page.add(i+1);
+		}
+		System.out.println("현재 페이지" + page);
+		int sp = (page-1) * 10;
+		int ep = page*10 - 1;
+		System.out.println("페이지" + sp + "/" + ep);
+		HomeLoanListVO vo = null;
+		ArrayList<HomeLoanListVO> pList = new ArrayList<HomeLoanListVO>(); 
+		for(int i=sp; i<ep; i++) {
+			if(i<hlList.size()) {
+				vo = hlList.get(i);
+				pList.add(vo);
+			} else
+				continue;
+		}
+		
+		model.addAttribute("hlList", hlList);
+		model.addAttribute("pList", pList);
+		model.addAttribute("total_page", total_page);
+		model.addAttribute("sp", sp);
+		model.addAttribute("ep", ep);
 		return "product/list_mortgage_loan";
 	}
 	
@@ -47,13 +94,15 @@ public class ListLoanController {
 	}
 	
 	// 필터링
-	@RequestMapping("/filterMortgageLoan")
+	//@ResponseBody
+	@RequestMapping("/filterMortgageLoan_page={page}")
 	public String filterMortgage(@RequestParam(value="arr_join_way") ArrayList<String> arr_join_way,
 								 @RequestParam(value="arr_mrtg_type") ArrayList<String> arr_mrtg_type,
 								 @RequestParam(value="arr_rpay_type") ArrayList<String> arr_rpay_type,
 								 @RequestParam(value="arr_lend_type") ArrayList<String> arr_lend_type,
+								 @PathVariable int page,
+								 //@RequestParam(value="search") String search,
 								 Model model) {
-		
 		HomeLoanFilterVO vo = new HomeLoanFilterVO();
 		
 		ArrayList<String> list_join_way = new ArrayList<String>();
@@ -95,11 +144,106 @@ public class ListLoanController {
 		vo.setList_lend_type(list_lend_type);
 		
 		ArrayList<HomeLoanListVO> hlList = listService.selectHomeLoanFilter(vo); 
-				
-		model.addAttribute("hlList", hlList);
 		
+		ArrayList<Integer> total_page = new ArrayList<Integer>();
+		for(int i=0; i<hlList.size()/10+1; i++) {
+			total_page.add(i+1);
+		}
+		System.out.println("현재 페이지" + page);
+		int sp = (page-1) * 10;
+		int ep = page*10 - 1;
+		System.out.println("페이지" + sp + "/" + ep);
+		HomeLoanListVO fvo = null;
+		ArrayList<HomeLoanListVO> pList = new ArrayList<HomeLoanListVO>(); 
+		for(int i=sp; i<ep; i++) {
+			if(i<hlList.size()) {
+				fvo = hlList.get(i);
+				pList.add(fvo);
+			} else
+				continue;
+		}
+		
+		model.addAttribute("pList", pList);
+		model.addAttribute("total_page", total_page);
+		model.addAttribute("sp", sp);
+		model.addAttribute("ep", ep);
+		
+		model.addAttribute("hlList", hlList);
 		return "product/result_mortgage_loan";
 	}
+	
+	/*
+	ArrayList<String> a;
+	ArrayList<String> b;
+	ArrayList<String> c;
+	ArrayList<String> d;
+	Map<String, String> map = new HashMap<String, String>();
+	@ResponseBody
+	@RequestMapping("/filterLoan")
+	public Map<String, String> filter(@RequestParam(value="arr_join_way") ArrayList<String> arr_join_way,
+									 @RequestParam(value="arr_mrtg_type") ArrayList<String> arr_mrtg_type,
+									 @RequestParam(value="arr_rpay_type") ArrayList<String> arr_rpay_type,
+									 @RequestParam(value="arr_lend_type") ArrayList<String> arr_lend_type){
+		
+		System.out.println("배열 받음");
+		
+		map.clear();
+		a=arr_join_way;
+		b=arr_mrtg_type;
+		c=arr_rpay_type;
+		d=arr_lend_type;
+		
+		
+		for(int i=1; i<arr_join_way.size(); i++) {
+			//System.out.print(arr_join_way.get(i));
+			map.put(arr_join_way.get(i), arr_join_way.get(i));
+		}
+		
+		for(int i=1; i<arr_mrtg_type.size(); i++) {
+			map.put(arr_mrtg_type.get(i), arr_mrtg_type.get(i));
+		}
+		
+		for(int i=1; i<arr_rpay_type.size(); i++) {
+			map.put(arr_rpay_type.get(i), arr_rpay_type.get(i));
+		}
+		
+		for(int i=1; i<arr_lend_type.size(); i++) {
+			map.put(arr_lend_type.get(i), arr_lend_type.get(i));
+		}
+		
+		
+		
+		return map; 
+	}
+	
+	@ResponseBody
+	@RequestMapping("/filter_2")
+	public Map<String, String> filter_2(){
+		
+		
+		for(int i=1; i<a.size(); i++) {
+			map.put(a.get(i), a.get(i));
+		}
+		
+		for(int i=1; i<b.size(); i++) {
+			map.put(b.get(i), b.get(i));
+		}
+		
+		for(int i=1; i<c.size(); i++) {
+			map.put(c.get(i), c.get(i));
+		}
+		
+		for(int i=1; i<d.size(); i++) {
+			map.put(d.get(i), d.get(i));
+		}
+		System.out.println(a);
+		System.out.println(b);
+		System.out.println(c);
+		System.out.println(d);
+		return map;
+	}
+	
+	*/
 	
 	// 전세자금
 	// 전체 리스트 조회

@@ -5,6 +5,11 @@
  $(document).ready(function(){
 	$('.input_prdt_cd').val("");
 	
+	var arr_join_way=["join_way"];
+	var arr_mrtg_type=["mrtg_type"];
+	var arr_rpay_type=["rpay_type"];
+	var arr_lend_type=["lend_type"];
+	
 	var arr_prdt_compare=["prdt_compare"];
 	var prdt_cd = null;
 	var kind = null;
@@ -153,6 +158,59 @@
     	}
     	console.log(comp);
     }
+    
+    //$('.page_num').click(function(){
+    	//callAjax();
+   // });
+   /* 
+    //test
+    function callAjax(){
+    	$.ajax({
+        	url: "filter_2", //"filterMortgageLoan_page=1",
+        	type: "post",
+        	traditional: true,
+     
+        	success: function(result){
+        		//console(result);
+        		arr_join_way=["join_way"];
+				arr_mrtg_type=["mrtg_type"];
+				arr_rpay_type=["rpay_type"];
+				arr_lend_type=["lend_type"];
+        		$.each(result,function(index, value) { 
+                	//alert(index); //index가 끝날 떄 까지
+                	//console.log(value);
+                	if(value == "영업점" || value=="인터넷"|| value=="스마트폰"|| value=="모집인"){
+                		arr_join_way.push(value);
+                	} else if(value=="아파트"||value=="아파트 외"){
+                		arr_mrtg_type.push(value);
+                	}else if(value=="원리금분할상환"||value=="원금분할상환"||value=="만기일시상환"){
+                		arr_rpay_type.push(value);
+                	}else {
+                		arr_lend_type.push(value);
+                	}
+           		})
+           		console.log(arr_join_way);
+           		console.log(arr_mrtg_type);
+           		console.log(arr_rpay_type);
+           		console.log(arr_lend_type);
+           		//postAjax();
+           		//$('#result').html(result);
+            },
+            error:function(request,status,error){
+                console.log("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+            }
+        });
+    }
+    */
+    var page = "1";
+    $('.prdt_result_search').hide();
+	$('.prdt'+page).show();
+    $('.page_num').click(function(){
+    	page = $(this).text();
+	    $('.prdt_result_search').hide();
+	    $('.prdt'+page).show();
+    });
+    
     
 });  
    
