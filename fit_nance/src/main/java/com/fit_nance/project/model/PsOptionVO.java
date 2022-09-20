@@ -1,6 +1,7 @@
 package com.fit_nance.project.model;
 
 public class PsOptionVO {
+	private int kind;
 	public int oIndex;
 	public String fin_co_no;
 	public String fin_prdt_cd;
@@ -15,7 +16,7 @@ public class PsOptionVO {
 	public String pnsn_strt_age;
 	public String pnsn_strt_age_nm;
 	public int pnsn_recp_amt;
-	int kind;
+
 	public int getKind() {
 		return kind;
 	}

@@ -1,6 +1,7 @@
 package com.fit_nance.project.model;
 
 public class InstallOptionVO {
+	private int kind;
 	private int oIndex;
 	private String fin_co_no;
 	private String fin_prdt_cd;
@@ -11,7 +12,7 @@ public class InstallOptionVO {
 	private int save_trm;
 	private double intr_rate;
 	private double intr_rate2;
-	int kind;
+
 	public int getKind() {
 		return kind;
 	}

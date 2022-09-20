@@ -57,7 +57,6 @@ public class HomeLoanBaseService {
 		for(int i=0; i<baseList.length(); i++) {
 			HomeLoanBaseVO vo = new HomeLoanBaseVO();
 			JSONObject tempObj = (JSONObject) baseList.get(i);
-			vo.setKind(4);
 			vo.setpIndex(i);
 			vo.setFin_co_no((String) tempObj.get("fin_co_no"));
 			vo.setKor_co_nm((String) tempObj.get("kor_co_nm"));

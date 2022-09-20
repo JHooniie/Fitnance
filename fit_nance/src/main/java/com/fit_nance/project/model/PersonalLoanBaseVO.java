@@ -2,7 +2,6 @@ package com.fit_nance.project.model;
 
 public class PersonalLoanBaseVO {
 	// base
-	private int kind;
 	private int pIndex;
 	private String fin_co_no;
 	private String kor_co_nm;
@@ -13,13 +12,6 @@ public class PersonalLoanBaseVO {
 	private String crdt_prdt_type_nm;
 	private String cb_name;
 	
-	
-	public int getKind() {
-		return kind;
-	}
-	public void setKind(int kind) {
-		this.kind = kind;
-	}
 	public int getpIndex() {
 		return pIndex;
 	}

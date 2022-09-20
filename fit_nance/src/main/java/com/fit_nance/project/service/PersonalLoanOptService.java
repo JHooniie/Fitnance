@@ -58,6 +58,7 @@ public class PersonalLoanOptService {
 			PersonalLoanOptVO vo = new PersonalLoanOptVO();
 			JSONObject tempObj = (JSONObject) option.get(i);
 			
+			vo.setKind(6);
 			vo.setoIndex(i);
 			vo.setFin_co_no((String) tempObj.get("fin_co_no"));
 			vo.setFin_prdt_cd((String) tempObj.get("fin_prdt_cd"));
