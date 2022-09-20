@@ -23,11 +23,13 @@ public class PsOptionService {
 		APIKey apiKey = new APIKey();
 		String key = apiKey.getSavingKey();
 		
+		try {
+		for(int i =1; i<=3;i++) {
 		String urlDep="http://finlife.fss.or.kr/finlifeapi/annuitySavingProductsSearch.json?auth="
 				+key
 				+"&topFinGrpNo="+"060000"
-				+"&pageNo="+"1";
-		try {
+				+"&pageNo="+i;
+		
 		 URL url = new URL(urlDep);
          HttpURLConnection urlConnection = (HttpURLConnection)url.openConnection();
          urlConnection.setRequestMethod("GET");
@@ -40,7 +42,8 @@ public class PsOptionService {
          }
          //System.out.println(resultDep.toString());
          //System.out.println(resultDep.toString());
-         depoOptionList = jsonToVOList(resultDep.toString());
+         depoOptionList.addAll(jsonToVOList(resultDep.toString(),depoOptionList.size()));
+		}
          //System.out.println(depoOptionList.get(1).getoIndex());
          //System.out.println(depoOptionList.get(1).getIntr_rate_type_nm());
 		}
@@ -50,7 +53,7 @@ public class PsOptionService {
 		return depoOptionList;
 	}
 
-	public ArrayList<PsOptionVO> jsonToVOList(String jsonResultStr){
+	public ArrayList<PsOptionVO> jsonToVOList(String jsonResultStr,int num){
 		ArrayList<PsOptionVO> depoOptionList = new ArrayList<PsOptionVO>();
 		
 		JSONObject jsonObj =new JSONObject(jsonResultStr);
@@ -58,8 +61,8 @@ public class PsOptionService {
 		JSONArray optionArray = (JSONArray) parse_result.get("optionList");
 		
 		if(optionArray!=null) {
-			for (int i = 0; i < optionArray.length(); i++) {
-				JSONObject depoObj = optionArray.getJSONObject(i);
+			for (int i = num; i < num+optionArray.length(); i++) {
+				JSONObject depoObj = optionArray.getJSONObject(i-num);
 				PsOptionVO vo = new PsOptionVO();
 				vo.setoIndex(i);
 				vo.setFin_co_no(String.valueOf(depoObj.get("fin_co_no")));
