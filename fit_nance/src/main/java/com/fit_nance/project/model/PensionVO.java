@@ -1,7 +1,6 @@
 package com.fit_nance.project.model;
 
 public class PensionVO {
-	private int kind;
 	public int pIndex;
 	public String fin_co_no;
 	public String kor_co_nm;
@@ -22,14 +21,7 @@ public class PensionVO {
 	public double btrm_prft_rate_3;
 	public String etc;
 	public String sale_co;
-	
-	
-	public int getKind() {
-		return kind;
-	}
-	public void setKind(int kind) {
-		this.kind = kind;
-	}
+
 	public int getPIndex() {
 		return pIndex;
 	}

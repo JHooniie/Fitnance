@@ -3,6 +3,10 @@
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<sec:authorize access="isAuthenticated()">
+    <sec:authentication property="principal" var="principal" />
+</sec:authorize>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -39,12 +43,21 @@
                              </div>
                          </div>
                          <div class="plus-icon plus-icon1" id="${list.oIndex}"><i class="fa-solid fa-folder-plus"></i></div>
-		                            <c:if test="${empty sessionScope.sid}">
-										<div class="plus-icon plus-icon2 no-login" id="${list.fin_prdt_cd}"><i class="fa-solid fa-heart"></i></div>
+		                 <c:if test="${empty principal.username}">
+										<div class="plus-icon plus-icon2 no-login" id="${list.oIndex}"><i class="fa-solid fa-heart"></i></div>
 									</c:if>
-
-									<c:if test="${not empty sessionScope.sid}">
-										<div class="plus-icon plus-icon2 yes-login" id="${list.fin_prdt_cd}"><i class="fa-solid fa-heart"></i></div>
+									<c:if test="${not empty principal.username}">
+									<c:set var="a" value="<%=0 %>"/>
+									<c:forEach items="${fList }" var="list2">
+										<c:if test="${list2.oIndex eq list.oIndex }">
+											<c:set var="a" value="<%=1 %>"/>
+											<div class="plus-icon plus-icon2 yes-login plus-icon-clicked" id="${list.oIndex}"><i class="fa-solid fa-heart"></i></div>
+										</c:if>
+										
+									</c:forEach>
+									<c:if test="${a ne 1 }">
+										<div class="plus-icon plus-icon2 yes-login" id="${list.oIndex}"><i class="fa-solid fa-heart"></i></div>
+									</c:if>
 					          		</c:if>
                      </div>
                 

@@ -1,5 +1,7 @@
 package com.fit_nance.project.service;
 
+import java.util.ArrayList;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -45,6 +47,11 @@ public class FavoriteService implements IFavoriteService {
 	@Override
 	public void deletePensionFavorite(FavoriteVO vo) {
 		dao.deletePensionFavorite(vo);
+	}
+
+	@Override
+	public ArrayList<FavoriteVO> selectFavorite(FavoriteVO vo) {
+		return dao.selectFavorite(vo);
 	}
 
 }
