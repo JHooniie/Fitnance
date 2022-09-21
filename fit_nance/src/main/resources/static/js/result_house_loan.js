@@ -46,15 +46,16 @@ $(document).ready(function(){
         })
         // 즐겨찾기
         $('.btn_add_favorite, .btn_add_favorite_clicked').click(function(){
-            $(this).toggleClass('btn_add_favorite btn_add_favorite_clicked');
             prdt_cd = $(this).find('input').val();
-            kind = "전세자금대출";
+            kind = "5";
             action = "add";
-            if($(this).hasClass('btn_add_favorite_clicked')){
+            if($(this).hasClass('btn_add_favorite')){
             	action = "add";
             } else{
             	action = "delete";
             }
+            
+            $(this).toggleClass('btn_add_favorite btn_add_favorite_clicked');
             favoriteAjax();
         })
     }
@@ -94,6 +95,7 @@ $(document).ready(function(){
         });
     }
     
+    // 즐겨찾기 ajax
     function favoriteAjax(){
     	$.ajax({
     		url: "favorite_Loan",
@@ -101,7 +103,7 @@ $(document).ready(function(){
     		data:{
     				prdt_cd: prdt_cd,
     				kind: kind,
-    				action: "add"
+    				action: action
     		},
     		success: function(result){
     			if(result == "success"){
@@ -110,6 +112,9 @@ $(document).ready(function(){
     				if(confirm("이미 즐겨찾기된 상품입니다\n삭제하시겠습니까?")){
     					favoriteDelete();
     				};
+    			} else{
+    				alert("로그인이 필요한 서비스입니다");
+    				location.href='loginForm';
     			}
     		},
     		error:function(request,status,error){
