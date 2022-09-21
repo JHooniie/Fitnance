@@ -3,6 +3,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<sec:authorize access="isAuthenticated()">
+    <sec:authentication property="principal" var="principal" />
+</sec:authorize>
 <!DOCTYPE html>
 <html>
 	<head> 
@@ -86,18 +90,20 @@
 	                </div>
 	            </div>
 	            <c:set var="total_pages" value="${fn:length(clList)/10+1 }"/>
-	            <div id="result_list_prdt"  class="panel_list_prdt">
-	            	<form id="form_joinway" method="post" action="<c:url value='/list_home_loan'/>">
-		                <div class="div_search_list">
-		                    <div class="div_list_result">
-		                        <span>검색 결과 ${fn:length(clList) }개</span>
-		                    </div>
-		                    <div class="div_search_prdt">
-		                        <input class="input_search_prdt" placeholder="키워드 검색">
-		                        <i class="fa-solid fa-magnifying-glass"></i>
-		                    </div>
-		                </div>
-	                </form>
+	            <div class=wrap>
+		            <div class="div_search">
+		            	<div class="div_search_prdt">
+							<input class="input_search_prdt" placeholder="키워드 검색">
+							<i class="fa-solid fa-magnifying-glass"></i>
+						</div>
+		            </div>
+				</div>
+	            <div id="result_list_prdt" class="panel_list_prdt">
+	            <div class="div_search_list">
+					<div class="div_list_result">
+						<span>검색 결과 ${fn:length(clList) }개</span>
+					</div>
+                </div>
 	                <div class="div_list_prdt">
 	                    <c:forEach var="pages" begin="1" end="${total_pages+1 }">
 	                	<div class="prdt_result_search prdt${pages }">
@@ -147,15 +153,35 @@
                             </div>
                             <div class="div_btn_prdt">
                                 <div class="div_btn_add">
-                          			<div class="btn_add_compare">
-                          				<i class="fa-solid fa-folder-plus"></i>
-                          				<input type="hidden" value="${list.oIndex }">
-                      				</div>
-                      				<div class="btn_add_favorite">
-                      					<i class="fa-solid fa-heart"></i>
-                      					<input type="hidden" value="${list.oIndex }">
-              						</div>
-          						</div>
+                           			<div class="btn_add_compare">
+                           				<i class="fa-solid fa-folder-plus"></i>
+                           				<input type="hidden" value="${list.oIndex }">
+                      					</div>
+                           			<c:if test="${empty principal.username }">
+                           				<div class="btn_add_favorite not_login_favorite" >
+                           					<i class="fa-solid fa-heart"></i>
+                           					<input type="hidden" value="${list.oIndex }">
+                           				</div>
+                           			</c:if>
+                           			<c:if test="${not empty principal.username }">
+                           				<c:set var="a" value="<%=0 %>"/>
+                           				<c:forEach items="${fList }" var="fList">
+                           					<c:if test="${fList.oIndex eq list.oIndex}" >
+	                           					<c:set var="a" value="<%=1 %>"/>
+	                           					<div class="btn_add_favorite_clicked login_favorite">
+	                           						<i class="fa-solid fa-heart"></i>
+	                           						<input type="hidden" value="${list.oIndex }">
+                       							</div>
+                           					</c:if>
+                           				</c:forEach>
+                           				<c:if test="${a ne 1}">
+                           					<div class="btn_add_favorite login_favorite">
+                           						<i class="fa-solid fa-heart"></i>
+                           						<input type="hidden" value="${list.oIndex }">
+                      							</div>
+                           				</c:if>
+                           			</c:if>
+           						</div>
                                 <a class="btn_prdt_info" href="<c:url value='/detailCharterLoan/${list.oIndex}'/>">자세히 보기</a>
                             </div>
                         </div>

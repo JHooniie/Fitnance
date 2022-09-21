@@ -18,10 +18,6 @@
 	             <div class="div_list_result">
 	                 <span>검색 결과 ${fn:length(clList)}개</span>
 	             </div>
-	             <div class="div_search_prdt">
-	                 <input class="input_search_prdt" placeholder="키워드 검색">
-	                <i class="fa-solid fa-magnifying-glass"></i>
-	             </div>
 	         </div>
 			<div>
 				<span class="no-list"><i class="fa-solid fa-circle-exclamation"></i><br>찾는 상품이 없습니다</span>
@@ -31,10 +27,6 @@
 			<div class="div_search_list">
 	             <div class="div_list_result">
 	                 <span>검색 결과 ${fn:length(clList)}개</span>
-	             </div>
-	             <div class="div_search_prdt">
-	                 <input class="input_search_prdt" placeholder="키워드 검색">
-	                 <i class="fa-solid fa-magnifying-glass"></i>
 	             </div>
 	         </div>
 	          <c:set var="total_pages" value="${fn:length(clList)/10+1 }"/>

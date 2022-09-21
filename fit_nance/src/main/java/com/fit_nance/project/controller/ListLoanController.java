@@ -34,7 +34,8 @@ public class ListLoanController {
 	@RequestMapping("/listMortgageLoan")
 	public String viewListMortgage(Model model) {
 		ArrayList<HomeLoanListVO> hlList = listService.listAllHomeLoan();
-
+		String st = "0";
+		model.addAttribute("st", st);
 		model.addAttribute("hlList", hlList);
 		return "product/list_mortgage_loan";
 	}
@@ -54,6 +55,7 @@ public class ListLoanController {
 								 @RequestParam(value="arr_mrtg_type") ArrayList<String> arr_mrtg_type,
 								 @RequestParam(value="arr_rpay_type") ArrayList<String> arr_rpay_type,
 								 @RequestParam(value="arr_lend_type") ArrayList<String> arr_lend_type,
+								 @RequestParam(value="search_word") String search,
 								 //@RequestParam(value="search") String search,
 								 Model model) {
 		HomeLoanFilterVO vo = new HomeLoanFilterVO();
@@ -96,8 +98,8 @@ public class ListLoanController {
 		vo.setList_rpay_type(list_rpay_type);
 		vo.setList_lend_type(list_lend_type);
 		
-		ArrayList<HomeLoanListVO> hlList = listService.selectHomeLoanFilter(vo); 
-
+		ArrayList<HomeLoanListVO> hlList = listService.selectHomeLoanFilter(vo, search); 
+	
 		model.addAttribute("hlList", hlList);
 		return "product/result_mortgage_loan";
 	}
@@ -126,6 +128,7 @@ public class ListLoanController {
 	public String filterCharter(@RequestParam(value="arr_join_way") ArrayList<String> arr_join_way,
 								@RequestParam(value="arr_rpay_type") ArrayList<String> arr_rpay_type,
 								@RequestParam(value="arr_lend_type") ArrayList<String> arr_lend_type,
+								@RequestParam(value="search_word") String search,
 								Model model) {
 		
 		CharterLoanFilterVO vo = new CharterLoanFilterVO();
@@ -159,7 +162,7 @@ public class ListLoanController {
 		vo.setList_rpay_type(list_rpay_type);
 		vo.setList_lend_type(list_lend_type);
 		
-		ArrayList<CharterLoanListVO> clList = listService.selectCharterLoanFilter(vo);
+		ArrayList<CharterLoanListVO> clList = listService.selectCharterLoanFilter(vo, search);
 		
 		model.addAttribute("clList", clList);
 		
@@ -189,6 +192,7 @@ public class ListLoanController {
 	@RequestMapping("/filterCreditLoan")
 	public String filterCredit(@RequestParam(value="arr_join_way") ArrayList<String> arr_join_way,
 			 				   @RequestParam(value="arr_crdt_prdt_type") ArrayList<String> arr_crdt_prdt_type,
+			 				  @RequestParam(value="search_word") String search,
 							   Model model) {
 		
 		PersonalLoanFilterVO vo = new PersonalLoanFilterVO();
@@ -213,7 +217,7 @@ public class ListLoanController {
 		vo.setList_join_way(list_join_way);
 		vo.setList_crdt_prdt_type(list_crdt_prdt_type);
 		
-		ArrayList<PersonalLoanListVO> clList = listService.selectPersonalLoanFilter(vo);
+		ArrayList<PersonalLoanListVO> clList = listService.selectPersonalLoanFilter(vo, search);
 		
 		model.addAttribute("clList", clList);
 		

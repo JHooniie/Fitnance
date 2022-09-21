@@ -20,10 +20,6 @@
                     <div class="div_list_result">
                         <span>검색 결과 ${fn:length(clList) }개</span>
                     </div>
-                    <div class="div_search_prdt">
-                        <input class="input_search_prdt" placeholder="키워드 검색">
-                        <i class="fa-solid fa-magnifying-glass"></i>
-                    </div>
                 </div>
              </form>
 			<div>
@@ -35,10 +31,6 @@
 		                <div class="div_search_list">
 		                    <div class="div_list_result">
 		                        <span>검색 결과 ${fn:length(clList) }개</span>
-		                    </div>
-		                    <div class="div_search_prdt">
-		                        <input class="input_search_prdt" placeholder="키워드 검색">
-		                        <i class="fa-solid fa-magnifying-glass"></i>
 		                    </div>
 		                </div>
 	                </form>

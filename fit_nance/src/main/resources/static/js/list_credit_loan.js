@@ -8,6 +8,7 @@
 	
 	var arr_join_way=["join_way"];
 	var arr_crdt_prdt_type=["crdt_prdt_type_nm"];
+	var search_word = null;
 	
 	var arr_prdt_compare=["prdt_compare"];
 	var prdt_cd = null;
@@ -106,23 +107,36 @@
     
     }
     
+    $('.input_search_prdt').on('keyup', function(key){
+    	if(key.keyCode == 13){
+    		search_word = $('.input_search_prdt').val();
+    		callAjax();
+    	}
+    })
+    
+    $('.div_search_prdt>i').click(function(){
+    	search_word = $('.input_search_prdt').val();
+    	callAjax();
+    })
+   
     // Ajax 중복으로 함수로 처리
     function callAjax(){
     	$.ajax({
-	    	url: "filterCreditLoan",
-	    	type: "post",
-	    	traditional: true,
-	    	data: {
-	    			arr_join_way: arr_join_way,
-	    			arr_crdt_prdt_type: arr_crdt_prdt_type
-	    	},
-	    	success: function(result){
-	    		$('#result_list_prdt').html(result);
-	        },
-	        error:function(request,status,error){
-	            console.log("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
-	        }
-	    });
+        	url: "filterCreditLoan",
+        	type: "post",
+        	traditional: true,
+        	data: {
+        			arr_join_way: arr_join_way,
+        			arr_crdt_prdt_type: arr_crdt_prdt_type,
+        			search_word: search_word
+        	},
+        	success: function(result){
+        		$('#result_list_prdt').html(result);
+            },
+            error:function(request,status,error){
+                console.log("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+            }
+        });
     }
 	
 
