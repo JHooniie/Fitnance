@@ -33,7 +33,7 @@
 		               <label id="label-upload-profileImg" for="input-upload-profileImg"></label>
 		               <div class="box-update-profileImg-img-center">
 		               	<c:if test="${memImg eq null || memImg eq ''}">
-		               	<img id="img-profileImg" src="<c:url value='/images/upload/profile_image.png'/>">
+		               	<img id="img-profileImg" src="<c:url value='/images/upload/lg_fitnance_initial_mypage.png'/>">
 		               	</c:if>
 		               	<c:if test="${memImg ne null || memImg ne ''}">
 		               	<img id="img-profileImg" src="<c:url value='/images/upload/${memImg}'/>">

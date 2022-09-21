@@ -6,6 +6,8 @@
 <sec:authorize access="isAuthenticated()">
     <sec:authentication property="principal" var="principal" />
 </sec:authorize>
+<c:set var="memImg" value="${principal.memImg }"/>
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -22,7 +24,12 @@
                 <div class="box-profile">
                     <div class="box-profileImg">
                         <div class="box-profileImg-img-center">
-                            <img src="<c:url value='/images/lg_fitnance_initial_mypage.png'/>">
+                            <c:if test="${memImg eq null || memImg eq ''}">
+			               		<img id="img-profileImg" src="<c:url value='/images/upload/lg_fitnance_initial_mypage.png'/>">
+			               	</c:if>
+			               	<c:if test="${memImg ne null || memImg ne ''}">
+			               		<img id="img-profileImg" src="<c:url value='/images/upload/${memImg}'/>">
+			               	</c:if>
                         </div>
                     </div>
                     <div class="box-profile-content">
