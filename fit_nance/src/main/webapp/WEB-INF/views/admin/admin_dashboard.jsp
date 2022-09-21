@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -57,7 +58,7 @@
 	                                        <div class="col mr-2">
 	                                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
 	                                               	가입자 수 (Monthly)</div>
-	                                            <div class="h5 mb-0 font-weight-bold text-gray-800">25</div>
+	                                            <div class="h5 mb-0 font-weight-bold text-gray-800">${fn:length(memList)}</div>
 	                                        </div>
 	                                        <div class="col-auto">
 	                                        	<i class="fa-solid fa-users fa-2x text-gray-300"></i>
@@ -78,12 +79,12 @@
 	                                            </div>
 	                                            <div class="row no-gutters align-items-center">
 	                                                <div class="col-auto">
-	                                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50%</div>
+	                                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">80%</div>
 	                                                </div>
 	                                                <div class="col">
 	                                                    <div class="progress progress-sm mr-2">
 	                                                        <div class="progress-bar bg-info" role="progressbar"
-	                                                            style="width: 50%" aria-valuenow="50" aria-valuemin="0"
+	                                                            style="width: 80%" aria-valuenow="80" aria-valuemin="0"
 	                                                            aria-valuemax="100"></div>
 	                                                    </div>
 	                                                </div>
