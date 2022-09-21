@@ -69,7 +69,6 @@ public class ListLoanController {
 								 @RequestParam(value="arr_rpay_type") ArrayList<String> arr_rpay_type,
 								 @RequestParam(value="arr_lend_type") ArrayList<String> arr_lend_type,
 								 @RequestParam(value="search_word") String search,
-								 //@RequestParam(value="search") String search,
 								 Model model) {
 		if(auth != null) {
 			FavoriteVO fvo = new FavoriteVO();
