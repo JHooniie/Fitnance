@@ -62,7 +62,7 @@ public class EmailSenderService {
 			MimeMessageHelper messageHelper = new MimeMessageHelper(message, true, "UTF-8");
 			
 			//messageHelper.setCc("fitnance_emailsender@naver.com");//참조
-			messageHelper.setFrom("fitnance_emailsender@naver.com");
+			messageHelper.setFrom("fitnance_mailsender@naver.com");
 			messageHelper.setSubject(subject);
 			messageHelper.setTo(toEmail);
 			messageHelper.setText(body, true);
@@ -82,7 +82,7 @@ public class EmailSenderService {
 		
 		SimpleMailMessage message = new SimpleMailMessage();
 		
-		message.setFrom("fitnance_emailsender@naver.com");
+		message.setFrom("fitnance_mailsender@naver.com");
 		message.setTo(toEmail);
 		message.setText(body);
 		message.setSubject(subject);

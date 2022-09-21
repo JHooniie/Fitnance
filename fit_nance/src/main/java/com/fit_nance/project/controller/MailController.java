@@ -30,7 +30,7 @@ public class MailController {
 		String message = emailService.htmlReader();
 		System.out.println(message);
 		emailService.sendEmail("cliffear324@naver.com", "테스트 메일", message);
-		emailService.sendPreMail("fitnance_emailsender@naver.com", "테스트 메일", "발신 확인용");
+		emailService.sendPreMail("fitnance_mailsender@naver.com", "테스트 메일", "발신 확인용");
 		System.out.println("메일을 보냈습니다!");
 	}
 	

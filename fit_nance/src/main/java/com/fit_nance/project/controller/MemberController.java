@@ -58,15 +58,6 @@ public class MemberController {
 		return "member/signup";
 	}
 
-//	// 인증 이메일 전송
-//	@RequestMapping("/email")
-//	public String email(Model model) {
-//		ArrayList<BankVO> bankList = memService.listAllBank();
-//		model.addAttribute("bankList", bankList);
-//
-//		return "member/signup";
-//	}
-
 	// 회원가입
 	@RequestMapping("/signup")
 	public String signup(MemberVO vo) {
@@ -181,7 +172,7 @@ public class MemberController {
 		
 		model.addAttribute("bankList", bankList);
 		// 1. 파일 저장 경로 설정 : 실제 서비스되는 위치 (프로젝트 외부에 저장)
-		String uploadPath = "C:///springWorkspace/fitnance_images/upload/";
+		String uploadPath = "file:///usr/local/project/fitnance_images/upload/";
 				
 		// 2. 원본 파일 이름 설정
 		String originalFileName = file.getOriginalFilename();
