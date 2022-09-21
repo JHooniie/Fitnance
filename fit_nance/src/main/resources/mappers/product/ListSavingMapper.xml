@@ -88,7 +88,7 @@
 		FROM installment_option O
 			INNER JOIN installment_base B ON B.pIndex = O.pIndex
 		WHERE O.oIndex IN (SELECT MAX(oIndex) from installment_option GROUP BY pIndex)
-		ORDER BY intr_rate2 DESC
+		ORDER BY B.pIndex
 	</select>
 	
 	<!-- 적금 detail -->
@@ -128,7 +128,7 @@
 			</foreach>
 		</if>
 		WHERE O.oIndex IN (SELECT MAX(oIndex) from installment_option GROUP BY pIndex)
-		ORDER BY intr_rate2 DESC
+		ORDER BY B.pIndex
 	</select>
 	
 	<select id="selectInstallSearch" resultMap="resultInstallList">
@@ -139,7 +139,7 @@
 			AND B.fin_prdt_nm LIKE CONCAT('%',#{search},'%')
 		</if>
 		WHERE O.oIndex IN (SELECT MAX(oIndex) from installment_option GROUP BY pIndex)
-		ORDER BY intr_rate2 DESC
+		ORDER BY B.pIndex
 	</select>
 	
 	<!-- 예금 -->
@@ -149,7 +149,7 @@
 		FROM deposit_option O
 			INNER JOIN deposit_base B ON B.pIndex = O.pIndex
 		WHERE O.oIndex IN (SELECT MIN(oIndex) from deposit_option GROUP BY pIndex)
-		ORDER BY intr_rate DESC
+		ORDER BY B.pIndex
 	</select>
 	
 	<!-- 예금 detail -->
@@ -183,7 +183,7 @@
 		</foreach>
 		</if>
 		WHERE O.oIndex IN (SELECT MIN(oIndex) from deposit_option GROUP BY pIndex)
-		ORDER BY intr_rate DESC
+		ORDER BY B.pIndex
 	</select>
 	
 	<select id="selectDepositSearch" resultMap="resultDepositList">
@@ -194,7 +194,7 @@
 			AND B.fin_prdt_nm LIKE CONCAT('%',#{search},'%')
 		</if>
 		WHERE O.oIndex IN (SELECT MIN(oIndex) from deposit_option GROUP BY pIndex)
-		ORDER BY intr_rate DESC
+		ORDER BY B.pIndex
 	</select>
 	
 	<!-- 연금 -->
@@ -246,6 +246,6 @@
 		<if test="search !=''"> 
 			AND B.fin_prdt_nm LIKE CONCAT('%',#{search},'%')
 		</if>
-		WHERE O.oIndex IN (SELECT MIN(oIndex) from pension_option GROUP BY pIndex)
+		WHERE O.oIndex IN (SELECT MIN(oIndex) from pension_option GROUP BY pIndex) 
 	</select>
 </mapper>
