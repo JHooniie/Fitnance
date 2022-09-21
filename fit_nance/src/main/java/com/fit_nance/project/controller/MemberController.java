@@ -42,7 +42,7 @@ public class MemberController {
 	public String loginForm(Model model) {
 
 		String captcha_key = captcha.getCaptcha_key();
-
+		
 		String captcha_img = captcha.captchaImage(captcha_key);
 		model.addAttribute("captcha_img", captcha_img);
 		

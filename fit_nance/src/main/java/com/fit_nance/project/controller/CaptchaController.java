@@ -22,7 +22,8 @@ public class CaptchaController {
 		public String rotate_captcha() {
 
 			String captcha_key = captcha.keyIssued();
-
+			captcha.setCaptcha_key(captcha_key);
+			System.out.println("키발급 컨트롤러 : "+captcha_key);
 			String captcha_img = captcha.captchaImage(captcha_key);
 			//model.addAttribute("captcha_img", captcha_img);
 
@@ -33,6 +34,7 @@ public class CaptchaController {
 		@ResponseBody
 		@RequestMapping("/api/check_captcha")
 		public Boolean check_captcha(@RequestParam("captcha_value") String captcha_value) {
+			
 			Boolean result = captcha.captchaResult(captcha_value);
 			System.out.println(result);
 			

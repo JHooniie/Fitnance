@@ -11,7 +11,7 @@
 	<body>
 		<c:import url="/WEB-INF/views/layout/top.jsp" />
 		<section id="login_sector">
-        <div class="login_page-wrap">
+        <div class="login_page wrap">
             <div class="login_container">
                 <div class="login_box">
                         <h3>가장 <span>핏</span>:하게 맞춰드릴게요</h3>

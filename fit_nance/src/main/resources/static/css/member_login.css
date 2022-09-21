@@ -3,11 +3,6 @@ input:focus{
     outline:none;
 }
 
-.login_page-wrap{
-	width: 1320px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
 #login_sector{
     display:flex;
     width:100%;
