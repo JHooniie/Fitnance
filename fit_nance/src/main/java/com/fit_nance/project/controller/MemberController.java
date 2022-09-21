@@ -187,7 +187,7 @@ public class MemberController {
 		model.addAttribute("bankList", bankList);
 		// 1. 파일 저장 경로 설정 : 실제 서비스되는 위치 (프로젝트 외부에 저장)
 		String uploadPath = "/usr/local/project/fitnance_images/upload/";
-
+ 
 		// 2. 원본 파일 이름 설정
 		String originalFileName = file.getOriginalFilename();
 		
@@ -236,7 +236,7 @@ public class MemberController {
 		princ.getProviderId();
 		
 
-		return "redirect:/update_mypage";
+		return "/member/update_mypage";
 	}
 
 	@RequestMapping("/user/update-passwordForm")

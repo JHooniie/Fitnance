@@ -33,10 +33,10 @@
 		               <label id="label-upload-profileImg" for="input-upload-profileImg"></label>
 		               <div class="box-update-profileImg-img-center">
 		               	<c:choose>
-                       		<c:when test="${memImg eq null}">
+                       		<c:when test="${memImg eq null || memImg eq ''}">
 		               			<img id="img-profileImg" src="<c:url value='/images/upload/lg_fitnance_initial_mypage.png'/>">
 							</c:when>
-		               		<c:when test="${memImg ne null}">
+		               		<c:when test="${memImg ne null || memImg ne ''}">
 		               			<img id="img-profileImg" src="<c:url value='/images/upload/${memImg}'/>">
 		               		</c:when>
 			            </c:choose>
