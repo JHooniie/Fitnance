@@ -41,7 +41,7 @@ public class MemberController {
 	@RequestMapping("/loginForm")
 	public String loginForm(Model model) {
 
-		String captcha_key = captcha.getCaptcha_key();
+		String captcha_key = captcha.keyIssued();
 		
 		String captcha_img = captcha.captchaImage(captcha_key);
 		model.addAttribute("captcha_img", captcha_img);

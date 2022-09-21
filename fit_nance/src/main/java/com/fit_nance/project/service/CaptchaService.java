@@ -108,7 +108,7 @@ public class CaptchaService {
                 byte[] bytes = new byte[1024];
                 // 랜덤한 이름으로 파일 생성
                 String tempname = Long.valueOf(new Date().getTime()).toString();
-                File f = new File("/usr/local/project/fitnance_images/captcha"+tempname + ".jpg");
+                File f = new File("/usr/local/project/fitnance_images/captcha/"+tempname + ".jpg");
                 f.createNewFile();	///usr/local/project
                 System.out.println(f);
                 
