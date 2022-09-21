@@ -42,21 +42,23 @@
 	            <h3 class="title-prd-list">사회초년생에게 가장 핫한 상품</h3>
 	            <div class="container-wrap-list">
 	                <div class="wrap-list">
+	                <c:forEach items="${pList }" var="pList">
 	                    <div class="box-prd-list">
 	                        <div class="box-bank-info">
 	                            <div class="lg-bank">
-	                            	<img src="<c:url value='/images/bank/${insList[27].fin_co_no}.png'/>">
+	                            	<img src="<c:url value='/images/bank/${pList.fin_co_no}.png'/>">
 	                            </div>
-	                            <span class="name-bank">${insList[27].kor_co_nm}</span>
-	                        </div>                
-	                        <span class="name-prd">${insList[27].fin_prdt_nm}</span>
+	                            <span class="name-bank">${pList.kor_co_nm}</span>
+	                        </div>
+	                        <span class="name-prd">${pList.fin_prdt_nm}</span>
 	                        <div class="box-percent">
 	                            <span>연</span>
-	                            <span>${insList[27].intr_rate2}</span><span>%</span>
+	                            <span>${pList.intr_rate2}</span><span>%</span>
 	                            <span>(세전)</span>
 	                        </div>
 	                    </div>
-	                    <div class="box-prd-list">
+	                    </c:forEach>
+	                    <!--<div class="box-prd-list">
 	                        <div class="box-bank-info">
 	                            <div class="lg-bank">
 	                            	<img src="<c:url value='/images/bank/${insList[32].fin_co_no}.png'/>">
@@ -97,7 +99,7 @@
 	                            <span>${insList[39].intr_rate2}</span><span>%</span>
 	                            <span>(세전)</span>
 	                        </div>
-	                    </div>
+	                    </div>-->
 	                </div>
 	            </div>
 	        </div>

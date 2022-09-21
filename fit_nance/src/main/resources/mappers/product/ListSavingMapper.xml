@@ -80,6 +80,10 @@
 		<result property="pnsn_strt_age_nm" column="pnsn_strt_age_nm"/>
 		<result property="pnsn_recp_amt" column="pnsn_recp_amt"/>
 	</resultMap>
+	<resultMap id="resultPopular" type="com.fit_nance.project.model.PopularVO">
+		<result property="kind" column="kind"/>
+		<result property="oIndex" column="oIndex"/>
+	</resultMap>
 	
 	<!-- 적금 -->
 	<!-- 전체 적금 상품 조회 -->
@@ -247,5 +251,16 @@
 			AND B.fin_prdt_nm LIKE CONCAT('%',#{search},'%')
 		</if>
 		WHERE O.oIndex IN (SELECT MIN(oIndex) from pension_option GROUP BY pIndex) 
+	</select>
+	
+	<select id="selectPopular" resultMap="resultPopular">
+		<![CDATA[SELECT oIndex,kind
+		FROM favorite f
+		WHERE f.memId IN (SELECT m.memId
+						  FROM member m
+		                  WHERE m.memBirth>='19930101' and m.memBirth<='20030101')
+		                  AND (kind=1 OR kind=2)
+		GROUP BY oIndex,kind
+		ORDER BY COUNT(*) DESC]]>
 	</select>
 </mapper>
