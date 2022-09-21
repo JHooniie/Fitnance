@@ -70,7 +70,7 @@
 	</resultMap>
 	<resultMap id="resultFavList" type="com.fit_nance.project.model.FavoriteVO">
 		<result property="kind" column="kind"/>
-		<result property="fin_prdt_cd" column="fin_prdt_cd"/>
+		<result property="oIndex" column="oIndex"/>
 		<result property="memId" column="memId"/>
 	</resultMap>
 	
@@ -218,20 +218,20 @@
 		WHERE O.oIndex IN (SELECT max(oIndex) from personal_loan_option GROUP BY pIndex)
 		ORDER BY O.pIndex DESC
 	</select>
-	
+	<!-- ////////////////// -->
 	<select id="selectFavList" resultMap="resultFavList">
-		SELECT fin_prdt_cd
+		SELECT oIndex
 		FROM favorite
-		WHERE fin_prdt_cd=#{fin_prdt_cd} AND memId=#{memId}
+		WHERE oIndex=#{oIndex} AND memId=#{memId}
 	</select>
 	
 	<insert id="insertFavList" parameterType="com.fit_nance.project.model.FavoriteVO">
-		INSERT favorite(kind, fin_prdt_cd, memId)
-		VALUES(#{kind}, #{fin_prdt_cd}, #{memId})
+		INSERT favorite(kind, oIndex, memId)
+		VALUES(#{kind}, #{oIndex}, #{memId})
 	</insert>
 	
 	<delete id="deleteFavList">
 		DELETE FROM favorite
-		WHERE kind=#{kind} AND fin_prdt_cd=#{fin_prdt_cd} AND memId=#{memId}
+		WHERE kind=#{kind} AND oIndex=#{oIndex} AND memId=#{memId}
 	</delete>
 </mapper>

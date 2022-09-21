@@ -21,6 +21,7 @@ import com.fit_nance.project.model.HomeLoanFilterVO;
 import com.fit_nance.project.model.HomeLoanListVO;
 import com.fit_nance.project.model.PersonalLoanFilterVO;
 import com.fit_nance.project.model.PersonalLoanListVO;
+import com.fit_nance.project.service.FavoriteService;
 import com.fit_nance.project.service.ListLoanService;
 
 @Controller
@@ -29,13 +30,24 @@ public class ListLoanController {
 	@Autowired
 	ListLoanService listService;
 	
+	@Autowired
+	FavoriteService fService;
+	
 	// 주택담보
 	// 전체 리스트 조회
 	@RequestMapping("/listMortgageLoan")
-	public String viewListMortgage(Model model) {
+	public String viewListMortgage(Authentication auth, Model model) {
+		if(auth != null) {
+			FavoriteVO fvo = new FavoriteVO();
+			PrincipalDetails princ=(PrincipalDetails)auth.getPrincipal();
+			String memId = princ.getUsername();
+			fvo.setKind(4);
+			fvo.setMemId(memId);
+			ArrayList<FavoriteVO> fList = fService.selectFavorite(fvo);
+			model.addAttribute("fList", fList);
+		}
 		ArrayList<HomeLoanListVO> hlList = listService.listAllHomeLoan();
-		String st = "0";
-		model.addAttribute("st", st);
+    
 		model.addAttribute("hlList", hlList);
 		return "product/list_mortgage_loan";
 	}
@@ -51,13 +63,23 @@ public class ListLoanController {
 	
 	// 필터링
 	@RequestMapping("/filterMortgageLoan")
-	public String filterMortgage(@RequestParam(value="arr_join_way") ArrayList<String> arr_join_way,
+	public String filterMortgage(Authentication auth,
+								@RequestParam(value="arr_join_way") ArrayList<String> arr_join_way,
 								 @RequestParam(value="arr_mrtg_type") ArrayList<String> arr_mrtg_type,
 								 @RequestParam(value="arr_rpay_type") ArrayList<String> arr_rpay_type,
 								 @RequestParam(value="arr_lend_type") ArrayList<String> arr_lend_type,
 								 @RequestParam(value="search_word") String search,
 								 //@RequestParam(value="search") String search,
 								 Model model) {
+		if(auth != null) {
+			FavoriteVO fvo = new FavoriteVO();
+			PrincipalDetails princ=(PrincipalDetails)auth.getPrincipal();
+			String memId = princ.getUsername();
+			fvo.setKind(4);
+			fvo.setMemId(memId);
+			ArrayList<FavoriteVO> fList = fService.selectFavorite(fvo);
+			model.addAttribute("fList", fList);
+		}
 		HomeLoanFilterVO vo = new HomeLoanFilterVO();
 		
 		ArrayList<String> list_join_way = new ArrayList<String>();
@@ -107,7 +129,17 @@ public class ListLoanController {
 	// 전세자금
 	// 전체 리스트 조회
 	@RequestMapping("/listCharterLoan")
-	public String viewListCharter(Model model) {
+	public String viewListCharter(Authentication auth, Model model) {
+		if(auth != null) {
+			FavoriteVO fvo = new FavoriteVO();
+			PrincipalDetails princ=(PrincipalDetails)auth.getPrincipal();
+			String memId = princ.getUsername();
+			fvo.setKind(5);
+			fvo.setMemId(memId);
+			ArrayList<FavoriteVO> fList = fService.selectFavorite(fvo);
+			model.addAttribute("fList", fList);
+		}
+		
 		ArrayList<CharterLoanListVO> clList = listService.selectCharterLoanList();
 		model.addAttribute("clList", clList);
 		
@@ -125,11 +157,22 @@ public class ListLoanController {
 	
 	// 필터링
 	@RequestMapping("/filterCharterLoan")
-	public String filterCharter(@RequestParam(value="arr_join_way") ArrayList<String> arr_join_way,
+	public String filterCharter(Authentication auth,
+								@RequestParam(value="arr_join_way") ArrayList<String> arr_join_way,
 								@RequestParam(value="arr_rpay_type") ArrayList<String> arr_rpay_type,
 								@RequestParam(value="arr_lend_type") ArrayList<String> arr_lend_type,
 								@RequestParam(value="search_word") String search,
 								Model model) {
+		
+		if(auth != null) {
+			FavoriteVO fvo = new FavoriteVO();
+			PrincipalDetails princ=(PrincipalDetails)auth.getPrincipal();
+			String memId = princ.getUsername();
+			fvo.setKind(5);
+			fvo.setMemId(memId);
+			ArrayList<FavoriteVO> fList = fService.selectFavorite(fvo);
+			model.addAttribute("fList", fList);
+		}
 		
 		CharterLoanFilterVO vo = new CharterLoanFilterVO();
 		
@@ -172,7 +215,17 @@ public class ListLoanController {
 	// 신용대출
 	// 전체 리스트 조회
 	@RequestMapping("/listCreditLoan")
-	public String viewListCredit(Model model) {
+	public String viewListCredit(Authentication auth, Model model) {
+		if(auth != null) {
+			FavoriteVO fvo = new FavoriteVO();
+			PrincipalDetails princ=(PrincipalDetails)auth.getPrincipal();
+			String memId = princ.getUsername();
+			fvo.setKind(6);
+			fvo.setMemId(memId);
+			ArrayList<FavoriteVO> fList = fService.selectFavorite(fvo);
+			model.addAttribute("fList", fList);
+		}
+		
 		ArrayList<PersonalLoanListVO> clList = listService.selectPersonalLoanList();
 		model.addAttribute("clList", clList);
 		
@@ -190,10 +243,21 @@ public class ListLoanController {
 	
 	// 필터링
 	@RequestMapping("/filterCreditLoan")
-	public String filterCredit(@RequestParam(value="arr_join_way") ArrayList<String> arr_join_way,
-			 				   @RequestParam(value="arr_crdt_prdt_type") ArrayList<String> arr_crdt_prdt_type,
-			 				  @RequestParam(value="search_word") String search,
-							   Model model) {
+	public String filterCredit(Authentication auth,
+								@RequestParam(value="arr_join_way") ArrayList<String> arr_join_way,
+			 				   	@RequestParam(value="arr_crdt_prdt_type") ArrayList<String> arr_crdt_prdt_type,
+                  @RequestParam(value="search_word") String search,
+			 				   	Model model) {
+		
+		if(auth != null) {
+			FavoriteVO fvo = new FavoriteVO();
+			PrincipalDetails princ=(PrincipalDetails)auth.getPrincipal();
+			String memId = princ.getUsername();
+			fvo.setKind(6);
+			fvo.setMemId(memId);
+			ArrayList<FavoriteVO> fList = fService.selectFavorite(fvo);
+			model.addAttribute("fList", fList);
+		}
 		
 		PersonalLoanFilterVO vo = new PersonalLoanFilterVO();
 		
@@ -398,27 +462,38 @@ public class ListLoanController {
 									, @RequestParam(value="prdt_cd") String prdt_cd
 									, @RequestParam(value="kind") String prdt_kind
 									, @RequestParam(value="action") String prdt_action) {
-		PrincipalDetails princ = (PrincipalDetails)auth.getPrincipal();
-		String memId = princ.getUsername();
-		
 		String result = "fail";
-		String fin_prdt_cd = prdt_cd;
-		String kind = prdt_kind;
-		String action = prdt_action;
 		
-		ArrayList<FavoriteVO> list = new ArrayList<FavoriteVO>();
-		list = listService.selectFavList(kind, fin_prdt_cd, memId);
-		if(action.equals("add")) {
-			if(list.size() > 0) {
+		if(auth == null) {
+			return result;
+		}else {
+			PrincipalDetails princ = (PrincipalDetails)auth.getPrincipal();
+			String memId = princ.getUsername();
+			int oIndex = Integer.valueOf(prdt_cd);;
+			int kind = Integer.valueOf(prdt_kind);
+			String action = prdt_action;
+			
+			FavoriteVO vo = new FavoriteVO();
+			vo.setKind(kind);
+			vo.setoIndex(oIndex);
+			vo.setMemId(memId);
+			
+			ArrayList<FavoriteVO> fList = fService.searchFavorite(vo);
+			
+			if(action.equals("add")) {
+				if(fList.size() > 0) {
+					result = "exist";
+				} else {
+					fService.insertInstallFavorite(vo);
+					result = "success";
+				}
+			} else if(action.equals("delete")) {
+				fService.deleteInstallFavorite(vo);
 				result = "exist";
-			} else {
-				listService.insertFavList(kind, fin_prdt_cd, memId);
-				result = "success";
 			}
-		} else if(action.equals("delete")) {
-			listService.deleteFavList(kind, fin_prdt_cd, memId);
+			System.out.println("입력 코드 : "+oIndex);
+			return result;
 		}
-		System.out.println("입력 코드 : "+fin_prdt_cd);
-		return result;
+		
 	}
 }

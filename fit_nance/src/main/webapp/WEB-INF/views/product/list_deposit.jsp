@@ -25,9 +25,9 @@
         <div class="m">
             <div class="middle-text">
                 <ul>
-                    <li>예금<br>
-                    관련 문구</li>
-                    <li class="middle-sub-text">정기예금 관련 문구 정기예금 관련 문구</li>
+                    <li>예금,<br>
+                    안전하고 확실한 선택</li>
+                    <li class="middle-sub-text">열심히 모은 종잣돈을 더크게, 안전하게!</li>
                 </ul>
             </div>
             <div class="middle-image">
@@ -86,26 +86,26 @@
                                     <div class="item-name">${list.fin_prdt_nm }
                                     	<c:forEach items="${list.join_way }" var="jw">
 	                                    	<span>${jw}</span>
-	                                    </c:forEach></div>
+	                                    </c:forEach>
+	                                </div>
                                 </div>
                             </div>
                             <div class="plus-icon plus-icon1" id="${list.oIndex}"><i class="fa-solid fa-folder-plus"></i></div>
-		                    <c:if test="${empty principal.username}">
-										<div class="plus-icon plus-icon2 no-login" id="${list.oIndex}"><i class="fa-solid fa-heart"></i></div>
-									</c:if>
-									<c:if test="${not empty principal.username}">
+		          		        <c:if test="${empty principal.username}">
+									<div class="plus-icon plus-icon2 no-login" id="${list.oIndex}"><i class="fa-solid fa-heart"></i></div>
+								</c:if>
+								<c:if test="${not empty principal.username}">
 									<c:set var="a" value="<%=0 %>"/>
 									<c:forEach items="${fList }" var="list2">
 										<c:if test="${list2.oIndex eq list.oIndex }">
 											<c:set var="a" value="<%=1 %>"/>
 											<div class="plus-icon plus-icon2 yes-login plus-icon-clicked" id="${list.oIndex}"><i class="fa-solid fa-heart"></i></div>
 										</c:if>
-										
 									</c:forEach>
-									<c:if test="${a ne 1 }">
-										<div class="plus-icon plus-icon2 yes-login" id="${list.oIndex}"><i class="fa-solid fa-heart"></i></div>
-									</c:if>
-					          		</c:if>
+								<c:if test="${a ne 1 }">
+									<div class="plus-icon plus-icon2 yes-login" id="${list.oIndex}"><i class="fa-solid fa-heart"></i></div>
+								</c:if>
+				          	</c:if>
                         </div>
                    
                         <div class="item-box2">
