@@ -43,4 +43,9 @@
 	<select id="selectFavorite" parameterType="com.fit_nance.project.model.FavoriteVO" resultMap="favorite">
 		SELECT * FROM favorite WHERE kind=#{kind} and memId=#{memId}
 	</select>
+	
+	<select id="searchFavorite" parameterType="com.fit_nance.project.model.FavoriteVO" resultMap="favorite">
+		SELECT * FROM favorite WHERE kind=#{kind} and oIndex=#{oIndex} and memId=#{memId}
+	</select>
+	
 </mapper>
