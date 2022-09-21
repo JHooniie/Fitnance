@@ -170,6 +170,15 @@ $(document).ready(function(){
 		$('.page_num'+page).css('background-color', '#1f4dff');
 		$('.page_num'+page).css('color', '#ffffff');
 		
+		// 페이지 버튼 호버 시
+		$('.btn_page').hover(function(){
+			$(this).css('background-color', '#1f4dff');
+		    $(this).css('color', '#ffffff');
+		}, function(){
+			$(this).css('background-color', '#ffffff');
+		    $(this).css('color', '#aaaaaa');
+		});
+		
 		// 페이지 버튼 클릭 시
 	    $('.btn_page').click(function(){
 	    	page = $(this).text();
