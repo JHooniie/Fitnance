@@ -90,7 +90,7 @@ public class CaptchaService {
             int responseCode = con.getResponseCode();
             BufferedReader br;
             if(responseCode==200) { // 정상 호출
-            	String path = "file:///usr/local/project/fitnance_images/captcha";
+            	String path = "file:///usr/local/project/fitnance_images/captcha/";
         		File deleteFolder = new File(path);
         		System.out.println(path);
         		if(deleteFolder.exists()){
