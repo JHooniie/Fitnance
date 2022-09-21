@@ -21,7 +21,7 @@ import com.fit_nance.project.model.APIKey;
 public class CaptchaService {
 	
 	//캡챠 이미지 키
-		private String captcha_key = keyIssued();
+		private String captcha_key = getCaptcha_key();
 		private String captcha_key_img = captchaImage(captcha_key);
 		public String getCaptcha_key() {
 			return captcha_key;
