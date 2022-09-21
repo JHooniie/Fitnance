@@ -54,4 +54,9 @@ public class FavoriteService implements IFavoriteService {
 		return dao.selectFavorite(vo);
 	}
 
+	@Override
+	public ArrayList<FavoriteVO> searchFavorite(FavoriteVO vo) {
+		return dao.searchFavorite(vo);
+	}
+
 }
