@@ -90,18 +90,20 @@
 	                </div>
 	            </div>
 	            <c:set var="total_pages" value="${fn:length(clList)/10+1 }"/>
-	            <div id="result_list_prdt"  class="panel_list_prdt">
-	            	<form id="form_joinway" method="post" action="<c:url value='/list_home_loan'/>">
-		                <div class="div_search_list">
-		                    <div class="div_list_result">
-		                        <span>검색 결과 ${fn:length(clList) }개</span>
-		                    </div>
-		                    <div class="div_search_prdt">
-		                        <input class="input_search_prdt" placeholder="키워드 검색">
-		                        <i class="fa-solid fa-magnifying-glass"></i>
-		                    </div>
-		                </div>
-	                </form>
+	            <div class=wrap>
+		            <div class="div_search">
+		            	<div class="div_search_prdt">
+							<input class="input_search_prdt" placeholder="키워드 검색">
+							<i class="fa-solid fa-magnifying-glass"></i>
+						</div>
+		            </div>
+				</div>
+	            <div id="result_list_prdt" class="panel_list_prdt">
+	            <div class="div_search_list">
+					<div class="div_list_result">
+						<span>검색 결과 ${fn:length(clList) }개</span>
+					</div>
+                </div>
 	                <div class="div_list_prdt">
 	                    <c:forEach var="pages" begin="1" end="${total_pages+1 }">
 	                	<div class="prdt_result_search prdt${pages }">

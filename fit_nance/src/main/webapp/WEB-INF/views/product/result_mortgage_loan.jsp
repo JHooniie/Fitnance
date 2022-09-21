@@ -15,7 +15,6 @@
 	<c:set var="total_pages" value="${fn:length(hlList)/10+1 }"/>
 	<c:choose>
 		<c:when test="${empty hlList}">
-			<form id="form_joinwawy" method="post" action="<c:url value='/list_mortgage_loan'/>">
 				<div class="div_search_list">
 					<div class="div_list_result">
 						<span>검색 결과 ${fn:length(hlList) }개</span>
@@ -25,23 +24,13 @@
 						<i class="fa-solid fa-magnifying-glass"></i>
 					</div>
                 </div>
-            </form>
-			<div>
-				<span class="no-list"><i class="fa-solid fa-circle-exclamation"></i><br>찾는 상품이 없습니다</span>
-			</div>
 		</c:when>
 		<c:otherwise>
-			<form id="form_joinwawy" method="post" action="<c:url value='/list_mortgage_loan'/>">
 				<div class="div_search_list">
 					<div class="div_list_result">
 						<span>검색 결과 ${fn:length(hlList) }개</span>
 					</div>
-					<div class="div_search_prdt">
-						<input class="input_search_prdt" placeholder="키워드 검색">
-						<i class="fa-solid fa-magnifying-glass"></i>
-					</div>
                 </div>
-            </form>
             <div class="div_list_prdt">
             
             <c:forEach var="pages" begin="1" end="${total_pages+1 }">

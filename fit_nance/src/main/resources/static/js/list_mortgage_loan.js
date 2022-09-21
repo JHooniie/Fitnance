@@ -9,6 +9,7 @@
 	var arr_mrtg_type=["mrtg_type"];
 	var arr_rpay_type=["rpay_type"];
 	var arr_lend_type=["lend_type"];
+	var search_word = null;
 	
 	var arr_prdt_compare=["prdt_compare"];
 	var prdt_cd = null;
@@ -167,6 +168,18 @@
             });
         }
     }
+    
+    $('.input_search_prdt').on('keyup', function(key){
+    	if(key.keyCode == 13){
+    		search_word = $('.input_search_prdt').val();
+    		callAjax();
+    	}
+    })
+    
+    $('.div_search_prdt>i').click(function(){
+    	search_word = $('.input_search_prdt').val();
+    	callAjax();
+    })
    
     // Ajax 중복으로 함수로 처리
     function callAjax(){
@@ -178,7 +191,8 @@
         			arr_join_way: arr_join_way,
         			arr_mrtg_type: arr_mrtg_type,
         			arr_rpay_type: arr_rpay_type,
-        			arr_lend_type: arr_lend_type
+        			arr_lend_type: arr_lend_type,
+        			search_word: search_word
         	},
         	success: function(result){
         		$('#result_list_prdt').html(result);
