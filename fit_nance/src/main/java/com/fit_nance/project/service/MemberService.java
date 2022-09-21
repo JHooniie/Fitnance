@@ -104,6 +104,11 @@ public class MemberService implements IMemberService {
 	public ArrayList<FavoriteVO> favoriteListCreditView(String memId) {
 		return dao.favoriteListCreditView(memId);
 	}
+	// 즐겨찾기 삭제
+	@Override
+	public void myFavoriteDelete(HashMap<String, Object> map) {
+		dao.myFavoriteDelete(map);	
+	}
 	
 	//회원 정보 불러오기
 	@Override
@@ -242,6 +247,8 @@ public class MemberService implements IMemberService {
 		
 		
 }
+
+
 
 	
 

@@ -151,7 +151,7 @@ public class CaptchaService {
         try {
         	 System.out.println(captcha_key);
             String code = "1"; // 키 발급시 0,  캡차 이미지 비교시 1로 세팅
-            String keys = captcha_key; // 캡차 키 발급시 받은 키값
+            String keys = getCaptcha_key(); // 캡차 키 발급시 받은 키값
             String value = captcha_value; // 사용자가 입력한 캡차 이미지 글자값
             String apiURL = "https://naveropenapi.apigw.ntruss.com/captcha/v1/nkey?code=" + code +"&key="+ keys + "&value="+ value;
 

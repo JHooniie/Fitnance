@@ -11,7 +11,7 @@
 	<body>
 		<c:import url="/WEB-INF/views/layout/top.jsp" />
 		<section id="login_sector">
-        <div class="login_page wrap">
+        <div class="login_page-wrap">
             <div class="login_container">
                 <div class="login_box">
                         <h3>가장 <span>핏</span>:하게 맞춰드릴게요</h3>
@@ -44,13 +44,13 @@
 									</div>
 								</div>
                             </div>
-                            <button id="disabled_login" type="button"><span class="btn-span">로그인</span></button>
-                            <button id="main_login" type="submit"><span class="btn-span">로그인</span></button>
+                            <button id="disabled_login" type="button" class="Bbutton"><span class="btn-span">로그인</span></button>
+                            <button id="main_login" type="submit" class="Bbutton"><span class="btn-span">로그인</span></button>
                        
                     </div>
                     <div class="email_login">
-                        <button id="naver_login" type="button" onclick="location.href='<c:url value='/oauth2/authorization/naver'/>'"><span class="btn-span"><img src="<c:url value='/images/lg_naver.png'/>">네이버로 로그인</span></button>
-                        <button id="email_start" type="button" onclick="location.href='<c:url value='/signupForm'/>'"><span class="btn-span">이메일로 시작하기</span></button>
+                        <button id="naver_login" type="button"  class="Bbutton" onclick="location.href='<c:url value='/oauth2/authorization/naver'/>'"><span class="btn-span"><img src="<c:url value='/images/lg_naver.png'/>">네이버로 로그인</span></button>
+                        <button id="email_start" type="button"  class="Bbutton" onclick="location.href='<c:url value='/signupForm'/>'"><span class="btn-span">이메일로 시작하기</span></button>
                     </div>
                 </div>
                  </form>

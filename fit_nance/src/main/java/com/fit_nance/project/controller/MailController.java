@@ -29,7 +29,7 @@ public class MailController {
 		PrintWriter out = rs.getWriter();
 		String message = emailService.htmlReader();
 		System.out.println(message);
-		emailService.sendEmail("cliffear324@naver.com", "테스트 메일", message);
+		emailService.sendEmail("테스트 이메일 기입!", "테스트 메일", message);
 		emailService.sendPreMail("fitnance_mailsender@naver.com", "테스트 메일", "발신 확인용");
 		System.out.println("메일을 보냈습니다!");
 	}
@@ -46,7 +46,7 @@ public class MailController {
 		
 
 		emailService.sendEmail(memId, "fit:nanace 회원가입 인증확인", message);
-		emailService.sendPreMail("fitnance_emailsender@naver.com", "테스트 메일", "발신 확인용");
+		emailService.sendPreMail("fitnance_mailsender@naver.com", "테스트 메일", "발신 확인용");
 		System.out.println("컨트롤러===========================================================================================");
 		System.out.println(certified);
 		System.out.println("===========================================================================================");
