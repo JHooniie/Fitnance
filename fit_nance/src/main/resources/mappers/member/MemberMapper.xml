@@ -150,13 +150,25 @@
         WHERE memId=#{memId}
 	</select>
 	
+	<!-- 즐겨찾기 삭제 -->
+	<delete id="myFavoriteDelete" parameterType="hashmap">
+		DELETE 
+		FROM favorite 
+		WHERE memId=#{memId} and kind=#{kind} and oIndex=#{oIndex}
+	</delete>
+	
+	<!-- 비밀번호 변경 -->
 	<select id="passwordCheck" parameterType="string" resultType="com.fit_nance.project.model.MemberVO">
 		SELECT * 
 		FROM member 
 		WHERE memId=#{memId}
   	</select>
+  	
+  	<!-- 회원탈퇴 -->
   	<delete id="withdrawal_member" parameterType="com.fit_nance.project.model.MemberVO">
-		DELETE FROM member WHERE memId=#{memId}
+		DELETE 
+		FROM member 
+		WHERE memId=#{memId}
 	</delete>
 	
 	<insert id="insertdummy" parameterType="com.fit_nance.project.model.DummyVO">

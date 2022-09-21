@@ -32,12 +32,14 @@
 		               <input type="file" id="input-upload-profileImg" name="input-upload-profileImg">
 		               <label id="label-upload-profileImg" for="input-upload-profileImg"></label>
 		               <div class="box-update-profileImg-img-center">
-		               	<c:if test="${memImg eq null || memImg eq ''}">
-		               	<img id="img-profileImg" src="<c:url value='/images/upload/lg_fitnance_initial_mypage.png'/>">
-		               	</c:if>
-		               	<c:if test="${memImg ne null || memImg ne ''}">
-		               	<img id="img-profileImg" src="<c:url value='/images/upload/${memImg}'/>">
-		               	</c:if>
+		               	<c:choose>
+                       		<c:when test="${memImg eq null}">
+		               			<img id="img-profileImg" src="<c:url value='/images/upload/lg_fitnance_initial_mypage.png'/>">
+							</c:when>
+		               		<c:when test="${memImg ne null}">
+		               			<img id="img-profileImg" src="<c:url value='/images/upload/${memImg}'/>">
+		               		</c:when>
+			            </c:choose>
 		               </div>
 			       </div>
                     <div class="box-update-profile-content">

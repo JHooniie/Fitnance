@@ -21,7 +21,7 @@ public class CaptchaController {
 		@RequestMapping("/api/rotate_captcha")
 		public String rotate_captcha() {
 
-			String captcha_key = captcha.getCaptcha_key();
+			String captcha_key = captcha.keyIssued();
 
 			String captcha_img = captcha.captchaImage(captcha_key);
 			//model.addAttribute("captcha_img", captcha_img);
