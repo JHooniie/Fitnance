@@ -21,7 +21,7 @@ import com.fit_nance.project.model.APIKey;
 public class CaptchaService {
 	
 	//캡챠 이미지 키
-		private String captcha_key = getCaptcha_key();
+		private String captcha_key = keyIssued();
 		private String captcha_key_img = captchaImage(captcha_key);
 		public String getCaptcha_key() {
 			return captcha_key;
@@ -92,14 +92,14 @@ public class CaptchaService {
             if(responseCode==200) { // 정상 호출
             	String path = "/usr/local/project/fitnance_images/captcha";
         		File deleteFolder = new File(path);
-//        		System.out.println(path);
-//        		if(deleteFolder.exists()){
-//        			File[] deleteFolderList = deleteFolder.listFiles();
-//        			
-//        			for (int j = 0; j < deleteFolderList.length; j++) {
-//        				deleteFolderList[j].delete(); 
-//        			}
-//        		}
+        		System.out.println(path);
+        		if(deleteFolder.exists()){
+        			File[] deleteFolderList = deleteFolder.listFiles();
+        			
+        			for (int j = 0; j < deleteFolderList.length; j++) {
+        				deleteFolderList[j].delete(); 
+        			}
+        		}
                 InputStream is = con.getInputStream();
                 int read = 0;
                 byte[] bytes = new byte[1024];
@@ -151,7 +151,7 @@ public class CaptchaService {
         try {
         	 System.out.println(captcha_key);
             String code = "1"; // 키 발급시 0,  캡차 이미지 비교시 1로 세팅
-            String keys = captcha_key; // 캡차 키 발급시 받은 키값
+            String keys = getCaptcha_key(); // 캡차 키 발급시 받은 키값
             String value = captcha_value; // 사용자가 입력한 캡차 이미지 글자값
             String apiURL = "https://naveropenapi.apigw.ntruss.com/captcha/v1/nkey?code=" + code +"&key="+ keys + "&value="+ value;
 
