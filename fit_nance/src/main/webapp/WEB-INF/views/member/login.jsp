@@ -33,7 +33,7 @@
                             <div class="box-captcha-wrap">
                             	<div class="box-captcha">
 									<div class="box-captcha-img">
-										<img src="<c:url value='/images/captcha/${captcha_img}'/>">
+										<img src="<c:url value='images/captcha/${captcha_img}'/>">
 									</div>
 									<div class="wrap-captcha-input">
 										<button id="rotate-captcha" type="button"><i class="fa-solid fa-rotate-right"></i><span> 새로고침</span></button>
