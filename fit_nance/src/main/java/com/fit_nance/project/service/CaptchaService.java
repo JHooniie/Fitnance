@@ -90,7 +90,7 @@ public class CaptchaService {
             int responseCode = con.getResponseCode();
             BufferedReader br;
             if(responseCode==200) { // 정상 호출
-            	String path = "usr/local/project/fitnance_images/captcha/";
+            	String path = "/usr/local/project/fitnance_images/captcha";
         		File deleteFolder = new File(path);
         		System.out.println(path);
         		if(deleteFolder.exists()){
@@ -105,7 +105,7 @@ public class CaptchaService {
                 byte[] bytes = new byte[1024];
                 // 랜덤한 이름으로 파일 생성
                 String tempname = Long.valueOf(new Date().getTime()).toString();
-                File f = new File("usr/local/project/fitnance_images/captcha/"+tempname + ".jpg");
+                File f = new File("/usr/local/project/fitnance_images/captcha/"+tempname + ".jpg");
                 f.createNewFile();
                 System.out.println(f);
                 
