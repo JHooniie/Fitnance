@@ -246,6 +246,6 @@
 		<if test="search !=''"> 
 			AND B.fin_prdt_nm LIKE CONCAT('%',#{search},'%')
 		</if>
-		WHERE O.oIndex IN (SELECT MIN(oIndex) from pension_option GROUP BY pIndex)
+		WHERE O.oIndex IN (SELECT MIN(oIndex) from pension_option GROUP BY pIndex) 
 	</select>
 </mapper>
