@@ -8,6 +8,7 @@ import com.fit_nance.project.model.InstallListFilterVO;
 import com.fit_nance.project.model.InstallListVO;
 import com.fit_nance.project.model.PensionFilterVO;
 import com.fit_nance.project.model.PensionListVO;
+import com.fit_nance.project.model.PopularVO;
 
 public interface IListSavingService {
 	// 각각 전체 리스트 출력/상품 디테일/필터 순으로 작성
@@ -29,4 +30,6 @@ public interface IListSavingService {
 	public PensionListVO selectPensionDetail(int oIndex);
 	public ArrayList<PensionListVO> selectPensionFilter(PensionFilterVO vo); 
 	public ArrayList<PensionListVO> selectPensionSearch(String search);
+	
+	public ArrayList<PopularVO> selectPopular();
 }
