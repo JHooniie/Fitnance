@@ -46,6 +46,8 @@ $(document).ready(function(){
         }
     })
 
+
+
         //캡챠
         $('#rotate-captcha').on('click', function(event){
             rotate_captchaAjax();
@@ -137,6 +139,7 @@ $(document).ready(function(){
             url:"/api/rotate_captcha",
             async: false,
             success:function(result){
+            
             },
             error:function(){
                 alert("전송 실패");
@@ -152,6 +155,7 @@ $(document).ready(function(){
             async: false,
             success:function(result){
                 $(".box-captcha-img img").attr("src", "images/captcha/"+result);
+                
             },
             error:function(){
                 alert("전송 실패");

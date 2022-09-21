@@ -41,8 +41,8 @@ public class MemberController {
 	@RequestMapping("/loginForm")
 	public String loginForm(Model model) {
 
-		String captcha_key = captcha.getCaptcha_key();
-
+		String captcha_key = captcha.keyIssued();
+		
 		String captcha_img = captcha.captchaImage(captcha_key);
 		model.addAttribute("captcha_img", captcha_img);
 		
@@ -57,15 +57,6 @@ public class MemberController {
 
 		return "member/signup";
 	}
-
-//	// 인증 이메일 전송
-//	@RequestMapping("/email")
-//	public String email(Model model) {
-//		ArrayList<BankVO> bankList = memService.listAllBank();
-//		model.addAttribute("bankList", bankList);
-//
-//		return "member/signup";
-//	}
 
 	// 회원가입
 	@RequestMapping("/signup")
@@ -97,6 +88,7 @@ public class MemberController {
 	public String mypageForm(Authentication auth, Model model) {
 		PrincipalDetails princ = (PrincipalDetails) auth.getPrincipal();
 		String memId = princ.getUsername();
+		String memImg = princ.getMemImg();
 		System.out.println(memId);
 		MemberVO mem = memService.detailViewMemInfo(memId);
 		
@@ -116,9 +108,22 @@ public class MemberController {
 		model.addAttribute("charList",charList);
 		model.addAttribute("crdList",crdList);
 		model.addAttribute("mem",mem);
+		model.addAttribute("memImg",memImg);
+		
 		return "member/myPage";
 
 	}
+	
+	// 즐겨찾기 삭제
+	@RequestMapping("/user/myFavoriteDelete")
+	public String myFavoriteDelete(@RequestParam HashMap<String, Object> map, Authentication auth) {
+		PrincipalDetails princ = (PrincipalDetails) auth.getPrincipal();
+	
+		
+		
+		return null;
+	}
+	
 
 	// 회원정보 수정 폼 열기 비밀번호 재인증 폼 이동
 	@RequestMapping("/user/passwordCheckForm")
@@ -181,8 +186,8 @@ public class MemberController {
 		
 		model.addAttribute("bankList", bankList);
 		// 1. 파일 저장 경로 설정 : 실제 서비스되는 위치 (프로젝트 외부에 저장)
-		String uploadPath = "C:///springWorkspace/fitnance_images/upload/";
-				
+		String uploadPath = "/usr/local/project/fitnance_images/upload/";
+ 
 		// 2. 원본 파일 이름 설정
 		String originalFileName = file.getOriginalFilename();
 		
@@ -258,8 +263,6 @@ public class MemberController {
 			
 			return "redirect:/logout";
 
-				
-			
 		}
 	
 	// 회원탈퇴 폼 열기 비밀번호 재인증 폼 이동

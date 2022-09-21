@@ -50,6 +50,9 @@ public interface IMemberService {
 	// 신용 대출
 	public ArrayList<FavoriteVO> favoriteListCreditView(String memId);
 	
+	// 즐겨찾기 삭제
+	public void myFavoriteDelete(HashMap<String, Object> map);
+	
 	// 회원가입 시 은행 정보 가져오기
 	public ArrayList<BankVO> listAllBank();
 	

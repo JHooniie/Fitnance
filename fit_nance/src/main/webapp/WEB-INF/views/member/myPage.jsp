@@ -24,12 +24,14 @@
                 <div class="box-profile">
                     <div class="box-profileImg">
                         <div class="box-profileImg-img-center">
-                            <c:if test="${memImg eq null || memImg eq ''}">
-			               		<img id="img-profileImg" src="<c:url value='/images/upload/lg_fitnance_initial_mypage.png'/>">
-			               	</c:if>
-			               	<c:if test="${memImg ne null || memImg ne ''}">
-			               		<img id="img-profileImg" src="<c:url value='/images/upload/${memImg}'/>">
-			               	</c:if>
+                        	<c:choose>
+                        		<c:when test="${memImg eq null || memImg eq ''}">
+			               			<img id="img-profileImg" src="<c:url value='/images/upload/lg_fitnance_initial_mypage.png'/>">
+								</c:when>
+			               		<c:when test="${memImg ne null || memImg ne ''}">
+			               			<img id="img-profileImg" src="<c:url value='/images/upload/${memImg}'/>">
+			               		</c:when>
+			               	</c:choose>
                         </div>
                     </div>
                     <div class="box-profile-content">
@@ -99,7 +101,12 @@
                                             <span class="span-detailOption-amount">${list.intr_rate2 }%</span>
                                         </li>
                                     </ul>
-                                    <button><span>자세히 보기</span></button>
+                                    <button class="button-favorite-delete">
+	                                    <span>자세히 보기</span>
+	                                    <input type="hidden" name="memId" value="${principal.username }">
+	                                    <input type="hidden" name="oIndex" value="${list.oIndex }">
+	                                    <input type="hidden" name="kind" value="${list.kind }">
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -133,7 +140,12 @@
                                             <span class="span-detailOption-amount">${list.save_trm }개월부터</span>
                                         </li>
                                     </ul>
-                                    <button><span>자세히 보기</span></button>
+                                    <button class="button-favorite-delete">
+	                                    <span>자세히 보기</span>
+	                                    <input type="hidden" name="memId" value="${principal.username }">
+	                                    <input type="hidden" name="oIndex" value="${list.oIndex }">
+	                                    <input type="hidden" name="kind" value="${list.kind }">
+                                    </button>
                                 </div>
                             </div>
                         </div>
