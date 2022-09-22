@@ -58,28 +58,35 @@
 	            		</c:otherwise>
 	            	</c:choose>
 	            </div>
-	            <!-- 성별이 여자인 경우 -->
-	            <div class="box-pc-01 box-pc-01-fm">
-	                <div class="box-pc-y">
-	                    <span>네!<br>모으고 있어요!</span>
-	                    <img src="<c:url value='/images/img_prd_recom_pc_2.png'/>" alt="">
-	                </div>
-	                <div class="box-pc-n">
-	                    <span>아니요!<br>이제 모으고 싶어요!</span>
-	                    <img src="<c:url value='/images/img_prd_recom_pc_3.png'/>" alt="">
-	                </div>
-	            </div>
-	            <!-- 성별이 남자인 경우 -->
-	            <div class="box-pc-01 box-pc-01-m">
-	                <div class="box-pc-y">
-	                    <span>네!<br>모으고 있어요!</span>
-	                    <img src="<c:url value='/images/img_prd_recom_pc_4.png'/>" alt="">
-	                </div>
-	                <div class="box-pc-n">
-	                    <span>아니요!<br>이제 모으고 싶어요!</span>
-	                    <img src="<c:url value='/images/img_prd_recom_pc_5.png'/>" alt="">
-	                </div>
-	            </div>
+	            <c:choose>
+            		<c:when test="${principal.getMemGender() eq '남성'}">
+            			<!-- 성별이 남자인 경우 -->
+			            <div class="box-pc-01 box-pc-01-m">
+			                <div class="box-pc-y">
+			                    <span>네!<br>모으고 있어요!</span>
+			                    <img src="<c:url value='/images/img_prd_recom_pc_4.png'/>" alt="">
+			                </div>
+			                <div class="box-pc-n">
+			                    <span>아니요!<br>이제 모으고 싶어요!</span>
+			                    <img src="<c:url value='/images/img_prd_recom_pc_5.png'/>" alt="">
+			                </div>
+			            </div>
+            		</c:when>
+            		<c:otherwise>
+            			<!-- 성별이 여자인 경우 -->
+            			<div class="box-pc-01 box-pc-01-fm">
+			                <div class="box-pc-y">
+			                    <span>네!<br>모으고 있어요!</span>
+			                    <img src="<c:url value='/images/img_prd_recom_pc_2.png'/>" alt="">
+			                </div>
+			                <div class="box-pc-n">
+			                    <span>아니요!<br>이제 모으고 싶어요!</span>
+			                    <img src="<c:url value='/images/img_prd_recom_pc_3.png'/>" alt="">
+			                </div>
+			            </div>
+            		</c:otherwise>
+            	</c:choose>
+	            
 	            <button class="btn-prd-recom btn-prd-recom-02" type="button" disabled>다음</button>
 	        </div>
 	        <!-- process 2 end -->
