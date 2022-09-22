@@ -198,8 +198,8 @@
 	</select>
 	
 	<!-- 추천 예금 상품 조회 -->
-	<select id="aitemsDepositList" parameterType="int" resultType="com.fit_nance.project.model.DepositListVO">
-		SELECT O.oIndex, B.pIndex, O.fin_co_no, B.kor_co_nm, B.fin_prdt_nm,B.fin_prdt_cd, B.join_way, O.intr_rate, O.save_trm
+	<select id="recommendDepositList" parameterType="int" resultType="com.fit_nance.project.model.DepositListVO">
+		SELECT O.oIndex, B.pIndex, O.fin_co_no, B.kor_co_nm, B.fin_prdt_nm,B.fin_prdt_cd, B.join_way, O.intr_rate, O.intr_rate2, O.save_trm
 		FROM deposit_option O
 			INNER JOIN deposit_base B ON B.pIndex = O.pIndex
 		WHERE O.oIndex=#{oIndex}
