@@ -119,7 +119,8 @@ public class ListSavingService implements IListSavingService {
 	public InstallListVO recommendInstallList(int oIndex) {
 		// TODO Auto-generated method stub
 		return dao.recommendInstallList(oIndex);
-
+	}
+	
 	public ArrayList<PopularVO> selectPopular() {
 		// TODO Auto-generated method stub
 		return dao.selectPopular();
