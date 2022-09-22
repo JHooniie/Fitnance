@@ -3,6 +3,8 @@ package com.fit_nance.project.service;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import javax.servlet.http.HttpServletRequest;
+
 import com.fit_nance.project.model.BankVO;
 import com.fit_nance.project.model.FavoriteVO;
 import com.fit_nance.project.model.MemberVO;
@@ -61,4 +63,5 @@ public interface IMemberService {
 	
 	//회원탈퇴
 	public void withdrawal_member(MemberVO vo);
+	
 }

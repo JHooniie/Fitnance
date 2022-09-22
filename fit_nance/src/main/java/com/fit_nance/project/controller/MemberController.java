@@ -5,6 +5,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -48,6 +50,23 @@ public class MemberController {
 		
 		return "member/login";
 	}
+	
+	// 회원가입 폼 이동
+	@RequestMapping("/login_fail")
+	public String login_fail() {
+		return "member/login_fail";
+	}
+	
+	// 이전 페이지 이동
+	@RequestMapping("/prevPage")
+	public String prevPage(HttpServletRequest request) {
+		if (request.getHeader("Referer") != null) {
+			System.out.println(request.getHeader("Referer"));
+		    return "redirect:" + request.getHeader("Referer");
+		  } else {
+		    return "redirect:/";
+		  }
+	}
 
 	// 회원가입 폼 이동
 	@RequestMapping("/signupForm")
@@ -63,7 +82,28 @@ public class MemberController {
 	public String signup(MemberVO vo) {
 		memService.insertMember(vo);
 
-		return "redirect:/loginForm";
+		return "member/signup_pass";
+	}
+	
+	// 회원가입 성공
+	@RequestMapping("/signup_pass")
+	public String signup_pass() {
+
+		return "member/signup_pass";
+	}
+	
+	// 비밀번호 오류
+	@RequestMapping("/password_error")
+	public String password_error() {
+
+		return "member/password_error";
+	}
+	
+	// 회원가입 탈퇴
+	@RequestMapping("/withdrawal_success")
+	public String withdrawal_success() {
+
+		return "member/withdrawal_success";
 	}
 
 	// 회원가입 - 아이디 체크
@@ -84,10 +124,10 @@ public class MemberController {
 	}
 
 	// 마이페이지 폼 이동
-	@RequestMapping("/user/mypage")
-	public String mypageForm(Authentication auth, Model model) {
+	@RequestMapping("/user/mypage/{memId}")
+	public String mypageForm(@PathVariable String memId, Authentication auth, Model model) {
 		PrincipalDetails princ = (PrincipalDetails) auth.getPrincipal();
-		String memId = princ.getUsername();
+		//String memId = princ.getUsername();
 		String memImg = princ.getMemImg();
 		System.out.println(memId);
 		MemberVO mem = memService.detailViewMemInfo(memId);
@@ -115,13 +155,22 @@ public class MemberController {
 	}
 	
 	// 즐겨찾기 삭제
-	@RequestMapping("/user/myFavoriteDelete")
-	public String myFavoriteDelete(@RequestParam HashMap<String, Object> map, Authentication auth) {
-		PrincipalDetails princ = (PrincipalDetails) auth.getPrincipal();
-	
+	@RequestMapping("/myFavoriteDelete/{memId}/{kind}/{oIndex}")
+	public String myFavoriteDelete(@PathVariable("memId") String memId,
+								   @PathVariable("kind") int kind,
+								   @PathVariable("oIndex") int oIndex,
+								   Authentication auth) {
+		HashMap<String, Object> map = new HashMap<String, Object>();
 		
+		map.put("memId", memId);
+		map.put("kind", kind);
+		map.put("oIndex", oIndex);
+		System.out.println("myFavoriteDelete oIndex : " + oIndex);
+		System.out.println("myFavoriteDelete kind : " + kind);
 		
-		return null;
+		memService.myFavoriteDelete(map);
+
+		return "redirect:/user/mypage/{memId}";
 	}
 	
 
@@ -145,7 +194,7 @@ public class MemberController {
 			return "redirect:./update_mypage";
 		} else {
 			rtt.addFlashAttribute("msg", "비밀번호를 다시 확인해 주세요.");
-			return "redirect:./update_mypage_auth";
+			return "member/password_error";
 		}
 	}
 
@@ -180,27 +229,33 @@ public class MemberController {
 	// 회원정보 수정
 	@RequestMapping("/user/update_memInfo")
 	public String updateMemInfo(@RequestParam HashMap<String, Object> map, @RequestParam("input-upload-profileImg") MultipartFile file,
-								Authentication auth, MemberVO vo, Model model) throws IOException {
+								Authentication auth, MemberVO vo, Model model){
 		PrincipalDetails princ = (PrincipalDetails) auth.getPrincipal();
 		ArrayList<BankVO> bankList = memService.listAllBank();
 		
 		model.addAttribute("bankList", bankList);
 		// 1. 파일 저장 경로 설정 : 실제 서비스되는 위치 (프로젝트 외부에 저장)
 		String uploadPath = "/usr/local/project/fitnance_images/upload/";
- 
+				
 		// 2. 원본 파일 이름 설정
 		String originalFileName = file.getOriginalFilename();
 		
 		// 3. 파일 이름이 중복되지 않도록 파일 이름 변경 : 서버에 저장할 이름
-
-
 		String savedFileName = princ.getUsername()+"_"+originalFileName;
 		
 		// 4. 파일 생성
 		File newFile = new File(uploadPath + savedFileName);
 		
 		// 5. 서버로 전송
-		file.transferTo(newFile);
+		try {
+			file.transferTo(newFile);
+		} catch (IllegalStateException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		
 		
 		memService.updateMemImg(map);
 		
@@ -254,7 +309,7 @@ public class MemberController {
 			System.out.println(memPwd_chk);
 			if(!memPwd.equals(memPwd_chk)) {
 				
-				return "redirect:./update-passwordForm";
+				return "member/password_error";
 				
 			}else {
 				System.out.println("비밀번호 통과 : "+map.get("memPwd"));
@@ -287,7 +342,7 @@ public class MemberController {
 			return "redirect:./user/withdrawal_member";
 		} else {
 			rtt.addFlashAttribute("msg", "비밀번호를 다시 확인해 주세요.");
-			return "redirect:/withdrawal_passwordCheckForm";
+			return "member/password_error";
 		}
 	}
 
@@ -298,8 +353,7 @@ public class MemberController {
 
 		memService.withdrawal_member(vo);
 
-		// DB에 데이터 저장한 후 공지사항 목록 화면으로 포워딩
-		return "redirect:/logout";
+		return "member/withdrawal_success";
 	}
 
 	// 스프링 시큐리티 세션 정보 확인

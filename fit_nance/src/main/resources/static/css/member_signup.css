@@ -30,16 +30,6 @@ input:focus{
 
 
 
-button{
-    width:100%;
-    height: 60px;
-    margin-top:30px;
-    padding: 20px 19px;
-    border:none;
-    border-radius:5px;
-    background-color: #1F4DFF;
-}
-
 button .btn-span{
     font-size: 18px;
     font-weight: 600;
@@ -143,6 +133,17 @@ button .btn-span{
     margin-top: 12px;
     text-decoration:underline;
     color:#666666;
+}
+
+#btn-Email-next{
+    width:100%;
+    height: 60px;
+    margin-top:30px;
+    padding: 20px 19px;
+    border:none;
+    border-radius:5px;
+    background-color: #1F4DFF;
+
 }
 
 #btn-Email-next:disabled{
@@ -525,6 +526,17 @@ input[type=checkbox]{
     color:#666666;
 }
 
+#btn-information-finish{
+    width:100%;
+    height: 60px;
+    margin-top:30px;
+    padding: 20px 19px;
+    border:none;
+    border-radius:5px;
+    background-color: #1F4DFF;
+
+}
+
 #btn-information-finish:disabled{
     background-color: #aaaaaa;
 }
@@ -628,6 +640,8 @@ input[type=checkbox]{
 }
 
 #btn-user_bank{
+	width:100%;
+    height: 60px;
     margin:0;
     padding:21px 16px 20px 20px;
     border-radius: 5px;
@@ -643,6 +657,16 @@ input[type=checkbox]{
     color: #aaa;
 }
 
+#btn-more-information-finish{
+    width:100%;
+    height: 60px;
+    margin-top:30px;
+    padding: 20px 19px;
+    border:none;
+    border-radius:5px;
+    background-color: #1F4DFF;
+
+}
 
 /* ì€í–‰ ì„ íƒ ëª¨ë‹¬ */
 .modal-overlay {

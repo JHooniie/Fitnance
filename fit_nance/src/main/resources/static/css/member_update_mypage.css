@@ -80,7 +80,7 @@ input[type="file"] {
 }
 
 .box-update-profileImg-img-center img{
-	width: 100%;
+	width: 100px;
 }
 
 .box-profileImg-overlay:hover{
