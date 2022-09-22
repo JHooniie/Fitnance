@@ -8,7 +8,7 @@ $(document).ready(function(){
 			type:"post",
 			url:`/logout`,
 			success:function(result){
-				location.href="";
+				location.href="/";
 
 			},
 			error:function(){
