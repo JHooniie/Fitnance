@@ -103,7 +103,7 @@
                     </div>
                 </div>
             </div>
-            <div class="go-to-list">목록으로 돌아가기</div>
+            <a class="go-to-list" href="<c:url value='/listPension'/>">목록으로 돌아가기</a>
         </div>      
     </div>
 		

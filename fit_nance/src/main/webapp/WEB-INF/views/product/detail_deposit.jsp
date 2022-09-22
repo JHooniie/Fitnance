@@ -98,7 +98,7 @@
                     </div>
                 </div>
             </div>
-            <a class="go-to-list" href="<c:url value='/deposit'/>">목록으로 돌아가기</a>
+            <a class="go-to-list" href="<c:url value='/listDeposit'/>">목록으로 돌아가기</a>
         </div>      
     </div>
 		

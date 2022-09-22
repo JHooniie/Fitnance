@@ -14,6 +14,7 @@ import com.fit_nance.project.model.InstallListFilterVO;
 import com.fit_nance.project.model.InstallListVO;
 import com.fit_nance.project.model.PensionFilterVO;
 import com.fit_nance.project.model.PensionListVO;
+import com.fit_nance.project.model.PopularVO;
 
 @Service
 public class ListSavingService implements IListSavingService {
@@ -108,6 +109,7 @@ public class ListSavingService implements IListSavingService {
 	}
 
 	@Override
+
 	public DepositListVO recommendDepositList(int oIndex) {
 		// TODO Auto-generated method stub
 		return dao.recommendDepositList(oIndex);
@@ -117,6 +119,11 @@ public class ListSavingService implements IListSavingService {
 	public InstallListVO recommendInstallList(int oIndex) {
 		// TODO Auto-generated method stub
 		return dao.recommendInstallList(oIndex);
+
+	public ArrayList<PopularVO> selectPopular() {
+		// TODO Auto-generated method stub
+		return dao.selectPopular();
+
 	}
 
 }
