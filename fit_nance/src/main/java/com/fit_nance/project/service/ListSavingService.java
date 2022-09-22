@@ -107,4 +107,16 @@ public class ListSavingService implements IListSavingService {
 		return dao.selectPensionSearch(search);
 	}
 
+	@Override
+	public DepositListVO recommendDepositList(int oIndex) {
+		// TODO Auto-generated method stub
+		return dao.recommendDepositList(oIndex);
+	}
+
+	@Override
+	public InstallListVO recommendInstallList(int oIndex) {
+		// TODO Auto-generated method stub
+		return dao.recommendInstallList(oIndex);
+	}
+
 }

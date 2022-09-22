@@ -9,7 +9,7 @@ public class APIKey {
     private String chatbotKey = "UmdycFBSaXFXTFNZdGlGRG5kcHlOUUN6QURBY2NhaFc=";
     private String captchaId = "c6yjfpdy44";
     private String captchKey = "WuwaT92ye6fIo0f59dDFAiBaake0wGKi0U0ap6DR";
-    private String aitemsId = "ln1ksy45o1u";
+    private String aitemsId = "hy1ndl4mr24";
     private String aitemsAKey = "8C573CA82CC7A1445EEE";
     private String aitemsSKey = "AED81468AAF3B749E4DCBBDF804BAE9DF0E2C40D";
     

@@ -18,8 +18,8 @@ import com.fit_nance.project.model.APIKey;
 
 @Service
 public class AitemsService {
-	public static ArrayList<String> aitemsService(String serviceId, String type, String targetId) throws Exception{
-		ArrayList<String> itemList = new ArrayList<String>();
+	public static ArrayList<Integer> aitemsService(String serviceId, String type, String targetId) throws Exception{
+		ArrayList<Integer> itemList = new ArrayList<Integer>();
 		
 			BufferedReader br = null;
 			APIKey key = new APIKey();
@@ -92,14 +92,15 @@ public class AitemsService {
 		
 	}
 	
-	public static ArrayList<String> jsonToList(String jsonResultStr) {
-    	ArrayList<String> result = new ArrayList<String>();
+	public static ArrayList<Integer> jsonToList(String jsonResultStr) {
+    	ArrayList<Integer> result = new ArrayList<Integer>();
 		
 		JSONObject jsonObj = new JSONObject(jsonResultStr);
 		int index = jsonObj.getJSONArray("values").length();
 		for(int i=0; i<index; i+=5) { 
 			String str = jsonObj.getJSONArray("values").getString(i);
-			result.add(str);
+			int oIndex = Integer.parseInt(str);
+			result.add(oIndex);
 		}
 		
 		return result;
