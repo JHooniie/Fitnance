@@ -20,7 +20,7 @@
                 <div class="withdrawal_box">
                     <span class="span-withdrawal_box-01"><span>fit</span>:nance를 이용해 주셔서 감사합니다.</span>
                     <span class="span-withdrawal_box-02">더 나은 서비스로 보답하는 <span>fit</span>:nance가 되겠습니다.</span>
-                    <button id="index_location" type="button" class="Bbutton" onclick="location.href='<c:url value='/'/>'">메인페이지 이동</button>
+                    <button id="index_location" type="button" class="Bbutton">메인페이지 이동</button>
                 </div>
             </div>
         </div>
@@ -28,5 +28,5 @@
     <!-- login end -->
 	    <c:import url="/WEB-INF/views/layout/footer.jsp" />
 	</body>
-	<script src="../js/login.js"></script>
+	<script src="../js/member_withdrawal_success.js"></script>
 </html>

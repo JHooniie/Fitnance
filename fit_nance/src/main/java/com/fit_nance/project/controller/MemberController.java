@@ -353,7 +353,7 @@ public class MemberController {
 
 		memService.withdrawal_member(vo);
 
-		return "member/withdrawal_success";
+		return "redirect:/withdrawal_success";
 	}
 
 	// 스프링 시큐리티 세션 정보 확인
