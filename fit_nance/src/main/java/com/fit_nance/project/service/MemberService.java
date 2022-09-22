@@ -4,6 +4,8 @@ import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -103,6 +105,11 @@ public class MemberService implements IMemberService {
 	@Override
 	public ArrayList<FavoriteVO> favoriteListCreditView(String memId) {
 		return dao.favoriteListCreditView(memId);
+	}
+	// 즐겨찾기 삭제
+	@Override
+	public void myFavoriteDelete(HashMap<String, Object> map) {
+		dao.myFavoriteDelete(map);	
 	}
 	
 	//회원 정보 불러오기
@@ -242,6 +249,8 @@ public class MemberService implements IMemberService {
 		
 		
 }
+
+
 
 	
 

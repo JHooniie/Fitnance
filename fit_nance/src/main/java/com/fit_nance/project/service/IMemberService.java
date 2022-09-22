@@ -3,6 +3,8 @@ package com.fit_nance.project.service;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import javax.servlet.http.HttpServletRequest;
+
 import com.fit_nance.project.model.BankVO;
 import com.fit_nance.project.model.FavoriteVO;
 import com.fit_nance.project.model.MemberVO;
@@ -50,6 +52,9 @@ public interface IMemberService {
 	// 신용 대출
 	public ArrayList<FavoriteVO> favoriteListCreditView(String memId);
 	
+	// 즐겨찾기 삭제
+	public void myFavoriteDelete(HashMap<String, Object> map);
+	
 	// 회원가입 시 은행 정보 가져오기
 	public ArrayList<BankVO> listAllBank();
 	
@@ -58,4 +63,5 @@ public interface IMemberService {
 	
 	//회원탈퇴
 	public void withdrawal_member(MemberVO vo);
+	
 }

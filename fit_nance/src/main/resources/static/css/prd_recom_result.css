@@ -64,7 +64,7 @@
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	margin-top: 40px;
+	margin-top: 20px;
 }
 
 .prd-recom-top .box-prd-list .box-prd .lg-bank{
@@ -85,9 +85,15 @@
 }
 
 .prd-recom-top .box-prd-list .box-prd .name-prd{
-	margin-top: 25px;
-	font-size: 20px;
-	font-weight: 600;
+	display: block;
+    width: 320px;
+    margin-top: 25px;
+    font-size: 20px;
+    font-weight: 600;
+    text-align: center;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 .prd-recom-top .box-prd-list .box-prd .box-percent{
@@ -143,6 +149,8 @@
 	font-size: 15px;
 	font-weight: 200;
 	cursor: pointer;
+	text-align: center;
+	line-height: 48px;
 }
 
 

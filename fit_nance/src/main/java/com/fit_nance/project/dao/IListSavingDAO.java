@@ -15,13 +15,14 @@ public interface IListSavingDAO {
 	public InstallListVO selectInstallDetail(int oIndex);
 	public ArrayList<InstallListVO> selectInstallFilter(HashMap<String,Object> map);
 	public ArrayList<InstallListVO> selectInstallSearch(String search);
-
+	public InstallListVO recommendInstallList(int oIndex);
 	
 	// 예금
 	public ArrayList<DepositListVO> selectDepositList();
 	public DepositListVO selectDepositDetail(int oIndex);
 	public ArrayList<DepositListVO> selectDepositFilter(HashMap<String,Object> map);
 	public ArrayList<DepositListVO> selectDepositSearch(String search);
+	public DepositListVO recommendDepositList(int oIndex);
 	
 	// 연금
 	public ArrayList<PensionListVO> selectPensionList();

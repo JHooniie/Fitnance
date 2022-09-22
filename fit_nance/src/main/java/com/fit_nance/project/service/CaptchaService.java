@@ -23,6 +23,7 @@ public class CaptchaService {
 	//캡챠 이미지 키
 		private String captcha_key = keyIssued();
 		private String captcha_key_img = captchaImage(captcha_key);
+		
 		public String getCaptcha_key() {
 			return captcha_key;
 		}
@@ -30,12 +31,14 @@ public class CaptchaService {
 		public String getCaptcha_key_img() {
 			return captcha_key_img;
 		}
-	
-
 		
-    public String keyIssued() {
+	    public void setCaptcha_key(String captcha_key) {
+				this.captcha_key = captcha_key;
+			}
+
+	public String keyIssued() {
     	APIKey key = new APIKey();
-    	
+    	System.out.println("새로고침 적용");
         String clientId = key.getCaptchaId();// 애플리케이션 클라이언트 아이디값"
         String clientSecret = key.getCaptchKey();// 애플리케이션 클라이언트 시크릿값"
         try {
@@ -66,9 +69,9 @@ public class CaptchaService {
             
             JSONObject jObject = new JSONObject(jsonString);
             
-            String captcha_key_img = jObject.getString("key");
-            System.out.println(captcha_key_img);
-            return captcha_key_img;
+            String captcha_key = jObject.getString("key");
+            System.out.println("캡챠 발급 키 : "+captcha_key);
+            return captcha_key;
         } catch (Exception e) {
             System.out.println(e);
         }
@@ -90,7 +93,7 @@ public class CaptchaService {
             int responseCode = con.getResponseCode();
             BufferedReader br;
             if(responseCode==200) { // 정상 호출
-            	String path = "file:///usr/local/project/fitnance_images/captcha";
+            	String path = "/usr/local/project/fitnance_images/captcha";
         		File deleteFolder = new File(path);
         		System.out.println(path);
         		if(deleteFolder.exists()){
@@ -105,8 +108,8 @@ public class CaptchaService {
                 byte[] bytes = new byte[1024];
                 // 랜덤한 이름으로 파일 생성
                 String tempname = Long.valueOf(new Date().getTime()).toString();
-                File f = new File("file:///usr/local/project/fitnance_images/captcha/"+tempname + ".jpg");
-                f.createNewFile();
+                File f = new File("/usr/local/project/fitnance_images/captcha/"+tempname + ".jpg");
+                f.createNewFile();	///usr/local/project
                 System.out.println(f);
                 
                 OutputStream outputStream = new FileOutputStream(f);
@@ -149,9 +152,9 @@ public class CaptchaService {
         String clientId = key.getCaptchaId();// 애플리케이션 클라이언트 아이디값"
         String clientSecret = key.getCaptchKey();// 애플리케이션 클라이언트 시크릿값"
         try {
-        	 System.out.println(captcha_key);
+        	 System.out.println("리절트 캡챠 키 : "+captcha_key);
             String code = "1"; // 키 발급시 0,  캡차 이미지 비교시 1로 세팅
-            String keys = captcha_key; // 캡차 키 발급시 받은 키값
+            String keys = getCaptcha_key(); // 캡차 키 발급시 받은 키값
             String value = captcha_value; // 사용자가 입력한 캡차 이미지 글자값
             String apiURL = "https://naveropenapi.apigw.ntruss.com/captcha/v1/nkey?code=" + code +"&key="+ keys + "&value="+ value;
 
@@ -187,4 +190,5 @@ public class CaptchaService {
         }
         return null;
     }
+
 }

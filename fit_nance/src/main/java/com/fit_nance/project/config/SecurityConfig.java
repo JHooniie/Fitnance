@@ -46,24 +46,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-//		http.addFilterBefore(new MyFilter3(), SecurityContextPersistenceFilter.class);
-//		http.csrf().disable();
-//		http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-//		.and()
-//		.addFilter(corsFilter)
-//		.formLogin().disable()
-//		.httpBasic().disable()
-//		.addFilter(new JwtAuthenticationFilter(authenticationManager())) //AuthenticationManager
-//		.addFilter(new JwtAuthorizationFilter(authenticationManager(), dao))
-//		.authorizeRequests()
-//		.antMatchers("/user/**")
-//		.access("hasRole('ROLE_USER') or hasRole('ROLE_MANAGER') or hasRole('ROLE_ADMIN')")
-//		.antMatchers("/manager/**")
-//		.access("hasRole('ROLE_MANAGER') or hasRole('ROLE_ADMIN')")
-//		.antMatchers("/admin/**")
-//		.access("hasRole('ROLE_ADMIN')")
-//		.anyRequest().permitAll();
-//jwt 추가 전 configure		
 		http
 				.csrf().disable();
 		http
@@ -78,12 +60,16 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 				.passwordParameter("memPwd")
 				.loginProcessingUrl("/loginProc")
 				.defaultSuccessUrl("/")
+				.failureUrl("/login_fail")
+				.and()
+				.exceptionHandling()
+				.accessDeniedPage("/WEB-INF/views/member/access_denied.jsp")
 				.and()
 				.oauth2Login()
 				.loginPage("/loginForm")
 				.userInfoEndpoint()
 				.userService(principalOauth2UserService);
-		// 로그아웃 폼 생성
+
 
 	}
 

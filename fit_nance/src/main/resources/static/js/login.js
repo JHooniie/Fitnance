@@ -1,5 +1,6 @@
 $(document).ready(function(){
 
+    
     //로그인 유효성 검사
     var regEmail = /^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/;
     var getCheck = RegExp(/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/);
@@ -45,6 +46,8 @@ $(document).ready(function(){
             return true;
         }
     })
+
+
 
         //캡챠
         $('#rotate-captcha').on('click', function(event){
@@ -137,6 +140,7 @@ $(document).ready(function(){
             url:"/api/rotate_captcha",
             async: false,
             success:function(result){
+            
             },
             error:function(){
                 alert("전송 실패");
@@ -152,6 +156,7 @@ $(document).ready(function(){
             async: false,
             success:function(result){
                 $(".box-captcha-img img").attr("src", "images/captcha/"+result);
+                
             },
             error:function(){
                 alert("전송 실패");
