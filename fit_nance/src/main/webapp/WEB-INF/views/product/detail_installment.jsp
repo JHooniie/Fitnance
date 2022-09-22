@@ -99,7 +99,7 @@
                     </div>
                 </div>
             </div>
-            <a class="go-to-list" href="<c:url value='/saving'/>">목록으로 돌아가기</a>
+            <a class="go-to-list" href="<c:url value='/listInstall'/>">목록으로 돌아가기</a>
         </div>      
     </div>
 		
