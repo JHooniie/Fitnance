@@ -24,7 +24,8 @@ public class AitemsController {
 			
 			System.out.println("type : " + type);
 			System.out.println("targetId : " + targetId);
-			AitemsService.aitemsService(serviceId, type, targetId);
+			
+			AitemsService.aitemsService(serviceId, type, targetId);// 결과 리스트
 		}
 		
 	}
@@ -42,7 +43,8 @@ public class AitemsController {
 			
 			System.out.println("type : " + type);
 			System.out.println("targetId : " + targetId);
-			AitemsService.aitemsService(serviceId, type, targetId);
+			
+			AitemsService.aitemsService(serviceId, type, targetId);// 결과 리스트
 		}
 		
 	}
