@@ -45,7 +45,8 @@
     		dataType: "text",
     		success: function(result){
     			alert("문의 사항이 등록되었습니다");
-    			location.reload();
+    			location.href = '/inquire_list';
+    			//location.reload();
     		},
     		error: function(request, error){
     			console.log("code:"+request.status+"\nmessage:"+request.responseText+"\nerror:"+error);

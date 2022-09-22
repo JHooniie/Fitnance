@@ -55,11 +55,10 @@ public class CCController {
 		PrincipalDetails princ = (PrincipalDetails)auth.getPrincipal();
 		
 		String memId = princ.getUsername();
-		//ArrayList<QNAVO> qnaList = qService.listMemQNA(memId);
 		
 		model.addAttribute("memId", memId);
-		//model.addAttribute("qnaList", qnaList);
 		}
+		
 		return "cc/inquire"; 
 	}
 
@@ -78,6 +77,7 @@ public class CCController {
 		
 		return result;
 	}
+	
 	@RequestMapping("/inquire_list")
 	public String inquire_list(Authentication auth, Model model) {
 		PrincipalDetails princ = (PrincipalDetails)auth.getPrincipal();
@@ -89,24 +89,25 @@ public class CCController {
 		model.addAttribute("qnaList", qnaList);
 		return "cc/inquire_list"; 
 	}
+	
 	@RequestMapping("/inquire_detail/{qIndex}")
 	public String inquire_detail(@PathVariable int qIndex, Authentication auth, Model model) {
 		PrincipalDetails princ = (PrincipalDetails)auth.getPrincipal();
 		
 		String memId = princ.getUsername();
-		System.out.println("인덱스 : "+qIndex);
-		//ArrayList<QNAVO> qnaQ = qService.questionMemQNA(qIndex);
+		
 		QNAVO qnaQ = qService.questionMemQNA(qIndex);
-		//ArrayList<QNAVO> qnaA = qService.answerMemQNA(memId, qIndex);
 		QNAVO qnaA = qService.answerMemQNA(memId, qIndex);
+		
 		model.addAttribute("qnaQ", qnaQ);
 		model.addAttribute("qnaA", qnaA);
-		
+		System.out.println(qnaA);
 		return "cc/inquire_detail";
 	}
+	
 	@RequestMapping("/insert_inquire")
 	public String insert_inquire() {
-		String result = "fail";
+		String result = "fail"; 
 		return result;
 	}
 	

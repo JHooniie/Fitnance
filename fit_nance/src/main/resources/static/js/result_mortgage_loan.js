@@ -180,6 +180,8 @@
 		}, function(){
 			$(this).css('background-color', '#ffffff');
 		    $(this).css('color', '#aaaaaa');
+		    $('.page_num'+page).css('background-color', '#1f4dff');
+			$('.page_num'+page).css('color', '#ffffff');
 		});
 		
 		// 페이지 버튼 클릭 시
