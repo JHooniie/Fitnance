@@ -24,7 +24,6 @@ public class CaptchaController {
 		captcha.setCaptcha_key(captcha_key);
 		System.out.println("키발급 컨트롤러 : "+captcha_key);
 		String captcha_img = captcha.captchaImage(captcha_key);
-		//model.addAttribute("captcha_img", captcha_img);
 
 		return captcha_img;
 	}

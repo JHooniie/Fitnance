@@ -120,6 +120,10 @@
 				O.lend_rate_type_nm LIKE CONCAT ('%',#{list_lend_type},'%')
 			</foreach>
 		</if>
+		<if test="search!=null">
+			AND
+			B.fin_prdt_nm LIKE CONCAT ('%',#{search},'%')
+		</if>
 		WHERE O.oIndex IN (SELECT max(oIndex) from home_loan_option GROUP BY pIndex)
 		ORDER BY O.lend_rate_min
 	</select>
@@ -165,6 +169,10 @@
 				O.lend_rate_type_nm LIKE CONCAT ('%',#{list_lend_type},'%')
 			</foreach>
 		</if>
+		<if test="search!=null">
+			AND
+			B.fin_prdt_nm LIKE CONCAT ('%',#{search},'%')
+		</if>
 		WHERE O.oIndex IN (SELECT max(oIndex) from charter_loan_option GROUP BY pIndex)
 		ORDER BY O.oIndex DESC
 	</select>
@@ -202,6 +210,10 @@
 			<foreach collection="list_crdt_prdt_type" item="list_crdt_prdt_type" open="(" close=")" separator="AND">
 				B.crdt_prdt_type LIKE CONCAT ('%',#{list_crdt_prdt_type},'%')
 			</foreach>
+		</if>
+		<if test="search!=null">
+			AND
+			B.fin_prdt_nm LIKE CONCAT ('%',#{search},'%')
 		</if>
 		WHERE O.oIndex IN (SELECT max(oIndex) from personal_loan_option GROUP BY pIndex)
 		ORDER BY O.pIndex DESC

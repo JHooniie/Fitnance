@@ -16,17 +16,17 @@ public interface IListLoanService {
 	// 주택담보
 	public ArrayList<HomeLoanListVO> listAllHomeLoan();
 	public HomeLoanListVO detailViewHomeLoan(int oIndex);
-	public ArrayList<HomeLoanListVO> selectHomeLoanFilter(HomeLoanFilterVO vo);
+	public ArrayList<HomeLoanListVO> selectHomeLoanFilter(HomeLoanFilterVO vo, String search);
 	
 	// 전세자금 house_loan
 	public ArrayList<CharterLoanListVO> selectCharterLoanList();
 	public CharterLoanListVO selectCharterLoanDetail(int oIndex);
-	public ArrayList<CharterLoanListVO> selectCharterLoanFilter(CharterLoanFilterVO vo);
+	public ArrayList<CharterLoanListVO> selectCharterLoanFilter(CharterLoanFilterVO vo, String search);
 	
 	// 개인신용
 	public ArrayList<PersonalLoanListVO> selectPersonalLoanList();
 	public PersonalLoanListVO selectPersonalLoanDetail(int oIndex);
-	public ArrayList<PersonalLoanListVO> selectPersonalLoanFilter(PersonalLoanFilterVO vo);
+	public ArrayList<PersonalLoanListVO> selectPersonalLoanFilter(PersonalLoanFilterVO vo, String search);
 
 	ArrayList<FavoriteVO> selectFavList(String kind, String fin_prdt_cd, String memId);
 	void insertFavList(String kind, String fin_prdt_cd, String memId);

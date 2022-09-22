@@ -9,6 +9,7 @@
 	var arr_mrtg_type=["mrtg_type"];
 	var arr_rpay_type=["rpay_type"];
 	var arr_lend_type=["lend_type"];
+	var search_word = null;
 	
 	var arr_prdt_compare=["prdt_compare"];
 	var prdt_cd = null;
@@ -167,6 +168,18 @@
             });
         }
     }
+    
+    $('.input_search_prdt').on('keyup', function(key){
+    	if(key.keyCode == 13){
+    		search_word = $('.input_search_prdt').val();
+    		callAjax();
+    	}
+    })
+    
+    $('.div_search_prdt>i').click(function(){
+    	search_word = $('.input_search_prdt').val();
+    	callAjax();
+    })
    
     // Ajax 중복으로 함수로 처리
     function callAjax(){
@@ -178,7 +191,8 @@
         			arr_join_way: arr_join_way,
         			arr_mrtg_type: arr_mrtg_type,
         			arr_rpay_type: arr_rpay_type,
-        			arr_lend_type: arr_lend_type
+        			arr_lend_type: arr_lend_type,
+        			search_word: search_word
         	},
         	success: function(result){
         		$('#result_list_prdt').html(result);
@@ -347,6 +361,15 @@
 		$('.prdt'+page).show();
 		$('.page_num'+page).css('background-color', '#1f4dff');
 		$('.page_num'+page).css('color', '#ffffff');
+		
+		// 페이지 버튼 호버 시
+		$('.btn_page').hover(function(){
+			$(this).css('background-color', '#1f4dff');
+		    $(this).css('color', '#ffffff');
+		}, function(){
+			$(this).css('background-color', '#ffffff');
+		    $(this).css('color', '#aaaaaa');
+		});
 		
 		// 페이지 버튼 클릭 시
 	    $('.btn_page').click(function(){

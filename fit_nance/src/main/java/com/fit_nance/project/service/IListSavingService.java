@@ -18,13 +18,15 @@ public interface IListSavingService {
 	public InstallListVO selectInstallDetail(int oIndex);
 	public ArrayList<InstallListVO> selectInstallFilter(InstallListFilterVO vo);
 	public ArrayList<InstallListVO> selectInstallSearch(String search);
+	public InstallListVO recommendInstallList(int oIndex);
 	
 	// 예금
 	public ArrayList<DepositListVO> selectDepositList();
 	public DepositListVO selectDepositDetail(int oIndex);
 	public ArrayList<DepositListVO> selectDepositFilter(DepositFilterVO vo);
 	public ArrayList<DepositListVO> selectDepositSearch(String search);
-
+	public DepositListVO recommendDepositList(int oIndex);
+	
 	// 연금
 	public ArrayList<PensionListVO> selectPensionList();
 	public PensionListVO selectPensionDetail(int oIndex);

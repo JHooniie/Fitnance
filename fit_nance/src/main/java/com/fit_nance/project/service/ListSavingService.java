@@ -109,9 +109,21 @@ public class ListSavingService implements IListSavingService {
 	}
 
 	@Override
+
+	public DepositListVO recommendDepositList(int oIndex) {
+		// TODO Auto-generated method stub
+		return dao.recommendDepositList(oIndex);
+	}
+
+	@Override
+	public InstallListVO recommendInstallList(int oIndex) {
+		// TODO Auto-generated method stub
+		return dao.recommendInstallList(oIndex);
+
 	public ArrayList<PopularVO> selectPopular() {
 		// TODO Auto-generated method stub
 		return dao.selectPopular();
+
 	}
 
 }

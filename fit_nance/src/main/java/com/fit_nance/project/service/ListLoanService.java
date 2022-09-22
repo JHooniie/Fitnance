@@ -35,12 +35,13 @@ public class ListLoanService implements IListLoanService{
 	}
 
 	@Override
-	public ArrayList<HomeLoanListVO> selectHomeLoanFilter(HomeLoanFilterVO vo) {
+	public ArrayList<HomeLoanListVO> selectHomeLoanFilter(HomeLoanFilterVO vo, String search) {
 		HashMap<String,Object> map= new HashMap<String,Object>();
 		map.put("list_join_way",vo.getList_join_way());
 		map.put("list_mrtg_type", vo.getList_mrtg_type());
 		map.put("list_rpay_type", vo.getList_rpay_type());
 		map.put("list_lend_type", vo.getList_lend_type());
+		map.put("search", search);
 		return dao.selectHomeLoanFilter(map);
 	}
 	
@@ -56,11 +57,12 @@ public class ListLoanService implements IListLoanService{
 	}
 
 	@Override
-	public ArrayList<CharterLoanListVO> selectCharterLoanFilter(CharterLoanFilterVO vo) {
+	public ArrayList<CharterLoanListVO> selectCharterLoanFilter(CharterLoanFilterVO vo, String search) {
 		HashMap<String,Object> map= new HashMap<String,Object>();
 		map.put("list_join_way",vo.getList_join_way());
 		map.put("list_rpay_type", vo.getList_rpay_type());
 		map.put("list_lend_type", vo.getList_lend_type());
+		map.put("search", search);
 		
 		return dao.selectCharterLoanFilter(map);
 	}
@@ -77,10 +79,11 @@ public class ListLoanService implements IListLoanService{
 	}
 
 	@Override
-	public ArrayList<PersonalLoanListVO> selectPersonalLoanFilter(PersonalLoanFilterVO vo) {
+	public ArrayList<PersonalLoanListVO> selectPersonalLoanFilter(PersonalLoanFilterVO vo, String search) {
 		HashMap<String,Object> map= new HashMap<String,Object>();
 		map.put("list_join_way",vo.getList_join_way());
 		map.put("list_crdt_prdt_type", vo.getList_crdt_prdt_type());
+		map.put("search", search);
 		
 		return dao.selectPersonalLoanFilter(map);
 	}
