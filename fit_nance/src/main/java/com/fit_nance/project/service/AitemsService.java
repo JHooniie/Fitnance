@@ -51,9 +51,8 @@ public class AitemsService {
 			while((line = br.readLine()) != null) {
 				result = result + line + "\n";
 			}
-			System.out.println(result.toString());
-			
 			itemList = jsonToList(result.toString());
+			System.out.println(itemList);
 			return itemList;
 		}
 		
@@ -65,7 +64,7 @@ public class AitemsService {
 		String url = "/api/v1/services/"+serviceId
 					+ "/infers/lookup?type="+type+"&targetId="+targetId;	// url (include query string)
 		
-		String encodeBase64String = "";
+		String encodeBase64String = ""; 
 		String message = new StringBuilder()
 			.append(method)
 			.append(space)
@@ -97,7 +96,7 @@ public class AitemsService {
     	ArrayList<String> result = new ArrayList<String>();
 		
 		JSONObject jsonObj = new JSONObject(jsonResultStr);
-		for(int i=0; i<10; i++) {
+		for(int i=0; i<50; i+=5) { 
 			String str = jsonObj.getJSONArray("values").getString(i);
 			result.add(str);
 		}
