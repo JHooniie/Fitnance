@@ -9,6 +9,8 @@
 		<c:import url="/WEB-INF/views/layout/head.jsp" />
 		<!-- css -->
 		<link rel="stylesheet" href="<c:url value='/css/faq.css'/>"/>
+		<!-- js -->
+		<script src="<c:url value='/js/faq_search.js' />"></script>
 	</head>
 	<body>
 	<div class="title">자주 묻는 질문(${fn:length(FAQList) })</div>

@@ -14,6 +14,7 @@
 		<c:import url="/WEB-INF/views/layout/head.jsp" />
 		<!-- custom -->
 		<link rel="stylesheet" href="<c:url value='/css/member_mypage.css'/>">
+		<script src="<c:url value='/js/member_mypage.js'/>"></script>
 	</head>
 	<body>
 		<c:import url="/WEB-INF/views/layout/top.jsp" />
@@ -24,12 +25,14 @@
                 <div class="box-profile">
                     <div class="box-profileImg">
                         <div class="box-profileImg-img-center">
-                            <c:if test="${memImg eq null || memImg eq ''}">
-			               		<img id="img-profileImg" src="<c:url value='/images/upload/lg_fitnance_initial_mypage.png'/>">
-			               	</c:if>
-			               	<c:if test="${memImg ne null || memImg ne ''}">
-			               		<img id="img-profileImg" src="<c:url value='/images/upload/${memImg}'/>">
-			               	</c:if>
+                        	<c:choose>
+                        		<c:when test="${memImg eq null || memImg eq ''}">
+			               			<img id="img-profileImg" src="<c:url value='/images/upload/lg_fitnance_initial_mypage.png'/>">
+								</c:when>
+			               		<c:when test="${memImg ne null || memImg ne ''}">
+			               			<img id="img-profileImg" src="<c:url value='/images/upload/${memImg}'/>">
+			               		</c:when>
+			               	</c:choose>
                         </div>
                     </div>
                     <div class="box-profile-content">
@@ -50,17 +53,17 @@
                 <div class="box-favoriteList">
                     <div class="box-favoriteList-tab">
                         <ul>
-                            <li class="li-menuTab-01"><span class="favorite-tab active">전체 (${count})</span></li>
-                            <li><span class="favorite-tab">적금 (${fn:length(instList) })</span></li>
-                            <li><span class="favorite-tab">예금 (${fn:length(depList) })</span></li>
-                            <li><span class="favorite-tab">연금 (${fn:length(penList) })</span></li>
-                            <li><span class="favorite-tab">주택담보대출 (${fn:length(morList) })</span></li>
-                            <li><span class="favorite-tab">전세자금대출 (${fn:length(charList) })</span></li>
-                            <li><span class="favorite-tab">신용대출 (${fn:length(crdList) })</span></li>
+                            <li class="li-menuTab-01"><a class="favorite-tab" href="#0"><span class="span-favorite-tab active">전체 (${count})</span></a></li>
+                            <li><a class="favorite-tab" href="#1"><span class="span-favorite-tab">적금 (${fn:length(instList) })</span></a></li>
+                            <li><a class="favorite-tab" href="#2"><span class="span-favorite-tab">예금 (${fn:length(depList) })</span></a></li>
+                            <li><a class="favorite-tab" href="#3"><span class="span-favorite-tab">연금 (${fn:length(penList) })</span></a></li>
+                            <li><a class="favorite-tab" href="#4"><span class="span-favorite-tab">주택담보대출 (${fn:length(morList) })</span></a></li>
+                            <li><a class="favorite-tab" href="#5"><span class="span-favorite-tab">전세자금대출 (${fn:length(charList) })</span></a></li>
+                            <li><a class="favorite-tab" href="#6"><span class="span-favorite-tab">신용대출 (${fn:length(crdList) })</span></a></li>
                         </ul>
                     </div>
                    
-                    <div class="box-favoriteList-list 00">
+                    <div class="box-favoriteList-list 00 active">
                     	 <c:if test="${count eq 0 }">
                         <div class="box-favoriteList-empty">
                             <div class="box-favoriteList-empty-warning">
@@ -86,7 +89,13 @@
                                             <li><span>${joinway }</span></li>
                                             </c:forTokens>
                                         </ul>
-                                        <button><i class="fa-solid fa-heart"></i></button>
+                                        <div class="button-favorite-delete">
+                                        	<button ><i class="fa-solid fa-heart"></i></button>
+                                            <input type="hidden" name="memId" class="fav-memId" value="${principal.username}">
+                                            <input type="hidden" name="oIndex" class="fav-oIndex" value="${list.oIndex}">
+                                            <input type="hidden" name="kind" class="fav-kind" value="${list.kind}">
+                                        </div>
+                                        
                                 </div>
                                 <div class="box-favoriteCell-detail">
                                     <ul>
@@ -120,7 +129,12 @@
                                             <li><span>${joinway }</span></li>
                                             </c:forTokens>
                                         </ul>
-                                        <button><i class="fa-solid fa-heart"></i></button>
+                                        <div class="button-favorite-delete">
+                                        	<button ><i class="fa-solid fa-heart"></i></button>
+                                            <input type="hidden" name="memId" class="fav-memId" value="${principal.username}">
+                                            <input type="hidden" name="oIndex" class="fav-oIndex" value="${list.oIndex}">
+                                            <input type="hidden" name="kind" class="fav-kind" value="${list.kind}">
+                                        </div>
                                 </div>
                                 <div class="box-favoriteCell-detail">
                                     <ul>
@@ -154,7 +168,12 @@
                                             <li><span>${joinway }</span></li>
                                             </c:forTokens>
                                         </ul>
-                                        <button><i class="fa-solid fa-heart"></i></button>
+                                        <div class="button-favorite-delete">
+                                        	<button ><i class="fa-solid fa-heart"></i></button>
+                                            <input type="hidden" name="memId" class="fav-memId" value="${principal.username}">
+                                            <input type="hidden" name="oIndex" class="fav-oIndex" value="${list.oIndex}">
+                                            <input type="hidden" name="kind" class="fav-kind" value="${list.kind}">
+                                        </div>
                                 </div>
                                 <div class="box-favoriteCell-detail">
                                     <ul>
@@ -184,7 +203,12 @@
                                             <li><span>${joinway }</span></li>
                                             </c:forTokens>
                                         </ul>
-                                        <button><i class="fa-solid fa-heart"></i></button>
+                                        <div class="button-favorite-delete">
+                                        	<button ><i class="fa-solid fa-heart"></i></button>
+                                            <input type="hidden" name="memId" class="fav-memId" value="${principal.username}">
+                                            <input type="hidden" name="oIndex" class="fav-oIndex" value="${list.oIndex}">
+                                            <input type="hidden" name="kind" class="fav-kind" value="${list.kind}">
+                                        </div>
                                 </div>
                                 <div class="box-favoriteCell-detail">
                                     <ul>
@@ -218,7 +242,12 @@
                                             <li><span>${joinway }</span></li>
                                             </c:forTokens>
                                         </ul>
-                                        <button><i class="fa-solid fa-heart"></i></button>
+                                        <div class="button-favorite-delete">
+                                        	<button ><i class="fa-solid fa-heart"></i></button>
+                                            <input type="hidden" name="memId" class="fav-memId" value="${principal.username}">
+                                            <input type="hidden" name="oIndex" class="fav-oIndex" value="${list.oIndex}">
+                                            <input type="hidden" name="kind" class="fav-kind" value="${list.kind}">
+                                        </div>
                                 </div>
                                 <div class="box-favoriteCell-detail">
                                     <ul>
@@ -248,7 +277,12 @@
                                             <li><span>${joinway }</span></li>
                                             </c:forTokens>
                                         </ul>
-                                        <button><i class="fa-solid fa-heart"></i></button>
+                                        <div class="button-favorite-delete">
+                                        	<button ><i class="fa-solid fa-heart"></i></button>
+                                            <input type="hidden" name="memId" class="fav-memId" value="${principal.username}">
+                                            <input type="hidden" name="oIndex" class="fav-oIndex" value="${list.oIndex}">
+                                            <input type="hidden" name="kind" class="fav-kind" value="${list.kind}">
+                                        </div>
                                 </div>
                                 <div class="box-favoriteCell-detail">
                                     <ul>
@@ -291,7 +325,12 @@
                                             <li><span>${joinway }</span></li>
                                             </c:forTokens>
                                         </ul>
-                                        <button><i class="fa-solid fa-heart"></i></button>
+                                        <div class="button-favorite-delete">
+                                        	<button ><i class="fa-solid fa-heart"></i></button>
+                                            <input type="hidden" name="memId" class="fav-memId" value="${principal.username}">
+                                            <input type="hidden" name="oIndex" class="fav-oIndex" value="${list.oIndex}">
+                                            <input type="hidden" name="kind" class="fav-kind" value="${list.kind}">
+                                        </div>
                                 </div>
                                 <div class="box-favoriteCell-detail">
                                     <ul>
@@ -338,7 +377,12 @@
                                             <li><span>${joinway }</span></li>
                                             </c:forTokens>
                                         </ul>
-                                        <button><i class="fa-solid fa-heart"></i></button>
+                                        <div class="button-favorite-delete">
+                                        	<button ><i class="fa-solid fa-heart"></i></button>
+                                            <input type="hidden" name="memId" class="fav-memId" value="${principal.username}">
+                                            <input type="hidden" name="oIndex" class="fav-oIndex" value="${list.oIndex}">
+                                            <input type="hidden" name="kind" class="fav-kind" value="${list.kind}">
+                                        </div>
                                 </div>
                                 <div class="box-favoriteCell-detail">
                                     <ul>
@@ -385,7 +429,12 @@
                                             <li><span>${joinway }</span></li>
                                             </c:forTokens>
                                         </ul>
-                                        <button><i class="fa-solid fa-heart"></i></button>
+                                        <div class="button-favorite-delete">
+                                        	<button ><i class="fa-solid fa-heart"></i></button>
+                                            <input type="hidden" name="memId" class="fav-memId" value="${principal.username}">
+                                            <input type="hidden" name="oIndex" class="fav-oIndex" value="${list.oIndex}">
+                                            <input type="hidden" name="kind" class="fav-kind" value="${list.kind}">
+                                        </div>
                                 </div>
                                 <div class="box-favoriteCell-detail">
                                     <ul>
@@ -428,7 +477,12 @@
                                             <li><span>${joinway }</span></li>
                                             </c:forTokens>
                                         </ul>
-                                        <button><i class="fa-solid fa-heart"></i></button>
+                                        <div class="button-favorite-delete">
+                                        	<button ><i class="fa-solid fa-heart"></i></button>
+                                            <input type="hidden" name="memId" class="fav-memId" value="${principal.username}">
+                                            <input type="hidden" name="oIndex" class="fav-oIndex" value="${list.oIndex}">
+                                            <input type="hidden" name="kind" class="fav-kind" value="${list.kind}">
+                                        </div>
                                 </div>
                                 <div class="box-favoriteCell-detail">
                                     <ul>
@@ -475,7 +529,12 @@
                                             <li><span>${joinway }</span></li>
                                             </c:forTokens>
                                         </ul>
-                                        <button><i class="fa-solid fa-heart"></i></button>
+                                        <div class="button-favorite-delete">
+                                        	<button ><i class="fa-solid fa-heart"></i></button>
+                                            <input type="hidden" name="memId" class="fav-memId" value="${principal.username}">
+                                            <input type="hidden" name="oIndex" class="fav-oIndex" value="${list.oIndex}">
+                                            <input type="hidden" name="kind" class="fav-kind" value="${list.kind}">
+                                        </div>
                                 </div>
                                 <div class="box-favoriteCell-detail">
                                     <ul>
@@ -518,7 +577,12 @@
                                             <li><span>${joinway }</span></li>
                                             </c:forTokens>
                                         </ul>
-                                        <button><i class="fa-solid fa-heart"></i></button>
+                                        <div class="button-favorite-delete">
+                                        	<button ><i class="fa-solid fa-heart"></i></button>
+                                            <input type="hidden" name="memId" class="fav-memId" value="${principal.username}">
+                                            <input type="hidden" name="oIndex" class="fav-oIndex" value="${list.oIndex}">
+                                            <input type="hidden" name="kind" class="fav-kind" value="${list.kind}">
+                                        </div>
                                 </div>
                                 <div class="box-favoriteCell-detail">
                                     <ul>
@@ -541,5 +605,5 @@
     <!-- login end -->
 	    <c:import url="/WEB-INF/views/layout/footer.jsp" />
 	</body>
-	<script src="../js/member_mypage.js"></script>
+	
 </html>
