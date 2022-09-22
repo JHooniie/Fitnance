@@ -33,7 +33,33 @@ public class ProductController {
 	
 	// 상품 추천 프로세스
 	@RequestMapping("/prd_recom_result")
-	public String viewPrdRecomResult() {
+	public String viewPrdRecomResult(Model model, Authentication auth) throws Exception {
+		
+		ArrayList<InstallListVO> installList= listSavingService.selectInstallList();
+		model.addAttribute("insList", installList);
+		
+		//Deposit 개인화 추천 리스트
+		if(auth != null) {
+			PrincipalDetails princ = (PrincipalDetails) auth.getPrincipal();
+			String memId = princ.getUsername();
+			
+			APIKey key = new APIKey();
+			String serviceId = key.getAitemsId();
+			String type = "personalRecommend";
+			
+			DepositListVO dpvo = new DepositListVO();
+			// 추천 상품 인덱스 리스트 호출
+			ArrayList<Integer> prIndex = AitemsService.aitemsService(serviceId, type, memId);// 결과 리스트
+			ArrayList<DepositListVO> dpRecList = new ArrayList<DepositListVO>();
+			
+			for(int i=0; i<prIndex.size(); i++) {// 추천 상품 db 가져오기
+				dpvo = listSavingService.recommendDepositList(prIndex.get(i));
+				dpRecList.add(dpvo);
+			}
+			model.addAttribute("dpRecList", dpRecList);
+			
+		}
+				
 		return "product/prd_recom_result";
 	}
 	

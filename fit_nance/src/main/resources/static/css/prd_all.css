@@ -74,9 +74,14 @@
 
 .box-prd-01 .box-prd-01-list .box-prd-list .name-prd{
     display: block;
+    width: 300px;
+    margin: 0 auto;
     margin-top: 30px;
     font-size: 20px;
     font-weight: 500;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 .box-prd-01 .box-prd-01-list .box-prd-list .exp-prd{

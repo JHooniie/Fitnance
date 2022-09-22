@@ -31,75 +31,62 @@
 			</div>
 			<!-- 상품 리스트 시작  -->
 			<div class="wrap-prd-list wrap">
-				<div class="box-prd-list">
-		        	<span class="exp-prd">캐릭터와 함께 즐거운 26주간의 도전!</span>
-		        	<div class="box-prd">
-		        		<div class="lg-bank">
-		        			<img src="<c:url value='/images/bank/0015130.png'/>">
-		        		</div>
-		        		<span class="name-bank">주식회사 카카오뱅크</span>
-		        		<span class="name-prd">카카오뱅크 26주적금</span>
-	                    <div class="box-percent">
-	                        <div class="box-percent-01">
-	                            <span>기본 금리</span>
-	                            <span>연</span>
-	                            <span>3.0</span><span>%</span>
-	                        </div>
-	                        <div class="box-percent-02">
-	                            <span>우대 금리</span>
-	                            <span>연</span>
-	                            <span>3.0</span><span>%</span>
-	                        </div>
-	                    </div>
-	                    <button type="button" class="btn-prd-detail">자세히 보기</button>    		
-		        	</div>
-		        </div>
-		        <div class="box-prd-list">
-		        	<span class="exp-prd">캐릭터와 함께 즐거운 26주간의 도전!</span>
-		        	<div class="box-prd">
-		        		<div class="lg-bank">
-		        			<img src="<c:url value='/images/bank/0015130.png'/>">
-		        		</div>
-		        		<span class="name-bank">주식회사 카카오뱅크</span>
-		        		<span class="name-prd">카카오뱅크 26주적금</span>
-	                    <div class="box-percent">
-	                        <div class="box-percent-01">
-	                            <span>기본 금리</span>
-	                            <span>연</span>
-	                            <span>3.0</span><span>%</span>
-	                        </div>
-	                        <div class="box-percent-02">
-	                            <span>우대 금리</span>
-	                            <span>연</span>
-	                            <span>3.0</span><span>%</span>
-	                        </div>
-	                    </div>
-	                    <button type="button" class="btn-prd-detail">자세히 보기</button>    		
-		        	</div>
-		        </div>
-		        <div class="box-prd-list">
-		        	<span class="exp-prd">캐릭터와 함께 즐거운 26주간의 도전!</span>
-		        	<div class="box-prd">
-		        		<div class="lg-bank">
-		        			<img src="<c:url value='/images/bank/0015130.png'/>">
-		        		</div>
-		        		<span class="name-bank">주식회사 카카오뱅크</span>
-		        		<span class="name-prd">카카오뱅크 26주적금</span>
-	                    <div class="box-percent">
-	                        <div class="box-percent-01">
-	                            <span>기본 금리</span>
-	                            <span>연</span>
-	                            <span>3.0</span><span>%</span>
-	                        </div>
-	                        <div class="box-percent-02">
-	                            <span>우대 금리</span>
-	                            <span>연</span>
-	                            <span>3.0</span><span>%</span>
-	                        </div>
-	                    </div>
-	                    <button type="button" class="btn-prd-detail">자세히 보기</button>    		
-		        	</div>
-		        </div>
+				<c:choose>
+            		<c:when test="${empty principal.name}">
+		                <c:forEach var="insList" items="${insList}" begin="3" end="5">
+		                	<div class="box-prd-list">
+					        	<!-- <span class="exp-prd">캐릭터와 함께 즐거운 26주간의 도전!</span> -->
+					        	<div class="box-prd">
+					        		<div class="lg-bank">
+					        			<img src="<c:url value='/images/bank/${insList.fin_co_no}.png'/>">
+					        		</div>
+					        		<span class="name-bank">${insList.kor_co_nm}</span>
+					        		<span class="name-prd">${insList.fin_prdt_nm}</span>
+				                    <div class="box-percent">
+				                        <div class="box-percent-01">
+				                            <span>기본 금리</span>
+				                            <span>연</span>
+				                            <span>${insList.intr_rate}</span><span>%</span>
+				                        </div>
+				                        <div class="box-percent-02">
+				                            <span>우대 금리</span>
+				                            <span>연</span>
+				                            <span>${insList.intr_rate2}</span><span>%</span>
+				                        </div>
+				                    </div>
+				                    <a href="<c:url value='/detailInstall/${insList.oIndex}'/>" class="btn-prd-detail">자세히 보기</a>    		
+					        	</div>
+					        </div>
+		                </c:forEach>
+            		</c:when>
+            		<c:otherwise>
+            			<c:forEach var="dpRecList" items="${dpRecList}" begin="3" end="5">
+		                	<div class="box-prd-list">
+					        	<!-- <span class="exp-prd">캐릭터와 함께 즐거운 26주간의 도전!</span> -->
+					        	<div class="box-prd">
+					        		<div class="lg-bank">
+					        			<img src="<c:url value='/images/bank/${dpRecList.fin_co_no}.png'/>">
+					        		</div>
+					        		<span class="name-bank">${dpRecList.kor_co_nm}</span>
+					        		<span class="name-prd">${dpRecList.fin_prdt_nm}</span>
+				                    <div class="box-percent">
+				                        <div class="box-percent-01">
+				                            <span>기본 금리</span>
+				                            <span>연</span>
+				                            <span>${dpRecList.intr_rate}</span><span>%</span>
+				                        </div>
+				                        <div class="box-percent-02">
+				                            <span>우대 금리</span>
+				                            <span>연</span>
+				                            <span>${dpRecList.intr_rate2}</span><span>%</span>
+				                        </div>
+				                    </div>
+				                    <a href="<c:url value='/detailDeposit/${dpRecList.oIndex}'/>" class="btn-prd-detail">자세히 보기</a>    		
+					        	</div>
+					        </div>
+		                </c:forEach>
+            		</c:otherwise>
+            	</c:choose>
 			</div>
 	    </section>
 	    <section class="prd-recom-content">
