@@ -96,12 +96,13 @@ public class AitemsService {
     	ArrayList<String> result = new ArrayList<String>();
 		
 		JSONObject jsonObj = new JSONObject(jsonResultStr);
-		for(int i=0; i<50; i+=5) { 
+		int index = jsonObj.getJSONArray("values").length();
+		for(int i=0; i<index; i+=5) { 
 			String str = jsonObj.getJSONArray("values").getString(i);
 			result.add(str);
 		}
-
-    	return result;
+		
+		return result;
     }
 
 }
