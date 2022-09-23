@@ -4,7 +4,7 @@
 	$('.box-favoriteList-list.00').css('display','block');
 
 	let profileImg = $("#img-profileImg").attr("src");
-    if(!profileImg.includes('lg_fitnance_initial.png')){
+    if(!profileImg.includes('lg_fitnance_initial')){
         $('#img-profileImg').addClass('activ_profile');
     }else{
         $('#img-profileImg').addClass('inti_profile');
