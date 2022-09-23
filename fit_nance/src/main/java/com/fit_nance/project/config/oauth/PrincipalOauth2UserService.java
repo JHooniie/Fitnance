@@ -53,7 +53,7 @@ public class PrincipalOauth2UserService extends DefaultOAuth2UserService {
 		
 		String providerId = oAuth2UserInfo.getProviderId();
 		String memEmail = oAuth2UserInfo.getEmail();
-		String memId = provider+ "_"+ memEmail;
+		String memId =  "N_"+ memEmail;
 		String memPwd = bCryptPasswordencode.encode("겟인데어");
 		String memName = provider+"_"+oAuth2UserInfo.getMemName();
 		String memRole = "ROLE_USER";
