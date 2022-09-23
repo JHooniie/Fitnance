@@ -10,7 +10,26 @@ $(document).ready(function(){
         alert("captcha 인증을 진행한 후 로그인 해주세요!");
     });
 
+    $(document).keypress(function(e) {
+        if (e.keyCode == 13)
+            e.preventDefault();
+});
+
+
+    $(function(){
+        var mail = getCookie("Cookie_mail");
+  
+        if(mail){
+          $("#user_id").val(mail);
+          $("#input-captcha_value").attr("checked", true);
+        }
+      });
+
+
     $('#main_login').on('submit', function(event){
+
+        var idChk = $("#input-captcha_value").is(":checked");
+
         if($('#user_id').val() == ""){
             alert("이메일을 작성해주세요")
             return false;
@@ -30,25 +49,47 @@ $(document).ready(function(){
         else if(!getCheck.test($('#user_pw').val())){
             alert("비밀번호는 영문 대,소문자 및 숫자를 포함해 8~15자를 입력하세요.")
             return false;
+        }else if(idChk){			
+            setCookie("Cookie_mail", id, 7);	
+        }else{				
+            deleteCookie("Cookie_mail");	
         }
-        else if(regEmail.test($('#user_id').val()) && getCheck.test($('#user_pw').val())){
-            // console.log("캡챠1");
-            // if(regcaptcha.test($('#input-captcha_value').val())){
-            //     console.log(regcaptcha.test($('#input-captcha_value').val()));
-            //     check_captchaAjax();
-            // }
-            // else if(!$('#input-captcha_value').val()){
-            //     console.log($('#input-captcha_value').val());
-
-            //     alert("인증번호를 입력해주세요1")
-            //     return false;
-            // }
-            return true;
-        }
+        
+        
+        $("#login_form").submit();
+        
     })
-
-
-
+    
+    function setCookie(cookieName, value, exdays){
+        var exdate = new Date();
+        exdate.setDate(exdate.getDate() + exdays);
+        var cookieValue = escape(value) + ((exdays==null) ? "" : "; expires=" + exdate.toGMTString());
+        document.cookie = cookieName + "=" + cookieValue;
+      }
+           
+           
+      function getCookie(cookieName) {
+        cookieName = cookieName + '=';
+        var cookieData = document.cookie;
+        var start = cookieData.indexOf(cookieName);
+        var cookieValue = '';
+        
+        if(start != -1){
+          start += cookieName.length;
+          var end = cookieData.indexOf(';', start);
+        if(end == -1)end = cookieData.length;
+          cookieValue = cookieData.substring(start, end);
+        }
+        return unescape(cookieValue);
+      }
+      
+      
+      function deleteCookie(cookieName){
+        var expireDate = new Date();
+        expireDate.setDate(expireDate.getDate() - 1);
+        document.cookie = cookieName + "= " + "; expires=" + expireDate.toGMTString();
+      }
+    
         //캡챠
         $('#rotate-captcha').on('click', function(event){
             rotate_captchaAjax();
@@ -210,5 +251,8 @@ $(document).ready(function(){
             
         }); 	// ajax 끝
     };
+
+
+   
 
 });
