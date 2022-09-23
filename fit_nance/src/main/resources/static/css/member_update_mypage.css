@@ -393,7 +393,7 @@ input[type="file"] {
 }
 
 
-/* 은행 선택 모달 */
+/* ì€í–‰ ì„ íƒ ëª¨ë‹¬ */
 .modal-overlay {
     position: absolute;
     display:none;
@@ -463,9 +463,8 @@ input[type="file"] {
 
 .figure-bank {
     display: inline-block;
-    width:46px;
-    height: 100%;
-    margin: 30px 27px 0 27px;
+    width: 61px;
+    margin: 30px 20px 0;
     text-align: center;
     cursor: pointer;
 }
@@ -484,10 +483,10 @@ input[type="file"] {
 }
 
 .figure-bank-img{
+    margin: 0 auto;
     width: 46px;
     height: 46px;
     border-radius: 10px;
-    background-color: #eee;
 }
 .figure-bank img {
     width: 46px;
@@ -497,7 +496,7 @@ input[type="file"] {
 
 .caption-bank{
     display: block;
-    margin-top: 5px;
+    margin-top: 10px;
     font-size: 14px;
     color: #222;
 }
