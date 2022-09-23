@@ -79,10 +79,6 @@ input[type="file"] {
     opacity: 0;
 }
 
-.box-update-profileImg-img-center img{
-	width: 100px;
-}
-
 .box-profileImg-overlay:hover{
     opacity:0.7;
 }
@@ -99,6 +95,16 @@ input[type="file"] {
     opacity: 1;
 }
 
+.inti_profile{
+    Width:100px;
+}
+
+.activ_profile{
+    Width: fit-content;
+    height: 100%;
+    margin-left: -44%;
+    border-radius: 50px
+}
 
 .box-update-profile-content{
     margin-top: 82px;

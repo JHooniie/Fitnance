@@ -13,13 +13,18 @@
         $(this).html($(this).html().replace(/&nbsp;/gi,''));
     });
 
+    let profileImg = $("#img-profileImg").attr("src");
+    if(!profileImg.includes('lg_fitnance_initial.png')){
+        $('#img-profileImg').addClass('activ_profile');
+    }else{
+        $('#img-profileImg').addClass('inti_profile');
+    }
+
     $('#input-upload-profileImg').on('change', function(event){
         var file = event.target.files[0];
         var fileName = $('#input-upload-profileImg')[0].files[0].name;
         let memId = $('#input-update-profile-Email').val() + "_";
         
-
-
         var reader = new FileReader(); 
         reader.onload = function(e) {
     
@@ -35,9 +40,9 @@
         imgTag.setAttribute('style', 'margin-left: -44%;width: fit-content;height: 100%;border-radius: 50px');
         imgTag.setAttribute('id', 'img-profileImg');
 
-            //$("#img-profileImg").attr("src", e.target.result);
+            
 
-            profilePreview.appendChild(imgTag);
+        profilePreview.appendChild(imgTag);
         }
         
        

@@ -3,6 +3,14 @@
 	
 	$('.box-favoriteList-list.00').css('display','block');
 
+	let profileImg = $("#img-profileImg").attr("src");
+    if(!profileImg.includes('lg_fitnance_initial.png')){
+        $('#img-profileImg').addClass('activ_profile');
+    }else{
+        $('#img-profileImg').addClass('inti_profile');
+    }
+
+
 	$('.box-favoriteList-tab li').on('click',function(){
 		var index = $(this).index();
 		$('.box-favoriteList-tab li').find('.span-favorite-tab').removeClass('active');
