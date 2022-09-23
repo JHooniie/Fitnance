@@ -6,7 +6,7 @@
     const regMonth = RegExp(/^(0[0-9]|1[0-2])$/);
     const regDay = RegExp(/^(0[1-9]|[1-2][0-9]|3[0-1])$/);
 
-
+    let profilePreview = document.querySelector(".box-update-profileImg-img-center");
 
     
     $('.box-update-profile-content').each(function(){
@@ -17,15 +17,37 @@
         var file = event.target.files[0];
         var fileName = $('#input-upload-profileImg')[0].files[0].name;
         let memId = $('#input-update-profile-Email').val() + "_";
+        
+
 
         var reader = new FileReader(); 
         reader.onload = function(e) {
     
-            $("#img-profileImg").attr("src", e.target.result);
+        let src = e.target.result;
+
+        $('#img-profileImg').remove();
+					
+        
+        let imgTag = document.createElement('img');
+        
+        
+        imgTag.setAttribute('src', src);
+        imgTag.setAttribute('width', '200');
+        imgTag.setAttribute('height', '200');
+        imgTag.setAttribute('style', 'border-radius: 50px');
+        imgTag.setAttribute('id', 'img-profileImg');
+
+            //$("#img-profileImg").attr("src", e.target.result);
+
+            profilePreview.appendChild(imgTag);
         }
         
+       
+
+
         reader.readAsDataURL(file);
         console.log(fileName);
+        
         
           $('#input-update-memImg').val(memId+fileName);
           

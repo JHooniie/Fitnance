@@ -18,7 +18,7 @@
                 	<span class="fail-title">잘못된 비밀번호</span>
                     <span>비밀번호가 틀렸습니다.</span>
                     <span>비밀번호를 다시 확인해주세요.</span>
-                    <button id="login_location" type="button" class="Bbutton">로그인 페이지 이동</button>
+                    <button id="login_location" type="button" class="Bbutton">메인 페이지 이동</button>
                 </div>
             </div>
         </div>
