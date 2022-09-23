@@ -36,67 +36,67 @@
 	                	<div class="box-prd-list">
 				        	<div class="box-prd">
 				        		<div class="lg-bank">
-				        			<img src="<c:url value='/images/bank/${insList[42].fin_co_no}.png'/>">
+				        			<img src="<c:url value='/images/bank/${insList[64].fin_co_no}.png'/>">
 				        		</div>
-				        		<span class="name-bank">${insList[42].kor_co_nm}</span>
-				        		<span class="name-prd">${insList[42].fin_prdt_nm}</span>
+				        		<span class="name-bank">${insList[64].kor_co_nm}</span>
+				        		<span class="name-prd">${insList[64].fin_prdt_nm}</span>
 			                    <div class="box-percent">
 			                        <div class="box-percent-01">
 			                            <span>기본 금리</span>
 			                            <span>연</span>
-			                            <span>${insList[42].intr_rate}</span><span>%</span>
+			                            <span>${insList[64].intr_rate}</span><span>%</span>
 			                        </div>
 			                        <div class="box-percent-02">
 			                            <span>우대 금리</span>
 			                            <span>연</span>
-			                            <span>${insList[42].intr_rate2}</span><span>%</span>
+			                            <span>${insList[64].intr_rate2}</span><span>%</span>
 			                        </div>
 			                    </div>
-			                    <a href="<c:url value='/detailInstall/${insList[42].oIndex}'/>" class="btn-prd-detail">자세히 보기</a>    		
+			                    <a href="<c:url value='/detailInstall/${insList[64].oIndex}'/>" class="btn-prd-detail">자세히 보기</a>    		
 				        	</div>
 				        </div>
 				        <div class="box-prd-list">
 				        	<div class="box-prd">
 				        		<div class="lg-bank">
-				        			<img src="<c:url value='/images/bank/${insList[43].fin_co_no}.png'/>">
+				        			<img src="<c:url value='/images/bank/${insList[65].fin_co_no}.png'/>">
 				        		</div>
-				        		<span class="name-bank">${insList[43].kor_co_nm}</span>
-				        		<span class="name-prd">${insList[43].fin_prdt_nm}</span>
+				        		<span class="name-bank">${insList[65].kor_co_nm}</span>
+				        		<span class="name-prd">${insList[65].fin_prdt_nm}</span>
 			                    <div class="box-percent">
 			                        <div class="box-percent-01">
 			                            <span>기본 금리</span>
 			                            <span>연</span>
-			                            <span>${insList[43].intr_rate}</span><span>%</span>
+			                            <span>${insList[65].intr_rate}</span><span>%</span>
 			                        </div>
 			                        <div class="box-percent-02">
 			                            <span>우대 금리</span>
 			                            <span>연</span>
-			                            <span>${insList[43].intr_rate2}</span><span>%</span>
+			                            <span>${insList[65].intr_rate2}</span><span>%</span>
 			                        </div>
 			                    </div>
-			                    <a href="<c:url value='/detailInstall/${insList[43].oIndex}'/>" class="btn-prd-detail">자세히 보기</a>    		
+			                    <a href="<c:url value='/detailInstall/${insList[65].oIndex}'/>" class="btn-prd-detail">자세히 보기</a>    		
 				        	</div>
 				        </div>
 				        <div class="box-prd-list">
 				        	<div class="box-prd">
 				        		<div class="lg-bank">
-				        			<img src="<c:url value='/images/bank/${insList[31].fin_co_no}.png'/>">
+				        			<img src="<c:url value='/images/bank/${insList[54].fin_co_no}.png'/>">
 				        		</div>
-				        		<span class="name-bank">${insList[31].kor_co_nm}</span>
-				        		<span class="name-prd">${insList[31].fin_prdt_nm}</span>
+				        		<span class="name-bank">${insList[54].kor_co_nm}</span>
+				        		<span class="name-prd">${insList[54].fin_prdt_nm}</span>
 			                    <div class="box-percent">
 			                        <div class="box-percent-01">
 			                            <span>기본 금리</span>
 			                            <span>연</span>
-			                            <span>${insList[31].intr_rate}</span><span>%</span>
+			                            <span>${insList[54].intr_rate}</span><span>%</span>
 			                        </div>
 			                        <div class="box-percent-02">
 			                            <span>우대 금리</span>
 			                            <span>연</span>
-			                            <span>${insList[31].intr_rate2}</span><span>%</span>
+			                            <span>${insList[54].intr_rate2}</span><span>%</span>
 			                        </div>
 			                    </div>
-			                    <a href="<c:url value='/detailInstall/${insList[31].oIndex}'/>" class="btn-prd-detail">자세히 보기</a>    		
+			                    <a href="<c:url value='/detailInstall/${insList[54].oIndex}'/>" class="btn-prd-detail">자세히 보기</a>    		
 				        	</div>
 				        </div>
             		</c:when>
