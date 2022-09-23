@@ -31,7 +31,8 @@ table,tr,td{
 
 .div_background_top .background_title_main{
     font-size: 38px;
-    margin: 162px 0px 0px 836px;
+    margin: 0 auto;
+    margin-top: 178px;
     font-weight: bold;
     color: #222222;
 }
@@ -55,12 +56,12 @@ table,tr,td{
 
 .div_list{
     width: 1280px;
-    margin: 10px 0px 82.6px 320px;
+    margin: 0 auto;
     display: flex;
     justify-content: center;
 }
 
-/* 상품 비교 리스트 div */
+/* ìƒí’ˆ ë¹„êµ ë¦¬ìŠ¤íŠ¸ div */
 
 .div_list .panel_list_prdt{
     width: 1280px;
@@ -139,7 +140,7 @@ table,tr,td{
 
 
 
-/* 목록으로 돌아가기 버튼 */
+/* ëª©ë¡ìœ¼ë¡œ ëŒì•„ê°€ê¸° ë²„íŠ¼ */
 .div_list button{
     width: 200px;
     height: 60px;

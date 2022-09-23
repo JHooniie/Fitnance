@@ -33,31 +33,72 @@
 			<div class="wrap-prd-list wrap">
 				<c:choose>
             		<c:when test="${empty principal.name}">
-		                <c:forEach var="insList" items="${insList}" begin="3" end="5">
-		                	<div class="box-prd-list">
-					        	<!-- <span class="exp-prd">캐릭터와 함께 즐거운 26주간의 도전!</span> -->
-					        	<div class="box-prd">
-					        		<div class="lg-bank">
-					        			<img src="<c:url value='/images/bank/${insList.fin_co_no}.png'/>">
-					        		</div>
-					        		<span class="name-bank">${insList.kor_co_nm}</span>
-					        		<span class="name-prd">${insList.fin_prdt_nm}</span>
-				                    <div class="box-percent">
-				                        <div class="box-percent-01">
-				                            <span>기본 금리</span>
-				                            <span>연</span>
-				                            <span>${insList.intr_rate}</span><span>%</span>
-				                        </div>
-				                        <div class="box-percent-02">
-				                            <span>우대 금리</span>
-				                            <span>연</span>
-				                            <span>${insList.intr_rate2}</span><span>%</span>
-				                        </div>
-				                    </div>
-				                    <a href="<c:url value='/detailInstall/${insList.oIndex}'/>" class="btn-prd-detail">자세히 보기</a>    		
-					        	</div>
-					        </div>
-		                </c:forEach>
+	                	<div class="box-prd-list">
+				        	<div class="box-prd">
+				        		<div class="lg-bank">
+				        			<img src="<c:url value='/images/bank/${insList[64].fin_co_no}.png'/>">
+				        		</div>
+				        		<span class="name-bank">${insList[64].kor_co_nm}</span>
+				        		<span class="name-prd">${insList[64].fin_prdt_nm}</span>
+			                    <div class="box-percent">
+			                        <div class="box-percent-01">
+			                            <span>기본 금리</span>
+			                            <span>연</span>
+			                            <span>${insList[64].intr_rate}</span><span>%</span>
+			                        </div>
+			                        <div class="box-percent-02">
+			                            <span>우대 금리</span>
+			                            <span>연</span>
+			                            <span>${insList[64].intr_rate2}</span><span>%</span>
+			                        </div>
+			                    </div>
+			                    <a href="<c:url value='/detailInstall/${insList[64].oIndex}'/>" class="btn-prd-detail">자세히 보기</a>    		
+				        	</div>
+				        </div>
+				        <div class="box-prd-list">
+				        	<div class="box-prd">
+				        		<div class="lg-bank">
+				        			<img src="<c:url value='/images/bank/${insList[65].fin_co_no}.png'/>">
+				        		</div>
+				        		<span class="name-bank">${insList[65].kor_co_nm}</span>
+				        		<span class="name-prd">${insList[65].fin_prdt_nm}</span>
+			                    <div class="box-percent">
+			                        <div class="box-percent-01">
+			                            <span>기본 금리</span>
+			                            <span>연</span>
+			                            <span>${insList[65].intr_rate}</span><span>%</span>
+			                        </div>
+			                        <div class="box-percent-02">
+			                            <span>우대 금리</span>
+			                            <span>연</span>
+			                            <span>${insList[65].intr_rate2}</span><span>%</span>
+			                        </div>
+			                    </div>
+			                    <a href="<c:url value='/detailInstall/${insList[65].oIndex}'/>" class="btn-prd-detail">자세히 보기</a>    		
+				        	</div>
+				        </div>
+				        <div class="box-prd-list">
+				        	<div class="box-prd">
+				        		<div class="lg-bank">
+				        			<img src="<c:url value='/images/bank/${insList[54].fin_co_no}.png'/>">
+				        		</div>
+				        		<span class="name-bank">${insList[54].kor_co_nm}</span>
+				        		<span class="name-prd">${insList[54].fin_prdt_nm}</span>
+			                    <div class="box-percent">
+			                        <div class="box-percent-01">
+			                            <span>기본 금리</span>
+			                            <span>연</span>
+			                            <span>${insList[54].intr_rate}</span><span>%</span>
+			                        </div>
+			                        <div class="box-percent-02">
+			                            <span>우대 금리</span>
+			                            <span>연</span>
+			                            <span>${insList[54].intr_rate2}</span><span>%</span>
+			                        </div>
+			                    </div>
+			                    <a href="<c:url value='/detailInstall/${insList[54].oIndex}'/>" class="btn-prd-detail">자세히 보기</a>    		
+				        	</div>
+				        </div>
             		</c:when>
             		<c:otherwise>
             			<c:forEach var="dpRecList" items="${dpRecList}" begin="3" end="5">
