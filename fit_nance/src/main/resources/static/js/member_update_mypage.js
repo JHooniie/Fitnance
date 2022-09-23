@@ -32,9 +32,7 @@
         
         
         imgTag.setAttribute('src', src);
-        imgTag.setAttribute('width', '200');
-        imgTag.setAttribute('height', '200');
-        imgTag.setAttribute('style', 'border-radius: 50px');
+        imgTag.setAttribute('style', 'margin-left: -44%;width: fit-content;height: 100%;border-radius: 50px');
         imgTag.setAttribute('id', 'img-profileImg');
 
             //$("#img-profileImg").attr("src", e.target.result);
